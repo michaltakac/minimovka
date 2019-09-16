@@ -1,0 +1,11 @@
+Takáè : Moderné metódy v modelovaní technologickıch objektov a procesov
+
+
+- vybrané technologické objekty a procesy v oblasti spracovania surovín, napr. kyslíkovı konvertor
+
+- Teória procesov
+
+   * Kyslíkovı konvertor
+       - èo to je (o akı ptechnologickı proces sa jedná, vstupy, vıstupy ...)
+       - rozdelenie na elementárne procesy
+       - struène popísa jednotlivé elementárne procesy
