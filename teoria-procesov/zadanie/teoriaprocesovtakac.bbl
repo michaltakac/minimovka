@@ -1,0 +1,23 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Turkdogan}{1996}{Turkdogan1996}
+Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
+\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
+  London.
+
+\harvarditem{voestalpine AG}{2012}{voestalpineLD2012}
+voestalpine AG  \harvardyearleft 2012\harvardyearright .
+\newblock {40 Years of LD}, {\em Unprinted sources - holdings 26}, voestalpine
+  AG, Corporate Communication, Documentation Center.
+\newblock p. 26.
+\newline\harvardurl{https://www.voestalpine.com/group/static/sites/group/.downloads/en/press/2012-broschuere-the-linz-donawitz-process.pdf}
+
+\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
+Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
+  .
+\newblock {Applying input variables selection technique on input weighted
+  support vector machine modeling for BOF endpoint prediction}, {\em
+  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
+\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
+
+\end{thebibliography}

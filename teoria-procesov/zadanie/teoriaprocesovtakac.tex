@@ -24,6 +24,7 @@
 \usepackage{upgreek} % napr. $\upmu\mathrm{m}$ pre mikrometer ...
 \usepackage[final]{showkeys}%color%notref%notcite%final
 \usepackage[slovak,noprefix]{nomencl}
+\usepackage{subfig}
 \makeglossary % prikaz na vytvorenie suboru .glo
 
 
@@ -40,15 +41,13 @@
 %\usepackage{parskip}% 'zhusti' polozky obsahu
 %% Cislovane citovanie
 \usepackage[numbers]{natbib}
+\usepackage[hyphens]{url}
 %%
 %% Citovanie podľa mena autora a roku
 %\usepackage{natbib} \citestyle{chicago}
 % -----------------------------------------------------------------
 %% tlač !!!
-\usepackage[pdftex,unicode=true,bookmarksnumbered=true,
-bookmarksopen=true,pdfmenubar=true,pdfview=Fit,linktocpage=true,
-pageanchor=true,bookmarkstype=toc,pdfpagemode=UseOutlines,
-pdfstartpage=1]{hyperref}
+\usepackage{hyperref}
 \hypersetup{%
 baseurl={http://www.tuke.sk/},
 pdfcreator={pdfcsLaTeX},
@@ -56,7 +55,16 @@ pdfkeywords={Modelovanie, Riadenie procesov, Moderné metódy},
 pdftitle={Moderné metódy v modelovaní technologických objektov a procesov},
 pdfauthor={Michal Takáč},
 pdfsubject={Teória procesov}
+colorlinks=true,       % false: boxed links; true: colored links
+citebordercolor=1 1 1,
+breaklinks=true,
+linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+citecolor=blue,        % color of links to bibliography
+filecolor=blue,      % color of file links
+urlcolor=blue           % color of external links
 } 
+\urlstyle{same}
+\usepackage{etoolbox}
 
 \dippraca{Teória procesov}
 %%
@@ -140,7 +148,7 @@ pdfsubject={Teória procesov}
 
 \newpage
 %
-\include{uvod}
+%\include{uvod}
 %
 \include{formulacia}
 %

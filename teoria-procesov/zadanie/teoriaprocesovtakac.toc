@@ -1,6 +1,4 @@
 \babel@toc {slovak}{}
-\contentsline {section}{\hbox to\@tempdima {\hfil }\IeC {\'U}vod}{1}{section*.4}% 
-\contentsline {section}{\numberline {1}Kysl\IeC {\'\i }kov\IeC {\'y} konvertor}{2}{section.1}% 
-\contentsline {section}{\numberline {2}Procesy}{4}{section.2}% 
-\contentsline {section}{\numberline {3}Z\'aver}{7}{section.3}% 
-\contentsline {section}{\hbox to\@tempdima {\hfil }Zoznam pou\IeC {\v z}itej literat\IeC {\'u}ry}{8}{section*.5}% 
+\contentsline {section}{\numberline {1}Kysl\IeC {\'\i }kov\IeC {\'y} konvertor}{5}{section.1}% 
+\contentsline {section}{\numberline {2}Vstupy a v\IeC {\'y}stupy}{9}{section.2}% 
+\contentsline {section}{\numberline {3}Procesy v kysl\IeC {\'\i }kovom konvertore}{11}{section.3}% 
