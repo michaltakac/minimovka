@@ -12,15 +12,15 @@ I'm skipping whatever remains of this command
 Database file #1: references.bib
 You've used 6 entries,
             2921 wiz_defined-function locations,
-            687 strings with 6208 characters,
-and the built_in function-call counts, 23417 in all, are:
-= -- 3796
+            687 strings with 6220 characters,
+and the built_in function-call counts, 24341 in all, are:
+= -- 3964
 > -- 324
 < -- 0
-+ -- 1798
++ -- 1882
 - -- 98
-* -- 2004
-:= -- 4775
+* -- 2088
+:= -- 4943
 add.period$ -- 13
 call.type$ -- 6
 change.case$ -- 85
@@ -29,7 +29,7 @@ cite$ -- 6
 duplicate$ -- 79
 empty$ -- 174
 format.name$ -- 113
-if$ -- 4180
+if$ -- 4348
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 5
@@ -41,7 +41,7 @@ purify$ -- 90
 quote$ -- 0
 skip$ -- 69
 stack$ -- 0
-substring$ -- 5340
+substring$ -- 5592
 swap$ -- 9
 text.length$ -- 84
 text.prefix$ -- 0

@@ -19,6 +19,7 @@
 \usepackage{dcolumn} % alignment on a 'decimal point' in tabular mode
 \usepackage{hhline}
 \usepackage{amsmath}
+\usepackage[version=4]{mhchem} % chemical equations
 \usepackage{nicefrac} % nice fractions
 \usepackage{upgreek} % e.g. $\upmu\mathrm{m}$ type micrometer (mu)
 \usepackage[final]{showkeys}%color%notref%notcite%final
@@ -45,7 +46,7 @@
 %\usepackage[numbers]{natbib}
 %%
 %% author-year citations (harvard style) -- prefered !!!
-\usepackage{natbib} \citestyle{chicago}
+\usepackage{natbib} %\citestyle{chicago}
 % -----------------------------------------------------------------
 %% tlač !!!
 \usepackage[pdftex,unicode=true,bookmarksnumbered=true,
@@ -56,7 +57,7 @@ pdfstartpage=1]{hyperref}
 \hypersetup{%
 baseurl={http://www.tuke.sk/sevcovic},
 pdfcreator={pdfcsLaTeX},
-pdfkeywords={Visualization, Virtual Reality},
+pdfkeywords={Steelmaking, Mathematical modeling, Visualization, Virtual Reality},
 pdftitle={Design and implementation of modern methods of modeling and control of technological objects and processes},
 pdfauthor={Ing. Michal Tak\'ač},
 pdfsubject={Dissertation Thesis}
@@ -84,7 +85,7 @@ do medzinárodných informačných systémov. Ak nie je možné cudzojazyčnú
 verziu abstraktu umiestniť na jednej strane so slovenským abstraktom,
 je potrebné umiestniť ju na samostatnú stranu (cudzojazyčný abstrakt
 nemožno deliť a~uvádzať na dvoch strabách).}
-\keywords{Steelmaking, Mathematical modeling, Visualization, Virtual Reality}
+\keywords{Steelmaking, Visualization, Virtual Reality, Mathematical modeling}
 \degree{PhD.}
 \university{Technical University of Košice}
 \faculty{Faculty of Mining, Ecology, Process Control and Geotechnologies}
@@ -92,11 +93,11 @@ nemožno deliť a~uvádzať na dvoch strabách).}
 \department{Institute of Process Control and Informatization}
 \departmentabbr{URIVP}
 \fieldofstudy{Process Control}
-\studyprogramme{Automation}
+\studyprogramme{Cybernetics}
 \supervisor{prof.~Ing.~Ivo~Petráš, DrSc.}
 %\consultanta{}
 %\consultantb{}
-\dateofsubmission{October. 10. 2019} 
+\dateofsubmission{January. 9. 2020} 
 \town{Košice}
 \abstrakt{Abstrakt je povinnou súčasťou každej práce. Je výstižnou
 charakteristikou obsahu dokumentu. Nevyjadruje hodnotiace stanovisko
@@ -106,7 +107,7 @@ na samotný text práce. Mal by mať\/ rozsah 250 až 500 slov. Pri
 štylizácii sa používajú celé vety, slovesá v činnom rode a tretej
 osobe. Používa sa odborná terminológia, menej zvyčajné termíny,
 skratky a~symboly sa pri prvom výskyte v texte definujú.}
-\klucoveslova{Oceliarstvo, Matematické modelovanie, Vizualizácia, Virtuálna realita}
+\klucoveslova{Oceliarstvo, Vizualizácia, Virtuálna realita, Matematické modelovanie}
 
 \begin{document}
 \renewcommand\theHfigure{\theHsection.\arabic{figure}}
@@ -153,7 +154,7 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 %\assignthesis
 
 %% input the 'Declaration' of the author
-\declaration
+%\declaration
 % I hereby declare that this thesis is my own work and effort. Where
 % other sources of information have been used, they have been
 % acknowledged.
@@ -163,11 +164,11 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 % vypracovať záverečnú prácu samostatne, vyplýva študentovi zo zákona
 % a na autora práce sa vzťahuje autorský zákon.
 
-\acknowledgement % begin the 'Acknowledgement'
-I would like to express my sincere thanks to my supervisor Prof.~Ivo~Petráš, MSc., DrSc., the main Supervisor, for his constant, and constructive guidance
-throughout the study. To all other who gave a hand, I say thank you
-very much.
-\endacknowledgement
+%\acknowledgement % begin the 'Acknowledgement'
+%I would like to express my sincere thanks to my supervisor Prof.~Ivo~Petráš, MSc., DrSc., the main Supervisor, for his constructive guidance
+%throughout the study. To all other who gave a hand, I say thank you
+%very much.
+%\endacknowledgement
 
 %\preface % begin the 'Preface'
 %Predhovor ({\it Preface}) je povinnou náležitosťou záverečnej práce,
@@ -198,32 +199,34 @@ very much.
 \newpage
 
 %\addcontentsline{toc}{section}{\numberline{}List of Therms}
-\listofterms % begin the 'List of Therms'
+%\listofterms % begin the 'List of Therms'
 
-\begin{description}
-	\item[Dizertácia] je rozsiahla vedecká rozprava, v~ktorej sa na
-základe vedeckého výskumu a~s~použitím (využitím) bohatého dokladového
-materiálu  ako i~vedeckých metód rieši zložitý odborný problém.
-	\item[Font] je súbor, obsahujúci predpisy na zobrazenie textu
-v~danom písme, napr. na tlačiarni. To čo vidíme je písmo; font je súbor
-a~nevidíme ho.
-	\item[Kritika] je odborne vyhrotený, prísny pohľad na hodnotenú
-vec. Medzi recenziou a kritikou je taký pomer ako medzi diskusiou a
-polemikou. Pri kritike treba prísnosť\/ chápať\/ v~tom zmysle, že sa
-v~nej okrem iného navrhuje, ako hodnotené dielo skvalitniť\/.
-	\item[Meter (m)] je vzdialenosť\/, ktorú svetlo vo vákuu prejde
-za časový interval $\nicefrac{1}{299\,792\,458}$~sekundy.
-	\item[Písmom] rozumieme vlastný vzhľad znakov.
-	\item[Problém] termín používaný vo všeobecnom zmysle vo vzťahu
-k~akejkoľvek duševnej aktivite, ktorá má nejaký rozoznateľný cieľ.
-Samotný cieľ nemusí byť\/ v~dohľadne. Problémy možno charakterizovať\/
-tromi rozmermi -- oblasťou, obtiažnosťou a veľkosťou.
-	\item[Proces] je postupnonosť\/ či rad časovo usporiadaných
-udalostí tak, že každá predchádzajúca udalosť\/ sa zúčastňuje na
-determinácii nasledujúcej udalosti.
-\end{description}
-
-\endlistofterms
+%\begin{description}
+%	\item[Dizertácia] je rozsiahla vedecká rozprava, v~ktorej sa na
+%základe vedeckého výskumu a~s~použitím (využitím) bohatého dokladového
+%materiálu  ako i~vedeckých metód rieši zložitý odborný problém.
+%	\item[Font] je súbor, obsahujúci predpisy na zobrazenie textu
+%v~danom písme, napr. na tlačiarni. To čo vidíme je písmo; font je súbor
+%a~nevidíme ho.
+%	\item[Kritika] je odborne vyhrotený, prísny pohľad na hodnotenú
+%vec. Medzi recenziou a kritikou je taký pomer ako medzi diskusiou a
+%polemikou. Pri kritike treba prísnosť\/ chápať\/ v~tom zmysle, že sa
+%v~nej okrem iného navrhuje, ako hodnotené dielo skvalitniť\/.
+%	\item[Meter (m)] je vzdialenosť\/, ktorú svetlo vo vákuu prejde
+%za časový interval $\nicefrac{1}{299\,792\,458}$~sekundy.
+%	\item[Písmom] rozumieme vlastný vzhľad znakov.
+%	\item[Problém] termín používaný vo všeobecnom zmysle vo vzťahu
+%k~akejkoľvek duševnej aktivite, ktorá má nejaký rozoznateľný cieľ.
+%Samotný cieľ nemusí byť\/ v~dohľadne. Problémy možno charakterizovať\/
+%tromi rozmermi -- oblasťou, obtiažnosťou a veľkosťou.
+%	\item[Proces] je postupnonosť\/ či rad časovo usporiadaných
+%udalostí tak, že každá predchádzajúca udalosť\/ sa zúčastňuje na
+%determinácii nasledujúcej udalosti.
+%\end{description}
+%
+%\endlistofterms
+%
+\include{introduction}
 %
 \include{mainpart}
 %

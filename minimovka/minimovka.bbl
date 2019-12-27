@@ -1,8 +1,164 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Bouhouche et~al.]{Bouhouche, Mentouri, Hazem \harvardand\
+  Yazid}{2012}{Bouhouche2012}
+Bouhouche, S., Mentouri, Z., Hazem, M. \harvardand\ Yazid, L.  \harvardyearleft
+  2012\harvardyearright .
+\newblock Combined use of support vector regression and monte carlo simulation
+  in quality and process control calibration, {\em Proceedings of the 2012
+  international conference on industrial engineering and operations management}
+  pp.~3--6.
+
+\harvarditem{Bryson}{1996}{Bryson1996}
+Bryson, S.  \harvardyearleft 1996\harvardyearright .
+\newblock Virtual reality in scientific visualization, {\em Commun. ACM} {\bf
+  39}(5):~62--71.
+\newline\harvardurl{http://doi.acm.org/10.1145/229459.229467}
+
+\harvarditem[Doh et~al.]{Doh, Chapelle, Jardy, Djambazov, Pericleous, Ghazal
+  \harvardand\ Gardin}{2013}{Doh2013}
+Doh, Y., Chapelle, P., Jardy, A., Djambazov, G., Pericleous, K., Ghazal, G.
+  \harvardand\ Gardin, P.  \harvardyearleft 2013\harvardyearright .
+\newblock {Toward a full simulation of the basic oxygen furnace: Deformation of
+  the bath free surface and coupled transfer processes associated with the
+  post-combustion in the gas region}, {\em Metallurgical and Materials
+  Transactions B: Process Metallurgy and Materials Processing Science} {\bf
+  44}(3):~653--670.
+
+\harvarditem{Ersson \harvardand\ Tilliander}{2018}{Ersson2018}
+Ersson, M. \harvardand\ Tilliander, A.  \harvardyearleft 2018\harvardyearright
+  .
+\newblock {Review on CFD Simulation and Modeling of Decarburization Processes},
+  {\em Steel Research International} {\bf 89}(1):~1--13.
+
+\harvarditem{Fritz \harvardand\ Gebert}{2005}{Fritz2005}
+Fritz, E. \harvardand\ Gebert, W.  \harvardyearleft 2005\harvardyearright .
+\newblock Milestones and challenges in oxygen steelmaking, {\em Canadian
+  Metallurgical Quarterly} {\bf 44}(2):~249--260.
+\newline\harvardurl{https://doi.org/10.1179/cmq.2005.44.2.249}
+
+\harvarditem{Jalkanen}{2006}{Jalkanen2006}
+Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
+\newblock {Experiences in physicochemical modelling of oxygen converter process
+  (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
+  International Symposium} {\bf 2}:~541--554.
+
+\harvarditem[Kačur et~al.]{Kačur, Laciak, Flegner, Terpak, Durdan
+  \harvardand\ Trefa}{2019}{Kacur2019}
+Kačur, J., Laciak, M., Flegner, P., Terpak, J., Durdan, M. \harvardand\ Trefa,
+  G.  \harvardyearleft 2019\harvardyearright .
+\newblock Application of support vector regression for data-driven modeling of
+  melt temperature and carbon content in ld converter, pp.~1--6.
+
+\harvarditem{Kealy \harvardand\ Subramaniam}{2006}{Kealy2006}
+Kealy, W.~A. \harvardand\ Subramaniam, C.~P.  \harvardyearleft
+  2006\harvardyearright .
+\newblock {Virtual realia: Maneuverable computer 3D models and their use in
+  learning assembly skills}, {\em Virtual Reality} {\bf 10}(3-4):~283--292.
+
+\harvarditem[Laciak et~al.]{Laciak, Petr{\'{a}}{\v{s}}, Terp{\'{a}}k,
+  Ka{\v{c}}ur, Flegner, Durd{\'{a}}n \harvardand\
+  Tr{\'{e}}fa}{2018}{Sprava2018}
+Laciak, M., Petr{\'{a}}{\v{s}}, I., Terp{\'{a}}k, J., Ka{\v{c}}ur, J., Flegner,
+  P., Durd{\'{a}}n, M. \harvardand\ Tr{\'{e}}fa, G.  \harvardyearleft
+  2018\harvardyearright .
+\newblock {V{\'{y}}skum nepriameho merania teploty a uhl{\'{i}}ka v procese
+  skujňovania}, {\em Technical report}, Institute of Control and
+  Informatization of Production Processes.
+
+\harvarditem[Laciak et~al.]{Laciak, Petráš, Flegner, Durdán \harvardand\
+  Tréfa}{2017}{sprava2017}
+Laciak, M., Petráš, I., Flegner, P., Durdán, M. \harvardand\ Tréfa, G.
+  \harvardyearleft 2017\harvardyearright .
+\newblock {V{\'{y}}skum nepriameho merania teploty a uhl{\'{i}}ka v procese
+  skujňovania}, {\em Technical report}, {Fakulta BERG {\'{U}}stav riadenia a
+  informatiz{\'{a}}cie v{\'{y}}robn{\'{y}}ch procesov}.
+
+\harvarditem{Peng \harvardand\ Han}{1996}{Peng1996}
+Peng, Y. \harvardand\ Han, T.  \harvardyearleft 1996\harvardyearright .
+\newblock Gas-particle flow in a de laval nozzle with curved convergent
+  configuration, {\em ISIJ International} {\bf 36}(3):~263--268.
+
+\harvarditem{Rapp}{2017}{RAPP20173}
+Rapp, B.~E.  \harvardyearleft 2017\harvardyearright .
+\newblock Chapter 1 - introduction, {\em in} B.~E. Rapp (ed.), {\em
+  Microfluidics: Modelling, Mechanics and Mathematics}, Micro and Nano
+  Technologies, Elsevier, Oxford, pp.~3 -- 7.
+\newline\harvardurl{http://www.sciencedirect.com/science/article/pii/B9781455731411500010}
+
+\harvarditem[{Ray} et~al.]{{Ray}, {Szekely} \harvardand\
+  {Ajinkya}}{1973}{Ray1973}
+{Ray}, W.~H., {Szekely}, J. \harvardand\ {Ajinkya}, M.~B.  \harvardyearleft
+  1973\harvardyearright .
+\newblock {Optimization of the ironmaking-steelmaking sequence in an integrated
+  steel plant having non-linear and distributed elements}, {\em Metallurgical
+  Transactions} {\bf 4}(6):~1607--1614.
+
+\harvarditem[Sarkar et~al.]{Sarkar, Gupta, Basu \harvardand\
+  Ballal}{2015}{Sarkar2015}
+Sarkar, R., Gupta, P., Basu, S. \harvardand\ Ballal, N.~B.  \harvardyearleft
+  2015\harvardyearright .
+\newblock {Dynamic Modeling of LD Converter Steelmaking: Reaction Modeling
+  Using Gibbs' Free Energy Minimization}, {\em Metallurgical and Materials
+  Transactions B: Process Metallurgy and Materials Processing Science} {\bf
+  46}(2):~961--976.
+
+\harvarditem[Sheng et~al.]{Sheng, Wei, Chen \harvardand\ Wang}{2019}{Sheng2019}
+Sheng, D., Wei, Y., Chen, Y. \harvardand\ Wang, Y.  \harvardyearleft
+  2019\harvardyearright .
+\newblock Convolutional neural networks with fractional order gradient method,
+  {\em Neurocomputing} .
+\newline\harvardurl{http://www.sciencedirect.com/science/article/pii/S0925231219313918}
+
+\harvarditem[Szekely et~al.]{Szekely, Chang \harvardand\
+  Ryan}{1977}{Szekely1977}
+Szekely, J., Chang, C.~W. \harvardand\ Ryan, R.~E.  \harvardyearleft
+  1977\harvardyearright .
+\newblock {The measurement and prediction of the melt velocities in
+  aturbulent,electromagnetically driven recirculating low melting alloy
+  system}, {\em Metallurgical Transactions B} {\bf 8}(1):~333--338.
+\newline\harvardurl{https://doi.org/10.1007/BF02657664}
+
+\harvarditem{Tago \harvardand\ Higuchi}{2003}{Tago2003}
+Tago, Y. \harvardand\ Higuchi, Y.  \harvardyearleft 2003\harvardyearright .
+\newblock Fluid flow analysis of jets from nozzles in top blown process, {\em
+  ISIJ International} {\bf 43}(2):~209--215.
+
 \harvarditem{Turkdogan}{1996}{Turkdogan1996}
 Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
-\newblock {\em The title of the work}, Institute of Materials, University of
-  Michigan, The address.
+\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
+  London.
+
+\harvarditem{Turkdogan \harvardand\ Fruehan}{1999}{Turkdogan1999}
+Turkdogan, E.~T. \harvardand\ Fruehan, R.~J.  \harvardyearleft
+  1999\harvardyearright .
+\newblock {Fundamental of Iron and STM (Chapter 2)},  {\bf i}.
+
+\harvarditem{Wang, Yuan, Matsuura, Zhao, Cheng \harvardand\
+  Tsukihashi}{2010}{WangW2010}
+Wang, W., Yuan, Z., Matsuura, H., Zhao, H., Cheng, D.~A. \harvardand\
+  Tsukihashi, F.  \harvardyearleft 2010\harvardyearright .
+\newblock {Three-dimensional Compressible Flow Simulation of Top-blown Multiple
+  Jets in Converter}, {\em ISIJ International} {\bf 50}(4):~491--500.
+
+\harvarditem{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
+Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
+  .
+\newblock {Applying input variables selection technique on input weighted
+  support vector machine modeling for BOF endpoint prediction}, {\em
+  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
+\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
+
+\harvarditem[Widlund et~al.]{Widlund, Medvedev \harvardand\
+  Gyllenram}{1998}{Widlund1998}
+Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
+  1998\harvardyearright .
+\newblock {Towards Model-Based Closed-Loop Control of the Basic Oxygen
+  Steelmaking Process}, {\em IFAC Proceedings Volumes} {\bf 31}(23):~69--74.
+\newline\harvardurl{http://dx.doi.org/10.1016/S1474-6670(17)35858-5}
+
+\harvarditem{Zheng \harvardand\ Hu}{2014}{Zheng2014}
+Zheng, L. \harvardand\ Hu, Y.  \harvardyearleft 2014\harvardyearright .
+\newblock {Blast Furnace Hearth Flow and Erosion Model}.
 
 \end{thebibliography}
