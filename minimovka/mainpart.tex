@@ -121,7 +121,7 @@ industry blast furnace. Good agreements between measured and calculated refracto
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=.8\textwidth,angle=0]{blast-furnace-erosion-vr.jpg}
-	\caption{Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.}
+	\caption{3D representation of basic oxygen steelmaking simulation by steeluniversity.org.}
 	\label{o:m7}
 \end{figure}
 
@@ -165,9 +165,44 @@ Another frequently used type of immersive, interactive display technology is pro
 
 Many universities and engineering companies own and use CAVE systems. Researchers can use these systems to conduct their research topic in a more effective and accessible method. Engineers have found them useful in enhancing of a product development through prototyping and testing phases.
 
-\section{Objectives of the dissertation}
-This dissertation thesis deals with design and implementation of 
+Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars (more than 36.1 million € at the time of this writing) in savings for companies. In collaboration with other universities and companies from steelmaking industry, they focus on research regarding integration of virtual reality with simulation technologies and high performance computing; application of simulation and visualization technologies to industrial processes for process design trouble-shooting and optimization to address the issues of productivity, energy, environment, and quality; and last but not least, development of advanced learning environments in virtual reality for training and education. With funding support provided by a major AMTech grant from the U.S. Department of Commerce, they launched novel, industry-led association of steel manufacturers and stakeholders called Steel Manufacturing Simulation and Visualization Consortium (SMSVC).
 
-\section{Methodology}
+CFD Model for Blast Furnace Pulverized Coal Injection and Coke Combustion Model
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth,angle=0]{cfd-injection-system.jpg}
+	\caption{CFD simulation of processes inside injection system}
+	\label{o:m8}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth,angle=0]{blast-furnace-simulation-and-viz.jpg}
+	\caption{Blast furnace simulation and visualization}
+	\label{o:m9}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth,angle=0]{blast-furnace-gas-burden.jpg}
+	\caption{3D visualization of gas and burden distribution inside blast furnace shaft}
+	\label{o:m10}
+\end{figure}
+
+
+\section{Objectives and methodology of the dissertation}
+This dissertation thesis deals with design and implementation of modern methods in process control. Since I have been working professionally with virtual reality and at the Institute of Control and Informatization of Production Processes, where significant work has been done in steelmaking field with focus on basic oxygen process (LD/BOF), I've decided to focus my attention to using VR technology and interactive 3D graphics for modeling, simulating and optimizing the LD/BOF process. I've been in close contact with other researchers that have hands on experience with research in this area \citep{Kacur2019,Sprava2018} which provides me with the much of the needed consultations, further contact with steelmaking industry companies in Košice and central European region, and data gathered from numerous studies.
+
+As research studies and projects implemented at CVIS shown, new trends like high-resolution 3D simulation and VR technology can be largely helpful in optimizing metallurgical processes. Immersive VR simulations of blast furnace presented in previous section clearly shown potential of these technologies and delivered significant economical impact. As vast majority of steel manufactured in the world is produced using the LD/BOF process, similar approaches should be considered and tried as for the blast furnace mentioned above. 
+
+Main objectives of this dissertation are as follows:
+
+\begin{enumerate}
+\item{Static, high-quality 3D representation of LD converter will be modeled, with walls and inner parts each modeled separately, so the 3D model is modular enough for further work that involves composing static and dynamic parts together. Work on this phase was already started, with desig and 3D modeling of basic oxygen furnace (LD converter) based on models from steeluniversity.org in open-source, 3D modeling software, Blender. In the meantime, discussions about possible collaboration with steeluniversity.org has been initiated with the goal of taking advantage of already existing 3D models.}
+\item{3D simulations of chemical and thermodynamical processes in basic oxygen steelmaking will be created with use of computational fluid dynamics (CFD) methods. CFD software like ANSYS, SimScale and OpenFOAM will be analyzed and most suitable one picked for creation of aforementioned simulations. Special attention will be placed on interactivity features and how visual exploration of final simulations can be achieved. Interactivity of 3D models and manipulation of simulation time scales is of great importance.}
+\item{Immersive environment in virtual reality will be designed and implemented in Unity3D and Unreal Engine software. It will be designed to be used in conjunction with off-the-shelf, commercial, six-degrees-of-freedom (6DoF) VR headsets, hand controllers and hand trackers. It will include combination of static 3D models of LD converter (in different variations e.g. with varied opacity of the walls or bisected) with dynamic, interactive inner part consisting of 3D multi-phase CFD model simulating chemical and thermodynamical processes. These will be viewable separately or in combination according to user's preference. Impact of provided immersiveness to deepening of the understanding of various known processes and searching for hidden issues presenting themselves through simulations in this setting will be studied and analyzed.}
+\item{Novel interactive 3D graphical interfaces for multi-phase virtual reality simulation will be designed and implemented. Hand and finger tracking will play important role in design of these interfaces. Users should be able to step into the live 3D simulation, use their hand as a pointer to get immediate feedback and information like slag temperature by pointing the laser ray from their hand at any point on the top of the slag or manipulate the time scales of the simulation by moving the slider on a timeline (inspired by time-travel debugging techniques utilized in game development and novel programming tools).}
+\item{Possible by-product after finalization of previous objectives is the educational use of tools that will be created as a part of this dissertation. Relatively small tweaking of the software created would be needed to build a separate tool for training purposes of future converter operators, or in a more general way as a educative tool at technical universities.}
+\end{enumerate}
 
