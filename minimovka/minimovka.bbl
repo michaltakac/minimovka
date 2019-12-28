@@ -15,16 +15,6 @@ Bryson, S.  \harvardyearleft 1996\harvardyearright .
   39}(5):~62--71.
 \newline\harvardurl{http://doi.acm.org/10.1145/229459.229467}
 
-\harvarditem[Doh et~al.]{Doh, Chapelle, Jardy, Djambazov, Pericleous, Ghazal
-  \harvardand\ Gardin}{2013}{Doh2013}
-Doh, Y., Chapelle, P., Jardy, A., Djambazov, G., Pericleous, K., Ghazal, G.
-  \harvardand\ Gardin, P.  \harvardyearleft 2013\harvardyearright .
-\newblock {Toward a full simulation of the basic oxygen furnace: Deformation of
-  the bath free surface and coupled transfer processes associated with the
-  post-combustion in the gas region}, {\em Metallurgical and Materials
-  Transactions B: Process Metallurgy and Materials Processing Science} {\bf
-  44}(3):~653--670.
-
 \harvarditem{Ersson \harvardand\ Tilliander}{2018}{Ersson2018}
 Ersson, M. \harvardand\ Tilliander, A.  \harvardyearleft 2018\harvardyearright
   .
@@ -73,6 +63,15 @@ Laciak, M., Petráš, I., Flegner, P., Durdán, M. \harvardand\ Tréfa, G.
 \newblock {V{\'{y}}skum nepriameho merania teploty a uhl{\'{i}}ka v procese
   skujňovania}, {\em Technical report}, {Fakulta BERG {\'{U}}stav riadenia a
   informatiz{\'{a}}cie v{\'{y}}robn{\'{y}}ch procesov}.
+
+\harvarditem[Milgram et~al.]{Milgram, Takemura, Utsumi \harvardand\
+  Kishino}{1994}{Milgram1994}
+Milgram, P., Takemura, H., Utsumi, a. \harvardand\ Kishino, F.
+  \harvardyearleft 1994\harvardyearright .
+\newblock {Mixed Reality ( MR ) Reality-Virtuality ( RV ) Continuum}, {\em
+  Systems Research} {\bf 2351}(Telemanipulator and Telepresence
+  Technologies):~282--292.
+\newline\harvardurl{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.6861{\&}rep=rep1{\&}type=pdf}
 
 \harvarditem{Peng \harvardand\ Han}{1996}{Peng1996}
 Peng, Y. \harvardand\ Han, T.  \harvardyearleft 1996\harvardyearright .
@@ -160,5 +159,6 @@ Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
 \harvarditem{Zheng \harvardand\ Hu}{2014}{Zheng2014}
 Zheng, L. \harvardand\ Hu, Y.  \harvardyearleft 2014\harvardyearright .
 \newblock {Blast Furnace Hearth Flow and Erosion Model}.
+\newline\harvardurl{https://centers.pnw.edu/civs/wp-content/uploads/sites/20/2014/11/Blast-Furnace-Hearth-Flow-and-Erosion-Model.pdf}
 
 \end{thebibliography}

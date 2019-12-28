@@ -5,28 +5,19 @@
 
 \section{Introduction}
 
-- Popisat o com je process control (vo vseobecnosti)
-- Popisat v strucnosti ako sa vyvija kybernetika
-- Popisat v strucnosti ako sa vyvija automatizacia
-- Spomenut nove trendy - Industry 4.0, IoT, Industrial IoT, Edge computing
-- Softverova podpora process control a kybernetiky na baze AI, deep learning a machine learning - ake metody, ake modely, co sa pouziva u nas na ustave
+The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an~eye on the big picture was, until not so long ago, a human process.
 
------------------
-
-The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an eye on the big picture was, until not so long ago, a human process.
-
-The transition to process automation and advanced process control (APC) was empowered by being able to create an all-encompassing platform capable of coordinating more than single loops or small cascade groups. One major advantage of newer platforms is the ability to optimize a process to suit the owner’s specific economic goals based on any number of desired outcomes. The process automation system can operate the plant to minimize energy consumption, maximize output, and deliver specific product quality attributes.
+The transition to process automation and advanced process control (APC) was empowered by being able to create an all-encompassing platform capable of coordinating more than single loops or small cascade groups. One major advantage of newer platforms is the ability to optimize a process to suit the owner’s specific economic goals based on~any number of desired outcomes. The process automation system can operate the plant to minimize energy consumption, maximize output, and deliver specific product quality attributes.
 
 Implementing such systems is challenging. During the initial design phase of a control system upgrade or a new installation, it is far too easy to focus just on process fundamentals, and never get beyond considering desired steady-state conditions. Automation system upgrades and new installations can therefore miss opportunities to engage with process and automation technology experts capable of uncovering better ways of doing things. Many capabilities of modern process automation systems are still underutilized in most process plants. Far fewer companies use APC as effectively as they could, even though basic APC technologies have been around for decades.
 
-Peter Drucker, a well-known management thinker, who has been quoted multiple times over the years by various people, has famously said: “If you can't measure it, you can't manage it. If you can't manage it, you can't improve it.” His words are now resonating more than ever with the push towards Industry 4.0.
+Peter Drucker, a well-known management thinker, who has been quoted multiple times over the years by various people, has famously said: “If you can't measure it, you can't manage it. If you can't manage it, you can't improve it.” His words are now resonating more than ever with the push towards Industry 4.0. New trends like smart sensors, parallel computing for fluid dynamics simulations and virtual reality are getting traction and they found useful applications in metallurgy field, especially in production processes. Roadmap for implementing Industry 4.0 solutions into practice is being pushed around the world and we can feel it happening intensely in Europe region as well. Integrating them into already established plants is not coming without big considerations and analyses of potential economic benefits. Employing smart sensors that can gather and generate multiple-times more data means we must also employ more efficient algorithms for processing these large amounts of data. Data sets on the steelmaking process were available before, however the innovations of the fourth industrial revolution are opening new conceivable outcomes that permit steel makers to gather more information in various manners from myriad of smart sensors and smart systems that communicate over a local network. The term "Big Data" refers to this phenomenon of increasing complexity that it’s difficult or impossible to process using traditional methods and also volume and velocity of data acquisition we now see regularly with upcoming fourth industrial revolution. Big Data means the analysis of large amounts of data coming from different sources with high speed and with the aim to create economic benefit.
 
-Big Data means the analysis of large amounts of data coming from different sources with high speed and with the aim to create economic benefit.
+The goal of this disseration is to encompass applications of selected procedures that fall under the umbrella term Industry 4.0 in metallurgy field, specifically in basic oxygen steelmaking process (BOP), by connecting latest research in process control, mathematical modeling, numerical simulation, computational fluid dynamics, visualization and virtual reality. With combined expertise from my work in software engineering, 3D modeling and virtual reality visualizations with research work done by colleagues at Institute of Control and Informatization of Production Processes, novel immersive virtual reality environment for studying basic oxygen steelmaking processes will be designed and implemented. Objectives of the dissertation will be discussed in section \ref{section:3}. I find it useful to focus specifically on this area as I have access to good research opportunities in my region (U.S.Steel in Košice, v\"{o}estalpine in Linz), and last, but not least, BOP is one of two major commercial processes for making steel (other being electric arc furnace).
 
------------------------------
+\subsection{Basic Oxygen Process}
 
-
-The oxygen converter process (LD/BOF and its derivatives) is a refinement step in the production of steel from ore. The main purpose of the process is to remove excess carbon from the pig iron produced in the blast furnace. The main feature of the process is to add oxygen through a top lance, in order to remove unwanted impurities through oxidation. It is the main method of carbon and low alloy steelmaking, annual production approaching to 60\% of total crude steel production \citep{Jalkanen2006}. BOF is a widely preferred and effective steelmaking method due to its high productivity and considerably low production cost \citep{Wang2010}.
+The oxygen converter process (LD/BOF and its derivatives) is a refinement step in the production of steel from ore. The main purpose of the process is to remove excess carbon from the pig iron produced in the blast furnace. The main feature of the process is to add oxygen through a top lance, in order to remove unwanted impurities through oxidation. It is the main method of carbon and low alloy steelmaking, annual production approaching to 60\% of total crude steel production \citep{Jalkanen2006}. BOF is a widely preferred and~effective steelmaking method due to its high productivity and considerably low production cost \citep{Wang2010}.
 
  LD/BOF process consists of these subprocesses:
 
@@ -39,7 +30,7 @@ The oxygen converter process (LD/BOF and its derivatives) is a refinement step i
 	\item Tapping of slag
 \end{enumerate}
 
-The first commercial operation of steelmaking with oxygen top blowing in the converter was in the early 1950s at Linz and Donawitz (Austria). This manner of steelmaking became known as Linz-Donawitz or LD process. For many years now, most of the steel has been made by top oxygen blowing for which different names are given. For example, in European steel plants the process is still called LD; in the UK, BOS (basic oxygen steelmaking); in the Far East and America, BOF (basic oxygen furnace), with the exception of U.S. Steel where it is called BOP (basic oxygen process) \citep{Turkdogan1996}.
+The first commercial operation of steelmaking with oxygen top blowing in the converter was in the early 1950s at Linz and Donawitz (Austria). This manner of steelmaking became known as Linz-Donawitz or LD process. For many years now, most of the steel has been made by top oxygen blowing for which different names are given. For example, in~European steel plants the process is still called LD; in the UK, BOS (basic oxygen steelmaking); in the Far East and America, BOF (basic oxygen furnace), with the exception of~U.S. Steel where it is called basic oxygen process \citep{Turkdogan1996}.
 
 \begin{figure}[h!]
 	\centering
@@ -57,7 +48,7 @@ In the early 1970s, a bottom-blown oxygen steelmaking process was developed in C
 	\label{o:2}
 \end{figure}
 
-Further developments in oxygen steelmaking led to the present practices of various types of top and bottom blowing known as combined blowing, as illustrated schematically in Fig. 8.1 for BOF and Q-BOP processes. There is also post combustion of CO in the upper part of the vessel to generate additional heat for steelmaking \citep{Turkdogan1996}.
+Further developments in oxygen steelmaking led to the present practices of various types of top and bottom blowing known as combined blowing. There is also post combustion of \ce{CO} in the upper part of the vessel to generate additional heat for steelmaking \citep{Turkdogan1996}.
 
 \begin{figure}[h!tbp]
 	\centering
@@ -133,7 +124,7 @@ In the initial stages of blowing, most of the silicon oxidizes to form a slag of
 	\label{o:20}
 \end{figure}
 
-An intense oxygen flow induces fluid flows in the iron bath, forcing the highly oxidized metal and the molten oxidation products from the iron bath surface to penetrate into the bath, where they react with the "fresh" hot metal with a high content of impurities and therefore loss of iron in the form of \ce{FeO} and~\ce{Fe2O3} should also be considered:
+An intense oxygen flow induces fluid flows in the iron bath, forcing the highly oxidized metal and the molten oxidation products from the iron bath surface to penetrate into the~bath, where they react with the "fresh" hot metal with a high content of impurities and therefore loss of iron in the form of \ce{FeO} and~\ce{Fe2O3} should also be considered:
 
 \begin{equation}
 \ce{Fe + 1/2O2 -> FeO}
@@ -151,24 +142,30 @@ The resulting \ce{SiO2} passes into the slag as \ce{2CaO.SiO2} according to the 
 \ce{SiO2 + 2CaO -> 2CaO.SiO2}
 \end{equation}
 
-and additionally, \ce{P2O5} passes into the slag as \ce{3CaO.P2O5} according to the equation \cite{sprava2017}
+and additionally, \ce{P2O5} passes into the slag as \ce{3CaO.P2O5} according to the equation \citep{sprava2017}
 
 \begin{equation}
 \ce{P2O5 + 3CaO = 3CaO.P2O5}.
 \end{equation}
 
-Circulation in the iron bath caused by the flow of oxygen, rising gas bubbles and purging of inert gas through the lower tubes in converters with combined blowing type transports minor iron melt components (C, Si, Ti, Mn, P, V, etc.) to the upper bath layers \cite{Jalkanen2006}. 
+Circulation in the iron bath caused by the flow of oxygen, rising gas bubbles and purging of inert gas through the lower tubes in converters with combined blowing type transports minor iron melt components (C, Si, Ti, Mn, P, V, etc.) to the upper bath layers \citep{Jalkanen2006}. 
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.9\textwidth,angle=0]{ld-convertor-processes-graphical.jpg}
+	\includegraphics[width=1\textwidth,angle=0]{ld-convertor-processes-graphical.jpg}
 	\caption{Chemical and thermal processes in LD converter \citep{Jalkanen2006}.}
 	\label{o:25}
 \end{figure}
 
-\begin{figure}[h!]
+In order to monitor and control the process, different measuring systems can be employed to give feedback to either the operator or directly to existing system for automated control. These measurements can be either direct or indirect as well as with or without time delays. The real-time information on the process state can be obtained from a number of sensors, e.g. off-gas flow rate from venturi; off-gas temperature with temperature sensors; indication of changes in slag level from sound level measurement with microphone, accelerometer on lance or vessel or lance elongation sensor; pressure difference with ambient pressure with hood pressure sensor, etc.
+
+All these signals can, in principle, be used for closed-loop control. Changes in lance height are easier to measure as well as set and therefore preferable to use in a closed-loop control system. Oxygen gas flow rate should not be changed more than approximately $\pm$5\% since the nozzle is designed for a specific flow rate \citep{Widlund1998}. System architecture for closed-loop control of basic oxygen steelmaking is described in~a~schematic representation in Fig. \ref{o:i31}.
+
+\begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.8\textwidth,angle=0]{control-schematic-bof.jpg}
 	\caption{Schematic representation of the system and function of fully automatic LD/BOF process \citep{Turkdogan1996}.}
 	\label{o:i31}
 \end{figure}
+
+Different operators apply different rules for deciding when to stop the blowing of oxygen. These operator induced irregularities make it difficult to achieve production disturbances. The converter process is only one link in a chain of unit operations from raw materials to~final product. Therefore, production disturbances can change process conditions. For example, poor blast furnace performance might lead to insufficient hot metal supply or even production disruptions. Under these circumstances, more metal scrap and fuel should be used instead of hot metal to uphold production volumes. Logically, this implies changes in blowing practice \citep{Widlund1998}.

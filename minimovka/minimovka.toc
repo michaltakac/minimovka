@@ -1,6 +1,7 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}% 
-\contentsline {section}{\numberline {2}State of art}{11}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}Process control}{11}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}Computer-aided Mathematical Modeling and Numerical Simulation}{14}{subsection.2.2}% 
-\contentsline {subsection}{\numberline {2.3}Visualization and Virtual Reality}{19}{subsection.2.3}% 
-\contentsline {section}{\numberline {3}Objectives and methodology of the dissertation}{28}{section.3}% 
+\contentsline {subsection}{\numberline {1.1}Basic Oxygen Process}{3}{subsection.1.1}% 
+\contentsline {section}{\numberline {2}State of Art}{12}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Computer-aided Mathematical Modeling and Numerical Simulation}{12}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Process control}{17}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Visualization and Virtual Reality}{18}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}Objectives and methodology of the dissertation}{26}{section.3}% 

@@ -16,28 +16,19 @@ Database file #4: references/simulation.bib
 Database file #5: references/modeling.bib
 Database file #6: references/visualization.bib
 Database file #7: references/vr.bib
-Repeated entry---line 556 of file references/vr.bib
- : @article{Doh2013
- :                 ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 632 of file references/vr.bib
- :  
- :  url = {https://centers.pnw.edu/civs/wp-content/uploads/sites/20/2014/11/Blast-Furnace-Hearth-Flow-and-Erosion-Model.pdf}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
 Warning--empty booktitle in Kacur2019
 You've used 23 entries,
             2921 wiz_defined-function locations,
-            818 strings with 9845 characters,
-and the built_in function-call counts, 114891 in all, are:
-= -- 18783
-> -- 1687
+            823 strings with 9949 characters,
+and the built_in function-call counts, 111258 in all, are:
+= -- 18171
+> -- 1624
 < -- 0
-+ -- 9099
-- -- 521
-* -- 10108
-:= -- 22849
++ -- 8772
+- -- 500
+* -- 9764
+:= -- 22174
 add.period$ -- 46
 call.type$ -- 23
 change.case$ -- 323
@@ -45,20 +36,20 @@ chr.to.int$ -- 23
 cite$ -- 24
 duplicate$ -- 332
 empty$ -- 732
-format.name$ -- 603
-if$ -- 20653
+format.name$ -- 582
+if$ -- 19999
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 22
-newline$ -- 102
+newline$ -- 104
 num.names$ -- 242
 pop$ -- 59
 preamble$ -- 1
 purify$ -- 345
 quote$ -- 0
-skip$ -- 314
+skip$ -- 312
 stack$ -- 0
-substring$ -- 26683
+substring$ -- 25765
 swap$ -- 49
 text.length$ -- 322
 text.prefix$ -- 0
@@ -67,5 +58,5 @@ type$ -- 90
 warning$ -- 1
 while$ -- 516
 width$ -- 0
-write$ -- 334
-(There were 3 error messages)
+write$ -- 336
+(There was 1 error message)
