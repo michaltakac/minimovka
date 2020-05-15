@@ -15,6 +15,19 @@ Bryson, S.  \harvardyearleft 1996\harvardyearright .
   39}(5):~62--71.
 \newline\harvardurl{http://doi.acm.org/10.1145/229459.229467}
 
+\harvarditem{{Cal}}{2019}{Calcflow}
+{Cal}  \harvardyearleft 2019\harvardyearright .
+\newblock Calcflow website, \url{https://nanome.ai/calcflow/}.
+\newblock Retrieved January 24, 2019.
+
+\harvarditem[Christopoulos et~al.]{Christopoulos, Conrad \harvardand\
+  Shukla}{2018}{Christopoulos2018}
+Christopoulos, A., Conrad, M. \harvardand\ Shukla, M.  \harvardyearleft
+  2018\harvardyearright .
+\newblock {Increasing student engagement through virtual interactions: How?},
+  {\em Virtual Reality} {\bf 22}(4):~353--369.
+\newline\harvardurl{https://doi.org/10.1007/s10055-017-0330-3}
+
 \harvarditem{Ersson \harvardand\ Tilliander}{2018}{Ersson2018}
 Ersson, M. \harvardand\ Tilliander, A.  \harvardyearleft 2018\harvardyearright
   .
@@ -32,6 +45,20 @@ Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
 \newblock {Experiences in physicochemical modelling of oxygen converter process
   (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
   International Symposium} {\bf 2}:~541--554.
+
+\harvarditem{Kaufmann}{2011}{Kaufmann2011a}
+Kaufmann, H.  \harvardyearleft 2011\harvardyearright .
+\newblock {Virtual Environments for Mathematics and Geometry Education}, {\em
+  Themes in Science and Technology Education} {\bf 2}(1-2):~131--152.
+
+\harvarditem[Kaufmann et~al.]{Kaufmann, Schmalstieg \harvardand\
+  Wagner}{2000}{Kaufmann2000}
+Kaufmann, H., Schmalstieg, D. \harvardand\ Wagner, M.  \harvardyearleft
+  2000\harvardyearright .
+\newblock Construct3d: A virtual reality application for mathematics and
+  geometry education, {\em Education and Information Technologies} {\bf
+  5}(4):~263--276.
+\newline\harvardurl{https://doi.org/10.1023/A:1012049406877}
 
 \harvarditem[Kačur et~al.]{Kačur, Laciak, Flegner, Terpak, Durdan
   \harvardand\ Trefa}{2019}{Kacur2019}
@@ -64,6 +91,12 @@ Laciak, M., Petráš, I., Flegner, P., Durdán, M. \harvardand\ Tréfa, G.
   skujňovania}, {\em Technical report}, {Fakulta BERG {\'{U}}stav riadenia a
   informatiz{\'{a}}cie v{\'{y}}robn{\'{y}}ch procesov}.
 
+\harvarditem[Lin et~al.]{Lin, Hao \harvardand\ Sun}{2018}{Lin2018}
+Lin, S., Hao, J. \harvardand\ Sun, L.  \harvardyearleft 2018\harvardyearright .
+\newblock {QuFlow: Visualizing parameter flow in quantum circuits for
+  understanding quantum computation}, {\em 2018 IEEE Scientific Visualization
+  Conference, SciVis 2018 - Proceedings} (October):~37--41.
+
 \harvarditem[Milgram et~al.]{Milgram, Takemura, Utsumi \harvardand\
   Kishino}{1994}{Milgram1994}
 Milgram, P., Takemura, H., Utsumi, a. \harvardand\ Kishino, F.
@@ -73,10 +106,33 @@ Milgram, P., Takemura, H., Utsumi, a. \harvardand\ Kishino, F.
   Technologies):~282--292.
 \newline\harvardurl{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.6861{\&}rep=rep1{\&}type=pdf}
 
+\harvarditem{Nan}{2019}{Nanome}
+Nan  \harvardyearleft 2019\harvardyearright .
+\newblock Nanome website, \url{https://nanome.ai/nanome/}.
+\newblock Retrieved January 24, 2019.
+
 \harvarditem{Peng \harvardand\ Han}{1996}{Peng1996}
 Peng, Y. \harvardand\ Han, T.  \harvardyearleft 1996\harvardyearright .
 \newblock Gas-particle flow in a de laval nozzle with curved convergent
   configuration, {\em ISIJ International} {\bf 36}(3):~263--268.
+
+\harvarditem[P{\'{o}}csov{\'{a}} et~al.]{P{\'{o}}csov{\'{a}},
+  Moj{\v{z}}i{\v{s}}ov{\'{a}} \harvardand\
+  Tak{\'{a}}{\v{c}}}{2016}{Pocsova2016}
+P{\'{o}}csov{\'{a}}, J., Moj{\v{z}}i{\v{s}}ov{\'{a}}, A. \harvardand\
+  Tak{\'{a}}{\v{c}}, M.  \harvardyearleft 2016\harvardyearright .
+\newblock {Application of the visualization techniques in engineering
+  education}, {\em Proceedings of the 2016 17th International Carpathian
+  Control Conference, ICCC 2016} pp.~596--601.
+
+\harvarditem[Pocsova et~al.]{Pocsova, Takac \harvardand\
+  Mojzisova}{2019}{Pocsova2019}
+Pocsova, J., Takac, M. \harvardand\ Mojzisova, A.  \harvardyearleft
+  2019\harvardyearright .
+\newblock {Web tool for creating 3D visualizations with focus on real-time
+  direct manipulation of mathematical objects' attributes}, {\em Proceedings of
+  the 2019 20th International Carpathian Control Conference, ICCC 2019}
+  pp.~1--5.
 
 \harvarditem{Rapp}{2017}{RAPP20173}
 Rapp, B.~E.  \harvardyearleft 2017\harvardyearright .
@@ -101,13 +157,6 @@ Sarkar, R., Gupta, P., Basu, S. \harvardand\ Ballal, N.~B.  \harvardyearleft
   Using Gibbs' Free Energy Minimization}, {\em Metallurgical and Materials
   Transactions B: Process Metallurgy and Materials Processing Science} {\bf
   46}(2):~961--976.
-
-\harvarditem[Sheng et~al.]{Sheng, Wei, Chen \harvardand\ Wang}{2019}{Sheng2019}
-Sheng, D., Wei, Y., Chen, Y. \harvardand\ Wang, Y.  \harvardyearleft
-  2019\harvardyearright .
-\newblock Convolutional neural networks with fractional order gradient method,
-  {\em Neurocomputing} .
-\newline\harvardurl{http://www.sciencedirect.com/science/article/pii/S0925231219313918}
 
 \harvarditem[Szekely et~al.]{Szekely, Chang \harvardand\
   Ryan}{1977}{Szekely1977}

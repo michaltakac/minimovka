@@ -16,47 +16,57 @@ Database file #4: references/simulation.bib
 Database file #5: references/modeling.bib
 Database file #6: references/visualization.bib
 Database file #7: references/vr.bib
+Repeated entry---line 1159 of file references/vr.bib
+ : @article{Kealy2006
+ :                   ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
+ :  
+ :  year = {2009}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
 Warning--empty booktitle in Kacur2019
-You've used 23 entries,
+Warning--there's a number but no volume in Lin2018
+You've used 30 entries,
             2921 wiz_defined-function locations,
-            823 strings with 9949 characters,
-and the built_in function-call counts, 111258 in all, are:
-= -- 18171
-> -- 1624
+            872 strings with 11327 characters,
+and the built_in function-call counts, 140086 in all, are:
+= -- 23000
+> -- 1907
 < -- 0
-+ -- 8772
-- -- 500
-* -- 9764
-:= -- 22174
-add.period$ -- 46
-call.type$ -- 23
-change.case$ -- 323
-chr.to.int$ -- 23
-cite$ -- 24
-duplicate$ -- 332
-empty$ -- 732
-format.name$ -- 582
-if$ -- 19999
++ -- 10982
+- -- 584
+* -- 12225
+:= -- 27866
+add.period$ -- 62
+call.type$ -- 30
+change.case$ -- 421
+chr.to.int$ -- 30
+cite$ -- 32
+duplicate$ -- 433
+empty$ -- 956
+format.name$ -- 680
+if$ -- 25264
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 22
-newline$ -- 104
-num.names$ -- 242
-pop$ -- 59
+missing$ -- 27
+newline$ -- 135
+num.names$ -- 296
+pop$ -- 83
 preamble$ -- 1
-purify$ -- 345
+purify$ -- 450
 quote$ -- 0
-skip$ -- 312
+skip$ -- 418
 stack$ -- 0
-substring$ -- 25765
-swap$ -- 49
-text.length$ -- 322
-text.prefix$ -- 0
+substring$ -- 32470
+swap$ -- 69
+text.length$ -- 420
+text.prefix$ -- 18
 top$ -- 0
-type$ -- 90
-warning$ -- 1
-while$ -- 516
+type$ -- 118
+warning$ -- 2
+while$ -- 662
 width$ -- 0
-write$ -- 336
-(There was 1 error message)
+write$ -- 440
+(There were 3 error messages)

@@ -60,9 +60,9 @@ pdfstartpage=1]{hyperref}
 baseurl={http://www.tuke.sk/sevcovic},
 pdfcreator={pdfcsLaTeX},
 pdfkeywords={Process control, Steelmaking, Mathematical modeling, Visualization, Virtual Reality},
-pdftitle={Design and implementation of modern methods of modeling and control of technological objects and processes},
+pdftitle={Design and implementation of modern methods for modeling and control of technological objects and processes},
 pdfauthor={Ing. Michal Tak\'ač},
-pdfsubject={Objectives of Dissertation Thesis}
+pdfsubject={Dissertation Thesis}
 colorlinks=true,       % false: boxed links; true: colored links
 citebordercolor=1 1 1,
 breaklinks=true,
@@ -71,16 +71,18 @@ citecolor=blue,        % color of links to bibliography
 filecolor=blue,      % color of file links
 urlcolor=blue           % color of external links
 } 
+
+\usepackage{pdfpages}
 %% -----------------------------------------------------------------
 %% START YOUR THESIS
 %% -----------------------------------------------------------------
 %%
 
-\masterthesis{Objectives of Dissertation Thesis}
+%\masterthesis{Dissertation Thesis}
 
 
-\author{Michal Takáč}
-\title{Design and implementation of modern methods of modeling and control of technological objects and processes}
+\author{Ing.~Michal Takáč}
+\title{Design and implementation of modern methods for modeling and control of technological objects and processes}
 \subtitle{}
 \abstrakte{
 %This dissertation thesis deals with design and implementation of modern methods in process control focused on steelmaking, specifically basic oxygen process (LD/BOF)... dopisat
@@ -91,13 +93,13 @@ urlcolor=blue           % color of external links
 \faculty{Faculty of Mining, Ecology, Process Control and Geotechnologies}
 \facultyabbr{FBERG}
 \department{Institute of Control and Informatization of Production Processes}
-\departmentabbr{URIVP}
-\fieldofstudy{Process Control}
-\studyprogramme{Cybernetics}
+\departmentabbr{\'URIVP}
+\fieldofstudy{Cybernetics}
+\studyprogramme{Process Control}
 \supervisor{prof.~Ing.~Ivo~Petráš, DrSc.}
 %\consultanta{}
 %\consultantb{}
-\dateofsubmission{December. 28. 2019} 
+\dateofsubmission{January. 9. 2020} 
 \town{Košice}
 \abstrakt{}
 \klucoveslova{Riadenie procesov, Oceliarstvo, Vizualizácia, Virtuálna realita, Matematické modelovanie}
@@ -111,6 +113,8 @@ urlcolor=blue           % color of external links
 
 %% input the 'Title page of the Thesis'
 \titlepage
+
+\includepdf[pages=-]{prednastranask.pdf}
 
 %% input the 'Metadatasheet of the Thesis'
 %\metadatasheet

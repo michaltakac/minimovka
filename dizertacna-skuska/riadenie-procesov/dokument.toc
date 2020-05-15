@@ -1,0 +1,5 @@
+\babel@toc {slovak}{}
+\contentsline {section}{\numberline {1}\IeC {\'U}vod}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Procesy v kysl\IeC {\'\i }kovom konvertore}{4}{section.2}% 
+\contentsline {section}{\numberline {3}Riadenie procesov v kysl\IeC {\'\i }kovom konvertore}{5}{section.3}% 
+\contentsline {section}{\numberline {4}Automatizovan\IeC {\'e} riadenie}{7}{section.4}% 

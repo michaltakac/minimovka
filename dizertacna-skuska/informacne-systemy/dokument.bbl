@@ -1,0 +1,43 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Al-Megren \harvardand\ Ruddle}{2016}{Al-Megren2016}
+Al-Megren, S. \harvardand\ Ruddle, R.~A.  \harvardyearleft
+  2016\harvardyearright .
+\newblock {Comparing Tangible and Multi-touch Interaction for Interactive Data
+  Visualization Tasks}, {\em Proceedings of the TEI '16: Tenth International
+  Conference on Tangible, Embedded, and Embodied Interaction - TEI '16}
+  pp.~279--286.
+\newline\harvardurl{http://dl.acm.org/citation.cfm?doid=2839462.2839464}
+
+\harvarditem{Fritz \harvardand\ Gebert}{2005}{Fritz2005}
+Fritz, E. \harvardand\ Gebert, W.  \harvardyearleft 2005\harvardyearright .
+\newblock Milestones and challenges in oxygen steelmaking, {\em Canadian
+  Metallurgical Quarterly} {\bf 44}(2):~249--260.
+\newline\harvardurl{https://doi.org/10.1179/cmq.2005.44.2.249}
+
+\harvarditem[Sarkar et~al.]{Sarkar, Gupta, Basu \harvardand\
+  Ballal}{2015}{Sarkar2015}
+Sarkar, R., Gupta, P., Basu, S. \harvardand\ Ballal, N.~B.  \harvardyearleft
+  2015\harvardyearright .
+\newblock {Dynamic Modeling of LD Converter Steelmaking: Reaction Modeling
+  Using Gibbs' Free Energy Minimization}, {\em Metallurgical and Materials
+  Transactions B: Process Metallurgy and Materials Processing Science} {\bf
+  46}(2):~961--976.
+
+\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
+Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
+  .
+\newblock {Applying input variables selection technique on input weighted
+  support vector machine modeling for BOF endpoint prediction}, {\em
+  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
+\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
+
+\harvarditem[Widlund et~al.]{Widlund, Medvedev \harvardand\
+  Gyllenram}{1998}{Widlund1998}
+Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
+  1998\harvardyearright .
+\newblock {Towards Model-Based Closed-Loop Control of the Basic Oxygen
+  Steelmaking Process}, {\em IFAC Proceedings Volumes} {\bf 31}(23):~69--74.
+\newline\harvardurl{http://dx.doi.org/10.1016/S1474-6670(17)35858-5}
+
+\end{thebibliography}
