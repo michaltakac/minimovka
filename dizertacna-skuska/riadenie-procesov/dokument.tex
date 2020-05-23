@@ -17,6 +17,7 @@
 \usepackage{dcolumn} % zarovnanie cisiel v tabulke podla des. ciarky
 \usepackage{hhline}
 \usepackage{amsmath}
+\usepackage{subfig}
 \usepackage{nicefrac} % pekne zlomky
 \usepackage{upgreek} % napr. $\upmu\mathrm{m}$ pre mikrometer ...
 \usepackage[final]{showkeys}%color%notref%notcite%final
@@ -109,31 +110,33 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 
 \section{Úvod}
 
-Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Programovateľné automaty a regulátory sa používajú na automatizáciu ľudskej funkcie v snahe ovládať premennú. Jednoduchý regulátor môže udržiavať procesnú veličinu v slučke na rovnomernej úrovni, pokiaľ nedôjde k nadmernému rušeniu. Pri komplexných procesoch, ako sú tie v metalurgii, sa využívajú desiatky až stovky takýchto regulátorov, niektoré s integrovanými LCD panelmi \citep{Al-Megren2016}.
+Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Niekdajšiu potrebu riadiť túto činnosť manuálne v súčasnej dobe nahrádzajú programovateľné automaty a regulátory v snahe ovládať premennú automatizovane. Jednoduchý regulátor môže udržiavať procesnú veličinu v slučke na rovnomernej úrovni, pokiaľ nedôjde k nadmernému rušeniu. Pri komplexných procesoch, ako sú tie v metalurgii, sa využívajú desiatky až stovky takýchto regulátorov, niektoré s integrovanými LCD panelmi \citep{Al-Megren2016}.
 
 Potreba zdokonaľovania a vývoja nových systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. 
 
 Kontrolovať každý z regulátorov jednotlivo si vyžaduje 
 
-The need for developing improved control systems has traditionally been powered by the demand for more accurate and cost efficient production. This is still a major driving force but environmental issues do also have a profound influence on this development today (\cite{Widlund1998}).
+%The need for developing improved control systems has traditionally been powered by the demand for more accurate and cost efficient production. This is still a major driving force but environmental issues do also have a profound influence on this development today (\cite{Widlund1998}).
 
 Potreba zdokonaľovania a vývoja nových systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, no environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
 
 Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov ocele, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V procese výroby ocele je kritériom o tom, či je roztavená oceľ prijateľná alebo nie, konečný obsahu uhlíka a teplota taveniny \cite{Wang2010}.
 
-Generally, the LD/BOF steelmaking process with sub-lance system can be divided into two stages: static control and dynamic control. Static models include oxygen supplying model, slaging model and bottom blowing model; dynamic models include decarburization speed model, molten steel warming model and the model for the amount of coolant. (\cite{Wang2010}).
+%Generally, the LD/BOF steelmaking process with sub-lance system can be divided into two stages: static control and dynamic control. Static models include oxygen supplying model, slaging model and bottom blowing model; dynamic models include decarburization speed model, molten steel warming model and the model for the amount of coolant. (\cite{Wang2010}).
 
 Všeobecne možno povedať, že riadenie LD procesu (BOF) výroby ocele v LD konvertore s odbernou sondou sa dá rozdeliť do dvoch stupňov: statické riadenie a dynamické riadenie. Statické modely zahŕňajú model prívodu kyslíka, model trosky a model fúkania kyslíka; Medzi dynamické modely patrí model rýchlosti oduhličovania, model otepľovania roztavenej ocele a model množstva chladiacej kvapaliny \cite{Wang2010}.
 
-The fast dynamics of the LD converter steelmaking process or the BOF process, as it is commonly known, often makes it a challenge to obtain stable blowing conditions and to achieve the required steel composition and temperature simultaneously at the end point. For this reason, process control becomes very necessary and attempts had started as early as in the 1970s (\cite{Fritz2005}). Out of the originally very simple LD process have grown the modern process-controlled and automated production systems that enable present-day adaptations to meet today’s economic and ecological demands (\cite{Sarkar2015}). The non-linear nature of chemical and thermodynamical processes in basic oxygen steelmaking also amassed interest in developing new mathematical models based on fractionalorder calculus.
+%The fast dynamics of the LD converter steelmaking process or the BOF process, as it is commonly known, often makes it a challenge to obtain stable blowing conditions and to achieve the required steel composition and temperature simultaneously at the end point. For this reason, process control becomes very necessary and attempts had started as early as in the 1970s (\cite{Fritz2005}). Out of the originally very simple LD process have grown the modern process-controlled and automated production systems that enable present-day adaptations to meet today’s economic and ecological demands (\cite{Sarkar2015}). The non-linear nature of chemical and thermodynamical processes in basic oxygen steelmaking also amassed interest in developing new mathematical models based on fractionalorder calculus.
 
 Rýchla dynamika procesu výroby ocele LD konvertorom sťažuje dosiahnutie stabilných podmienok pre fúkanie kyslíka a súčasne dosiahnutie požadovaného zloženia ocele a teploty v koncovom bode tavenia. Z tohto dôvodu je správne riadenie procesu extrémne dôležité. Prvé pokusy s vývojom systémov automatizovaného riadenia sa začali už v sedemdesiatych rokoch (\cite{Fritz2005}). Z pôvodne veľmi jednoduchého riadenia LD procesu vznikli moderné a automatizované výrobné systémy riadené procesmi, ktoré umožňujú súčasné prispôsobenie sa dnešným hospodárskym a ekologickým požiadavkám (\cite{Sarkar2015}). Nelineárna povaha chemických a termodynamických procesov pri výrobe ocele v LD konvertore tiež vzbudila záujem o vývoj nových matematických modelov založených neceločíselnom diferenciálnom počte.
 
-\url{https://www.primetals.com/fileadmin/user_upload/content/01_portfolio/2_steelmaking/converter-carbon-steelmaking/Converter_steelmaking_automation.pdf}
+%\url{https://www.primetals.com/fileadmin/user_upload/content/01_portfolio/2_steelmaking/converter-carbon-steelmaking/Converter_steelmaking_automation.pdf}
 
 
 
 \section{Procesy v kyslíkovom konvertore}
+
+Kyslíkový konvertor alebo v niektorých oblastiach sveta nazývaný aj základná kyslíková pec (basic oxygen furnace - BOF) pozostáva z radu komplexných procesov s nebezpečnými vlastnosťami, napríklad z dôvodu vysokej teploty, prachu a vibrácií. V konvertore prebieha  množstvo chemických reakcií a fyzikálnych javov, medzi ktorými sa nájdu aj také, ktorým úplne nerozumieme z dôvodu ich komplexnosti.
 
 Podstatou výroby ocele v kyslíkovom konvertore je oxidácia prvkov z kovonosnej vsádzky s kyslíkom fúkaným do konvertora. Oxidy týchto prvkov prechádzajú do trosky alebo odchádzajú vo forme konvertorového plynu. LD proces sa skladá z~nasledujúcich elementárnych procesov:
 
@@ -161,7 +164,7 @@ Kyslík je fúkaný vysokou rýchlosťou (až do dvojnásobnej rýchlosti zvuku)
 
 \section{Riadenie procesov v kyslíkovom konvertore}
 
-Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. oxidácia) nežiaducích nečistôt obsiahnutých v kovovej vsádzke, účelom tohto oxidačného procesu teda je:
+Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. oxidácia) nežiadúcich nečistôt obsiahnutých v kovovej vsádzke, účelom tohto oxidačného procesu teda je:
 
 \begin{itemize}
 	\item znížiť obsah uhlíka na predpísanú úroveň (z približne 4 \% na menej ako 1 \%, ale často nižšie),
@@ -170,6 +173,10 @@ Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. ox
 \end{itemize}
 
 Následnou úlohou riadiaceho procesu je potom získanie predpísaných parametrov ocele, ktorá sa odpichuje z konvertora, vrátane hmotnosti, teploty a obsahu každého prvku. Na základe týchto parametrov sa rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie.
+
+Statický model riadenia je založený na celkovej materiálovej bilancii (Fe, troska, kyslík) a celkového tepla. Na základe prepočtov bilancií potom dostaneme informáciu o tom, koľko železnej rudy je potrebné pridať a aký objem kyslíka sa má dofúkať, spolu s konečnou hmotnosťou tekutej ocele a trosky pre dané hmotnosti, zloženie horúceho kovu a zloženie šrotu. Kvôli možnému vzniku chýb z dôvodu nerovnomernosti bilancie hmoty a tepla alebo neznámej časti týchto bilancií je tento model založený na spätnoväzobnom riadení.
+
+Dynamický model riadenia sa zameriava na dynamickú hmotnostnú bilanciu kyslíka, uhlíka a dusíka v spojení s množstvom prietoku a zloženia odpadového plynu. Modely dynamického riadenia sú najčastejšie založené na informáciách o odpadových plynoch a majú schopnosť predvídať stav procesu (zloženie ocele a trosky, ich hmotnosť, teplota) v akomkoľvek okamihu počas procesu.
 
 Počítačom podporované výpočty vsádzky sa robia pre každú tavbu. Asi 80 percent modelu riadenia vsádzky je založený na rovnováhe tepla a materiálu, zvyšok je založený na empirických vzťahoch, ktoré sa medzi jednotlivými taviarňami líšia. Pretože každá oceliareň má svoju vlastnú formuláciu modelu riadenia vsádzky \cite{Turkdogan1996}.
 
@@ -186,7 +193,8 @@ Existuje len niekoľko procesných premenných, ktoré môže nastavovať riadia
 
 \section{Automatizované riadenie}
 
-Plne optimalizovaná automatizácia elektrických systémov je základom pre spoľahlivé výrobné procesy, maximálny výkon zariadenia a kvalitné výrobky, ktoré vyhovujú všetkým požiadavkám trhu.
+Plne optimalizovaná automatizácia riadiacich systémov je základom pre spoľahlivé výrobné procesy, maximálny výkon zariadenia a kvalitné výrobky, ktoré vyhovujú všetkým požiadavkám trhu. V súčasnosti si môžeme všimnúť posun priemyslu do novej paradigmy označovanej ako Priemysel 4.0, dôsledkom ktorej rastie počet podnikov, ktoré implementáciou inteligentných technológií zefektívňujú svoje procesy a znižujú náklady. Postupne sa na túto dráhu tzv. inteligentných výrobných podnikov dostávajú aj taviarne. Pece sú vybavené stále väčším počtom senzorov, digitálne modely zvyšujú stupeň automatizácie a informácie sú zdieľané medzi rôznymi agregátmi v rámci
+rastlina
 
 
 Systémy optimalizácie procesov zahŕňajú pokročilé procesné modely, využitie umelej inteligencie, grafické užívateľské rozhrania pre manuálne riadenie procesov človekom (SCADA, HMI, vizualizácie dát) a prevádzkové odborné znalosti. Procesné modely optimalizujú rôzne výrobné procesy so zreteľom na zníženie spotreby energie a emisií.
@@ -209,17 +217,19 @@ Riadiaci systém kyslíkovej dýzy
 
 \subsection{Odoberanie vzoriek taveniny a meranie teploty}
 
-Odberná sonda je dôležitým nástrojom pri výrobe ocele LD procesom. Poskytuje operátorovi cenné informácie o procese tavby kým je teleso konvertora v zvislej polohe. Zisťuje sa ňou teplota taveniny a jej zloženie. 
+Odberná sonda je dôležitým nástrojom pri výrobe ocele LD procesom. Poskytuje operátorovi cenné informácie o procese tavby akými sú teplota taveniny a jej zloženie. kým je teleso konvertora v zvislej polohe. Zavádza sa automatizovane do vnútra konvertora cez bočný otvor kým je teleso konvertora v zvislej polohe, a to 2-krát počas tavby bez nutnosti jej prerušenia. Prvé zavedenie sondy zväčša býva po vyfúkaní 90\% objemu kyslíka vyčleneného pre danú tavbu, kedy sa meria teplota, objem uhlíka, zloženie trosky, výška oceľového kúpeľa a úrovne trosky. Druhé zavedenie sa uskutočňuje po procese fúkania.
 
-s prevodníkom stále vo zvislej polohe. Zvyčajne sa dve odčítania Sublance uskutočňujú počas fúkania, jeden počas úderu pre údaje v procese a jeden na konci tepla na konečné odčítanie. Normálne sa meria teplota, uhlík a troska. Výška oceľového kúpeľa a úrovne trosky sú tiež realizované pomocou systému Sublance.
-
-\begin{figure}[ht!]
+\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=.9\textwidth,angle=0]{figures/sublance.jpg}
+	\subfloat[Odberná sonda od Berry Metal Company.]{{\includegraphics[width=6.5cm]{figures/sub-lance-berry.png} }}%
+	\qquad
+	\subfloat[Odber vzorky taveniny odbernou sondou v praxi.]{{\includegraphics[width=7.35cm]{figures/sublance.jpg} }}
 	\caption{Odberná sonda.}
 	\label{o:21}
 \end{figure}
 
+Moderné konvertory prevádzkujú merania odbernými sondami v spojení s kombinovaným statickým a dynamickým modelom riadenia procesu (SDM).
+Informácie získané z odbernej sondy sú ďalej spracované riadiacim systémom, ktorého optimalizačný model sa snaží dosiahnúť optimálne 
 
 Horizontálny merací manipulátor
 Automatický odpichový systém
