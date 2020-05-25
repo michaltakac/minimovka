@@ -20,45 +20,53 @@ I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
-You've used 6 entries,
+Warning--entry type for "siemensVAI" isn't style-file defined
+--line 109 of file references/uncategorized.bib
+Warning--entry type for "totalmateria" isn't style-file defined
+--line 118 of file references/uncategorized.bib
+Warning--entry type for "berrymetal" isn't style-file defined
+--line 126 of file references/uncategorized.bib
+Warning--entry type for "smsgroup" isn't style-file defined
+--line 134 of file references/uncategorized.bib
+You've used 12 entries,
             2921 wiz_defined-function locations,
-            697 strings with 6407 characters,
-and the built_in function-call counts, 24022 in all, are:
-= -- 3877
-> -- 349
+            729 strings with 7430 characters,
+and the built_in function-call counts, 42406 in all, are:
+= -- 6883
+> -- 516
 < -- 0
-+ -- 1823
-- -- 105
-* -- 2074
-:= -- 4851
-add.period$ -- 12
-call.type$ -- 6
-change.case$ -- 83
-chr.to.int$ -- 6
-cite$ -- 6
-duplicate$ -- 93
-empty$ -- 204
-format.name$ -- 128
-if$ -- 4321
++ -- 3194
+- -- 154
+* -- 3565
+:= -- 8671
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 167
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 157
+empty$ -- 368
+format.name$ -- 193
+if$ -- 7596
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 7
-newline$ -- 31
-num.names$ -- 63
-pop$ -- 17
+missing$ -- 9
+newline$ -- 59
+num.names$ -- 123
+pop$ -- 53
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 180
 quote$ -- 0
-skip$ -- 86
+skip$ -- 152
 stack$ -- 0
-substring$ -- 5433
-swap$ -- 18
-text.length$ -- 84
+substring$ -- 9630
+swap$ -- 22
+text.length$ -- 168
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
+type$ -- 46
 warning$ -- 0
-while$ -- 136
+while$ -- 265
 width$ -- 0
-write$ -- 91
+write$ -- 169
 (There were 2 error messages)

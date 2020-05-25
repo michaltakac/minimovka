@@ -2,5 +2,10 @@
 \contentsline {section}{\numberline {1}\IeC {\'U}vod}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Procesy v kysl\IeC {\'\i }kovom konvertore}{2}{section.2}% 
 \contentsline {section}{\numberline {3}Riadenie procesov v kysl\IeC {\'\i }kovom konvertore}{4}{section.3}% 
-\contentsline {section}{\numberline {4}Automatizovan\IeC {\'e} riadenie}{6}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Odoberanie vzoriek taveniny a meranie teploty}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {3.1}Statick\IeC {\'y} model riadenia}{5}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Dynamick\IeC {\'y} model riadenia}{6}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Automatizovan\IeC {\'e} riadenie procesov}{8}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Nakl\IeC {\'a}panie kovertora}{9}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Odoberanie vzoriek taveniny a meranie teploty}{10}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Pneumatick\IeC {\'a} zar\IeC {\'a}\IeC {\v z}ka trosky}{11}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Spodn\IeC {\'e} mie\IeC {\v s}anie hor\IeC {\'u}ceho k\IeC {\'u}pe\IeC {\v l}a}{12}{subsection.4.4}% 
