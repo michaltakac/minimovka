@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2019)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: dokument.aux
+The top-level auxiliary file: informacne-systemy.aux
 The style file: dcu.bst
 A level-1 auxiliary file: bibliography.aux
 Illegal, another \bibstyle command---line 3 of file bibliography.aux
@@ -20,45 +20,53 @@ I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
-You've used 5 entries,
+Warning--entry type for "siemensVAI" isn't style-file defined
+--line 109 of file references/uncategorized.bib
+Warning--entry type for "totalmateria" isn't style-file defined
+--line 118 of file references/uncategorized.bib
+Warning--entry type for "berrymetal" isn't style-file defined
+--line 126 of file references/uncategorized.bib
+Warning--entry type for "smsgroup" isn't style-file defined
+--line 134 of file references/uncategorized.bib
+You've used 12 entries,
             2921 wiz_defined-function locations,
-            690 strings with 6303 characters,
-and the built_in function-call counts, 21568 in all, are:
-= -- 3486
-> -- 325
+            729 strings with 7450 characters,
+and the built_in function-call counts, 42406 in all, are:
+= -- 6883
+> -- 516
 < -- 0
-+ -- 1648
-- -- 98
-* -- 1884
-:= -- 4323
-add.period$ -- 10
-call.type$ -- 5
-change.case$ -- 70
-chr.to.int$ -- 5
-cite$ -- 5
-duplicate$ -- 78
-empty$ -- 176
-format.name$ -- 119
-if$ -- 3886
++ -- 3194
+- -- 154
+* -- 3565
+:= -- 8671
+add.period$ -- 24
+call.type$ -- 12
+change.case$ -- 167
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 157
+empty$ -- 368
+format.name$ -- 193
+if$ -- 7596
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 27
-num.names$ -- 53
-pop$ -- 10
+missing$ -- 9
+newline$ -- 59
+num.names$ -- 123
+pop$ -- 53
 preamble$ -- 1
-purify$ -- 75
+purify$ -- 180
 quote$ -- 0
-skip$ -- 77
+skip$ -- 152
 stack$ -- 0
-substring$ -- 4898
-swap$ -- 17
-text.length$ -- 70
+substring$ -- 9630
+swap$ -- 22
+text.length$ -- 168
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 46
 warning$ -- 0
-while$ -- 115
+while$ -- 265
 width$ -- 0
-write$ -- 77
+write$ -- 169
 (There were 2 error messages)

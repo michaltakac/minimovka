@@ -9,11 +9,29 @@ Al-Megren, S. \harvardand\ Ruddle, R.~A.  \harvardyearleft
   pp.~279--286.
 \newline\harvardurl{http://dl.acm.org/citation.cfm?doid=2839462.2839464}
 
+\harvarditem{{\relax Berry Metal}}{2020}{berrymetal}
+{\relax Berry Metal}  \harvardyearleft 2020\harvardyearright .
+\newblock Sublance product overview.
+\newline\harvardurl{\url{https://www.berrymetal.com/products-services/bof-products/sublances/}}
+
+\harvarditem{Choudhary \harvardand\ Ajmani}{2006}{Choudhary2006}
+Choudhary, S.~K. \harvardand\ Ajmani, S.  \harvardyearleft
+  2006\harvardyearright .
+\newblock Evaluation of bottom stirring system in bof steelmaking vessel using
+  cold model study and thermodynamic analysis, {\em Isij International - ISIJ
+  INT} {\bf 46}:~1171--1176.
+
 \harvarditem{Fritz \harvardand\ Gebert}{2005}{Fritz2005}
 Fritz, E. \harvardand\ Gebert, W.  \harvardyearleft 2005\harvardyearright .
 \newblock Milestones and challenges in oxygen steelmaking, {\em Canadian
   Metallurgical Quarterly} {\bf 44}(2):~249--260.
 \newline\harvardurl{https://doi.org/10.1179/cmq.2005.44.2.249}
+
+\harvarditem{Jalkanen}{2006}{Jalkanen2006}
+Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
+\newblock {Experiences in physicochemical modelling of oxygen converter process
+  (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
+  International Symposium} {\bf 2}:~541--554.
 
 \harvarditem[Sarkar et~al.]{Sarkar, Gupta, Basu \harvardand\
   Ballal}{2015}{Sarkar2015}
@@ -23,6 +41,26 @@ Sarkar, R., Gupta, P., Basu, S. \harvardand\ Ballal, N.~B.  \harvardyearleft
   Using Gibbs' Free Energy Minimization}, {\em Metallurgical and Materials
   Transactions B: Process Metallurgy and Materials Processing Science} {\bf
   46}(2):~961--976.
+
+\harvarditem{SiemensVAI}{2020}{siemensVAI}
+SiemensVAI  \harvardyearleft 2020\harvardyearright .
+\newblock Steelmaking automation.
+\newline\harvardurl{\url{http://www.saie-it.com/wp-content/uploads/2014/04/Steel-Making-Automation_.pdf}}
+
+\harvarditem{{\relax SMS Group}}{2020}{smsgroup}
+{\relax SMS Group}  \harvardyearleft 2020\harvardyearright .
+\newblock High-powered tilt drives for bof and aod converters.
+\newline\harvardurl{\url{https://www.sms-group.com/expertise/design-manufacturing/drive-technology/references/high-powered-tilt-drives-for-bof-and-aod-converters/}}
+
+\harvarditem{totalmateria.com}{2020}{totalmateria}
+totalmateria.com  \harvardyearleft 2020\harvardyearright .
+\newblock Bof sublance technology.
+\newline\harvardurl{\url{http://blog.totalmateria.com/bof-sublance-technology/}}
+
+\harvarditem{Turkdogan}{1996}{Turkdogan1996}
+Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
+\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
+  London.
 
 \harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
 Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
