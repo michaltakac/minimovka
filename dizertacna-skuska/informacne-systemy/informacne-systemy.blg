@@ -26,45 +26,45 @@ Warning--entry type for "ddsfoundation" isn't style-file defined
 --line 152 of file references/uncategorized.bib
 Warning--entry type for "brautomation" isn't style-file defined
 --line 160 of file references/uncategorized.bib
-You've used 8 entries,
+You've used 9 entries,
             2921 wiz_defined-function locations,
-            699 strings with 6522 characters,
-and the built_in function-call counts, 29564 in all, are:
-= -- 4849
-> -- 307
+            708 strings with 6786 characters,
+and the built_in function-call counts, 36013 in all, are:
+= -- 5898
+> -- 419
 < -- 0
-+ -- 2253
-- -- 91
-* -- 2473
-:= -- 6017
-add.period$ -- 16
-call.type$ -- 8
-change.case$ -- 111
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 106
-empty$ -- 241
-format.name$ -- 113
-if$ -- 5296
++ -- 2774
+- -- 126
+* -- 3060
+:= -- 7278
+add.period$ -- 18
+call.type$ -- 9
+change.case$ -- 125
+chr.to.int$ -- 9
+cite$ -- 9
+duplicate$ -- 120
+empty$ -- 277
+format.name$ -- 151
+if$ -- 6455
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 41
-num.names$ -- 82
-pop$ -- 40
+missing$ -- 7
+newline$ -- 46
+num.names$ -- 93
+pop$ -- 41
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 135
 quote$ -- 0
-skip$ -- 103
+skip$ -- 116
 stack$ -- 0
-substring$ -- 6820
-swap$ -- 16
-text.length$ -- 112
+substring$ -- 8333
+swap$ -- 18
+text.length$ -- 126
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
+type$ -- 34
 warning$ -- 0
-while$ -- 177
+while$ -- 200
 width$ -- 0
-write$ -- 114
+write$ -- 130
 (There were 2 error messages)

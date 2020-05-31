@@ -1,15 +1,14 @@
 \babel@toc {slovak}{}
 \contentsline {section}{\numberline {1}\IeC {\'U}vod}{1}{section.1}% 
-\contentsline {section}{\numberline {2}SCADA syst\IeC {\'e}my}{2}{section.2}% 
+\contentsline {section}{\numberline {2}SCADA}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Virtu\IeC {\'a}lna a roz\IeC {\v s}\IeC {\'\i }rena realita}{4}{subsection.2.1}% 
 \contentsline {section}{\numberline {3}Distribuovan\IeC {\'e} riadiace syst\IeC {\'e}my}{4}{section.3}% 
-\contentsline {section}{\numberline {4}Monitorovanie a zber d\IeC {\'a}t}{4}{section.4}% 
-\contentsline {section}{\numberline {5}Spracovanie d\IeC {\'a}t}{5}{section.5}% 
-\contentsline {section}{\numberline {6}Uchovanie d\IeC {\'a}t}{5}{section.6}% 
-\contentsline {section}{\numberline {7}Komunika\IeC {\v c}n\IeC {\'e} protokoly}{5}{section.7}% 
-\contentsline {subsection}{\numberline {7.1}OPC UA}{6}{subsection.7.1}% 
-\contentsline {subsection}{\numberline {7.2}MTConnect}{7}{subsection.7.2}% 
-\contentsline {subsection}{\numberline {7.3}OMG DDS}{8}{subsection.7.3}% 
-\contentsline {section}{\numberline {8}Vizualiz\IeC {\'a}cia d\IeC {\'a}t}{9}{section.8}% 
-\contentsline {section}{\numberline {9}Virtu\IeC {\'a}lna realita}{9}{section.9}% 
-\contentsline {section}{\numberline {10}Procesy v kysl\IeC {\'\i }kovom konvertore}{9}{section.10}% 
-\contentsline {section}{\numberline {11}Riadenie procesov v kysl\IeC {\'\i }kovom konvertore}{10}{section.11}% 
+\contentsline {section}{\numberline {4}Monitorovanie a zber d\IeC {\'a}t}{5}{section.4}% 
+\contentsline {section}{\numberline {5}Spracovanie d\IeC {\'a}t}{6}{section.5}% 
+\contentsline {section}{\numberline {6}Uchovanie d\IeC {\'a}t}{6}{section.6}% 
+\contentsline {section}{\numberline {7}Komunika\IeC {\v c}n\IeC {\'e} protokoly}{6}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}OPC UA}{7}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}MTConnect}{8}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}OMG DDS}{9}{subsection.7.3}% 
+\contentsline {section}{\numberline {8}Procesy v kysl\IeC {\'\i }kovom konvertore}{10}{section.8}% 
+\contentsline {section}{\numberline {9}Riadenie procesov v kysl\IeC {\'\i }kovom konvertore}{11}{section.9}% 

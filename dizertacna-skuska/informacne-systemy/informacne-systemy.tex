@@ -127,23 +127,23 @@ Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie 
 
 
 
-\section{SCADA systémy}
+\section{SCADA}
 
-SCADA systém (z anglického "Supervisory Control and Data Acquisition") je ...
+SCADA (z anglického "Supervisory Control and Data Acquisition") je softvérový systém pre správu dát, riadenie a monitorovanie priemyselných procesov, ktorý je prevádzkovaný na vyššej úrovni nad hardvérom (PLC, I/O moduly, senzory, merače, atď). SCADA systémy sprostredkovávajú konektivitu medzi technologickými procesmi, z ktorých zberajú dáta. Komunikácia s okolitým prostredím prebieha prostredníctvom štandardizovaných komunikačných protokolov (Modbus, S7, SNMP, BACnet, atď) cez priemyslové linky RS-232, RS-485, Profibus, ako aj klasickou počítačovou sieťou Ethernet. Ukladanie zbieraných dát je prevádzané od jednoduchého zápisu do textových súborov až po databázové servery (SQL/NoSQL). Vďaka štandardom, modularite a podpore všeobecne využívaných databázových systémov sa dajú SCADA systémy dobre škálovať. Môžu teda byť využíté na spracovanie veľkého množstva dát, od pár vstupných premenných až po státisíce.
 
-SCADA systém obecně nezastává funkci plnohodnotného řídícího systému dané technologie, ale zaměřuje se spíše na dispečerský dohled, monitoring a případnou parametrizaci. Software typu SCADA je tedy provozován na vyšší úrovni nad hardware (PLC automat, I/O moduly, dataloggery, senzory, čítače, měřiče ..), který zprostředkovává konektivitu a sběr dat ze sledovaných technologických procesů.
+Využitie si SCADA systémy našli v priemyselných odvetviach, kde je vysoký nárok na správny, bezproblémový priebeh procesov a veľký objem spracovaných dát, napr. elektrárne, teplárne, rozvodne, výmenníkové stanice, výrobné linky, chemické podniky, baliarne, skladové systémy, čističky odpadových vôd, atď. Zároveň sa využívajú častejšie aj mimo priemyslu, a to napríklad v systémoch "chytrých" domov (smart houses).
 
-SCADA systémy mohou komunikovat s okolím prostřednictvím specializovaných průmyslových linek/sítí (RS-232, RS-485, profibus, ...). V dnešní době jsou však stále častěji využívány klasické počítačové sítě typu Ethernet. Na těchto linkách/sítích zpravidla probíhá komunikace prostřednictvím standardizovaných komunikačních protokolů (Modbus, M-BUS, S7, SNMP, BACnet, ...).
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.9\textwidth,angle=0]{figures/bof-scada.jpg}
+	\caption{Operatíva čistenia odchádzajúceho plynu z procesu výroby ocele v konvertore - HMI rozhranie (SCADA), zdroj: Matrix Technologies.}
+\end{figure}
 
-SCADA systémy jsou vysoce škálovatelné a mohou tedy zpracovávat vstupní proměnné v počtu od několika málo až po stovky tisíc, a to v závislosti na složitosti a rozsahu sledované technologie.
+Vývoj SCADA systémov prešiel štyrmi generáciami:
 
-SCADA systémy umožňují sběr a ukládání dat různými způsoby. Od jednoduchých textových souborů na lokálním disku až po SQL databázové servery, které ukládají masivní množství dat s vysokou frekvencí vzorkování.
-
-SCADA systémy nyní masivně integrují Web technologie a nabízejí možnost vzdáleného přístupu a dohledu prostřednictvím Internetu. Mimo klasické PC je tedy nyní možné monitorovat technologie také vzdáleně na tabletech, smartphonech, atd.
-
-SCADA systémy jsou využívány ve všech sektorech, kde je nutno sbírat data a dohlížet na správný průběh dějů, jako jsou: energetika (elektrárny, teplárny, rozvodny, výměníkové stanice, ...), výroba (výrobní linky, hutě, chemické provozy, balící linky, skladové systémy...), technologie budov (vzduchotechnika, zabezpečení, docházkové systémy,...), ekologie (emisní monitoring, čističky odpadních vod, ...) a mnoha dalších.
-
-SCADA systémy jsou dnes mnohem dostupnější než v minulosti a proto pronikají také do dalších oblastí mimo průmysl – například do rodinných domů a stávají se také nástrojem technologických nadšenců z různých oborů.
+\begin{enumerate}
+	\item{V prvej generácii šlo o nákladné, jednoúčelové systémy}
+\end{enumerate}
 
 
 
@@ -171,6 +171,9 @@ Historie SCADA systémů
 4. generace - "internet of things"
 - v síti internet může být propojeno téměř vše
 - začínají dominovat cloudové služby
+systémy nyní masivně integrují Web technologie a nabízejí možnost vzdáleného přístupu a dohledu prostřednictvím Internetu. Mimo klasické PC je tedy nyní možné monitorovat technologie také vzdáleně na tabletech, smartphonech, atd.
+
+SCADA systémy, ktoré 
 
 \subsection{Virtuálna a rozšírena realita}
 
@@ -275,10 +278,6 @@ Služba distribúcie údajov (DDS) je middlewarový protokol a štandard API pre
 
 V distribuovanom systéme je middleware softvérová vrstva, ktorá leží medzi operačným systémom a aplikáciami. Umožňuje rôznym komponentom systému ľahšiu komunikáciu a zdieľanie údajov. Zjednodušuje sa vývoj distribuovaných systémov tým, že sa vývojári softvéru môžu zamerať skôr na konkrétny účel svojich aplikácií než na mechaniku prenosu informácií medzi aplikáciami a systémami \citep{ddsfoundation}.
 
-\section{Vizualizácia dát}
-
-
-\section{Virtuálna realita}
 
 
 
