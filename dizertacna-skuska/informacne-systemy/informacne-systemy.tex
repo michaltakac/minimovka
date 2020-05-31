@@ -172,6 +172,16 @@ Historie SCADA systémů
 - v síti internet může být propojeno téměř vše
 - začínají dominovat cloudové služby
 
+\subsection{Virtuálna a rozšírena realita}
+
+Úlohou v priemysle je navrhnúť a implementovať integrovanú
+Systémy MR, ktoré by mohli zlepšiť výrobné procesy, ako aj vývoj produktov a procesov, čo vedie ku kratším dodacím lehotám, zníženým nákladom a zvýšenej kvalite. MR je v mnohých ohľadoch stále v ranom štádiu a existuje veľa technických obmedzení, ktoré treba riešiť
+\citep{soeteMixedRealitySCADA2015}
+
+
+Okrem hardvéru existujú ďalšie výzvy, ktoré je potrebné riešiť, keď sú mobilné zariadenia v hre. Väčšina z nich súvisí s technikami počítačového videnia, ako je rozpoznanie prostredia bez markérov, dynamická registrácia a spracovanie v reálnom čase. Využitie virtuálnej a hlavne rozšírenej reality v riadiacich systémoch je stále v začiatkoch. 
+
+
 \section{Distribuované riadiace systémy}
 
 \section{Monitorovanie a zber dát}
@@ -209,7 +219,9 @@ Moderné konvertory prevádzkujú merania odbernými sondami v spojení s kombin
 
 \section{Komunikačné protokoly}
 
-OPC
+OPC - Object Linking and Embedding for Process Control
+
+priemyselné konzorcium OPC Foundation vytvára a udržiava viacero štandardov pre otvorené pripojenie zariadení a systémov priemyselnej automatizácie, ako sú priemyselné riadiace systémy a riadenie procesov všeobecne
 
 \subsection{OPC UA}
  %OPC Unified Architecture (OPC UA) is a vendor-independent communication protocol for industrial automation applications. It is based on the client-server principle and allows seamless communication from the individual sensors and actuators up to the ERP system or the cloud. The protocol is platform-independent and features built-in safety mechanisms. Since OPC UA is flexible and completely independent, it is regarded as the ideal communication protocol for the implementation of Industry 4.0.
@@ -225,7 +237,7 @@ OPC Unified Architecture (OPC UA) je komunikačný protokol nezávislý od dodá
 
 %OPC UA bridges the gap between the IP-based world of IT and the production floor. Interfaces, gateways and the associated loss of information are a thing of the past because all production process data is transferred via a single protocol – within a machine, between machines or between a machine and a cloud database. OPC UA is eliminating the need for traditional factory-level fieldbus systems.
 
-OPC UA premosťuje priepasť medzi svetom IT založeným na IP a výrobnou úrovňou. Rozhrania, brány a súvisiaca strata informácií sú minulosťou, pretože všetky údaje o výrobných procesoch sa prenášajú prostredníctvom jediného protokolu - v stroji, medzi strojmi alebo medzi strojom a databázou cloud. OPC UA eliminuje potrebu tradičných systémov priemyselnej zbernice na úrovni výroby.
+OPC UA premosťuje priepasť medzi svetom IT založeným na IP a výrobnou úrovňou. Rozhrania, brány a súvisiaca strata informácií sú minulosťou, pretože všetky údaje o výrobných procesoch sa prenášajú prostredníctvom jediného protokolu - v stroji, medzi strojmi alebo medzi strojom a databázou cloud. OPC UA eliminuje potrebu tradičných systémov priemyselnej zbernice na úrovni výroby \citep{brautomation}.
 
 %When it comes to complex applications like safety, motion control and real-time communication, however, OPC UA has had its limitations. Since being expanded with the publish-subscribe model (pub/sub) and the Time-Sensitive Networking (TSN) Ethernet standard, OPC UA is now capable of real-time communication.
 
@@ -233,13 +245,31 @@ Pokiaľ ide o zložité aplikácie, ako sú bezpečnosť, riadenie pohybu a komu
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=.9\textwidth,angle=0]{figures/opc-ua.jpg}
-	\caption{Rozdiel medzi architektúrou klient/server a , zdroj: B\&R Automation.}
+	\includegraphics[width=1\textwidth,angle=0]{figures/opc-ua-pubsub.jpg}
+	\caption{Rozdiel medzi architektúrou klient/server a publish/subscribe (počúvanie zmien po ju), zdroj: B\&R Automation.}
 \end{figure}
 
 \subsection{MTConnect}
 
+Priemyselné systémy tvorí množstvo zariadení, často od rôznych výrobcov s rôznymi konkurenčnými výhodami. Od integrácie hardvéru do uceleného riešenia výrobných systémov vo výrobných podnikoch je v súčasnosti neoddeliteľná aj časť implementácie softvérovej nadstavby. Práve schopnosť adaptovateľnosti softvéru ako informačného systému pre podporu riadenia výrobných procesov podniku udáva, do akej miery je možné architektúru systému škálovať. Táto schopnosť v priemysle závisí vo vysokej miere na štandardoch. Súčasne dostupné softvérové riešenie preto využívajú štandardizáciu údajov a dát zo zariadení, pričom počítajú s tým, že každý výrobca môže označovať tieto dáta inak.
+
+Norma MTConnect (ANSI/MTC1.4-2018) štandardizuje údaje a dáta výrobných zariadení naprieč rôznymi výrobcami. Ponúka sémantickú slovnú zásobu pre výrobné zariadenia na poskytovanie štruktúrovaných, kontextualizovaných údajov bez proprietárneho formátu.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.8\textwidth,angle=0]{figures/mtconnect.jpg}
+	\caption{Tabuľka s ukážkou sémantickej výbavy normy MTConnect, zdroj: mtconnect.org.}
+\end{figure}
+
+MTConnect poskytuje doménovo-špecifickú slovnú zásobu a dátové modely, je rozšíriteľný a je ho možné kombinovať s inými štandardmi. Vďaka jednotným údajom sa vývojári a integrátori môžu sústrediť skôr na užitočné produktívne výrobné aplikácie než na preklady premenných. MTConnect ale nie je softvér; je to štandard, ktorý definuje dátové štítky a správanie sa softvérového agenta (časti informačného systému pre správu dát). Zdroje údajov zahŕňajú obrábacie stroje, výrobné zariadenia, senzory s ich ovládačmi a ďalší hardvér výrobcu. Aplikácie, ktoré spotrebúvajú údaje MTConnect, poskytujú efektívnejšie operácie a zlepšenú optimalizáciu výroby, čoho výsledkom je zvýšenie produktivity.
+
+Za viac ako 10 rokov od prvého vydania tejto normy sa jej používanie rozšírilo na viac ako 50 000 zariadení od vyše 300 výrobcov vo viac ako 50 krajinách; existuje cez 1000 softvérových riešení implementujúcich túto normu.
+
 \subsection{OMG DDS}
+
+Služba distribúcie údajov (DDS) je middlewarový protokol a štandard API pre konektivitu zameranú na údaje z Object Management Group (OMG). Integruje komponenty systému dohromady a poskytuje dátové pripojenie s nízkou latenciou, extrémnu spoľahlivosť a škálovateľnú architektúru, ktorú potrebujú obchodné a kritické aplikácie internetu vecí (IoT).
+
+V distribuovanom systéme je middleware softvérová vrstva, ktorá leží medzi operačným systémom a aplikáciami. Umožňuje rôznym komponentom systému ľahšiu komunikáciu a zdieľanie údajov. Zjednodušuje sa vývoj distribuovaných systémov tým, že sa vývojári softvéru môžu zamerať skôr na konkrétny účel svojich aplikácií než na mechaniku prenosu informácií medzi aplikáciami a systémami \citep{ddsfoundation}.
 
 \section{Vizualizácia dát}
 

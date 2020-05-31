@@ -20,53 +20,51 @@ I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
-Warning--entry type for "siemensVAI" isn't style-file defined
---line 109 of file references/uncategorized.bib
-Warning--entry type for "totalmateria" isn't style-file defined
---line 118 of file references/uncategorized.bib
 Warning--entry type for "berrymetal" isn't style-file defined
 --line 126 of file references/uncategorized.bib
-Warning--entry type for "smsgroup" isn't style-file defined
---line 134 of file references/uncategorized.bib
-You've used 12 entries,
+Warning--entry type for "ddsfoundation" isn't style-file defined
+--line 152 of file references/uncategorized.bib
+Warning--entry type for "brautomation" isn't style-file defined
+--line 160 of file references/uncategorized.bib
+You've used 8 entries,
             2921 wiz_defined-function locations,
-            729 strings with 7450 characters,
-and the built_in function-call counts, 42406 in all, are:
-= -- 6883
-> -- 516
+            699 strings with 6522 characters,
+and the built_in function-call counts, 29564 in all, are:
+= -- 4849
+> -- 307
 < -- 0
-+ -- 3194
-- -- 154
-* -- 3565
-:= -- 8671
-add.period$ -- 24
-call.type$ -- 12
-change.case$ -- 167
-chr.to.int$ -- 12
-cite$ -- 12
-duplicate$ -- 157
-empty$ -- 368
-format.name$ -- 193
-if$ -- 7596
++ -- 2253
+- -- 91
+* -- 2473
+:= -- 6017
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 111
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 106
+empty$ -- 241
+format.name$ -- 113
+if$ -- 5296
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 59
-num.names$ -- 123
-pop$ -- 53
+missing$ -- 6
+newline$ -- 41
+num.names$ -- 82
+pop$ -- 40
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 120
 quote$ -- 0
-skip$ -- 152
+skip$ -- 103
 stack$ -- 0
-substring$ -- 9630
-swap$ -- 22
-text.length$ -- 168
+substring$ -- 6820
+swap$ -- 16
+text.length$ -- 112
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 46
+type$ -- 30
 warning$ -- 0
-while$ -- 265
+while$ -- 177
 width$ -- 0
-write$ -- 169
+write$ -- 114
 (There were 2 error messages)
