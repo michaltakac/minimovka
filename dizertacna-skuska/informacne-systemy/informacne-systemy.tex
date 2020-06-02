@@ -110,104 +110,27 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 
 \section{Úvod}
 
-%elaborát (písomná príprava) môže byť v rozsahu 10-15 strán. Nakoľko predmet má názov "Informačne technológie v riadení procesov" môžete použiť podklady z minimovky ale spomeňte v príprave aj SCADA/HMI systémy a ich možností (t.j. prepojenie človek-proces, vizualizácia dát) a stručne aj komunikačných protokolov (najmä OPC, alebo iných nakoľko predpokladám, že Vás model má ambíciu byť aplikovaný aj online), ďalej data processing (do modelu musia byť dáta vhodne upravené/spracované, napr. v Matlabe), a trochu aj management IS (možno to čo navrhujete Vy v 3D pohľade poslúži pre rozhodovanie vyššiemu managementu spolu s nejakou SCADOU a predikčným modelom (môžte vymenovať aké sa používajú) ako optimálne riadiť konvertorový proces). Pretože informačný systém to sú technológie monitorovania, analýzy, spracovania a uchovania a distribúcie dát pre ich ďalšie využitie.
+Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Niekdajšiu potrebu riadiť túto činnosť manuálne v súčasnej dobe nahrádzajú programovateľné automaty a regulátory v snahe ovládať premennú automatizovane. Jednoduchý regulátor môže udržiavať procesnú veličinu v slučke na rovnomernej úrovni, pokiaľ nedôjde k nadmernému rušeniu. Pri komplexných procesoch, ako sú tie v metalurgii, sa využívajú desiatky až stovky takýchto regulátorov, niektoré s integrovanými LCD panelmi \citep{Al-Megren2016}.
 
-Informačné systémy v procesnom riadení sú implementované pre rôzne škály riadiacich systémov, ktorých môže tvoriť niekoľko modulárnych panelových automatov až po veľké, vzájomne prepojené a interaktívne distribuované riadiace systémy s mnohými tisíckami prevádzkových pripojení.
+Informačné systémy v procesnom riadení sú implementované pre rôzne škály riadiacich systémov, ktoré môže tvoriť niekoľko menších modulárnych panelových automatov až po veľké, vzájomne prepojené a interaktívne distribuované riadiace systémy s mnohými tisíckami prevádzkových pripojení.
 
 Najjednoduchšie riadiace systémy sú založené na malých diskrétnych regulátoroch, z ktorých každý má jednu regulačnú slučku. Zvyčajne sú namontované na panel, ktorý umožňuje priame odčítanie hodnôt z predného panela a poskytuje prostriedky na manuálny zásah operátora, a to buď na manuálne riadenie procesu, alebo na zmenu požadovaných riadiacich hodnôt.
 
-
-Pre ložitejšie zariadenia PCS sú robotické a vykonávajú veľa úloh. Zariadenia PCS môžu komunikovať svoje údaje s počítačovou aplikáciou podnikového plánovania podnikových zdrojov (ERP) prostredníctvom softvéru middleware nazývaného systém vykonávania výroby (MES).
-
-Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Niekdajšiu potrebu riadiť túto činnosť manuálne v súčasnej dobe nahrádzajú programovateľné automaty a regulátory v snahe ovládať premennú automatizovane. Jednoduchý regulátor môže udržiavať procesnú veličinu v slučke na rovnomernej úrovni, pokiaľ nedôjde k nadmernému rušeniu. Pri komplexných procesoch, ako sú tie v metalurgii, sa využívajú desiatky až stovky takýchto regulátorov, niektoré s integrovanými LCD panelmi \citep{Al-Megren2016}.
-
-Potreba zdokonaľovania a vývoja nových systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, no environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
-
-Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov ocele, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V procese výroby ocele je kritériom o tom, či je roztavená oceľ prijateľná alebo nie, konečný obsahu uhlíka a teplota taveniny \cite{Wang2010}.
-
-
-
-\section{SCADA}
-
-SCADA (z anglického "Supervisory Control and Data Acquisition") je softvérový systém pre správu dát, riadenie a monitorovanie priemyselných procesov, ktorý je prevádzkovaný na vyššej úrovni nad hardvérom (PLC, I/O moduly, senzory, merače, atď). SCADA systémy sprostredkovávajú konektivitu medzi technologickými procesmi, z ktorých zberajú dáta. Komunikácia s okolitým prostredím prebieha prostredníctvom štandardizovaných komunikačných protokolov (Modbus, S7, SNMP, BACnet, atď) cez priemyslové linky RS-232, RS-485, Profibus, ako aj klasickou počítačovou sieťou Ethernet. Ukladanie zbieraných dát je prevádzané od jednoduchého zápisu do textových súborov až po databázové servery (SQL/NoSQL). Vďaka štandardom, modularite a podpore všeobecne využívaných databázových systémov sa dajú SCADA systémy dobre škálovať. Môžu teda byť využíté na spracovanie veľkého množstva dát, od pár vstupných premenných až po státisíce.
-
-Využitie si SCADA systémy našli v priemyselných odvetviach, kde je vysoký nárok na správny, bezproblémový priebeh procesov a veľký objem spracovaných dát, napr. elektrárne, teplárne, rozvodne, výmenníkové stanice, výrobné linky, chemické podniky, baliarne, skladové systémy, čističky odpadových vôd, atď. Zároveň sa využívajú častejšie aj mimo priemyslu, a to napríklad v systémoch "chytrých" domov (smart houses).
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=.9\textwidth,angle=0]{figures/bof-scada.jpg}
-	\caption{Operatíva čistenia odchádzajúceho plynu z procesu výroby ocele v konvertore - HMI rozhranie (SCADA), zdroj: Matrix Technologies.}
-\end{figure}
-
-Vývoj SCADA systémov prešiel štyrmi generáciami:
-
-\begin{enumerate}
-	\item{V prvej generácii šlo o nákladné, jednoúčelové systémy}
-\end{enumerate}
-
-
-
-Historie SCADA systémů
-
-- rozmach v průmyslově rozvinutých zemích v 60. letech 20. století
-- centralizovaná, hierarchická, izolovaná architektura (mainframe, terminály)
-- komunikace proprietálními uzavřenými protokoly (nejsou standardy)
-- vysoké nároky na obsluhu (nutná odbornost, velký počet uživatelů)
-- vysoké náklady na realizaci a provoz
-
-1. generace - ostrovní systémy
-- izolované, nákladné jednoúčelové systémy
-- centrální podnikový mainframe < – > přístup
-
-2. generace - distribuované systémy
-- propojení většího počtu menších stanic proprietálními (uzavřené, neveřejné) komunikačními protokoly
-- jednotlivé stanice mají specifické funkce
-
-3. generace - síťové systémy
-- rozmach počítačových sítí
-- používání otevřených, standardizovaných komunikačních protokolů
-- propojení stanic – PCN (Process Control Network)
-
-4. generace - "internet of things"
-- v síti internet může být propojeno téměř vše
-- začínají dominovat cloudové služby
-systémy nyní masivně integrují Web technologie a nabízejí možnost vzdáleného přístupu a dohledu prostřednictvím Internetu. Mimo klasické PC je tedy nyní možné monitorovat technologie také vzdáleně na tabletech, smartphonech, atd.
-
-SCADA systémy, ktoré 
-
-\subsection{Virtuálna a rozšírena realita}
-
-Úlohou v priemysle je navrhnúť a implementovať integrovanú
-Systémy MR, ktoré by mohli zlepšiť výrobné procesy, ako aj vývoj produktov a procesov, čo vedie ku kratším dodacím lehotám, zníženým nákladom a zvýšenej kvalite. MR je v mnohých ohľadoch stále v ranom štádiu a existuje veľa technických obmedzení, ktoré treba riešiť
-\citep{soeteMixedRealitySCADA2015}
-
-
-Okrem hardvéru existujú ďalšie výzvy, ktoré je potrebné riešiť, keď sú mobilné zariadenia v hre. Väčšina z nich súvisí s technikami počítačového videnia, ako je rozpoznanie prostredia bez markérov, dynamická registrácia a spracovanie v reálnom čase. Využitie virtuálnej a hlavne rozšírenej reality v riadiacich systémoch je stále v začiatkoch. 
-
-
-\section{Distribuované riadiace systémy}
-
-Distribuovaný riadiaci systém (DCS) je digitálny riadiaci systém pre proces alebo zariadenie, v ktorom sú regulátory a jednotlivé moduly systému distribuované na rôznych lokalitách. Pri väčšom počte regulačných obvodov je DCS ekonomický výhodnejší.
-
-Jednotlivé  regulátory a hierarchie regulátorov sú v DCS prepojené komunikačnými sieťami, ktoré sú zároveň prepojené s centrálnym grafickým rozhraním no takisto môžu byť ovládané jednotlivo na jednotlivých stanovištiach pri regulátore. Tieto komunikačné siete bývajú postavené na proprietárnych ako aj otvorených komunikačných protokoloch. DCS podporujú taktiež komunikačné zbernice ako napríklad Fieldbus, PROFIBUS, HART alebo Modbus, cez ktoré tečú informačné toky vstupných a výstupných signálov, údajov, správ a chybových hlásení.
-
 \section{Monitorovanie a zber dát}
 
-Za účelom monitorovania a riadenia procesu je možné použiť rôzne meracie systémy na poskytnutie spätnej väzby operátorovi alebo priamo existujúcemu systému na automatizované riadenie. Tieto merania môžu byť priame alebo nepriame, ako aj~s~časovým oneskorením alebo bez neho \cite{Widlund1998}.
+Za účelom monitorovania a riadenia procesu je možné využiť rôzne meracie systémy na poskytnutie spätnej väzby operátorovi alebo priamo existujúcemu systému na automatizované riadenie. Tieto merania môžu byť priame alebo nepriame, ako aj~s~časovým oneskorením alebo bez neho \cite{Widlund1998}.
 
-Senzory
+Na výrobných linkách sa častokrát vykonáva veľké množstvo meraní. Sledujú sa nimi zmeny meranej veličiny (fyzikálnej alebo chemickej, napr. tlak, prietok, hustota, kyslosť, rýchlosť, napätie, teplota, hmotnosť atď.). Dáta sú získavané zo snímačov (senzorov), ktoré reagujú na túto zmenu, a to buď okamžite alebo s sa zameriavajú na časový priebeh zmeny. Snímače môžu taktiež sledovať polohu ventilu alebo stav uzatvorenia nejakého otvoru (zátka fľaše, menič prietoku). Snímače zobrazujú hodnoty meranej veličiny buď priamo (odmerka, ortuťový teplomer) alebo sú spojené s indikátorom. Sú väčšinou elektrické, čo znamená, že transformujú informáciu o meranej veličine na elektrický signál, čím umožňujú transformáciu aj neelektrickej veličiny. Pre spracovanie elektrického signálu zo snímača na počítači je potrebné využitie prevodníka, ktorý prevedie analógový signál na digitálny.
 
-Na výrobných linkách sa môže vykonať veľké množstvo meraní. Senzor zariadenia môže snímať veľa meraní vrátane tlaku, prietoku, hustoty, kyslosti, rýchlosti, rýchlosti, napätia, teploty a hmotnosti.
+Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. oxidácia) nežiadúcich nečistôt obsiahnutých v kovovej vsádzke, účelom tohto oxidačného procesu teda je:
 
-Senzory môžu tiež zistiť, či došlo k operácii, ako je plnenie fľaše, či bol dosiahnutý správny tlak alebo či bola dosiahnutá určitá teplota.
+\begin{itemize}
+	\item znížiť obsah uhlíka na predpísanú úroveň (z približne 4 \% na menej ako 1 \%, ale často nižšie),
+	\item upraviť obsah potrebných cudzích prvkov,
+	\item odstrániť nežiadúce nečistoty v maximálne možnej miere.
+\end{itemize}
 
-Na výrobných linkách existuje veľa senzorov, ktoré spadajú do niektorých rôznych oblastí, ako sú tlakové senzory, prietokomery, silové senzory a teplotné senzory.
-
-Nepriame meranie
-
-Priame meranie
-
-Odberná sonda je dôležitým nástrojom pri výrobe ocele LD procesom. Poskytuje operátorovi cenné informácie o procese tavby akými sú teplota taveniny a jej zloženie. Zavádza sa automatizovane do vnútra konvertora cez bočný otvor kým je teleso konvertora v zvislej polohe, a to 2-krát počas tavby bez nutnosti jej prerušenia. Prvé zavedenie sondy zväčša býva po vyfúkaní 90\% objemu kyslíka vyčleneného pre danú tavbu, kedy sa meria teplota, objem uhlíka, zloženie trosky, výška oceľového kúpeľa a úrovne trosky. Druhé zavedenie sa uskutočňuje po procese fúkania.
+Následnou úlohou riadiaceho procesu je potom získanie predpísaných parametrov ocele, ktorá sa odpichuje z konvertora, vrátane hmotnosti, teploty a obsahu každého prvku. Na základe týchto parametrov sa rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie. Na ich získanie a meranie je v kyslíkovom konvertore dôležitým meracím nástrojom odberná sonda. Tá poskytuje operátorovi cenné informácie o procese tavby akými sú teplota taveniny a jej zloženie. Zavádza sa automatizovane do vnútra konvertora cez horný alebo bočný otvor kým je teleso konvertora v zvislej polohe, a to 2-krát počas tavby bez nutnosti jej prerušenia. Prvé zavedenie sondy zväčša býva po vyfúkaní 90\% objemu kyslíka vyčleneného pre danú tavbu, kedy sa meria teplota, objem uhlíka, zloženie trosky, výška oceľového kúpeľa a úrovne trosky. Druhé zavedenie sa uskutočňuje po procese fúkania.
 
 \begin{figure}[!ht]
 	\centering
@@ -219,22 +142,62 @@ Odberná sonda je dôležitým nástrojom pri výrobe ocele LD procesom. Poskytu
 
 Moderné konvertory prevádzkujú merania odbernými sondami v spojení s kombinovaným statickým a dynamickým modelom riadenia procesu (SDM). Informácie získané z odbernej sondy sú ďalej spracované riadiacim systémom, ktorého optimalizačný model sa v konečnom dôsledku snaží o zvýšenie produkcie a dosiahnutie požadovaných vlastností ocele.
 
+\section{SCADA}
+
+SCADA (z anglického "Supervisory Control and Data Acquisition") je softvérový systém pre správu dát, riadenie a monitorovanie priemyselných procesov, ktorý je prevádzkovaný na vyššej úrovni nad hardvérom (PLC, I/O moduly, senzory, merače, atď). SCADA systémy sprostredkovávajú konektivitu medzi technologickými procesmi, z ktorých zberajú dáta. Komunikácia s okolitým prostredím prebieha prostredníctvom štandardizovaných komunikačných protokolov (Modbus, S7, SNMP, BACnet, atď) cez priemyslové linky RS-232, RS-485, Profibus, ako aj klasickou počítačovou sieťou Ethernet. Ukladanie zbieraných dát je prevádzané od jednoduchého zápisu do textových súborov až po databázové servery (SQL/NoSQL). Vďaka štandardom, modularite a podpore všeobecne využívaných databázových systémov sa dajú SCADA systémy dobre škálovať. Môžu teda byť využíté na spracovanie veľkého množstva dát, od pár vstupných premenných až po státisíce.
+
+Využitie si SCADA systémy našli v priemyselných odvetviach, kde je vysoký nárok na správny, bezproblémový priebeh procesov a veľký objem spracovaných dát, napr. elektrárne, teplárne, rozvodne, výmenníkové stanice, výrobné linky, chemické podniky, baliarne, skladové systémy, čističky odpadových vôd, atď. Zároveň sa využívajú častejšie aj mimo priemyslu, a to napríklad v systémoch "chytrých" domov (smart houses).
+
+Vývoj SCADA systémov prešiel štyrmi generáciami:
+
+\begin{enumerate}
+	\item{V prvej generácii šlo o nákladné, jednoúčelové systémy, bez komunikačných sieťových služieb, takže SCADA systémy sa skladali zo samostatných systémov, ktoré neboli prepojené s inými systémami. Väčšinou v tejto dobe boli implementované na veľkých centrálnych počítačoch (PDP-11 a pod.)}
+	\item{Druhá generácia priniesla podporu komunikačných protokolov (proprietárnych) čo malo za následok prepojenie jednotlivých systémov cez LAN a prenos informácií takmer v reálnom čase. Bezpečnosť systémov bola v začiatkoch prehliadaná.}
+	\item{Tretia generácia stavala na rozmachu počítačových sietí, kedy vznikali otvorené komunikačné protokoly. Komplexné SCADA systémy bolo možné rozdeliť na menšie a jednoduchšie komponenty, ktoré vykonávali užší set funkcií, často aj na geograficky rôznych lokalitách a medzi sebou komunikovali cez sieť pre riadenie procesov (PCN - Process Control Network).}
+	\item{Štvrtú generáciu tvoria SCADA systémy s podporou webových technológií. V sieti internet môže byť prepojené takmer všetko. Tieto systémy ponúkajú vzdialený prístup a dohľad cez internet, takže operátori vie pristupovať k rozhraniu človek-proces (HMI) systému SCADA cez akékoľvek zariadenie (desktop, tablet, smartfón).}
+\end{enumerate}
+
+\subsection{Rozhranie pre riadenie procesov človekom}
+
+Zariadenia rozhrania človek-proces (Human-Machine Interface - HMI) sú hlavné jednotky, ktoré umožňujú operátorom kontrolovať proces získavania údajov SCADA. HMI slúži ako centrálny procesor systému a umožňuje používateľom tiež regulovať a upravovať systém podľa potreby. Prevádzkovatelia používajú rozhrania HMI na interakciu so zhromaždenými údajmi prostredníctvom grafických používateľských rozhraní (GUI), zvyčajne počítačových monitorov, a na zostavovanie správ na neskoršie použitie.
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Operatíva čistenia odchádzajúceho plynu z procesu výroby ocele v konvertore, zdroj: Matrix Technologies.]{{\includegraphics[width=7.1cm]{figures/bof-scada.jpg} }}%
+	\qquad
+	\subfloat[Odber vzorky taveniny odbernou sondou.]{{\includegraphics[width=6.65cm]{figures/bof-stirring.jpg} }}
+	\caption{HMI rozhrania SCADA systémov v riadení LD procesu.}
+\end{figure}
+
 \section{Spracovanie dát}
+
+Získané dáta môžu vyžadovať techniky predbežného spracovania, aby sa zabezpečila presná, efektívna alebo zmysluplná analýza. Čistenie dát sa týka metód zisťovania, odstraňovania a výmeny chybných alebo chýbajúcich dát. Aby sa v dátach správne identifikovali významné trendy, je potrebné nájsť kde sa nachádzajú lokálne extrémy a náhle zmeny. Dôležité je odfiltrovanie nežiadúceho šumu, na ktoré sa využívajú vyhladzovacie metódy. Metódy zoskupovania sú využívané na identifikáciu charakteristiky údajov triedenia do skupín. Často používaný softvér pre spracovanie dát je Matlab, ktorý ponúka sady nástrojov a teda odpadá nutnosť ručného programovania algoritmov. Pre väčšie prispôsobenie hardvérovým požiadavkám ako aj prípadnej potrebe vlastnej implementácie algoritmov sa využívajú programovacie jazyky Python, R alebo Lua, s veľkým množstvom predimplementovaných knižníc, ktoré je možné využiť pri programovaní vlastného riešenia spracovania údajov.
 
 \section{Uchovanie dát}
 
+Po analýze a spracovaní údajov zhromaždených systémom SCADA je potrebné ich uložiť na fyzicky a digitálne bezpečných miestach. Namiesto zhromažďovania a ukladania údajov ručne, SCADA automaticky zhromažďuje informácie o výrobných procesoch s časovou pečiatkou v HMI, ktoré sú kompilované do optimálneho formátu pred ich uložením do databázy. Väčšina systémov tiež používa štruktúrovaný dopytovací jazyk (SQL) alebo webové aplikácie na integráciu systémov vykonávania výroby (``Manufacturing Execution System" - MES) a systémov plánovania podnikových zdrojov (``Enterprise Resource Planning"- ERP), čo uľahčuje prevod údajov medzi rôznymi časťami siete.
+
+Databázy v SCADA systémoch môžu byť proprietárne ale aj otvorené. Na pripojenie k nim tvorcovia SCADA softvérov ako aj vývojári tretích strán vytvárajú vlastné konektory s rozhraniami. V prípade SCADA systému od firmy Promotic je možné využívať databázy dBase, MS SQL Server, Oracle, MySQL, PostgreSQL, Microsoft Access, Excel a ďalšie, ku ktorým sa systém pripája cez technológiu ADO (ActiveX Data Objects) vytvorenou spoločnosťou Microsoft. Tá nezávisí od žiadneho backendu, avšak v súčasnosti má ADO podporu jedine cez OLE-DB, čo je aplikačné programovacie rozhranie (API), umožňujúce prístup k údajom z rôznych zdrojov.
+
+V priemyselnom odvetví sa pri uchovaní dát poslednú dobu experimentuje aj s NoSQL databázami. NoSQL vznikla v tom čase kedy mnohé SQL databázy nedokázali zvládnuť požadovanú škálu z pohľadu nárokov na nich kladených (množstvá dát, potreba zapisovania a čítania údajov v reálnom čase). Nárast tejto novej generácie dátových služieb vyriešil mnoho problémov so škálovaním veľkých webových aplikácií a rýchlo rastúcich súborov údajov. Databázové systémy na technológii NoSQL (MongoDB) sa v posledných rokoch dostávajú aj do priemyselných oblastí, keďže ich efektívne horizontálne škálovanie (príklad: klastre desiatok až stoviek serverov v distribuovaných riadiacich systémoch) a flexibilná štruktúra ukladaných údajov prispievajú k zvládnutiu exponenciálneho nárastu spracovaných dát z internetú vecí (IoT) v dobe prechodu na novú paradigmu v priemysle s názvom Priemysel 4.0 \citep{Klingenmeier2014}.
+
+\section{Distribuované riadiace systémy}
+
+Distribuovaný riadiaci systém (DCS) je digitálny riadiaci systém, v ktorom sú regulátory a jednotlivé moduly systému distribuované na rôznych lokalitách. Pri väčšom počte regulačných obvodov je DCS ekonomický výhodnejší.
+
+Jednotlivé  regulátory a hierarchie regulátorov sú v DCS prepojené komunikačnými sieťami, ktoré sú zároveň prepojené s centrálnym grafickým rozhraním no takisto môžu byť ovládané jednotlivo na jednotlivých stanovištiach pri regulátore. Tieto komunikačné siete bývajú postavené na proprietárnych ako aj otvorených komunikačných protokoloch. DCS podporujú taktiež komunikačné zbernice ako napríklad Fieldbus, PROFIBUS, HART alebo Modbus, cez ktoré tečú informačné toky vstupných a výstupných signálov, údajov, správ a chybových hlásení.
+
+Systém SCADA sa spolieha na udržiavanie integrovaného sieťového pripojenia počas celej jeho prevádzky. Zariadenia to môžu dosiahnuť pomocou káblových aj bezdrôtových možností, pripojením prevodných jednotiek k hlavnej jednotke prostredníctvom pevnej linky alebo internetu. Väčšina zariadení má špecializované siete, na ktorých prevádzkujú svoje operácie SCADA, ktoré zabezpečujú ich systém pred rušením inými aplikáciami, ako aj proti nedovolenému vniknutiu. Zabezpečený prístup autorizovaným používateľom k správe jednotlivých zariadení zo vzdialeného miesta je možné cez priemyselné prístupové body, ktoré spravuje napr. autentifikačný server a užívateľ (pristupujúci cez internet alebo intranet) sa k HMI môže prihlásiť svojimi prihlasovacími údajmi.
 
 \section{Komunikačné protokoly}
 
-OPC - Object Linking and Embedding for Process Control
+OPC, pôvodne ``Object Linking and Embedding for Process Control", aktuálne ale po integráciách zastrešovaných štandardov iných odvetví mimo riadenia procesov už ``Open Platform Communications" zastrešuje viacero štandardov a špecifikácií priemyselných komunikačných sietí pre otvorené pripojenie zariadení a systémov priemyselnej automatizácie. Vypracováva a držiava ich priemyselné konzorcium OPC Foundation.
 
-priemyselné konzorcium OPC Foundation vytvára a udržiava viacero štandardov pre otvorené pripojenie zariadení a systémov priemyselnej automatizácie, ako sú priemyselné riadiace systémy a riadenie procesov všeobecne
+OPC špecifikácie poskytujú premostenie softvérových aplikácií založených na systéme Windows a hardvér na riadenie procesov. Normy definujú konzistentné metódy prístupu k údajom zo zariadení.
 
 \subsection{OPC UA}
- %OPC Unified Architecture (OPC UA) is a vendor-independent communication protocol for industrial automation applications. It is based on the client-server principle and allows seamless communication from the individual sensors and actuators up to the ERP system or the cloud. The protocol is platform-independent and features built-in safety mechanisms. Since OPC UA is flexible and completely independent, it is regarded as the ideal communication protocol for the implementation of Industry 4.0.
- 
 
-OPC Unified Architecture (OPC UA) je komunikačný protokol nezávislý od dodávateľa pre aplikácie priemyselnej automatizácie. Je založený na princípe klient-server a umožňuje plynulú komunikáciu z jednotlivých senzorov a akčných členov až do ERP systému alebo cloudu. Protokol je nezávislý od platformy a má zabudované bezpečnostné mechanizmy. Pretože OPC UA je flexibilný a úplne nezávislý, považuje sa za ideálny komunikačný protokol pre implementáciu Industry 4.0.
+OPC Unified Architecture (OPC UA) je nový komunikačný protokol (nezávislý od dodávateľa) pre aplikácie priemyselnej automatizácie. Je založený na princípe klient-server a umožňuje plynulú komunikáciu z jednotlivých senzorov a akčných členov až do ERP systému alebo cloudu. Protokol je nezávislý od platformy a má zabudované bezpečnostné mechanizmy. Pretože OPC UA je flexibilný a úplne nezávislý, považuje sa za ideálny komunikačný protokol pre implementáciu do Priemyslu 4.0.
 
 \begin{figure}[h!]
 	\centering
@@ -242,19 +205,17 @@ OPC Unified Architecture (OPC UA) je komunikačný protokol nezávislý od dodá
 	\caption{Grafická reprezentácia architektúry komunikačného protokolu OPC UA, zdroj: B\&R Automation.}
 \end{figure}
 
-%OPC UA bridges the gap between the IP-based world of IT and the production floor. Interfaces, gateways and the associated loss of information are a thing of the past because all production process data is transferred via a single protocol – within a machine, between machines or between a machine and a cloud database. OPC UA is eliminating the need for traditional factory-level fieldbus systems.
+Architektúra OPC UA predstavuje premostenie medzi komunikáciou počítačových systémov na báze IP a úrovňou výroby. Rozhrania, brány a súvisiaca strata informácií sú minulosťou, pretože všetky údaje o výrobných procesoch sa prenášajú prostredníctvom jediného protokolu - v strojoch, medzi jednotlivými strojmi alebo medzi strojom a databázou v cloude, čím odpadá nutnosť využitia rozhraní, brán medzi nekompatibilnými systémami a z tohto dôsledku možnou stratou informácií. OPC UA eliminuje potrebu tradičných systémov priemyselnej zbernice na úrovni výroby \citep{brautomation}.
 
-OPC UA premosťuje priepasť medzi svetom IT založeným na IP a výrobnou úrovňou. Rozhrania, brány a súvisiaca strata informácií sú minulosťou, pretože všetky údaje o výrobných procesoch sa prenášajú prostredníctvom jediného protokolu - v stroji, medzi strojmi alebo medzi strojom a databázou cloud. OPC UA eliminuje potrebu tradičných systémov priemyselnej zbernice na úrovni výroby \citep{brautomation}.
+Pokiaľ ide o zložité aplikácie, ako sú bezpečnosť, riadenie pohybu a komunikácia v reálnom čase, OPC UA má však svoje obmedzenia. Od rozšírenia o model publikovania a prihlásenia na odber (pub / sub) a štandardu Ethernet citlivého na čas (TSN) je však OPC UA teraz už schopná komunikovať aj v reálnom čase.
 
-%When it comes to complex applications like safety, motion control and real-time communication, however, OPC UA has had its limitations. Since being expanded with the publish-subscribe model (pub/sub) and the Time-Sensitive Networking (TSN) Ethernet standard, OPC UA is now capable of real-time communication.
-
-Pokiaľ ide o zložité aplikácie, ako sú bezpečnosť, riadenie pohybu a komunikácia v reálnom čase, OPC UA má však svoje obmedzenia. Od rozšírenia o model publikovania a prihlásenia na odber (pub / sub) a štandardu Ethernet citlivého na čas (TSN) je OPC UA teraz schopná komunikovať v reálnom čase.
-
-\begin{figure}[h!]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=1\textwidth,angle=0]{figures/opc-ua-pubsub.jpg}
 	\caption{Rozdiel medzi architektúrou klient/server a publish/subscribe (počúvanie zmien po ju), zdroj: B\&R Automation.}
 \end{figure}
+
+\newpage
 
 \subsection{MTConnect}
 
@@ -274,57 +235,15 @@ Za viac ako 10 rokov od prvého vydania tejto normy sa jej používanie rozšír
 
 \subsection{OMG DDS}
 
-Služba distribúcie údajov (DDS) je middlewarový protokol a štandard API pre konektivitu zameranú na údaje z Object Management Group (OMG). Integruje komponenty systému dohromady a poskytuje dátové pripojenie s nízkou latenciou, extrémnu spoľahlivosť a škálovateľnú architektúru, ktorú potrebujú obchodné a kritické aplikácie internetu vecí (IoT).
+Služba distribúcie údajov (DDS) je middlewarový protokol (softvérová vrstva, ktorá leží medzi operačným systémom a aplikáciami) a štandard API od skupiny Object Management Group (OMG) pre dátovo-centrickú konektivitu. Integruje komponenty systému dohromady a poskytuje dátové pripojenie s nízkou latenciou, extrémnu spoľahlivosť a škálovateľnú architektúru, ktorú potrebujú aplikácie internetu vecí (IoT).
 
-V distribuovanom systéme je middleware softvérová vrstva, ktorá leží medzi operačným systémom a aplikáciami. Umožňuje rôznym komponentom systému ľahšiu komunikáciu a zdieľanie údajov. Zjednodušuje sa vývoj distribuovaných systémov tým, že sa vývojári softvéru môžu zamerať skôr na konkrétny účel svojich aplikácií než na mechaniku prenosu informácií medzi aplikáciami a systémami \citep{ddsfoundation}.
-
-
-
-
-
-
-\section{Procesy v kyslíkovom konvertore}
-
-Kyslíkový konvertor alebo v niektorých oblastiach sveta nazývaný aj základná kyslíková pec (basic oxygen furnace - BOF) pozostáva z radu komplexných procesov s nebezpečnými vlastnosťami, napríklad z dôvodu vysokej teploty, prachu a vibrácií. V konvertore prebieha  množstvo chemických reakcií a fyzikálnych javov, medzi ktorými sa nájdu aj také, ktorým úplne nerozumieme z dôvodu ich komplexnosti.
-
-Podstatou výroby ocele v kyslíkovom konvertore je oxidácia prvkov z kovonosnej vsádzky s kyslíkom fúkaným do konvertora. Oxidy týchto prvkov prechádzajú do trosky alebo odchádzajú vo forme konvertorového plynu. LD proces sa skladá z~nasledujúcich elementárnych procesov:
-
-\begin{enumerate}
-	\item Vsádzanie šrotu
-	\item Nalievanie tekutého surového železa
-	\item Fúkanie kyslíka a pridávanie troskotvorných a legujúcich prísad
-	\item Meranie teploty a zloženia ocele
-	\item Odpich ocele
-	\item Odpich trosky
-\end{enumerate}
-
-V moderných oceliarňach sa vyrobí cca 300t ocele v priebehu 30-40 minútového cyklu. Pre prispôsobenie akosti ocele a tvorbu trosky sa počas pochodu pridávajú rozličné prísady. Počas vsádzania a odpichu je konvertorová pec naklonená. Počas fúkania kyslíka má konvertor zvislú polohu.
-
-V závislosti od miestnych prevádzkových podmienok, dostupnosti šrotu, vysokopecného železa a rozsahu predúpravy, je kovová vsádzka do konvertora (LD/BOF, Q-BOP) tvorená 75 až 95 \% surovým železom a zvyšok je oceľový šrot. Používané druhy šrotu sú zvyčajne tie, ktoré sa vyrábajú v oceliarni: šrot z plechu, poškodené formy, plechovky a podobne \cite{Turkdogan1996}.
-
-Kyslík je fúkaný vysokou rýchlosťou (až do dvojnásobnej rýchlosti zvuku) na povrch kovového kúpeľa v konvertore a v oblasti povrchu sa vytvára tzv. horúce miesto, kde prúd kyslíka naráža na povrch. Oxidačné produkty sa rozpustia v troske s výnimkou oxidu uhoľnatého, ktorý prechádza vrstvou trosky a tvorí hlavnú zložku konvertovaného plynu. Intenzita oxidácie jednotlivých prvkov závisí od ich chemickej afinity ku kyslíku. Oxidácia uhlíka je jedným z najdôležitejších procesov.
+V distribuovanom systéme umožňuje middleware rôznym komponentom systému ľahšiu komunikáciu a zdieľanie údajov. Zjednodušuje sa vývoj distribuovaných systémov tým, že sa vývojári softvéru môžu zamerať skôr na konkrétny účel svojich aplikácií než na detaily spôsobov prenosu informácií medzi aplikáciami a systémami \citep{ddsfoundation}.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1\textwidth,angle=0]{figures/ld-convertor-processes-graphical.jpg}
-	\caption{Grafické znázornenie chemických a termodynamických procesov v LD konvertore \citep{Jalkanen2006}.}
+	\includegraphics[width=.8\textwidth,angle=0]{figures/omg-dds-interoperability.jpg}
+	\caption{Interoperabilita medzi viacerými aplikáciami naprogramovanými odlišnými programovacími jazykmi. Middleware vrstva podľa OMG DDS špecifikácie utvára spoločné rozhranie (API), pomocou ktorého sa rôznorodé aplikácie môžu k sebe navzájom pripájať.}
 \end{figure}
-
-\section{Riadenie procesov v kyslíkovom konvertore}
-
-Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. oxidácia) nežiadúcich nečistôt obsiahnutých v kovovej vsádzke, účelom tohto oxidačného procesu teda je:
-
-\begin{itemize}
-	\item znížiť obsah uhlíka na predpísanú úroveň (z približne 4 \% na menej ako 1 \%, ale často nižšie),
-	\item upraviť obsah potrebných cudzích prvkov,
-	\item odstrániť nežiadúce nečistoty v maximálne možnej miere.
-\end{itemize}
-
-Následnou úlohou riadiaceho procesu je potom získanie predpísaných parametrov ocele, ktorá sa odpichuje z konvertora, vrátane hmotnosti, teploty a obsahu každého prvku. Na základe týchto parametrov sa rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie.
-
-Počítačom podporované výpočty vsádzky sa robia pre každú tavbu. Asi 80 percent modelu riadenia vsádzky je založený na rovnováhe tepla a materiálu, zvyšok je založený na empirických vzťahoch, ktoré sa medzi jednotlivými taviarňami líšia. Pretože každá oceliareň má svoju vlastnú formuláciu modelu riadenia vsádzky \cite{Turkdogan1996}.
-
-
 
 %
 \include{bibliography}

@@ -26,45 +26,49 @@ Warning--entry type for "ddsfoundation" isn't style-file defined
 --line 152 of file references/uncategorized.bib
 Warning--entry type for "brautomation" isn't style-file defined
 --line 160 of file references/uncategorized.bib
-You've used 9 entries,
+Warning--entry type for "Klingenmeier2014" isn't style-file defined
+--line 193 of file references/uncategorized.bib
+Warning--string name "october" is undefined
+--line 198 of file references/uncategorized.bib
+You've used 7 entries,
             2921 wiz_defined-function locations,
-            708 strings with 6786 characters,
-and the built_in function-call counts, 36013 in all, are:
-= -- 5898
-> -- 419
+            691 strings with 6345 characters,
+and the built_in function-call counts, 32363 in all, are:
+= -- 5386
+> -- 325
 < -- 0
-+ -- 2774
-- -- 126
-* -- 3060
-:= -- 7278
-add.period$ -- 18
-call.type$ -- 9
-change.case$ -- 125
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 120
-empty$ -- 277
-format.name$ -- 151
-if$ -- 6455
++ -- 2562
+- -- 98
+* -- 2766
+:= -- 6458
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 98
+chr.to.int$ -- 7
+cite$ -- 7
+duplicate$ -- 86
+empty$ -- 204
+format.name$ -- 118
+if$ -- 5810
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 7
-newline$ -- 46
-num.names$ -- 93
-pop$ -- 41
+missing$ -- 3
+newline$ -- 38
+num.names$ -- 72
+pop$ -- 39
 preamble$ -- 1
-purify$ -- 135
+purify$ -- 105
 quote$ -- 0
-skip$ -- 116
+skip$ -- 91
 stack$ -- 0
-substring$ -- 8333
-swap$ -- 18
-text.length$ -- 126
+substring$ -- 7670
+swap$ -- 13
+text.length$ -- 98
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
+type$ -- 28
 warning$ -- 0
-while$ -- 200
+while$ -- 154
 width$ -- 0
-write$ -- 130
+write$ -- 100
 (There were 2 error messages)

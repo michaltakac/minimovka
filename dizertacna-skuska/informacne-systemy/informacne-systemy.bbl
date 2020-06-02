@@ -24,12 +24,6 @@ Al-Megren, S. \harvardand\ Ruddle, R.~A.  \harvardyearleft
 \newblock Data distribution service.
 \newline\harvardurl{\url{https://www.dds-foundation.org/}}
 
-\harvarditem{Jalkanen}{2006}{Jalkanen2006}
-Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
-\newblock {Experiences in physicochemical modelling of oxygen converter process
-  (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
-  International Symposium} {\bf 2}:~541--554.
-
 \harvarditem[Soete et~al.]{Soete, Claeys, Hoedt, Mahy \harvardand\
   Cottyn}{2015}{soeteMixedRealitySCADA2015}
 Soete, N., Claeys, A., Hoedt, S., Mahy, B. \harvardand\ Cottyn, J.
@@ -38,18 +32,10 @@ Soete, N., Claeys, A., Hoedt, S., Mahy, B. \harvardand\ Cottyn, J.
   IFAC-PapersOnLine} {\bf 48}(3):~2417--2422.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2405896315006898}
 
-\harvarditem{Turkdogan}{1996}{Turkdogan1996}
-Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
-\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
-  London.
-
-\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
-Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
-  .
-\newblock {Applying input variables selection technique on input weighted
-  support vector machine modeling for BOF endpoint prediction}, {\em
-  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
-\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
+\harvarditem{{\relax Timo Klingenmeier}}{2014}{Klingenmeier2014}
+{\relax Timo Klingenmeier}  \harvardyearleft 2014\harvardyearright .
+\newblock Nosql meets industrial mass data.
+\newline\harvardurl{\url{http://www.odbms.org/2014/11/nosql-meets-industrial-mass-data/}}
 
 \harvarditem[Widlund et~al.]{Widlund, Medvedev \harvardand\
   Gyllenram}{1998}{Widlund1998}
