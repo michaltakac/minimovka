@@ -1,10 +1,35 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Chattopadhyay et~al.]{Chattopadhyay, Isac \harvardand\
+  Guthrie}{2010}{chattopadhyay2010}
+Chattopadhyay, K., Isac, M. \harvardand\ Guthrie, R. I.~L.  \harvardyearleft
+  2010\harvardyearright .
+\newblock Applications of {Computational} {Fluid} {Dynamics} ({CFD}) in iron-
+  and steelmaking: {Part} 2, {\em Ironmaking \& Steelmaking} {\bf
+  37}(8):~562--569.
+\newline\harvardurl{http://www.tandfonline.com/doi/full/10.1179/030192310X12731438631840}
+
+\harvarditem{Delbosc}{2015}{delbosc2015}
+Delbosc, N.  \harvardyearleft 2015\harvardyearright .
+\newblock Real-{Time} {Simulation} of {Indoor} {Air} {Flow} {Using} the
+  {Lattice} {Boltzmann} {Method} on {Graphics} {Processing} {Unit}.
+
 \harvarditem{Ersson \harvardand\ Tilliander}{2018}{Ersson2018}
 Ersson, M. \harvardand\ Tilliander, A.  \harvardyearleft 2018\harvardyearright
   .
 \newblock {Review on CFD Simulation and Modeling of Decarburization Processes},
   {\em Steel Research International} {\bf 89}(1):~1--13.
+
+\harvarditem{Heidler}{2011}{HEIDLER2011thesis}
+Heidler, V.  \harvardyearleft 2011\harvardyearright .
+\newblock Numerické řešení modelu mělké vody pomocí lattice boltzmannovy
+  metody [online].
+\newline\harvardurl{\url{https://theses.cz/id/06i4dm/}}
+
+\harvarditem{Mele}{2013}{Mele2013}
+Mele, I.  \harvardyearleft 2013\harvardyearright .
+\newblock Lattice boltzmann method.
+\newline\harvardurl{\url{http://mafija.fmf.uni-lj.si/seminar/files/2012_2013/Lattice_Boltzmann_method.pdf}}
 
 \harvarditem{Rapp}{2017}{RAPP20173}
 Rapp, B.~E.  \harvardyearleft 2017\harvardyearright .
@@ -12,5 +37,20 @@ Rapp, B.~E.  \harvardyearleft 2017\harvardyearright .
   Microfluidics: Modelling, Mechanics and Mathematics}, Micro and Nano
   Technologies, Elsevier, Oxford, pp.~3 -- 7.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/pii/B9781455731411500010}
+
+\harvarditem[Soga et~al.]{Soga, Kumar, Gardner, Hosseni \harvardand\
+  Wang}{2020}{Soga2020}
+Soga, K., Kumar, K., Gardner, M., Hosseni, R. \harvardand\ Wang, Q.
+  \harvardyearleft 2020\harvardyearright .
+\newblock Lattice boltzmann method.
+\newline\harvardurl{\url{https://www.cb-geo.com/research/lbm/}}
+
+\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
+Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
+  .
+\newblock {Applying input variables selection technique on input weighted
+  support vector machine modeling for BOF endpoint prediction}, {\em
+  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
+\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
 
 \end{thebibliography}

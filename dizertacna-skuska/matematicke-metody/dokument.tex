@@ -16,6 +16,7 @@
 \usepackage{latexsym}
 \usepackage{dcolumn} % zarovnanie cisiel v tabulke podla des. ciarky
 \usepackage{hhline}
+\usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{nicefrac} % pekne zlomky
 \usepackage{upgreek} % napr. $\upmu\mathrm{m}$ pre mikrometer ...
@@ -121,16 +122,16 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 %
 %Potreba vývoja zdokonalených systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, ale environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
 %
-%The main objective of controlling oxygen converter steelmaking is to obtain prescribed parameters for the steel when it is tapped from the furnace, including weight, temperature, and each element content. In practical steelmaking process, the criterion whether the molten steel is acceptable or not is often decided by the endpoint carbon content and temperature (\cite{Wang2010}).
-%
-%Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov pre oceľ, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V praktickom procese výroby ocele sa o konečnom obsahu uhlíka a teplote často rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie \cite{Wang2010}.
-%
-%Generally, the LD/BOF steelmaking process with sub-lance system can be divided into two stages: static control and dynamic control. Static models include oxygen supplying model, slaging model and bottom blowing model; dynamic models include decarburization speed model, molten steel warming model and the model for the amount of coolant. (\cite{Wang2010}).
-%
+
+Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov pre oceľ, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V praktickom procese výroby ocele sa o konečnom obsahu uhlíka a teplote často rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie \cite{Wang2010}.
+
 %The fast dynamics of the LD converter steelmaking process or the BOF process, as it is commonly known, often makes it a challenge to obtain stable blowing conditions and to achieve the required steel composition and temperature simultaneously at the end point. For this reason, process control becomes very necessary and attempts had started as early as in the 1970s (\cite{Fritz2005}). Out of the originally very simple LD process have grown the modern process-controlled and automated production systems that enable present-day adaptations to meet today’s economic and ecological demands (\cite{Sarkar2015}). The non-linear nature of chemical and thermodynamical processes in basic oxygen steelmaking also amassed interest in developing new mathematical models based on fractionalorder calculus.
 
 %Simulations are at the core of all scientific modelling
 Simulácie sú jadrom všetkých vedeckých modelovaní
+
+Procesy výroby ocele všeobecne zahŕňajú základnú kyslíkovú pec, elektrickú oblúkovú pec alebo ekvivalentnú, panvu a kontinuálne liatie a obsahujúce medzipanvu a plesne. Všetky tieto kroky spracovania ocele zahŕňajú vysoko spojené komplexné dopravné javy.
+
 
 \section{Matematické metódy}
 
@@ -145,6 +146,29 @@ Po špecifikovaní problému, ktorý chceme riešiť, je nutné zostaviť sústa
 %	\label{o:30}
 %\end{figure}
 
+\section{Počítačom podporované matematické modelovanie}
+
+Počítačom podporované inžinierstvo (CAE - Computer Aided Engineering) je použitie počítačového softvéru na simuláciu výkonu s cieľom vylepšiť návrhy výrobkov alebo pomôcť pri riešení technických problémov pre celý rad priemyselných odvetví. To zahŕňa simuláciu, validáciu a optimalizáciu produktov, procesov a výrobných nástrojov.
+
+Typický proces CAE pozostáva z krokov predbežného spracovania, riešenia a následného spracovania. Vo fáze predspracovania inžinieri modelujú geometriu (alebo reprezentáciu systému) a fyzikálne vlastnosti návrhu, ako aj prostredie vo forme aplikovaného zaťaženia alebo obmedzení. Ďalej je model vyriešený pomocou vhodnej matematickej formulácie základnej fyziky. Vo fáze po spracovaní sa výsledky predložia technikovi na preskúmanie.
+
+Aplikácie CAE, výhody používania CAE...
+
+\url{https://www.plm.automation.siemens.com/global/en/our-story/glossary/computer-aided-engineering-cae/13112}
+
+Motivácia na používanie počítačových simulácií na skúmanie metalurgických procesov je dvojaká. Po prvé, umožňuje testovať zmeny dizajnu pred vytvorením prototypu, čo samozrejme vedie k nižším celkovým nákladom na návrh. Po druhé, umožňuje skúmať javy, ktoré sa nedajú ľahko merať alebo pozorovať v procese. Dokonca aj zdanlivo jednoduchá operácia, ako napríklad nepretržité meranie teploty počas procesu oduhličovania, je zložitá z dôvodu veľmi vysokých teplôt v procese a všeobecne drsných podmienok prevládajúcich v oceliarňach \citep{Ersson2018}.
+
+
+
+
+V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Od prvých pokusov o využitie matematických techník na simuláciu a optimalizáciu veľkých metalurgických operácií (Ray a kol., 1973) sa zaviedli rôzne numerické metódy ako algoritmy a použili sa na simuláciu javov v oceliarskych procesoch. Jednou z tried takýchto metód je Monte Carlo, ktoré je užitočné na simuláciu systémov s mnohými stupňami slobody, ako sú tekutiny.
+
+Problémy s modernou mechanikou tekutín by nebolo možné vyriešiť bez použitia počítačovej dynamiky tekutín (CFD - Computational Fluid Dynamics). CFD je vetva CAE, ktorá sa zaoberá simuláciou pohybu tekutín a prenosom tepla pomocou numerických prístupov, pretože rozsah analytických riešení základných rovníc mechaniky tekutín je veľmi obmedzený a hlavne veľmi obtiažny. V prípade zložitejšej geometrie to znamená, že zvyčajne na výber riešenia musia zvoliť danú numerickú metódu. 
+
+CFD zahŕňa široké spektrum numerických metód používaných pri riešení komplexné trojrozmerné (3D) a časovo závislé problémy s tokom \citep{RAPP20173}. Od počiatku priekopníckej práce v oblasti metalurgie, ktorú uskutočnili Szekely a kol. (1977), náklady na vykonávanie počítačových simulácií sa za posledných niekoľko desaťročí znížili, zatiaľ čo dostupný spracovateľský výkon sa zvýšil. Väčšina procesorov a spracovateľských jednotiek, ktoré sa v súčasnosti vyvíjajú a vyrábajú, má niekoľko jadier, ktoré môžu vykonávať pokyny súbežne. Spracovateľský výkon, ktorý je k dispozícii pre softvér CFD, teda tiež závisí od schopnosti softvéru vykonávať paralelne. Štúdia z posledných dvoch desaťročí \citep{Ersson2018} simulácií metalurgického CFD odhaľuje obrovské zlepšenia týkajúce sa typu javov, ktoré je možné preskúmať, a tento trend bude pokračovať vďaka zlepšeniam v dostupnom spracovaní. výkon a dostupné algoritmy. Preto CFD našiel cestu do mnohých štúdií v oceliarstve, kde sa tieto metódy ukázali ako užitočné pri preukazovaní skrytých a významných vlastností. Jeho použitie v oceliarskom priemysle však nemusí byť také integrované ako v leteckom a automobilovom priemysle, v ktorých je vývoj nových dizajnov kľúčový. Hlavný rozdiel medzi leteckým a metalurgickým priemyslom spočíva v tom, že hutnícky priemysel sa takmer vždy zaoberá viacfázovými systémami pri zvýšených teplotách a že motiváciou modelovania je najmä optimalizácia procesov. S pokračujúcim vývojom vo viacfázových modeloch, ako aj pri reakčnom modelovaní toku, ostáva pokračujúca užitočnosť CFD v metalurgii jasná.
+
+V procese LD / BOF určujú rôzne chemické reakcie medzi kyslíkom, troskou a roztaveným železom v konvertore kyslíka, v kombinácii s energickým miešaním, aby sa podporila troska, defosforizácia, dekarbonizácia, zahrievanie roztavenej ocele a homogenizácia zloženia a teploty ocele. výsledné vlastnosti ocele. Cieľom konvertora kyslíka je rafinovať roztavené železo na surovú oceľ oxidáciou, aby sa dosiahla konečná teplota a chemické zloženie na konci rany. Ak to neurobíte, bude to potrebné zrevidovať. Vplyv prúdu kyslíka do roztaveného kúpeľa silne ovplyvňuje kúpeľ a podporuje trojfázový tok medzi plynom, troskou a roztavenou oceľou v kúpeli. S prechodom od starých systémov založených na pravidlách k modelu v reálnom čase uzavretým
+
 \section{CFD analýza}
 
 CFD je využívaná od začiatku 20. storočia v oboroch fyziky akými sú aerodynamika, termodynamika alebo hydrodynamika. Dynamika je časť mechaniky, ktorá sa zaoberá vplyvom pôsobenia síl na pohyb telies.
@@ -156,20 +180,84 @@ Dynamika kvapalín
 Pri skúmaní dynamických javov je cieľom CFD analýzy vytvoriť čo najpresnejší obraz týchto javoch a procesoch, ktoré vznikajú a prebiehajú pri pohybe plynných a kvapalných látok v okolí alebo vo vnútri objektov v pevnom skupenstve. Zároveň je vhodná na analyzovanie toku alebo zmeny teploty v okolí skúmaných objektov. Tieto procesy väčšinou súvisia s pôsobením javov akými sú rozptyl, šírenie, konvekcia, náraz vĺn, klzké povrchy, medzné vrstvy a turbulencia.
 
 
+metóda konečných prvkov (FEM - Finite Element Analysis)
+
 % Ukazky z inych odvetvi, relevantnych pre mna?
 
 CFD simulácie sú využívané v rôznych oblastiach, akými sú napríklad prúdenie tekutín v potrubiach, plynov vo vzduchotechnike, analýza chladenia uzavretých priestorov alebo analýzu elektrotechnických zariadení.
 
 Presnosť CFD simulácií ale nie je zaručená a tak treba stále počítať s tým, že nám vedia poskytnúť iba približné informácie o tom, ako sa bude simulovaná súčiastka alebo proces správať v reálnom svete. 
 
+
+% CFD v BOF a LD
+
+%Many models have been developed to predict mixing behaviour, slag foaming, gas-liquid interactions, multiphase flows, as well as heat and mass transfer aspects
+Bolo vyvinutých veľa modelov na predpovedanie zmiešavania, napenenia trosky, interakcií plyn-kvapalina, viacfázových tokov, ako aj aspektov prenosu tepla a hmoty
+
+\citep{chattopadhyay2010}
+
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.8\textwidth,angle=0]{figures/blast-furnace-erosion-vr.jpg}
+	\caption{3D CFD simulácia vnútra ("srdca") vysokej pece.}
+\end{figure}
+
 %Computational fluid dynamics (CFD) has continuously evolved over recent decades and has come to play an important role in the development of modern LD (BOF) steelmaking converters. Flow inside the converter is highly complex and comprises several physical phenomena such as supersonic flow, chemical reactions, heat transfer and the flow of gas bubbles in the liquid melt. For numerical reasons, not all flow processes can be taken into account, but it is possible to describe major effects, show tendencies and gain valuable insight on multi-phase flow processes. The results of these analyses can subsequently be used in the design of new converters. Primetals Technologies is committed to developing an efficient approach to modeling flow and mixing inside the converter during the refining process within a reasonable time. Investigations were carried out on a 110-ton converter in connection with steel bath mixing, which led to the development of a generally applicable method for modeling the flow and quantification of the mixing intensity. It became clear that two kinds of vortices are generated inside the flow, which are of significant importance for mixing and overall flow. On the one hand, vortices are created near the bubble columns at the stirring elements and, on the other hand, much larger vortices are formed that strongly influence the total flow in a molten steel bath. Furthermore, it could be shown that the arrangement and type of bottompurging elements are crucial factors for mixing intensity. An asymmetric alignment of purging elements can result in critical zones inside the converter that are characterized by very low local flow velocities. Primetals Technologies has drawn on its extensive numerical simulation competence to investigate the influence of varying process parameters in order to optimize the overall design of the converter and blowing lance equipment.
 
+%Initial conditions define the starting values for each solution field. They play a vital role in the stability and computing time for steady-state simulations, and are important for getting physically accurate results in transient analyzes. Therefore, it is very important to define appropriate initial conditions for your simulations.
+Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri prechodných analýzach. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
+
+Hraničné podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady hraničných podmienok.
+
+\subsection{Stlačiteľnosť tekutín}
+
+Kľúčový rozdiel medzi stlačiteľnými a nestlačiteľnými tekutinami je v tom, že stlačiteľné tekutiny sa vyskytujú v reálnom prostredí, zatiaľ čo nestlačiteľné tekutiny, nazývané aj ideálne tekutiny, sú koncepciou vyvinutou na uľahčenie výpočtu.
+
+Kvapaliny, s ktorými sa stretávame v bežnom živote sú do určitej miery stlačiteľné, no 
+
+
+Stlačiteľnosť tekutiny môžeme definovať ako zmenšenie jej objemu v dôsledku vonkajších tlakov na ňu pôsobiacich. Naopak stlačiteľná tekutina zníži svoj objem v prítomnosti vonkajšieho tlaku. Preto môžeme kvantitatívne meranie stlačiteľnosti vziať ako relatívnu zmenu objemu kvapaliny v reakcii na zmenu tlaku.
+
+Matematicky môžeme stlačiteľnosť $\gamma$ definovať ako
+
+\begin{equation}
+	\gamma = \frac{-1}{V} \frac{\partial V}{\partial p}
+\end{equation}
+
+kde $V$ je objem tekutiny pred stlačením, $\partial V$ je zmena objemu po sltačení a $\partial p$ je zmena tlaku.
 
 \subsection{Navier-Stokesova rovnica}
 
-Navier-Stokesova rovnica
+Navier-Stokesova rovnica (NSR) popisuje prúdenie tekutiny. Má široké využitie, ako napríklad minimalizácia odporu vzduchu karosérie áut, návrhy vodných turbín, štúdium toku krvi v tele, predpoveď počasia a iné. V praxi sa ňou modeluje hlavne prúdenie nestlačiteľnej (ideálnej) newtonovskej tekutiny, ktorej základná vlastnosť je, že deformácia je priamo úmerná napätiu a jej viskozita je nemenná.
 
-Jedna zo zaujímavostí je, že Clayov inštitút vypísal na nájdenie riešenia Navier-Stokesovej rovnice odmenu 1 milión dolárov. 
+Rovnica kontinuity:
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
+\end{equation}
+
+X-moment:
+
+\begin{equation}
+\frac{\partial (\rho u)}{\partial t} + \frac{\partial (\rho u^2)}{\partial x} + \frac{\partial (\rho uv)}{\partial y} + \frac{\partial (\rho uw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z}\right]
+\end{equation}
+
+Y-moment:
+
+\begin{equation}
+\frac{\partial  (\rho v)}{\partial t} + \frac{\partial (\rho uv)}{\partial x} + \frac{\partial (\rho v^2)}{\partial y} + \frac{\partial (\rho vw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{yx}}{\partial x} + \frac{\partial \tau_{yy}}{\partial y} + \frac{\partial \tau_{yz}}{\partial z}\right]
+\end{equation}
+
+Z-moment:
+
+\begin{equation}
+\frac{\partial  (\rho w)}{\partial t} + \frac{\partial (\rho uw)}{\partial x} + \frac{\partial (\rho vw)}{\partial y} + \frac{\partial (\rho w^2)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{zx}}{\partial x} + \frac{\partial \tau_{zy}}{\partial y} + \frac{\partial \tau_{zz}}{\partial z}\right]
+\end{equation}
+
+
+
+Aj napriek praktickému využitiu, zatiaľ neexistuje dôkaz o tom, či riešenia NSR vždy existujú v troch dimenziách, a ak áno, tak či sú na celom intervale nekonečne diferencovateľná. Na tento problém Clayov inštitút vypísal odmenu 1 milión dolárov.
 
 \subsection{Metóda lattice Boltzmann}
 
@@ -178,38 +266,82 @@ Metóda lattice Boltzmann je relatívne nová metóda v oblasti CFD analýzy.
 
 \citep{delbosc2015}
 
-\subsection{LES}
+
+Boltzmannova rovnica je základná evolučná rovnica pre kontinuum, popísanej v šesť-dimenzionálnom fázovom priestore. Rovnica popisuje vývoj distribučnej funkcie v čase. Tá sa môže meniť v dôsledku vzájomných kolízií častíc, ktoré pri nárazoch menia svoju hybnosť a energiu, a to v dôsledku vlastného pohybu častíc alebo vplyvom externých síl \citep{HEIDLER2011thesis}.
+
+LBM vychádza z z 
+
+%Over the past few decades, tremendous progress has been made in the development of particle-based discrete simulation methods versus the conventional continuum-based methods. In particular, the lattice Boltzmann (LB) method has evolved from a theoretical novelty to a ubiquitous, versatile and powerful computational methodology for both fundamental research and engineering applications. It is a kinetic-based mesoscopic approach that bridges the microscales and macroscales, which offers distinctive advantages in simulation fidelity and computational efficiency. Applications of the LB method are now found in a wide range of disciplines including physics, chemistry, materials, biomedicine and various branches of engineering.
+
+V posledných niekoľkých desaťročiach sa dosiahol obrovský pokrok vo vývoji diskrétnych simulačných metód založených na časticiach v porovnaní s konvenčnými metódami založenými na kontinue. Najmä sa metóda mriežky Boltzmann (LB) vyvinula z teoretickej novosti na všadeprítomnú, všestrannú a výkonnú výpočtovú metodológiu pre základné výskumné aj inžinierske aplikácie. Jedná sa o kineticky založený mezoskopický prístup, ktorý premosťuje mikroskopické a makroskopické mierky, čo ponúka výrazné výhody pri vernosti simulácie a výpočtovej účinnosti. Aplikácie metódy LB sa v súčasnosti nachádzajú v širokej škále odborov vrátane fyziky, chémie, materiálov, biomedicíny a rôznych odborov strojárstva.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1\textwidth,angle=0]{figures/different-scales.png}
+	\caption{Techniky simulácie v rôznych škálach \citep{Mele2013}.}
+\end{figure}
+
+%The particles jump from one lattice node to the next, according to their (discrete) velocity. This is the propagation phase
+Častice skočia z jedného mriežkového uzla do nasledujúceho podľa svojej (diskrétnej) rýchlosti. Toto je propagačná fáza
+
+%Then, the particles collide and get a new velocity. This is the collision phase
+Potom sa častice zrazia a získajú novú rýchlosť. Toto je fáza kolízie
+
+%Rules governing the collisions are designed such that the time-average motion satisfies mass and momentum conservation
+Pravidlá upravujúce zrážky sú navrhnuté tak, aby priemerný čas vyhovoval zachovaniu hmotnosti a hybnosti
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.7\textwidth,angle=0]{figures/lbm-grid.jpg}
+	\caption{Mriežková štruktúra LBM \citep{Soga2020}.}
+\end{figure}
+
+Pri LBM sa (ako aj pri iných numerických metódach) môže objaviť numerická nestabilita. Zatiaľ pre túto metódu nie sú presne dané podmienky stability, ale z doterajších praktických výpočtov vzišlo niekoľko podmienok, pri ktorých držaní sa je možné dosiahnuť akceptovateľnú stabilitu:
+
+\begin{enumerate}
+	\item{Kinetická viskozita by mala byť kladná.}
+	\item{Výsledná makroskopická rýchlosť prúdenia}
+\end{enumerate}
+
+
+\subsection{Modelovanie turbulencie}
+
+LES (Large Eddy Simulation) je matematický model turbulencie pôvodne navrhnutý Josephom Smagorinskym
+
+
+$K-\epsilon$ je matematický model turbulencie
 
 \subsection{DNS}
 
-\section{Počítačom podporované matematické modelovanie}
+Direct Numerical Simulation
 
-Počítačom podporované inžinierstvo (CAE - Computer Aided Engineering) je použitie počítačového softvéru na simuláciu výkonu s cieľom vylepšiť návrhy výrobkov alebo pomôcť pri riešení technických problémov pre celý rad priemyselných odvetví. To zahŕňa simuláciu, validáciu a optimalizáciu produktov, procesov a výrobných nástrojov.
+\section{Programy pre CFD simulácie}
 
-Typický proces CAE pozostáva z krokov predbežného spracovania, riešenia a následného spracovania. Vo fáze predspracovania inžinieri modelujú geometriu (alebo reprezentáciu systému) a fyzikálne vlastnosti návrhu, ako aj prostredie vo forme aplikovaného zaťaženia alebo obmedzení. Ďalej je model vyriešený pomocou vhodnej matematickej formulácie základnej fyziky. Vo fáze po spracovaní sa výsledky predložia technikovi na preskúmanie.
+\subsection{Matlab}
+Matlab obsahuje niekoľko toolboxov pre CFD analýzu. 
 
-Aplikácie CAE, výhody používania CAE...
+\subsection{Ansys Fluid}
 
-\url{https://www.plm.automation.siemens.com/global/en/our-story/glossary/computer-aided-engineering-cae/13112}
+Ansys Fluid
 
-Motivácia na používanie počítačových simulácií na skúmanie metalurgických procesov je dvojaká. Po prvé, umožňuje testovať zmeny dizajnu pred vytvorením prototypu, čo samozrejme vedie k nižším celkovým nákladom na návrh. Po druhé, umožňuje skúmať javy, ktoré sa nedajú ľahko merať alebo pozorovať v procese. Dokonca aj zdanlivo jednoduchá operácia, ako napríklad nepretržité meranie teploty počas procesu oduhličovania, je zložitá z dôvodu veľmi vysokých teplôt v procese a všeobecne drsných podmienok prevládajúcich v oceliarňach (\citep{Ersson2018}).
+\subsection{SimScale}
 
-V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Od prvých pokusov o využitie matematických techník na simuláciu a optimalizáciu veľkých metalurgických operácií (Ray a kol., 1973) sa zaviedli rôzne numerické metódy ako algoritmy a použili sa na simuláciu javov v oceliarskych procesoch. Jednou z tried takýchto metód je Monte Carlo, ktoré je užitočné na simuláciu systémov s mnohými stupňami slobody, ako sú tekutiny.
-Problémy s modernou mechanikou tekutín by nebolo možné vyriešiť bez použitia výpočtovej dynamiky tekutín (CFD), pretože rozsah analytických riešení základných rovníc mechaniky tekutín je veľmi obmedzený a keď sa dosiahne zložitejšia geometria, zvyčajne na výber riešenia musia zvoliť danú numerickú metódu. CFD zahŕňa široké spektrum numerických metód používaných pri riešení komplexné trojrozmerné (3D) a časovo závislé problémy s tokom (\citep{RAPP20173}). Od počiatku priekopníckej práce v oblasti metalurgie, ktorú uskutočnili Szekely a kol. (1977), náklady na vykonávanie počítačových simulácií sa za posledných niekoľko desaťročí znížili, zatiaľ čo dostupný spracovateľský výkon sa zvýšil. Väčšina procesorov a spracovateľských jednotiek, ktoré sa v súčasnosti vyvíjajú a vyrábajú, má niekoľko jadier, ktoré môžu vykonávať pokyny súbežne. Spracovateľský výkon, ktorý je k dispozícii pre softvér CFD, teda tiež závisí od schopnosti softvéru vykonávať paralelne. Štúdia z posledných dvoch desaťročí (\citep{Ersson2018}) simulácií metalurgického CFD odhaľuje obrovské zlepšenia týkajúce sa typu javov, ktoré je možné preskúmať, a tento trend bude pokračovať vďaka zlepšeniam v dostupnom spracovaní. výkon a dostupné algoritmy. Preto CFD našiel cestu do mnohých štúdií v oceliarstve, kde sa tieto metódy ukázali ako užitočné pri preukazovaní skrytých a významných vlastností. Jeho použitie v oceliarskom priemysle však nemusí byť také integrované ako v leteckom a automobilovom priemysle, v ktorých je vývoj nových dizajnov kľúčový. Hlavný rozdiel medzi leteckým a metalurgickým priemyslom spočíva v tom, že hutnícky priemysel sa takmer vždy zaoberá viacfázovými systémami pri zvýšených teplotách a že motiváciou modelovania je najmä optimalizácia procesov. S pokračujúcim vývojom vo viacfázových modeloch, ako aj pri reakčnom modelovaní toku, ostáva pokračujúca užitočnosť CFD v metalurgii jasná.
+Platforma SimScale ponúka v rámci čiastkových produktov mnohé funkcionality ako ostatné simulačné programy, no táto firma stavila na využitie cloudových technológií. Práca s programom prebieha cez webové rozhranie, kde užívateľ nastavuje a spúšťa simulácie a taktiež sa priamo vo webovom prehliadači zobrazuje 2D alebo 3D vizualizácia simulovaného modelu. Výpočty prebiehajú na serveroch prevádzkovaných alebo prenajímaných firmou SimScale, ktoré využívajú možnosti masívnej paralelizácie grafických kariet
 
-V procese LD / BOF určujú rôzne chemické reakcie medzi kyslíkom, troskou a roztaveným železom v konvertore kyslíka, v kombinácii s energickým miešaním, aby sa podporila troska, defosforizácia, dekarbonizácia, zahrievanie roztavenej ocele a homogenizácia zloženia a teploty ocele. výsledné vlastnosti ocele. Cieľom konvertora kyslíka je rafinovať roztavené železo na surovú oceľ oxidáciou, aby sa dosiahla konečná teplota a chemické zloženie na konci rany. Ak to neurobíte, bude to potrebné zrevidovať. Vplyv prúdu kyslíka do roztaveného kúpeľa silne ovplyvňuje kúpeľ a podporuje trojfázový tok medzi plynom, troskou a roztavenou oceľou v kúpeli. S prechodom od starých systémov založených na pravidlách k modelu v reálnom čase uzavretým
 
-\subsection{Computational Fluid Dynamics}
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Simulácia toku vetra okolo modelu niekoľkých výškových budov so zložitou geometriou.]{{\includegraphics[width=7.1cm]{figures/simscale-cfd.jpg} }}%
+	\qquad
+	\subfloat[CFD simulácia viacfázovej tekutiny.]{{\includegraphics[width=6.7cm]{figures/simscale-multiphase.jpg} }}
+	\caption{Vizualizácie CFD simulácií v prostredí SimScale.}
+\end{figure}
 
-\subsection{Programy pre CFD simulácie}
+\subsection{OpenFOAM}
 
-Matlab
+OpenFOAM je súbor nástrojov s voľne prístupným zdrojovým kódom na riešenie zložitých problémov s výpočtovou dynamikou tekutín. Obsahuje širokú škálu fyzikálnych modelov (vrátane turbulencie, úpravy steny, termodynamiky a hromadnej dopravy), numerických metód a nástrojov na predbežné a následné spracovanie.
 
-Ansys
-
-SimScale
-
-OpenFOAM
+\subsection{OpenLB}
 
 %
 \include{bibliography}

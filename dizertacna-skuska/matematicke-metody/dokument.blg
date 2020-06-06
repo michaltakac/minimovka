@@ -20,46 +20,56 @@ I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
+Warning--entry type for "delbosc2015" isn't style-file defined
+--line 110 of file references/uncategorized.bib
 Database file #9: references/lbm.bib
-You've used 2 entries,
+Warning--entry type for "HEIDLER2011thesis" isn't style-file defined
+--line 1 of file references/lbm.bib
+Warning--entry type for "Mele2013" isn't style-file defined
+--line 11 of file references/lbm.bib
+Warning--string name "march" is undefined
+--line 16 of file references/lbm.bib
+Warning--string name "march" is undefined
+--line 25 of file references/lbm.bib
+You've used 8 entries,
             2921 wiz_defined-function locations,
-            664 strings with 5334 characters,
-and the built_in function-call counts, 5825 in all, are:
-= -- 916
-> -- 75
+            706 strings with 6600 characters,
+and the built_in function-call counts, 26951 in all, are:
+= -- 4308
+> -- 399
 < -- 0
-+ -- 406
-- -- 22
-* -- 474
-:= -- 1221
-add.period$ -- 4
-call.type$ -- 2
-change.case$ -- 28
-chr.to.int$ -- 2
-cite$ -- 2
-duplicate$ -- 37
-empty$ -- 77
-format.name$ -- 30
-if$ -- 1049
++ -- 2010
+- -- 120
+* -- 2261
+:= -- 5563
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 112
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 101
+empty$ -- 243
+format.name$ -- 143
+if$ -- 4820
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 2
-newline$ -- 12
-num.names$ -- 22
-pop$ -- 6
+missing$ -- 4
+newline$ -- 41
+num.names$ -- 85
+pop$ -- 39
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 120
 quote$ -- 0
-skip$ -- 34
+skip$ -- 102
 stack$ -- 0
-substring$ -- 1243
-swap$ -- 9
-text.length$ -- 28
+substring$ -- 5982
+swap$ -- 13
+text.length$ -- 112
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 32
 warning$ -- 0
-while$ -- 47
+while$ -- 177
 width$ -- 0
-write$ -- 33
+write$ -- 118
 (There were 2 error messages)
