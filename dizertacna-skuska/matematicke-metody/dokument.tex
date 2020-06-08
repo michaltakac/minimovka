@@ -110,40 +110,11 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 
 \section{Úvod}
 
-%The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an~eye on the big picture was, until not so long ago, a human process \cite{Al-Megren2016}.
-%
-%Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Ovládače sa používajú na automatizáciu ľudskej funkcie v snahe ovládať premennú. Základný ovládač môže udržiavať jednotlivú slučku na rovnomernom mieste, pokiaľ nedôjde k prílišnému prerušeniu. Komplexné procesy, ako sú procesy v metalurgii, môžu zamestnávať desiatky alebo dokonca stovky takýchto regulátorov, ale pozor na celkový obraz bol až donedávna ľudským procesom \cite{Al-Megren2016}
-%
-%Although a device was used to automate a human function in an effort to control a variable, there was no sense of what the process was doing overall. A basic controller could keep an individual loop on an even keel, more or less, so long as there was not too much disruption. Complex processes might employ dozens or even hundreds of such controllers, each with its performance displayed on a panel board, but keeping an eye on the big picture was still a human process.	
-%
-%Aj keď sa zariadenie používalo na automatizáciu ľudskej funkcie v snahe ovládať premennú, nemal zmysel, čo tento proces celkovo robí. Základný ovládač by mohol udržiavať individuálnu slučku na rovnomernom kýli viac alebo menej, pokiaľ nenastane príliš veľa prerušenia. Komplexné procesy môžu využívať desiatky alebo dokonca stovky takýchto kontrolérov, z ktorých každý má svoj výkon zobrazený na doske, ale pozor na celkový obraz bol stále ľudský proces.
-%
-%The need for developing improved control systems has traditionally been powered by the demand for more accurate and cost efficient production. This is still a major driving force but environmental issues do also have a profound influence on this development today (\cite{Widlund1998}).
-%
-%Potreba vývoja zdokonalených systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, ale environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
-%
+V kyslíkovom konvertore prebieha množstvo chemických reakcií a fyzikálnych javov, medzi ktorými sa nájdu aj také, ktorým úplne nerozumieme z dôvodu ich komplexnosti. Podstatou výroby ocele v takomto konvertore je oxidácia prvkov z kovonosnej vsádzky s kyslíkom fúkaným do konvertora. Oxidy týchto prvkov prechádzajú do trosky alebo odchádzajú vo forme konvertorového plynu. V kombinácii s fúkaním kyslíka prebieha proces miešania, aby sa podporila defosforizácia, dekarbonizácia, zahrievanie roztavenej ocele a homogenizácia zloženia a teploty ocele.
 
-%The fast dynamics of the LD converter steelmaking process or the BOF process, as it is commonly known, often makes it a challenge to obtain stable blowing conditions and to achieve the required steel composition and temperature simultaneously at the end point. For this reason, process control becomes very necessary and attempts had started as early as in the 1970s (\cite{Fritz2005}). Out of the originally very simple LD process have grown the modern process-controlled and automated production systems that enable present-day adaptations to meet today’s economic and ecological demands (\cite{Sarkar2015}). The non-linear nature of chemical and thermodynamical processes in basic oxygen steelmaking also amassed interest in developing new mathematical models based on fractionalorder calculus.
+Rýchla dynamika procesu výroby ocele kyslíkovým konvertorom sťažuje dosiahnutie stabilných podmienok pre fúkanie kyslíka a súčasne dosiahnutie požadovaného zloženia ocele a teploty v koncovom bode tavenia. Nelineárna povaha chemických a termodynamických procesov pri výrobe ocele v LD konvertore tiež vzbudila záujem o vývoj nových matematických modelov založených na neceločíselnom diferenciálnom počte.
 
 Matematický model predstavuje súbor funkčných vzťahov, ktoré transformujú vstupné hodnoty na výsledky, ktorými je možné vyjadriť podstatu modelovaného deja. Modelovanie je pravdepodobne najdôležitejšia časť procesu simulácie. Jej cieľom je čo najpresnejšie zachytiť správanie sa reálneho systému. Zahŕňa identifikáciu problému a očakávaný cieľ riešenia problému, zber reálnych dát alebo generácia náhodných dát, vytvorenie modelu, jeho úprava, prispôsobovanie a jeho overenie porovnaním výstupných dát zo simulácie s reálnymi dátami z reálneho systému.
-
-Procesy výroby ocele všeobecne zahŕňajú základnú kyslíkovú pec, elektrickú oblúkovú pec alebo ekvivalentnú, panvu a kontinuálne liatie a obsahujúce medzipanvu a plesne. Všetky tieto kroky spracovania ocele zahŕňajú vysoko spojené komplexné dopravné javy.
-
-Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov pre oceľ, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V praktickom procese výroby ocele sa o konečnom obsahu uhlíka a teplote často rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie \cite{Wang2010}.
-
-
-\section{Matematické metódy}
-
-Parciálne diferenciálne rovnice popisujú fyzikálne procesy pohybu tekutín.
-
-Po špecifikovaní problému, ktorý chceme riešiť, je nutné zostaviť sústavu rovníc popisujúcich problém a zvoliť počiatočné, respektíve okrajové podmienky. Je všeobecne známe, že fyzikálne javy v oblasti dynamiky tekutín
-
-%\begin{figure}[ht!]
-%	\centering
-%	\includegraphics[width=.35\textwidth,angle=0]{figures/different-scales.png}
-%	\caption{Rôzne škály.}
-%	\label{o:30}
-%\end{figure}
 
 \section{Počítačom podporované matematické modelovanie}
 
@@ -160,41 +131,30 @@ Motivácia na používanie počítačových simulácií na skúmanie metalurgick
 
 
 
-V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Od prvých pokusov o využitie matematických techník na simuláciu a optimalizáciu veľkých metalurgických operácií (Ray a kol., 1973) sa zaviedli rôzne numerické metódy ako algoritmy a použili sa na simuláciu javov v oceliarskych procesoch. Jednou z tried takýchto metód je Monte Carlo, ktoré je užitočné na simuláciu systémov s mnohými stupňami slobody, ako sú tekutiny.
+V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Od prvých pokusov o využitie matematických techník na simuláciu a optimalizáciu veľkých metalurgických operácií sa zaviedli rôzne numerické metódy ako algoritmy a použili sa na simuláciu javov v oceliarskych procesoch.
 
 Problémy s modernou mechanikou tekutín by nebolo možné vyriešiť bez použitia počítačovej dynamiky tekutín (CFD - Computational Fluid Dynamics). CFD je vetva CAE, ktorá sa zaoberá simuláciou pohybu tekutín a prenosom tepla pomocou numerických prístupov, pretože rozsah analytických riešení základných rovníc mechaniky tekutín je veľmi obmedzený a hlavne veľmi obtiažny. V prípade zložitejšej geometrie to znamená, že zvyčajne na výber riešenia musia zvoliť danú numerickú metódu. 
 
-CFD zahŕňa široké spektrum numerických metód používaných pri riešení komplexné trojrozmerné (3D) a časovo závislé problémy s tokom \citep{RAPP20173}. Od počiatku priekopníckej práce v oblasti metalurgie, ktorú uskutočnili Szekely a kol. (1977), náklady na vykonávanie počítačových simulácií sa za posledných niekoľko desaťročí znížili, zatiaľ čo dostupný spracovateľský výkon sa zvýšil. Väčšina procesorov a spracovateľských jednotiek, ktoré sa v súčasnosti vyvíjajú a vyrábajú, má niekoľko jadier, ktoré môžu vykonávať pokyny súbežne. Spracovateľský výkon, ktorý je k dispozícii pre softvér CFD, teda tiež závisí od schopnosti softvéru vykonávať paralelne. Štúdia z posledných dvoch desaťročí \citep{Ersson2018} simulácií metalurgického CFD odhaľuje obrovské zlepšenia týkajúce sa typu javov, ktoré je možné preskúmať, a tento trend bude pokračovať vďaka zlepšeniam v dostupnom spracovaní. výkon a dostupné algoritmy. Preto CFD našiel cestu do mnohých štúdií v oceliarstve, kde sa tieto metódy ukázali ako užitočné pri preukazovaní skrytých a významných vlastností. Jeho použitie v oceliarskom priemysle však nemusí byť také integrované ako v leteckom a automobilovom priemysle, v ktorých je vývoj nových dizajnov kľúčový. Hlavný rozdiel medzi leteckým a metalurgickým priemyslom spočíva v tom, že hutnícky priemysel sa takmer vždy zaoberá viacfázovými systémami pri zvýšených teplotách a že motiváciou modelovania je najmä optimalizácia procesov. S pokračujúcim vývojom vo viacfázových modeloch, ako aj pri reakčnom modelovaní toku, ostáva pokračujúca užitočnosť CFD v metalurgii jasná.
+\section{Počítačová dynamika tekutín (CFD)}
 
-V procese LD / BOF určujú rôzne chemické reakcie medzi kyslíkom, troskou a roztaveným železom v konvertore kyslíka, v kombinácii s energickým miešaním, aby sa podporila troska, defosforizácia, dekarbonizácia, zahrievanie roztavenej ocele a homogenizácia zloženia a teploty ocele. výsledné vlastnosti ocele. Cieľom konvertora kyslíka je rafinovať roztavené železo na surovú oceľ oxidáciou, aby sa dosiahla konečná teplota a chemické zloženie na konci rany. Ak to neurobíte, bude to potrebné zrevidovať. Vplyv prúdu kyslíka do roztaveného kúpeľa silne ovplyvňuje kúpeľ a podporuje trojfázový tok medzi plynom, troskou a roztavenou oceľou v kúpeli. S prechodom od starých systémov založených na pravidlách k modelu v reálnom čase uzavretým
+Počítačová dynamika tekutín (CFD) je využívaná od začiatku 20. storočia v oboroch fyziky akými sú aerodynamika, termodynamika alebo hydrodynamika. Je založená na numerickom riešení modelovanej sústavy parciálnych diferenciálnych rovníc, ktore popisujú určité formy pohybu a ktoré vyjadrujú zákon zachovania hmotnosti (rovnica kontinuity), zákon zachovania hybnosti (Navier-Stokesove rovnice) a zákon zachovania energie (rovnice prenosu tepla konvekciou, kondukciou alebo radiáciou).
 
-\section{CFD analýza}
+Pri skúmaní dynamických javov tekutín je cieľom CFD analýzy vytvoriť čo najpresnejší obraz o týchto javoch a procesoch, ktoré vznikajú a prebiehajú pri pohybe plynných a kvapalných látok v okolí alebo vo vnútri objektov v pevnom skupenstve. Presnosť CFD simulácií ale nie je zaručená a tak treba stále počítať s tým, že nám vedia poskytnúť iba približné informácie o tom, ako sa bude simulovaná súčiastka alebo proces správať v reálnom svete. 
 
-CFD je využívaná od začiatku 20. storočia v oboroch fyziky akými sú aerodynamika, termodynamika alebo hydrodynamika. Dynamika je časť mechaniky, ktorá sa zaoberá vplyvom pôsobenia síl na pohyb telies.
-
-Aerodynamika sa venuje štúdiom pohybu plynov a ich interakciou s pevnými objektami, akými je napríklad karoséria pretekárskeho auta alebo krídlo lietadla. 
-
-Dynamika kvapalín
-
-Pri skúmaní dynamických javov je cieľom CFD analýzy vytvoriť čo najpresnejší obraz týchto javoch a procesoch, ktoré vznikajú a prebiehajú pri pohybe plynných a kvapalných látok v okolí alebo vo vnútri objektov v pevnom skupenstve. Zároveň je vhodná na analyzovanie toku alebo zmeny teploty v okolí skúmaných objektov. Tieto procesy väčšinou súvisia s pôsobením javov akými sú rozptyl, šírenie, konvekcia, náraz vĺn, klzké povrchy, medzné vrstvy a turbulencia.
+Pohyb tekutín súvisí s rôznymi problémami danými fyzikálnym modelom, ako napríklad laminárne a turbulentné prúdenie, stlačiteľné a nestlačiteľné prúdenie, prenos a distribúcia tepla, prenos chemických prímesí vrátane chemických reakcií, viacfázové prúdenie, prúdenie poréznym prostredím, vznik bublín alebo horenie.
 
 
 metóda konečných prvkov (FEM - Finite Element Analysis)
 
-% Ukazky z inych odvetvi, relevantnych pre mna?
 
-CFD simulácie sú využívané v rôznych oblastiach, akými sú napríklad prúdenie tekutín v potrubiach, plynov vo vzduchotechnike, analýza chladenia uzavretých priestorov alebo analýzu elektrotechnických zariadení.
+Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri analýzach prechodných dejov. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
 
-Presnosť CFD simulácií ale nie je zaručená a tak treba stále počítať s tým, že nám vedia poskytnúť iba približné informácie o tom, ako sa bude simulovaná súčiastka alebo proces správať v reálnom svete. 
+Hraničné podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady hraničných podmienok.
 
 
-% CFD v BOF a LD
+\subsection{CFD v metalurgii}
 
-%Many models have been developed to predict mixing behaviour, slag foaming, gas-liquid interactions, multiphase flows, as well as heat and mass transfer aspects
-Bolo vyvinutých veľa modelov na predpovedanie zmiešavania, napenenia trosky, interakcií plyn-kvapalina, viacfázových tokov, ako aj aspektov prenosu tepla a hmoty
-
-\citep{chattopadhyay2010}
-
+Od počiatku priekopníckej práce v oblasti metalurgie, ktorú uskutočnili Szekely a kol. (1977), bolo vyvinutých veľa modelov, konkrétne pre kyslíkové konvertory to boli modely procesu zmiešavania, napenenia trosky, interakcií plyn-kvapalina, viacfázových tokov, ako aj aspektov prenosu tepla a hmoty \citep{chattopadhyay2010}. Náklady na vykonávanie počítačových simulácií sa za posledných niekoľko desaťročí znížili, zatiaľ čo dostupný výpočtový výkon sa zvýšil. Súčasne dostupné procesory sú štandardne viacjadrové, vďaka čomu je možné vykonávať viacero výpočtov súbežne. Pre zložité výpočty sa začali využívať grafické výpočtové jednotky (GPU) kvôli možnej paralelizácii výpočtových algoritmov. Štúdia z posledných dvoch desaťročí \citep{Ersson2018} využívania CFD simulácií v metalurgii odhaľuje obrovské zlepšenie týkajúce sa typu javov, ktoré je možné vďaka  nim preskúmať a tento trend bude  aj naďalej pokračovať. Ich použitie v oceliarskom priemysle však ešte stále nie je tak intenzívne ako v leteckom a automobilovom priemysle, v ktorých je vývoj nových dizajnov kľúčový. Hlavný rozdiel medzi leteckým a metalurgickým priemyslom spočíva v tom, že metalurgia sa takmer vždy zaoberá viacfázovými systémami pri zvýšených teplotách a že motiváciou modelovania je najmä optimalizácia procesov. S pokračujúcim vývojom vo viacfázových modeloch, ako aj pri reakčnom modelovaní toku, je užitočnosť CFD v metalurgii jasná.
 
 \begin{figure}[!ht]
 	\centering
@@ -202,12 +162,7 @@ Bolo vyvinutých veľa modelov na predpovedanie zmiešavania, napenenia trosky, 
 	\caption{3D CFD simulácia vnútra ("srdca") vysokej pece.}
 \end{figure}
 
-%Computational fluid dynamics (CFD) has continuously evolved over recent decades and has come to play an important role in the development of modern LD (BOF) steelmaking converters. Flow inside the converter is highly complex and comprises several physical phenomena such as supersonic flow, chemical reactions, heat transfer and the flow of gas bubbles in the liquid melt. For numerical reasons, not all flow processes can be taken into account, but it is possible to describe major effects, show tendencies and gain valuable insight on multi-phase flow processes. The results of these analyses can subsequently be used in the design of new converters. Primetals Technologies is committed to developing an efficient approach to modeling flow and mixing inside the converter during the refining process within a reasonable time. Investigations were carried out on a 110-ton converter in connection with steel bath mixing, which led to the development of a generally applicable method for modeling the flow and quantification of the mixing intensity. It became clear that two kinds of vortices are generated inside the flow, which are of significant importance for mixing and overall flow. On the one hand, vortices are created near the bubble columns at the stirring elements and, on the other hand, much larger vortices are formed that strongly influence the total flow in a molten steel bath. Furthermore, it could be shown that the arrangement and type of bottompurging elements are crucial factors for mixing intensity. An asymmetric alignment of purging elements can result in critical zones inside the converter that are characterized by very low local flow velocities. Primetals Technologies has drawn on its extensive numerical simulation competence to investigate the influence of varying process parameters in order to optimize the overall design of the converter and blowing lance equipment.
-
-%Initial conditions define the starting values for each solution field. They play a vital role in the stability and computing time for steady-state simulations, and are important for getting physically accurate results in transient analyzes. Therefore, it is very important to define appropriate initial conditions for your simulations.
-Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri analýzach prechodných dejov. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
-
-Hraničné podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady hraničných podmienok.
+Pri numerických simuláciách procesov prúdenia tekutín v kyslíkovom konvertore nie je možné modelovať všetky fyzikálne javy z dôvodu komplexnosti viacfázových procesov. 
 
 \subsection{Stlačiteľnosť tekutín}
 
