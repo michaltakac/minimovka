@@ -1,16 +1,17 @@
 \babel@toc {slovak}{}
 \contentsline {section}{\numberline {1}\IeC {\'U}vod}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Matematick\IeC {\'e} met\IeC {\'o}dy}{1}{section.2}% 
-\contentsline {section}{\numberline {3}Po\IeC {\v c}\IeC {\'\i }ta\IeC {\v c}om podporovan\IeC {\'e} matematick\IeC {\'e} modelovanie}{1}{section.3}% 
+\contentsline {section}{\numberline {3}Po\IeC {\v c}\IeC {\'\i }ta\IeC {\v c}om podporovan\IeC {\'e} matematick\IeC {\'e} modelovanie}{2}{section.3}% 
 \contentsline {section}{\numberline {4}CFD anal\IeC {\'y}za}{4}{section.4}% 
 \contentsline {subsection}{\numberline {4.1}Stla\IeC {\v c}ite\IeC {\v l}nos\IeC {\v t} tekut\IeC {\'\i }n}{6}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Navier-Stokesova rovnica}{6}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Met\IeC {\'o}da lattice Boltzmann}{7}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Modelovanie turbulencie}{9}{subsection.4.4}% 
-\contentsline {subsection}{\numberline {4.5}DNS}{9}{subsection.4.5}% 
-\contentsline {section}{\numberline {5}Programy pre CFD simul\IeC {\'a}cie}{9}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Matlab}{9}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {4.3}Met\IeC {\'o}da lattice Boltzmann}{8}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Modelovanie turbulencie}{10}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.5}DNS}{10}{subsection.4.5}% 
+\contentsline {section}{\numberline {5}Programy pre CFD simul\IeC {\'a}cie}{10}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Matlab}{10}{subsection.5.1}% 
 \contentsline {subsection}{\numberline {5.2}Ansys Fluid}{10}{subsection.5.2}% 
 \contentsline {subsection}{\numberline {5.3}SimScale}{10}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}OpenFOAM}{10}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.4}OpenFOAM}{11}{subsection.5.4}% 
 \contentsline {subsection}{\numberline {5.5}OpenLB}{11}{subsection.5.5}% 
+\contentsline {section}{\numberline {6}Z\IeC {\'a}ver}{12}{section.6}% 

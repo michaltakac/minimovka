@@ -123,14 +123,13 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 %Potreba vývoja zdokonalených systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, ale environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
 %
 
-Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov pre oceľ, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V praktickom procese výroby ocele sa o konečnom obsahu uhlíka a teplote často rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie \cite{Wang2010}.
-
 %The fast dynamics of the LD converter steelmaking process or the BOF process, as it is commonly known, often makes it a challenge to obtain stable blowing conditions and to achieve the required steel composition and temperature simultaneously at the end point. For this reason, process control becomes very necessary and attempts had started as early as in the 1970s (\cite{Fritz2005}). Out of the originally very simple LD process have grown the modern process-controlled and automated production systems that enable present-day adaptations to meet today’s economic and ecological demands (\cite{Sarkar2015}). The non-linear nature of chemical and thermodynamical processes in basic oxygen steelmaking also amassed interest in developing new mathematical models based on fractionalorder calculus.
 
-%Simulations are at the core of all scientific modelling
-Simulácie sú jadrom všetkých vedeckých modelovaní
+Matematický model predstavuje súbor funkčných vzťahov, ktoré transformujú vstupné hodnoty na výsledky, ktorými je možné vyjadriť podstatu modelovaného deja. Modelovanie je pravdepodobne najdôležitejšia časť procesu simulácie. Jej cieľom je čo najpresnejšie zachytiť správanie sa reálneho systému. Zahŕňa identifikáciu problému a očakávaný cieľ riešenia problému, zber reálnych dát alebo generácia náhodných dát, vytvorenie modelu, jeho úprava, prispôsobovanie a jeho overenie porovnaním výstupných dát zo simulácie s reálnymi dátami z reálneho systému.
 
 Procesy výroby ocele všeobecne zahŕňajú základnú kyslíkovú pec, elektrickú oblúkovú pec alebo ekvivalentnú, panvu a kontinuálne liatie a obsahujúce medzipanvu a plesne. Všetky tieto kroky spracovania ocele zahŕňajú vysoko spojené komplexné dopravné javy.
+
+Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov pre oceľ, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V praktickom procese výroby ocele sa o konečnom obsahu uhlíka a teplote často rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie \cite{Wang2010}.
 
 
 \section{Matematické metódy}
@@ -206,7 +205,7 @@ Bolo vyvinutých veľa modelov na predpovedanie zmiešavania, napenenia trosky, 
 %Computational fluid dynamics (CFD) has continuously evolved over recent decades and has come to play an important role in the development of modern LD (BOF) steelmaking converters. Flow inside the converter is highly complex and comprises several physical phenomena such as supersonic flow, chemical reactions, heat transfer and the flow of gas bubbles in the liquid melt. For numerical reasons, not all flow processes can be taken into account, but it is possible to describe major effects, show tendencies and gain valuable insight on multi-phase flow processes. The results of these analyses can subsequently be used in the design of new converters. Primetals Technologies is committed to developing an efficient approach to modeling flow and mixing inside the converter during the refining process within a reasonable time. Investigations were carried out on a 110-ton converter in connection with steel bath mixing, which led to the development of a generally applicable method for modeling the flow and quantification of the mixing intensity. It became clear that two kinds of vortices are generated inside the flow, which are of significant importance for mixing and overall flow. On the one hand, vortices are created near the bubble columns at the stirring elements and, on the other hand, much larger vortices are formed that strongly influence the total flow in a molten steel bath. Furthermore, it could be shown that the arrangement and type of bottompurging elements are crucial factors for mixing intensity. An asymmetric alignment of purging elements can result in critical zones inside the converter that are characterized by very low local flow velocities. Primetals Technologies has drawn on its extensive numerical simulation competence to investigate the influence of varying process parameters in order to optimize the overall design of the converter and blowing lance equipment.
 
 %Initial conditions define the starting values for each solution field. They play a vital role in the stability and computing time for steady-state simulations, and are important for getting physically accurate results in transient analyzes. Therefore, it is very important to define appropriate initial conditions for your simulations.
-Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri prechodných analýzach. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
+Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri analýzach prechodných dejov. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
 
 Hraničné podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady hraničných podmienok.
 
@@ -229,33 +228,56 @@ kde $V$ je objem tekutiny pred stlačením, $\partial V$ je zmena objemu po slta
 
 \subsection{Navier-Stokesova rovnica}
 
-Navier-Stokesova rovnica (NSR) popisuje prúdenie tekutiny. Má široké využitie, ako napríklad minimalizácia odporu vzduchu karosérie áut, návrhy vodných turbín, štúdium toku krvi v tele, predpoveď počasia a iné. V praxi sa ňou modeluje hlavne prúdenie nestlačiteľnej (ideálnej) newtonovskej tekutiny, ktorej základná vlastnosť je, že deformácia je priamo úmerná napätiu a jej viskozita je nemenná.
-
-Rovnica kontinuity:
+Navier-Stokesova (NS) rovnica popisuje prúdenie tekutiny. V praxi má široké využitie, ako napríklad modelovanie minimalizácie odporu vzduchu karosérie áut, návrhu vodných turbín, toku krvi v tele, predpovede počasia a iné. Jej zápis je nasledovný:
 
 \begin{equation}
-\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0
+\frac{\partial \vec{u}}{\partial t} + \vec{u} \cdot \nabla \vec{u} = - \frac{1}{\varrho} \nabla p + \nu \nabla^2 \vec{u} + \vec{g}.
 \end{equation}
 
-X-moment:
+V praxi sa ňou modeluje hlavne prúdenie nestlačiteľnej (ideálnej) newtonovskej tekutiny, ktorej základná vlastnosť je, že deformácia je priamo úmerná napätiu a jej viskozita je nemenná. Modelovanie stlačiteľnej tekutiny je z hľadiska výpočtového výkonu náročnejšie, čoho dôsledkom je utilizácia vysoko výkonných počítačov a vývoj algoritmov na využitie paralelnej architektúry grafických procesných jednotiek v grafických kartách.
+
+Keďže pri modelovaní systému toku tekutín Navier-Stokesovou rovnicou sa pohybujeme v obore mechaniky tekutín a mechaniky spojitého prostredia (mechanika kontinua), nesmieme zabudnúť na zákon zachovania hmotnosti. Ten popisuje rovnica kontinuity, ktorá v prípade nestlačiteľnej tekutiny nadobúda tvar
 
 \begin{equation}
-\frac{\partial (\rho u)}{\partial t} + \frac{\partial (\rho u^2)}{\partial x} + \frac{\partial (\rho uv)}{\partial y} + \frac{\partial (\rho uw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z}\right]
+\frac{\partial \varrho}{\partial t} + \nabla \cdot (\varrho \vec{u}) = 0, 
 \end{equation}
 
-Y-moment:
+kde $\varrho$  je hustota, $t$ je čas, $\nabla \cdot$ je divergencia a $\vec{u}$ je vektorové pole rýchlosti prúdenia.
+
+Pri nestlačiteľnej tekutine zostáva hustota pozdĺž toku v priebehu času konštantná (teda nemenná)
 
 \begin{equation}
-\frac{\partial  (\rho v)}{\partial t} + \frac{\partial (\rho uv)}{\partial x} + \frac{\partial (\rho v^2)}{\partial y} + \frac{\partial (\rho vw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{yx}}{\partial x} + \frac{\partial \tau_{yy}}{\partial y} + \frac{\partial \tau_{yz}}{\partial z}\right]
+\frac{\partial \varrho}{\partial t} = 0, 
 \end{equation}
 
-Z-moment:
+z čoho vyplýva, že divergencia vektorového poľa rýchlosti prúdenia je nulová
 
 \begin{equation}
-\frac{\partial  (\rho w)}{\partial t} + \frac{\partial (\rho uw)}{\partial x} + \frac{\partial (\rho vw)}{\partial y} + \frac{\partial (\rho w^2)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{zx}}{\partial x} + \frac{\partial \tau_{zy}}{\partial y} + \frac{\partial \tau_{zz}}{\partial z}\right]
+\nabla \cdot \vec{u} = 0.
 \end{equation}
 
 
+%X-moment:
+%
+%\begin{equation}
+%\frac{\partial (\varrho u)}{\partial t} + \frac{\partial (\varrho u^2)}{\partial x} + \frac{\partial (\varrho uv)}{\partial y} + \frac{\partial (\varrho uw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{xx}}{\partial x} + \frac{\partial \tau_{xy}}{\partial y} + \frac{\partial \tau_{xz}}{\partial z}\right]
+%\end{equation}
+%
+%Y-moment:
+%
+%\begin{equation}
+%\frac{\partial  (\varrho v)}{\partial t} + \frac{\partial (\varrho uv)}{\partial x} + \frac{\partial (\varrho v^2)}{\partial y} + \frac{\partial (\varrho vw)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{yx}}{\partial x} + \frac{\partial \tau_{yy}}{\partial y} + \frac{\partial \tau_{yz}}{\partial z}\right]
+%\end{equation}
+%
+%Z-moment:
+%
+%\begin{equation}
+%\frac{\partial  (\varrho w)}{\partial t} + \frac{\partial (\varrho uw)}{\partial x} + \frac{\partial (\varrho vw)}{\partial y} + \frac{\partial (\varrho w^2)}{\partial z} = - \frac{\partial p}{\partial x} + \frac{1}{Re} \left[\frac{\partial \tau_{zx}}{\partial x} + \frac{\partial \tau_{zy}}{\partial y} + \frac{\partial \tau_{zz}}{\partial z}\right]
+%\end{equation}
+
+Vo všeobecnosti sú NS rovnice v realite nelineárne parciálne diferenciálne rovnice. Tieto nelinearity sú zodpovedné za turbulencie, ktoré vznikajú pri prúdení tekutín a ktoré tieto rovnice modelujú. Dôvodom vzniku nelinearít je konvekčné zrýchlenie, teda zrýchlenie šírenia tepla prúdením. 
+
+Turbulencia je chaotické správanie sa mnohých tekutín. Riešenie NS rovníc pre turbulentné prúdenie tekutiny je extrémne obtiažne, keďže pre dosiahnutie stabilného riešenia je potrebná veľmi detailná sieť. 
 
 Aj napriek praktickému využitiu, zatiaľ neexistuje dôkaz o tom, či riešenia NSR vždy existujú v troch dimenziách, a ak áno, tak či sú na celom intervale nekonečne diferencovateľná. Na tento problém Clayov inštitút vypísal odmenu 1 milión dolárov.
 
@@ -339,9 +361,17 @@ Platforma SimScale ponúka v rámci čiastkových produktov mnohé funkcionality
 
 \subsection{OpenFOAM}
 
-OpenFOAM je súbor nástrojov s voľne prístupným zdrojovým kódom na riešenie zložitých problémov s výpočtovou dynamikou tekutín. Obsahuje širokú škálu fyzikálnych modelov (vrátane turbulencie, úpravy steny, termodynamiky a hromadnej dopravy), numerických metód a nástrojov na predbežné a následné spracovanie.
+%is a toolbox for solving complex Computational Fluid Dynamics problems. It contains a wide range of physical models (including turbulence, wall treatment, thermodynamics, and mass transport), numerical methods and tools for pre- and post-processing.
+
+OpenFOAM je súbor nástrojov s voľne prístupným zdrojovým kódom na riešenie zložitých problémov s výpočtovou dynamikou tekutín. Obsahuje širokú škálu fyzikálnych modelov (vrátane turbulencie, úprav stien hraničných podmienok - geometrie, termodynamiky a hromadnej dopravy), numerických metód a nástrojov na predbežné a následné spracovanie.
 
 \subsection{OpenLB}
+
+OpenLB je balík C++ modulov pre implementáciu lattice Boltzmann simulácií určený predovšetkým ako programová podpora pre výskumníkov a technikov, ktorí simulujú toky tekutín pomocou LBM. Podporuje komplexné dátové štruktúry, pomocou ktorých je možné simulovať zložité geometrie. Diskretizovať geometrie (meshing alebo voxelizácia) z dopredu pripravených 3D modelov a nastaviť okrajové podmienky je možné automaticky - automatickým predspracovaním (aj komplexného) 3D modelu. Paralelizácia v implementovaných algoritmoch je riešená využitím knižnice OpenMP, z čoho môžu benefitovať výkonné multiprocesorové viacjadrové počítače (v architektúrach využívajúcich zdieľanú pamäť). Pri distribuovaných počítačových systémoch, na ktorých by sme chceli simulovať modely na báze LBM pomocou OpenLB majú paralelné algoritmy v tomto balíku implementované rozhranie na posielanie a prijímanie správ medzi jednotlivými procesmi (MPI - Message-Passing Interface
+
+\section{Záver}
+
+Simulácie sú v súčasnosti už neoddeliteľnou súčasťou počítačom podporovaného inžinierstva ako aj vedeckého skúmania fyzikálnych javov. Výsledkom simulácie je približné, no dostatočne presné riešenie modelovanej úlohy. Modelovanie na základe matematických metód prešlo dekádami vývoja a vylepšovanie metód pokračuje naďalej.  
 
 %
 \include{bibliography}
