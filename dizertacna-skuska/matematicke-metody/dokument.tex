@@ -122,18 +122,9 @@ Počítačom podporované inžinierstvo (CAE - Computer Aided Engineering) je po
 
 Typický proces CAE pozostáva z krokov predbežného spracovania, riešenia a následného spracovania. Vo fáze predspracovania inžinieri modelujú geometriu (alebo reprezentáciu systému) a fyzikálne vlastnosti návrhu, ako aj prostredie vo forme aplikovaného zaťaženia alebo obmedzení. Ďalej je model vyriešený pomocou vhodnej matematickej formulácie základnej fyziky. Vo fáze po spracovaní sa výsledky predložia technikovi na preskúmanie.
 
-Aplikácie CAE, výhody používania CAE...
+V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Motivácia na používanie počítačových simulácií na skúmanie metalurgických procesov je dvojaká. Po prvé, umožňuje testovať zmeny dizajnu pred vytvorením prototypu, čo samozrejme vedie k nižším celkovým nákladom na návrh. Po druhé, umožňuje skúmať javy, ktoré sa nedajú ľahko merať alebo pozorovať v procese. Dokonca aj zdanlivo jednoduchá operácia, ako napríklad nepretržité meranie teploty počas procesu oduhličovania, je zložitá z dôvodu veľmi vysokých teplôt v procese a všeobecne drsných podmienok prevládajúcich v oceliarňach \citep{Ersson2018}.
 
-\url{https://www.plm.automation.siemens.com/global/en/our-story/glossary/computer-aided-engineering-cae/13112}
-
-Motivácia na používanie počítačových simulácií na skúmanie metalurgických procesov je dvojaká. Po prvé, umožňuje testovať zmeny dizajnu pred vytvorením prototypu, čo samozrejme vedie k nižším celkovým nákladom na návrh. Po druhé, umožňuje skúmať javy, ktoré sa nedajú ľahko merať alebo pozorovať v procese. Dokonca aj zdanlivo jednoduchá operácia, ako napríklad nepretržité meranie teploty počas procesu oduhličovania, je zložitá z dôvodu veľmi vysokých teplôt v procese a všeobecne drsných podmienok prevládajúcich v oceliarňach \citep{Ersson2018}.
-
-
-
-
-V metalurgii pri výrobe ocele je veľmi dôležité simulovať lineárne a nelineárne procesy, s ktorými sa pri výrobe ocele stretávame pri tvorbe matematických modelov. Od prvých pokusov o využitie matematických techník na simuláciu a optimalizáciu veľkých metalurgických operácií sa zaviedli rôzne numerické metódy ako algoritmy a použili sa na simuláciu javov v oceliarskych procesoch.
-
-Problémy s modernou mechanikou tekutín by nebolo možné vyriešiť bez použitia počítačovej dynamiky tekutín (CFD - Computational Fluid Dynamics). CFD je vetva CAE, ktorá sa zaoberá simuláciou pohybu tekutín a prenosom tepla pomocou numerických prístupov, pretože rozsah analytických riešení základných rovníc mechaniky tekutín je veľmi obmedzený a hlavne veľmi obtiažny. V prípade zložitejšej geometrie to znamená, že zvyčajne na výber riešenia musia zvoliť danú numerickú metódu. 
+Problémy s modernou mechanikou tekutín by nebolo možné vyriešiť bez použitia počítačovej dynamiky tekutín (CFD - Computational Fluid Dynamics). CFD je vetva CAE, ktorá sa zaoberá simuláciou pohybu tekutín a prenosom tepla pomocou numerických prístupov, pretože rozsah analytických riešení základných rovníc mechaniky tekutín je veľmi obmedzený a hlavne veľmi obtiažny. V prípade zložitejšej geometrie to znamená, že je výhodnejšie zvoliť numerickú metódu. 
 
 \section{Počítačová dynamika tekutín (CFD)}
 
@@ -143,14 +134,9 @@ Pri skúmaní dynamických javov tekutín je cieľom CFD analýzy vytvoriť čo 
 
 Pohyb tekutín súvisí s rôznymi problémami danými fyzikálnym modelom, ako napríklad laminárne a turbulentné prúdenie, stlačiteľné a nestlačiteľné prúdenie, prenos a distribúcia tepla, prenos chemických prímesí vrátane chemických reakcií, viacfázové prúdenie, prúdenie poréznym prostredím, vznik bublín alebo horenie.
 
+Metódami numerickej matematiky, formuláciou okrajových a počiatočných podmienok sa z úlohy mechaniky tekutín formuluje matematický problém. Z formulácie určujúcich rovníc (fyzikálny model), ktoré sa spravidla nedajú riešiť analyticky, sa diskretizáciou získajú algebraické rovnice (matematický model). Okrajové podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady okrajových podmienok. Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia a sú vyjadrené fyzikálnymi veličinami. V priebehu riešenia sa menia každou iteráciou. Majú vplyv na čas dosiahnutia konvergencie riešenia úlohy, tj. dobu výpočtu. Samotná úloha je taktiež určená geometrickou štruktúrou (geometrický model).
 
-metóda konečných prvkov (FEM - Finite Element Analysis)
-
-
-Počiatočné podmienky definujú počiatočné hodnoty pre každé pole riešenia. Zohrávajú dôležitú úlohu v stabilite a výpočtovom čase pre simulácie v ustálenom stave a sú dôležité na získanie fyzikálne presných výsledkov pri analýzach prechodných dejov. Preto je veľmi dôležité definovať vhodné počiatočné podmienky pre vaše simulácie.
-
-Hraničné podmienky určujú, ako systém (napríklad štruktúra alebo tekutina) interaguje s prostredím. Fixácie, zaťaženia, tlaky, prietok alebo rýchlosť tekutiny sú príklady hraničných podmienok.
-
+V prvých štádiách nastavenia simulácie je potrebné definovať a vymedziť skúmanú oblasť v 2D alebo 3D, ktorá zahŕňa predmet modelovania a jeho najbližšie okolie. Táto oblasť sa pokryje sieťou (softvér to vie spraviť automaticky), to znamená, že sa rozdelí do určitého počtu 2D alebo 3D buniek (elementov). Počet buniek môže byť na rôznych miestach variabilný - to, koľkými bunkami je tvorená časť priestoru udáva, ako presná bude simulácia v danej oblasti. Detailnosť siete určuje aj čas výpočtov (čím detailnejšia, tým je simulácia zdĺhavejšia). Fyzikálne veličiny sú počítané pre geometrický stred každej bunky, hodnoty v ostatných miestach buniek sú interpolované alebo extrapolované.
 
 \subsection{CFD v metalurgii}
 
@@ -159,27 +145,27 @@ Od počiatku priekopníckej práce v oblasti metalurgie, ktorú uskutočnili Sze
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.8\textwidth,angle=0]{figures/blast-furnace-erosion-vr.jpg}
-	\caption{3D CFD simulácia vnútra ("srdca") vysokej pece.}
+	\caption{3D CFD simulácia a vizualizácia vnútra ("srdca") vysokej pece.}
 \end{figure}
 
-Pri numerických simuláciách procesov prúdenia tekutín v kyslíkovom konvertore nie je možné modelovať všetky fyzikálne javy z dôvodu komplexnosti viacfázových procesov. 
+Pri numerických simuláciách procesov prúdenia tekutín v kyslíkovom konvertore nie je možné modelovať dostatočne presne všetky fyzikálne javy z dôvodu komplexnosti viacfázových procesov. 
 
 \subsection{Stlačiteľnosť tekutín}
 
+Stlačiteľnosť tekutiny môžeme definovať ako zmenšenie jej objemu v dôsledku vonkajších tlakov na ňu pôsobiacich. Naopak stlačiteľná tekutina zníži svoj objem v prítomnosti vonkajšieho tlaku. Preto môžeme kvantitatívne meranie stlačiteľnosti popísať ako relatívnu zmenu objemu kvapaliny v reakcii na zmenu tlaku.
+
 Kľúčový rozdiel medzi stlačiteľnými a nestlačiteľnými tekutinami je v tom, že stlačiteľné tekutiny sa vyskytujú v reálnom prostredí, zatiaľ čo nestlačiteľné tekutiny, nazývané aj ideálne tekutiny, sú koncepciou vyvinutou na uľahčenie výpočtu.
 
-Kvapaliny, s ktorými sa stretávame v bežnom živote sú do určitej miery stlačiteľné, no 
-
-
-Stlačiteľnosť tekutiny môžeme definovať ako zmenšenie jej objemu v dôsledku vonkajších tlakov na ňu pôsobiacich. Naopak stlačiteľná tekutina zníži svoj objem v prítomnosti vonkajšieho tlaku. Preto môžeme kvantitatívne meranie stlačiteľnosti vziať ako relatívnu zmenu objemu kvapaliny v reakcii na zmenu tlaku.
-
-Matematicky môžeme stlačiteľnosť $\gamma$ definovať ako
-
-\begin{equation}
-	\gamma = \frac{-1}{V} \frac{\partial V}{\partial p}
-\end{equation}
-
-kde $V$ je objem tekutiny pred stlačením, $\partial V$ je zmena objemu po sltačení a $\partial p$ je zmena tlaku.
+%Kvapaliny, s ktorými sa stretávame v bežnom živote sú do určitej miery stlačiteľné, no 
+%
+%
+%Matematicky môžeme stlačiteľnosť $\gamma$ definovať ako
+%
+%\begin{equation}
+%	\gamma = \frac{-1}{V} \frac{\partial V}{\partial p}
+%\end{equation}
+%
+%kde $V$ je objem tekutiny pred stlačením, $\partial V$ je zmena objemu po sltačení a $\partial p$ je zmena tlaku.
 
 \subsection{Navier-Stokesova rovnica}
 
@@ -232,9 +218,11 @@ z čoho vyplýva, že divergencia vektorového poľa rýchlosti prúdenia je nul
 
 Vo všeobecnosti sú NS rovnice v realite nelineárne parciálne diferenciálne rovnice. Tieto nelinearity sú zodpovedné za turbulencie, ktoré vznikajú pri prúdení tekutín a ktoré tieto rovnice modelujú. Dôvodom vzniku nelinearít je konvekčné zrýchlenie, teda zrýchlenie šírenia tepla prúdením. 
 
-Turbulencia je chaotické správanie sa mnohých tekutín. Riešenie NS rovníc pre turbulentné prúdenie tekutiny je extrémne obtiažne, keďže pre dosiahnutie stabilného riešenia je potrebná veľmi detailná sieť. 
+%The Navier–Stokes equations assume that the fluid being studied is a continuum (it is infinitely divisible and not composed of particles such as atoms or molecules), and is not moving at relativistic velocities. At very small scales or under extreme conditions, real fluids made out of discrete molecules will produce results different from the continuous fluids modeled by the Navier–Stokes equations. For example, capillarity of internal layers in fluids appears for flow with high gradients. For large Knudsen number of the problem, the Boltzmann equation may be a suitable replacement
 
-Aj napriek praktickému využitiu, zatiaľ neexistuje dôkaz o tom, či riešenia NSR vždy existujú v troch dimenziách, a ak áno, tak či sú na celom intervale nekonečne diferencovateľná. Na tento problém Clayov inštitút vypísal odmenu 1 milión dolárov.
+Turbulencia je chaotické správanie sa mnohých tekutín. Riešenie NS rovníc pre turbulentné prúdenie tekutiny je extrémne obtiažne, keďže pre dosiahnutie stabilného riešenia je potrebná veľmi detailná sieť. NS rovnice predpokladajú, že skúmaná tekutina je kontinuum (je nekonečne deliteľná a nie je zložená z častíc, ako sú atómy alebo molekuly). Pre modelovanie turbulencie je ale v niektorých prípadoch výhodnejšie využiť alternatívne matematické metódy a iné princípy modelovania (prípadne tieto postupy nejakým spôsobom kombinovať). Vhodnou náhradou sú metódy vychádzajúce z modelovania javov Boltzmannovou rovnicou, akou je napríklad metóda lattice Boltzmann. Táto metóda modeluje prúdenie tekutiny distribučnou funkciou popisujúcou lokálne správanie sa súboru častíc tekutiny v jednotlivých bunkách mriežky, ktorou je model tekutiny obsiahnutý. Vo veľmi malých mierkach alebo v extrémnych podmienkach molekúl tekutiny poskytnú výsledky odlišné od kontinuálnych tekutín modelovaných podľa NS rovníc.
+
+Zaujímavosťou je, že aj napriek praktickému využitiu, zatiaľ neexistuje dôkaz o tom, či riešenia NSR vždy existujú v troch dimenziách, a ak áno, tak či sú na celom intervale nekonečne diferencovateľná. Na tento problém Clayov inštitút vypísal odmenu 1 milión dolárov.
 
 \subsection{Metóda lattice Boltzmann}
 

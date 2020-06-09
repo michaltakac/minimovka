@@ -8,10 +8,10 @@
 \contentsline {subsection}{\numberline {3.4}Met\IeC {\'o}da lattice Boltzmann}{7}{subsection.3.4}% 
 \contentsline {subsection}{\numberline {3.5}Modelovanie turbulencie}{9}{subsection.3.5}% 
 \contentsline {subsection}{\numberline {3.6}DNS}{9}{subsection.3.6}% 
-\contentsline {section}{\numberline {4}Programy pre CFD simul\IeC {\'a}cie}{9}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Matlab}{9}{subsection.4.1}% 
+\contentsline {section}{\numberline {4}Programy pre CFD simul\IeC {\'a}cie}{10}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Matlab}{10}{subsection.4.1}% 
 \contentsline {subsection}{\numberline {4.2}Ansys Fluid}{10}{subsection.4.2}% 
 \contentsline {subsection}{\numberline {4.3}SimScale}{10}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}OpenFOAM}{10}{subsection.4.4}% 
+\contentsline {subsection}{\numberline {4.4}OpenFOAM}{11}{subsection.4.4}% 
 \contentsline {subsection}{\numberline {4.5}OpenLB}{11}{subsection.4.5}% 
 \contentsline {section}{\numberline {5}Z\IeC {\'a}ver}{11}{section.5}% 
