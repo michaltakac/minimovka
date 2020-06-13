@@ -20,8 +20,6 @@ I was expecting a `,' or a `}'---line 1359 of file references/vr.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Database file #8: references/uncategorized.bib
-Warning--entry type for "delbosc2015" isn't style-file defined
---line 110 of file references/uncategorized.bib
 Database file #9: references/lbm.bib
 Warning--entry type for "HEIDLER2011thesis" isn't style-file defined
 --line 1 of file references/lbm.bib
@@ -31,45 +29,49 @@ Warning--string name "march" is undefined
 --line 16 of file references/lbm.bib
 Warning--string name "march" is undefined
 --line 25 of file references/lbm.bib
-You've used 8 entries,
+Warning--string name "october" is undefined
+--line 68 of file references/lbm.bib
+Warning--string name "june" is undefined
+--line 77 of file references/lbm.bib
+You've used 9 entries,
             2921 wiz_defined-function locations,
-            706 strings with 6600 characters,
-and the built_in function-call counts, 26951 in all, are:
-= -- 4308
-> -- 399
+            707 strings with 6768 characters,
+and the built_in function-call counts, 32392 in all, are:
+= -- 5242
+> -- 442
 < -- 0
-+ -- 2010
-- -- 120
-* -- 2261
-:= -- 5563
-add.period$ -- 16
-call.type$ -- 8
-change.case$ -- 112
-chr.to.int$ -- 8
-cite$ -- 8
++ -- 2469
+- -- 133
+* -- 2742
+:= -- 6635
+add.period$ -- 18
+call.type$ -- 9
+change.case$ -- 126
+chr.to.int$ -- 9
+cite$ -- 9
 duplicate$ -- 101
-empty$ -- 243
-format.name$ -- 143
-if$ -- 4820
+empty$ -- 254
+format.name$ -- 162
+if$ -- 5782
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 4
-newline$ -- 41
-num.names$ -- 85
-pop$ -- 39
+newline$ -- 47
+num.names$ -- 93
+pop$ -- 45
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 135
 quote$ -- 0
-skip$ -- 102
+skip$ -- 103
 stack$ -- 0
-substring$ -- 5982
-swap$ -- 13
-text.length$ -- 112
+substring$ -- 7331
+swap$ -- 8
+text.length$ -- 126
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 32
+type$ -- 36
 warning$ -- 0
-while$ -- 177
+while$ -- 197
 width$ -- 0
-write$ -- 118
+write$ -- 128
 (There were 2 error messages)
