@@ -112,13 +112,13 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 
 Cieľom riadenia procesu je udržiavať kľúčové parametre prevádzky procesu v úzkom rozmedzí referenčnej hodnoty alebo požadovanej hodnoty. Niekdajšiu potrebu riadiť túto činnosť manuálne v súčasnej dobe nahrádzajú programovateľné automaty a regulátory v snahe ovládať premennú automatizovane. Jednoduchý regulátor môže udržiavať procesnú veličinu v slučke na rovnomernej úrovni, pokiaľ nedôjde k nadmernému rušeniu. Pri komplexných procesoch, ako sú tie v metalurgii, sa využívajú desiatky až stovky takýchto regulátorov, niektoré s integrovanými LCD panelmi \citep{Al-Megren2016}.
 
-Potreba zdokonaľovania a vývoja nových systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, no environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\cite{Widlund1998}).
+Potreba zdokonaľovania a vývoja nových systémov riadenia bola tradične poháňaná požiadavkou presnejšej a nákladovo efektívnejšej výroby. Je to stále hlavná hnacia sila, no environmentálne otázky majú na tento vývoj zásadný vplyv aj dnes (\citep{Widlund1998}).
 
-Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov ocele, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V procese výroby ocele je kritériom o tom, či je roztavená oceľ prijateľná alebo nie, konečný obsahu uhlíka a teplota taveniny \cite{Wang2010}.
+Hlavným cieľom riadenia výroby ocele s kyslíkovým konvertorom je získanie predpísaných parametrov ocele, keď sa odoberá z pece, vrátane hmotnosti, teploty a obsahu každého prvku. V procese výroby ocele je kritériom o tom, či je roztavená oceľ prijateľná alebo nie, konečný obsahu uhlíka a teplota taveniny \citep{Wang2010}.
 
-Všeobecne možno povedať, že riadenie LD procesu výroby ocele v LD konvertore s odbernou sondou sa dá rozdeliť do dvoch stupňov: statické riadenie a dynamické riadenie. Statické modely zahŕňajú model prívodu kyslíka, model trosky a model fúkania kyslíka. Medzi dynamické modely patrí model rýchlosti oduhličovania, model otepľovania roztavenej ocele a model množstva chladiacej kvapaliny \cite{Wang2010}.
+Všeobecne možno povedať, že riadenie LD procesu výroby ocele v LD konvertore s odbernou sondou sa dá rozdeliť do dvoch stupňov: statické riadenie a dynamické riadenie. Statické modely zahŕňajú model prívodu kyslíka, model trosky a model fúkania kyslíka. Medzi dynamické modely patrí model rýchlosti oduhličovania, model otepľovania roztavenej ocele a model množstva chladiacej kvapaliny \citep{Wang2010}.
 
-Rýchla dynamika procesu výroby ocele LD konvertorom sťažuje dosiahnutie stabilných podmienok pre fúkanie kyslíka a súčasne dosiahnutie požadovaného zloženia ocele a teploty v koncovom bode tavenia. Z tohto dôvodu je správne riadenie procesu extrémne dôležité. Prvé pokusy s vývojom systémov automatizovaného riadenia sa začali už v sedemdesiatych rokoch (\cite{Fritz2005}). Z pôvodne veľmi jednoduchého riadenia LD procesu vznikli moderné a automatizované výrobné systémy riadené procesmi, ktoré umožňujú súčasné prispôsobenie sa dnešným hospodárskym a ekologickým požiadavkám (\cite{Sarkar2015}). Nelineárna povaha chemických a termodynamických procesov pri výrobe ocele v LD konvertore tiež vzbudila záujem o vývoj nových matematických modelov založených na neceločíselnom diferenciálnom počte.
+Rýchla dynamika procesu výroby ocele LD konvertorom sťažuje dosiahnutie stabilných podmienok pre fúkanie kyslíka a súčasne dosiahnutie požadovaného zloženia ocele a teploty v koncovom bode tavenia. Z tohto dôvodu je správne riadenie procesu extrémne dôležité. Prvé pokusy s vývojom systémov automatizovaného riadenia sa začali už v sedemdesiatych rokoch (\citep{Fritz2005}). Z pôvodne veľmi jednoduchého riadenia LD procesu vznikli moderné a automatizované výrobné systémy riadené procesmi, ktoré umožňujú súčasné prispôsobenie sa dnešným hospodárskym a ekologickým požiadavkám (\citep{Sarkar2015}). Nelineárna povaha chemických a termodynamických procesov pri výrobe ocele v LD konvertore tiež vzbudila záujem o vývoj nových matematických modelov založených na neceločíselnom diferenciálnom počte.
 
 \section{Procesy v kyslíkovom konvertore}
 
@@ -144,7 +144,7 @@ V moderných oceliarňach sa vyrobí cca 300t ocele v priebehu 30-40 minútovéh
 	\label{o:30}
 \end{figure}
 
-V závislosti od miestnych prevádzkových podmienok, dostupnosti šrotu, vysokopecného železa a rozsahu predúpravy, je kovová vsádzka do konvertora (LD/BOF, Q-BOP) tvorená 75 až 95 \% surovým železom a zvyšok je oceľový šrot. Používané druhy šrotu sú zvyčajne tie, ktoré sa vyrábajú v oceliarni: šrot z plechu, poškodené formy, plechovky a podobne \cite{Turkdogan1996}.
+V závislosti od miestnych prevádzkových podmienok, dostupnosti šrotu, vysokopecného železa a rozsahu predúpravy, je kovová vsádzka do konvertora (LD/BOF, Q-BOP) tvorená 75 až 95 \% surovým železom a zvyšok je oceľový šrot. Používané druhy šrotu sú zvyčajne tie, ktoré sa vyrábajú v oceliarni: šrot z plechu, poškodené formy, plechovky a podobne \citep{Turkdogan1996}.
 
 Kyslík je fúkaný vysokou rýchlosťou (až do dvojnásobnej rýchlosti zvuku) na povrch kovového kúpeľa v konvertore a v oblasti povrchu sa vytvára tzv. horúce miesto, kde prúd kyslíka naráža na povrch. Oxidačné produkty sa rozpustia v troske s výnimkou oxidu uhoľnatého, ktorý prechádza vrstvou trosky a tvorí hlavnú zložku konvertovaného plynu. Intenzita oxidácie jednotlivých prvkov závisí od ich chemickej afinity ku kyslíku. Oxidácia uhlíka je jedným z najdôležitejších procesov.
 
@@ -166,9 +166,9 @@ Keďže cieľom výroby ocele v kyslíkových konvertoroch je spálenie (tzv. ox
 
 Následnou úlohou riadiaceho procesu je potom získanie predpísaných parametrov ocele, ktorá sa odpichuje z konvertora, vrátane hmotnosti, teploty a obsahu každého prvku. Na základe týchto parametrov sa rozhoduje o tom, či je roztavená oceľ prijateľná alebo nie.
 
-Počítačom podporované výpočty vsádzky sa robia pre každú tavbu. Asi 80 percent modelu riadenia vsádzky je založený na rovnováhe tepla a materiálu, zvyšok je založený na empirických vzťahoch, ktoré sa medzi jednotlivými taviarňami líšia. Pretože každá oceliareň má svoju vlastnú formuláciu modelu riadenia vsádzky \cite{Turkdogan1996}.
+Počítačom podporované výpočty vsádzky sa robia pre každú tavbu. Asi 80 percent modelu riadenia vsádzky je založený na rovnováhe tepla a materiálu, zvyšok je založený na empirických vzťahoch, ktoré sa medzi jednotlivými taviarňami líšia. Pretože každá oceliareň má svoju vlastnú formuláciu modelu riadenia vsádzky \citep{Turkdogan1996}.
 
-Za účelom monitorovania a riadenia procesu je možné použiť rôzne meracie systémy na poskytnutie spätnej väzby operátorovi alebo priamo existujúcemu systému na automatizované riadenie. Tieto merania môžu byť priame alebo nepriame, ako aj~s~časovým oneskorením alebo bez neho \cite{Widlund1998}.
+Za účelom monitorovania a riadenia procesu je možné použiť rôzne meracie systémy na poskytnutie spätnej väzby operátorovi alebo priamo existujúcemu systému na automatizované riadenie. Tieto merania môžu byť priame alebo nepriame, ako aj~s~časovým oneskorením alebo bez neho \citep{Widlund1998}.
 
 \begin{figure}[h!]
 	\centering
@@ -176,7 +176,7 @@ Za účelom monitorovania a riadenia procesu je možné použiť rôzne meracie 
 	\caption{Schéma funkcionality systému automatizovaného LD procesu \citep{Turkdogan1996}.}
 \end{figure}
 
-Existuje len niekoľko procesných premenných, ktoré môže nastavovať riadiaci systém alebo obsluha - výška trysky pre prívod fúkaného kyslíka, prietok kyslíka a~prietok čistiaceho plynu. Zmeny výšky prívodnej trysky sa merajú a nastavujú ľahšie, a preto je lepšie ich používať v riadiacom systéme s uzavretou slučkou. Zmena prietoku kyslíka počas LD procesu nesmie byť väčšia ako 5\%, pretože dýza je navrhnutá pre špecifický prietok \cite{Widlund1998}.
+Existuje len niekoľko procesných premenných, ktoré môže nastavovať riadiaci systém alebo obsluha - výška trysky pre prívod fúkaného kyslíka, prietok kyslíka a~prietok čistiaceho plynu. Zmeny výšky prívodnej trysky sa merajú a nastavujú ľahšie, a preto je lepšie ich používať v riadiacom systéme s uzavretou slučkou. Zmena prietoku kyslíka počas LD procesu nesmie byť väčšia ako 5\%, pretože dýza je navrhnutá pre špecifický prietok \citep{Widlund1998}.
 
 \subsection{Statický model riadenia}
 

@@ -1,3 +1,48 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
+Delbosc, N.  \harvardyearleft n.d.\harvardyearright .
+\newblock Real-{Time} {Simulation} of {Indoor} {Air} {Flow} {Using} the
+  {Lattice} {Boltzmann} {Method} on {Graphics} {Processing} {Unit},  p.~261.
+
+\harvarditem[Fei et~al.]{Fei, Du, Luo, Succi, Lauricella, Montessori
+  \harvardand\ Wang}{2019}{feiModelingRealisticMultiphase2019}
+Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
+  \harvardand\ Wang, Q.  \harvardyearleft 2019\harvardyearright .
+\newblock Modeling realistic multiphase flows using a non-orthogonal
+  multiple-relaxation-time lattice {Boltzmann} method, {\em Physics of Fluids}
+  {\bf 31}(4):~042105.
+\newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
+
+\harvarditem[Li et~al.]{Li, Luo, Kang, He, Chen \harvardand\
+  Liu}{2016}{liLatticeBoltzmannMethods2016a}
+Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
+  \harvardyearleft 2016\harvardyearright .
+\newblock Lattice {Boltzmann} methods for multiphase flow and phase-change heat
+  transfer, {\em Progress in Energy and Combustion Science} {\bf 52}:~62--105.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0360128515300162}
+
+\harvarditem[Lv et~al.]{Lv, Zhu, Guo \harvardand\
+  Wang}{2013}{lvSimulationFlowFluid2013}
+Lv, M., Zhu, R., Guo, Y.-G. \harvardand\ Wang, Y.-W.  \harvardyearleft
+  2013\harvardyearright .
+\newblock Simulation of {Flow} {Fluid} in the {BOF} {Steelmaking} {Process},
+  {\em Metallurgical and Materials Transactions B} {\bf 44}(6):~1560--1571.
+\newline\harvardurl{http://link.springer.com/10.1007/s11663-013-9935-4}
+
+\harvarditem{Succi}{2001}{succi2001lattice}
+Succi, S.  \harvardyearleft 2001\harvardyearright .
+\newblock {\em The lattice boltzmann equation: {For} fluid dynamics and
+  beyond}, Numerical mathematics and scientific computation, Clarendon Press.
+\newblock tex.lccn: 2001036220.
+
+\harvarditem[Suga et~al.]{Suga, Kuwata, Takashima \harvardand\
+  Chikasue}{2015}{sugaD3Q27MultiplerelaxationtimeLattice2015}
+Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
+  2015\harvardyearright .
+\newblock A {D3Q27} multiple-relaxation-time lattice {Boltzmann} method for
+  turbulent flows, {\em Computers \& Mathematics with Applications} {\bf
+  69}(6):~518--529.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0898122115000346}
+
 \end{thebibliography}
