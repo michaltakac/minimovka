@@ -14,6 +14,25 @@ Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
   {\bf 31}(4):~042105.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
 
+\harvarditem{Jalkanen}{2006}{Jalkanen2006}
+Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
+\newblock {Experiences in physicochemical modelling of oxygen converter process
+  (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
+  International Symposium} {\bf 2}:~541--554.
+
+\harvarditem{Klabnik}{2018}{steveklabnik2018}
+Klabnik, S.  \harvardyearleft 2018\harvardyearright .
+\newblock {\em The Rust Programming Language}, No Starch Press.
+\newline\harvardurl{https://www.xarg.org/ref/a/B071YKRV8Q/}
+
+\harvarditem[Laciak et~al.]{Laciak, Petráš, Flegner, Durdán \harvardand\
+  Tréfa}{2017}{sprava2017}
+Laciak, M., Petráš, I., Flegner, P., Durdán, M. \harvardand\ Tréfa, G.
+  \harvardyearleft 2017\harvardyearright .
+\newblock {V{\'{y}}skum nepriameho merania teploty a uhl{\'{i}}ka v procese
+  skujňovania}, {\em Technical report}, {Fakulta BERG {\'{U}}stav riadenia a
+  informatiz{\'{a}}cie v{\'{y}}robn{\'{y}}ch procesov}.
+
 \harvarditem[Li et~al.]{Li, Luo, Kang, He, Chen \harvardand\
   Liu}{2016}{liLatticeBoltzmannMethods2016a}
 Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
@@ -35,6 +54,7 @@ Succi, S.  \harvardyearleft 2001\harvardyearright .
 \newblock {\em The lattice boltzmann equation: {For} fluid dynamics and
   beyond}, Numerical mathematics and scientific computation, Clarendon Press.
 \newblock tex.lccn: 2001036220.
+\newline\harvardurl{https://books.google.hu/books?id=OC0Sj_xgnhAC}
 
 \harvarditem[Suga et~al.]{Suga, Kuwata, Takashima \harvardand\
   Chikasue}{2015}{sugaD3Q27MultiplerelaxationtimeLattice2015}
@@ -44,5 +64,26 @@ Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
   turbulent flows, {\em Computers \& Mathematics with Applications} {\bf
   69}(6):~518--529.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0898122115000346}
+
+\harvarditem{Turkdogan}{1996}{Turkdogan1996}
+Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
+\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
+  London.
+
+\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
+Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
+  .
+\newblock {Applying input variables selection technique on input weighted
+  support vector machine modeling for BOF endpoint prediction}, {\em
+  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
+\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
+
+\harvarditem[Widlund et~al.]{Widlund, Medvedev \harvardand\
+  Gyllenram}{1998}{Widlund1998}
+Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
+  1998\harvardyearright .
+\newblock {Towards Model-Based Closed-Loop Control of the Basic Oxygen
+  Steelmaking Process}, {\em IFAC Proceedings Volumes} {\bf 31}(23):~69--74.
+\newline\harvardurl{http://dx.doi.org/10.1016/S1474-6670(17)35858-5}
 
 \end{thebibliography}

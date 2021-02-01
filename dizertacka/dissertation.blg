@@ -10,45 +10,45 @@ Illegal, another \bibstyle command---line 3 of file bibliography.aux
 I'm skipping whatever remains of this command
 Database file #1: references.bib
 Warning--I didn't find a database entry for "gonda"
-You've used 6 entries,
+You've used 12 entries,
             2921 wiz_defined-function locations,
-            689 strings with 6515 characters,
-and the built_in function-call counts, 29090 in all, are:
-= -- 4662
-> -- 517
+            732 strings with 7759 characters,
+and the built_in function-call counts, 51668 in all, are:
+= -- 8305
+> -- 841
 < -- 0
-+ -- 2289
-- -- 161
-* -- 2574
-:= -- 5821
-add.period$ -- 13
-call.type$ -- 6
-change.case$ -- 83
-chr.to.int$ -- 6
-cite$ -- 6
-duplicate$ -- 91
-empty$ -- 194
-format.name$ -- 177
-if$ -- 5208
++ -- 4016
+- -- 259
+* -- 4503
+:= -- 10426
+add.period$ -- 25
+call.type$ -- 12
+change.case$ -- 166
+chr.to.int$ -- 12
+cite$ -- 12
+duplicate$ -- 174
+empty$ -- 373
+format.name$ -- 290
+if$ -- 9242
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 7
-newline$ -- 33
-num.names$ -- 64
-pop$ -- 18
+missing$ -- 14
+newline$ -- 60
+num.names$ -- 127
+pop$ -- 39
 preamble$ -- 1
-purify$ -- 90
+purify$ -- 180
 quote$ -- 0
-skip$ -- 81
+skip$ -- 148
 stack$ -- 0
-substring$ -- 6632
-swap$ -- 15
-text.length$ -- 84
+substring$ -- 11753
+swap$ -- 24
+text.length$ -- 168
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
+type$ -- 42
 warning$ -- 0
-while$ -- 134
+while$ -- 266
 width$ -- 0
-write$ -- 96
+write$ -- 185
 (There was 1 error message)
