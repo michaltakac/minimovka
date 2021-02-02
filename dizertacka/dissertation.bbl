@@ -49,6 +49,12 @@ Lv, M., Zhu, R., Guo, Y.-G. \harvardand\ Wang, Y.-W.  \harvardyearleft
   {\em Metallurgical and Materials Transactions B} {\bf 44}(6):~1560--1571.
 \newline\harvardurl{http://link.springer.com/10.1007/s11663-013-9935-4}
 
+\harvarditem{Storti \harvardand\ Yurtoglu}{2015}{stortiCudaForEngineers2015}
+Storti, D. \harvardand\ Yurtoglu, M.  \harvardyearleft 2015\harvardyearright .
+\newblock {\em CUDA for Engineers: An Introduction to High-Performance Parallel
+  Computing}, Addison-Wesley Professional.
+\newline\harvardurl{http://cudaforengineers.com/}
+
 \harvarditem{Succi}{2001}{succi2001lattice}
 Succi, S.  \harvardyearleft 2001\harvardyearright .
 \newblock {\em The lattice boltzmann equation: {For} fluid dynamics and

@@ -222,7 +222,17 @@ Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
 
 \subsection{GPU Computing}
 
+GPU-based parallel computing reduces the time for some computing tasks by orders of magnitude, so big computations (like training a machine learning system on a large data set) that took weeks can now happen in hours, and moderate-sized computations (like producing a 3D contour plot) that took minutes can happen interactively in real time \cite{stortiCudaForEngineers2015}. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required.
+
+With the power of GPU computing, it's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds. Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time.
+
 \subsubsection{CUDA and OpenCL}
+
+CUDA is a hardware/software platform for parallel computing created and supported by NVIDIA Corporation to promote access to high-performance parallel computing. The hardware aspect of CUDA involves graphics cards equipped with one or more CUDA-enabled graphics processing units (GPUs). The NVIDIA CUDA Toolkit software provides a development environment based on the C/C++ family of programming languages.
+
+\cite{stortiCudaForEngineers2015}
+
+The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy- efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing pro- ductivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \cite{stortiCudaForEngineers2015}.
 
 \subsubsection{ArrayFire}
 

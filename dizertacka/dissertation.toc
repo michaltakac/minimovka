@@ -12,19 +12,19 @@
 \contentsline {section}{\numberline {8}Simulation Software}{28}{section.8}% 
 \contentsline {subsection}{\numberline {8.1}GPU Computing}{28}{subsection.8.1}% 
 \contentsline {subsubsection}{\numberline {8.1.1}CUDA and OpenCL}{28}{subsubsection.8.1.1}% 
-\contentsline {subsubsection}{\numberline {8.1.2}ArrayFire}{28}{subsubsection.8.1.2}% 
-\contentsline {subsection}{\numberline {8.2}Programming Language}{28}{subsection.8.2}% 
-\contentsline {subsubsection}{\numberline {8.2.1}Why I Chose Rust Programming Language}{28}{subsubsection.8.2.1}% 
-\contentsline {section}{\numberline {9}Visualization Software}{30}{section.9}% 
-\contentsline {subsection}{\numberline {9.1}Human-Computer Interface}{30}{subsection.9.1}% 
-\contentsline {subsubsection}{\numberline {9.1.1}SCADA}{30}{subsubsection.9.1.1}% 
-\contentsline {subsection}{\numberline {9.2}Visualization Tools}{31}{subsection.9.2}% 
-\contentsline {subsubsection}{\numberline {9.2.1}The Visualization Toolkit}{31}{subsubsection.9.2.1}% 
-\contentsline {subsubsection}{\numberline {9.2.2}ParaView}{31}{subsubsection.9.2.2}% 
-\contentsline {subsection}{\numberline {9.3}Virtual and Augmented Reality}{31}{subsection.9.3}% 
-\contentsline {subsubsection}{\numberline {9.3.1}Virtual Reality in Steelmaking}{34}{subsubsection.9.3.1}% 
-\contentsline {subsection}{\numberline {9.4}Visualizing Simulation in Virtual Reality}{35}{subsection.9.4}% 
-\contentsline {section}{\numberline {10}Results}{35}{section.10}% 
-\contentsline {section}{\numberline {11}Conclusions}{35}{section.11}% 
-\contentsline {section}{\numberline {12}Discussion}{35}{section.12}% 
-\contentsline {section}{\numberline {13}Appendix A: Simulation as an Educational Tool}{35}{section.13}% 
+\contentsline {subsubsection}{\numberline {8.1.2}ArrayFire}{29}{subsubsection.8.1.2}% 
+\contentsline {subsection}{\numberline {8.2}Programming Language}{29}{subsection.8.2}% 
+\contentsline {subsubsection}{\numberline {8.2.1}Why I Chose Rust Programming Language}{29}{subsubsection.8.2.1}% 
+\contentsline {section}{\numberline {9}Visualization Software}{31}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Human-Computer Interface}{31}{subsection.9.1}% 
+\contentsline {subsubsection}{\numberline {9.1.1}SCADA}{31}{subsubsection.9.1.1}% 
+\contentsline {subsection}{\numberline {9.2}Visualization Tools}{32}{subsection.9.2}% 
+\contentsline {subsubsection}{\numberline {9.2.1}The Visualization Toolkit}{32}{subsubsection.9.2.1}% 
+\contentsline {subsubsection}{\numberline {9.2.2}ParaView}{32}{subsubsection.9.2.2}% 
+\contentsline {subsection}{\numberline {9.3}Virtual and Augmented Reality}{32}{subsection.9.3}% 
+\contentsline {subsubsection}{\numberline {9.3.1}Virtual Reality in Steelmaking}{35}{subsubsection.9.3.1}% 
+\contentsline {subsection}{\numberline {9.4}Visualizing Simulation in Virtual Reality}{36}{subsection.9.4}% 
+\contentsline {section}{\numberline {10}Results}{36}{section.10}% 
+\contentsline {section}{\numberline {11}Conclusions}{36}{section.11}% 
+\contentsline {section}{\numberline {12}Discussion}{36}{section.12}% 
+\contentsline {section}{\numberline {13}Appendix A: Simulation as an Educational Tool}{36}{section.13}% 
