@@ -11,23 +11,24 @@
 \contentsline {subsection}{\numberline {6.3}Physical Model}{27}{subsection.6.3}% 
 \contentsline {section}{\numberline {7}Lattice Boltzmann Method}{27}{section.7}% 
 \contentsline {section}{\numberline {8}Simulation Software}{30}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}GPU Computing}{30}{subsection.8.1}% 
-\contentsline {subsubsection}{\numberline {8.1.1}CUDA and OpenCL}{30}{subsubsection.8.1.1}% 
-\contentsline {subsubsection}{\numberline {8.1.2}ArrayFire}{31}{subsubsection.8.1.2}% 
-\contentsline {subsection}{\numberline {8.2}Optimizations for GPU Computing}{32}{subsection.8.2}% 
-\contentsline {subsubsection}{\numberline {8.2.1}Removing branch divergence}{32}{subsubsection.8.2.1}% 
-\contentsline {subsection}{\numberline {8.3}Programming Language}{34}{subsection.8.3}% 
-\contentsline {subsubsection}{\numberline {8.3.1}Why I Chose Rust Programming Language}{34}{subsubsection.8.3.1}% 
-\contentsline {section}{\numberline {9}Visualization Software}{36}{section.9}% 
-\contentsline {subsection}{\numberline {9.1}Human-Computer Interface}{37}{subsection.9.1}% 
-\contentsline {subsubsection}{\numberline {9.1.1}SCADA}{37}{subsubsection.9.1.1}% 
-\contentsline {subsection}{\numberline {9.2}Visualization Tools}{37}{subsection.9.2}% 
-\contentsline {subsubsection}{\numberline {9.2.1}The Visualization Toolkit}{37}{subsubsection.9.2.1}% 
-\contentsline {subsubsection}{\numberline {9.2.2}ParaView}{37}{subsubsection.9.2.2}% 
-\contentsline {subsection}{\numberline {9.3}Virtual and Augmented Reality}{37}{subsection.9.3}% 
-\contentsline {subsubsection}{\numberline {9.3.1}Virtual Reality in Steelmaking}{40}{subsubsection.9.3.1}% 
-\contentsline {subsection}{\numberline {9.4}Visualizing Simulation in Virtual Reality}{42}{subsection.9.4}% 
-\contentsline {section}{\numberline {10}Results}{42}{section.10}% 
-\contentsline {section}{\numberline {11}Conclusions}{42}{section.11}% 
-\contentsline {section}{\numberline {12}Discussion}{42}{section.12}% 
-\contentsline {section}{\numberline {13}Appendix A: Simulation as an Educational Tool}{42}{section.13}% 
+\contentsline {section}{\numberline {9}GPU Computing}{30}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}CUDA and OpenCL}{30}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}ArrayFire}{31}{subsection.9.2}% 
+\contentsline {subsubsection}{\numberline {9.2.1}Comment on GFOR}{32}{subsubsection.9.2.1}% 
+\contentsline {subsection}{\numberline {9.3}Optimizations for GPU Computing}{33}{subsection.9.3}% 
+\contentsline {subsubsection}{\numberline {9.3.1}Removing branch divergence}{33}{subsubsection.9.3.1}% 
+\contentsline {subsection}{\numberline {9.4}Programming Language}{34}{subsection.9.4}% 
+\contentsline {subsubsection}{\numberline {9.4.1}Why I Chose Rust Programming Language}{34}{subsubsection.9.4.1}% 
+\contentsline {section}{\numberline {10}Visualization Software}{36}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Human-Computer Interface}{36}{subsection.10.1}% 
+\contentsline {subsubsection}{\numberline {10.1.1}SCADA}{36}{subsubsection.10.1.1}% 
+\contentsline {subsection}{\numberline {10.2}Visualization Tools}{37}{subsection.10.2}% 
+\contentsline {subsubsection}{\numberline {10.2.1}The Visualization Toolkit}{37}{subsubsection.10.2.1}% 
+\contentsline {subsubsection}{\numberline {10.2.2}ParaView}{37}{subsubsection.10.2.2}% 
+\contentsline {subsection}{\numberline {10.3}Virtual and Augmented Reality}{37}{subsection.10.3}% 
+\contentsline {subsubsection}{\numberline {10.3.1}Virtual Reality in Steelmaking}{40}{subsubsection.10.3.1}% 
+\contentsline {subsection}{\numberline {10.4}Visualizing Simulation in Virtual Reality}{41}{subsection.10.4}% 
+\contentsline {section}{\numberline {11}Results}{41}{section.11}% 
+\contentsline {section}{\numberline {12}Conclusions}{41}{section.12}% 
+\contentsline {section}{\numberline {13}Discussion}{41}{section.13}% 
+\contentsline {section}{\numberline {14}Appendix A: Simulation as an Educational Tool}{41}{section.14}% 

@@ -279,14 +279,14 @@ Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
 \section{Simulation Software}
 \label{simulaiton-software}
 
-\subsection{GPU Computing}
+\section{GPU Computing}
 \label{gpu-computing}
 
 GPU-based parallel computing reduces the time for some computing tasks by orders of magnitude, so big computations (like training a machine learning system on a large data set) that took weeks can now happen in hours, and moderate-sized computations (like producing a 3D contour plot) that took minutes can happen interactively in real time \cite{stortiCudaForEngineers2015}. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required.
 
 With the power of GPU computing, it's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds. Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time.
 
-\subsubsection{CUDA and OpenCL}
+\subsection{CUDA and OpenCL}
 
 CUDA is a hardware/software platform for parallel computing created and supported by NVIDIA Corporation to promote access to high-performance parallel computing. The hardware aspect of CUDA involves graphics cards equipped with one or more CUDA-enabled graphics processing units (GPUs). The NVIDIA CUDA Toolkit software provides a development environment based on the C/C++ family of programming languages.
 
@@ -309,7 +309,7 @@ The GPU-based approach to massively parallel computing used by CUDA is also the 
 
 \citep{Yalamanchili2015}
 
-\subsubsection{ArrayFire}
+\subsection{ArrayFire}
 
 ArrayFire is a high performance software library for parallel computing with an easy-to-use API. ArrayFire abstracts away much of the details of programming parallel architectures by providing a high-level container object, the Array, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures.
 
@@ -324,72 +324,96 @@ Going on from ArrayFire's version 3.2., the Unified backend was introduced. It a
 \end{bmatrix}
 \end{equation}
 
+\subsubsection{Comment on GFOR}
+
+- TODO: mozno presunut do Appendixu?
+
+ArrayFire provides the only GPU-enabled data-parallel loop: $gfor$. Use $gfor$ in your code in place of standard for-loops to batch process data parallel operations \citep{malcolmArrayFireGPUAcceleration2012}. 
+You can think of gfor as performing auto-vectorization of your code, e.g. you write a gfor-loop that increments every element of a vector but behind the scenes ArrayFire rewrites it to operate on the entire vector in parallel \citep{Yalamanchili2015}. For example, the following for-loop calculates several matrix multiplications serially:
+
+\begin{lstlisting}[language=Rust, caption=Pseudo-code with imerative for loop]
+for (int i = 0; i < n; ++i) {
+	A(i) = A(i) + 1;
+}
+\end{lstlisting}
+
+The same three matrix multiplications can be carried out in one pass instead of three by utilizing a gfor-loop,
+
+\begin{lstlisting}[language=Rust, caption=Pseudo-code with if-statement removed]
+A = constant(1,n,n);
+gfor (seq i, n) {
+	A(i) = A(i) + 1;
+}
+\end{lstlisting}
+
+Whereas the former loop serially computes each matrix multiplication, the latter loop computes all matrix multiplications in one pass. Similarly, gfor can be used for other such embarrassingly parallel codes in a straightforward fashion. A good way of thinking about gfor is to consider it as syntactic sugar: gfor serves as an iterative style of writing otherwise vectorized algorithms \citep{malcolmArrayFireGPUAcceleration2012}.
+
 \subsection{Optimizations for GPU Computing}
 \label{sec:optimizations-for-gpu-computing}
 
 \subsubsection{Removing branch divergence}
 
 \begin{lstlisting}[language=Rust, caption=Pseudo-code of if-statement in kernel]
-	if (node_type == "fluid") {
-		x = a;
-	} else {
-		x = b;
-	}
+if (node_type == "fluid") {
+	x = a;
+} else {
+	x = b;
+}
 \end{lstlisting}
 
 \begin{lstlisting}[language=Rust, caption=Pseudo-code with if-statement removed]
-	let is_fluid = node_type == "fluid";
-	x = a * is_fluid + b * (!is_fluid);
+let is_fluid = node_type == "fluid";
+x = a * is_fluid + b * (!is_fluid);
 \end{lstlisting}
 
 \begin{lstlisting}[language=Rust, caption=Example Rust code of removing branch divergence using ArrayFire]
-	use arrayfire as af;
+use arrayfire as af;
+
+fn main() {
+	// dimensions
+	let dims = af::dim4!(3,3,1,1);
 	
-	fn main() {
-		// dimensions
-		let dims = af::dim4!(3,3,1,1);
-		
-		// 0 -> wall
-		// 1 -> fluid
-		// 2 -> gas
-		let domain = af::Array::new(&[0,0,0,1,1,1,2,2,2], dims);
-		
-		// original array
-		let a = af::randu::<f32>(dims);
-		// part of the domain to be replaced
-		let water = af::constant(1, dims);
-		// new values
-		let b = af::randu::<f32>(dims);
-		
-		let cond = af::eq(&water, &domain, false);
-		
-		let out = af::select(&a, &cond, &b);
-		
-		// Print the values
-		af::af_print!("", &a);
-		af::af_print!("", &b);
-		af::af_print!("", &out);
-		
-		// Values from array `a`
-		// 0.6010     0.2126     0.2864 
-		// 0.0278     0.0655     0.3410 
-		// 0.9806     0.5497     0.7509 
-		
-		// Values from array `b`
-		// 0.4105     0.3543     0.3636 
-		// 0.1583     0.6450     0.4165 
-		// 0.3712     0.9675     0.5814 
-		
-		// Values from boolean array `cond`
-		// 0          1          0 
-		// 0          1          0 
-		// 0          1          0 
-		
-		// Values from array `out`
-		// 0.4105     0.2126     0.3636 
-		// 0.1583     0.0655     0.4165 
-		// 0.3712     0.5497     0.5814 
-	}
+	// 0 -> wall
+	// 1 -> fluid
+	// 2 -> gas
+	let domain = af::Array::new(&[0,0,0,1,1,1,2,2,2], dims);
+	
+	// original array
+	let a = af::randu::<f32>(dims);
+	// part of the domain to be replaced
+	let water = af::constant(1, dims);
+	// new values
+	let b = af::randu::<f32>(dims);
+	
+	let cond = af::eq(&water, &domain, false);
+	
+	let out = af::select(&a, &cond, &b);
+	
+	// Print the values
+	af::af_print!("", &a);
+	af::af_print!("", &b);
+	af::af_print!("", &out);
+	
+	// Values from array `a`
+	// 0.6010     0.2126     0.2864 
+	// 0.0278     0.0655     0.3410 
+	// 0.9806     0.5497     0.7509 
+	
+	// Values from array `b`
+	// 0.4105     0.3543     0.3636 
+	// 0.1583     0.6450     0.4165 
+	// 0.3712     0.9675     0.5814 
+	
+	// Values from boolean array `cond`
+	// 0          1          0 
+	// 0          1          0 
+	// 0          1          0 
+	
+	// Values from array `out`
+	// 0.4105     0.2126     0.3636 
+	// 0.1583     0.0655     0.4165 
+	// 0.3712     0.5497     0.5814 
+}
 \end{lstlisting}
 
 To avoid if-statements in kernel code for LBM algorithm, a ``ghost layer" is added to the computational domain. In other words, for $n_x$, $n_y$ and $n_z$ as width, height and depth respectively, $n_x+1$, $n_y+1$ and $n_z+1$ nodes are added to the computational domain's grid. Ghost layer helps in a way that we can treat computations at the boundary position as the normal ones and not worry about running out of the index bounds \cite{tranPerformanceOptimization3D2017}.
