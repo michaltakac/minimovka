@@ -10,6 +10,13 @@ The transition to process automation and advanced process control (APC) was empo
 
 Implementing such systems is challenging. During the initial design phase of a control system upgrade or a new installation, it is far too easy to focus just on process fundamentals, and never get beyond considering desired steady-state conditions. Automation system upgrades and new installations can therefore miss opportunities to engage with process and automation technology experts capable of uncovering better ways of doing things. Many capabilities of modern process automation systems are still underutilized in most process plants. Far fewer companies use APC as effectively as they could, even though basic APC technologies have been around for decades.
 
+Modeling, together with simulation, are important parts of engineering. Integrating them into engineer's toolbelt yields many benefits. Before actual testing in physical reality, one can do many different virtual tests by simulating the modeled phenomena with lower overhead of financial requirements. There's also close to zero risk of hurting anybody (most notable risk being ill-treatment of electricity). Still, coming up with and refining actual mathematical or physical model, to the point of it being accurate enough for the job at hand, takes a lot of time. Also, actual simulation part can take hours or days to converge. However, it can be argued that, in some industrial applications, broad parameter space mapping is sometimes more valuable than higher order analysis of fewer design points \citep{harwoodREALTIMEMODELLINGSIMULATION}.
+
+With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that ...
+
+We'll discuss the path towards interactive simulation in section \ref{interactive-simulation}.
+
+
 \section{Basic Oxygen Furnace}
 
 The oxygen converter process (LD/BOF and its derivatives) is a refinement step in the production of steel from ore. The main purpose of the process is to remove excess carbon from the pig iron produced in the blast furnace. The main feature of the process is to add oxygen through a top lance, in order to remove unwanted impurities through oxidation. It is the main method of carbon and low alloy steelmaking, annual production approaching to 60\% of total crude steel production \cite{Jalkanen2006}. BOF is a widely preferred and effective steelmaking method due to its high productivity and considerably low production cost \cite{Wang2010}. LD/BOF process consists of these subprocesses:
@@ -134,37 +141,76 @@ Different operators apply different rules for deciding when to stop the blowing 
 
 \section{Computer-aided Mathematical Modeling and Numerical Simulation}
 
+% --- Prepisat -------------------
 The motivation for using computer simulations to investigate metallurgical processes is two-fold. First, it enables design changes to be tested before building a prototype, which naturally leads to a lower total design cost. Second, it makes it possible to investigate phenomena that cannot easily be measured or observed in the process. Even a seemingly simple operation such as the continuous measurement of the temperature during the decarburization process is difficult due to the very high temperatures in the process and generally harsh conditions prevailing in the steel plants (Ersson and Tilliander; 2018).
+% -----------------------------
+
+% --- Prepisat -------------------
 In metallurgy, simulating linear and non-linear processes that we encounter in steelmak- ing by creating mathematical models is of great importance. Since first attempts to use mathematical techniques for the simulation and optimization of large scale metallurgical operations (Ray et al.; 1973), various numerical methods were implemented as algorithms and used to simulate phenomena in steelmaking processes. One class of such methods is Monte Carlo, which is useful for simulating systems with many coupled degrees of freedom such as fluids.
+% -------------------------------------------
 
+% --- Prepisat -------------------
 Modern fluid mechanics problems would be impossible to solve without use of Compu- tational Fluid Dynamics (CFD), since the scope of analytical solutions to fundamental equations of fluid mechanics is very limited and, once a more difficult geometry is en- countered, we usually have to choose a given numerical method for obtaining a solution. CFD encompasses a wide spectrum of numerical methods used for solving complex three-dimensional (3D) and time-dependent flow problems (Rapp; 2017). Since early pioneering work in the metallurgical field done by Szekely et al. (1977), the cost of performing computer simulations has decreased over the last few decades, while the available processing power has increased. Most of the processors and processing units that are currently developed and produced have several cores that can execute instructions in parallel. Thus, the processing power available to a CFD software also depends on the capability of the software to execute in parallel. A study by Ersson and Tilliander (2018) of the last two decades of metallurgical CFD simulations reveals huge improvements on the type of phenomena that can be explored and we will see this trend is continuing thanks to improvements in both the available processing power and the avail- able algorithms. Therefore CFD found its way into numerous studies in steelmaking, where these methods proved useful in demonstrating the hidden and significant proper- ties. However, its use in the steel industry may not be as integrated as in the aero and automotive industries, in which the development of new designs is of key importance. The major difference between aero and metallurgical industries is that the metallurgical industries almost always deal with multiphase systems at elevated temperatures and that the motivation of modeling is mainly process optimization. With a continuing development in multiphase models as well as in reacting flow modeling, the continued usefulness of CFD in metallurgy remains clear.
+% --------------------------------------------------
 
+% --- Prepisat -------------------
 In LD/BOF process, different chemical reactions among oxygen, slag, and molten iron in oxygen converter, in combination with vigorous stirring process to promote slagging, dephosphorization, decarbonization, heating of molten steel, and homogenization of steel composition and temperature, determines the final properties of steel. The objective of the oxygen converter is to refine molten iron to crude steel through oxidization to achieve a specified temperature and chemical composition at the end blow. Failure to do this leads to the need to reblow. The impact of oxygen jet into molten bath strongly affects the bath and promotes the three-phase flow among gas, slag, and molten steel in the bath. With the move from old rule-based systems to a model-based, real-time closed-loop control of lance movement and oxygen flow, significant drawbacks were eliminated. There have been efforts in developing accurate and efficient numerical models within CFD field to solve the jets flow in the oxygen converter. Peng and Han (1996) established the conditions of optimum nozzles of performance by deriving the system of mathematical equations to simulate the steady, quasi-one-dimensional supersonic flow through a sin- gle De Laval nozzle. Tago and Higuchi (2003) analyzed single-nozzle and multi-nozzle lances with the help of two-dimensional simulation based on fluid dynamics and found that higher ambient temperature leads to the lower density and the higher velocity of the gas jets, but does little affect the dynamic pressure. They report that CFD proved use- ful method to predict the effect of the inclination angle and the number of the nozzles on the jet behavior in the top blown processes. Wang, Yuan, Matsuura, Zhao, Cheng and Tsukihashi (2010) developed a three-dimensional mathematical model to simulate the compressible jets flow from the top-blown lance, taking into consideration variations of fluid density, viscosity, high temperature and Mach number. They demonstrated that $k–\omega$ turbulence model is superior to the widely used $k–\epsilon$ turbulence model to calculate turbulent conditions within multiple jets.
+% -------------------------------
 
+% --- Prepisat -------------------
 CFD models have been also used in developing deeper understanding of the decarburization processes in steelmaking. However, these processes are highly complex with large variations in time and length, and therefore it makes the systems extremely demanding to simulate. Ersson and Tilliander (2018) reviewed latest research on the subject from 1998 until 2016 and found out that, even though several reports have been published dis- cussing research about modeling parts of the decarburization processes numerically, no models have been presented that can handle the entire complexity of the processes. Many authors had simplified the system in existing models in order to achieve an understanding of particular phenomena rather than of the entire process.
+% -----------------------------------------
 
+% --- Prepisat -------------------
 Another important part of the oxygen steelmaking process is keeping the usual balance of $80\%$ hot metal and $20\%$ scrap during charging to regulate the temperature of steel in the vessel. To define the charge conditions and oxygen blowing requirements to achieve the temperature and chemical composition, mathematical and thermodynamic models have been developed \citep{Kacur2019, sprava2017}. Reactions that take place in LD process can vary significantly from heat to heat, while not many variables involved are not accurately known. Therefore, it is necessary to take into account the uncertainty affecting the whole process reactions. To correct the differences between the theoretical predictions of the process models and the real results, Bouhouche et al. (2012) introduced a random quantity term into their models and improved the prediction model with the use of Support Vector Regression and Monte Carlo Simulation methods in combination. Most of the control schemes rely on an accurate system model. However, as these systems become more complex, writing down the dynamics from the first principles is extremely challenging. In such cases, neural networks are used to approximate the dynamics directly using system data. In this context, neural networks can be thought of as a generalization of linear regression for non-linear dynamics. At the Institute of Control and Informatization of Production Processes at BERG Faculty (TUKE), team around Laciak et al. (2018) built upon Bouhouche’s work and started experimenting with machine learning in pro- cess control and its application in oxygen steelmaking, precisely in LD converter. They applied Support Vector Machines (SVM) and Support Vector Regression (SVR) to predict the final melt temperature and final carbon concentration based on dynamical data. Their work also focuses on developing innovative fractional-order mathematical models for indirect measurement of molten steel temperature and concentration of CO and CO2. The non-linear nature of these processes presents the opportunity to model them by using derivatives of non-integer order, which in their definition are based on the influence of past data on the present value of derivative.
+% --------------------------------------
+
+\subsection{Interactive Simulation}
+\label{interactive-simulation}
+
+% --- Prepisat -------------------
+A real-time simulation platform is a manifestation of this concept, allowing run-time manipulation of geometrical and physical simulation variables. This enables users to rapidly and intuitively investigate different scenarios and design configurations. Ul- timately, a complete interactive simulation package would be capable of simulating a multi-physics 3D environment in real-time to an application-appropriate degree of accu- racy. However, significant inter-disciplinary research is required in reduced-order physical modelling, numerical methods, and software integration to realise a solution \citep{harwoodREALTIMEMODELLINGSIMULATION}.
+% --------------------------
+
+% --- Prepisat -------------------
+In order to achieve real-time flow simulation, numerical methods need to be selected carefully such that they can make full use of the capabilities of accelerated computing hardware. Our work focuses on the use of the lattice-Boltzmann Method (LBM):2 a CFD method ideally suited to acceleration on GPUs due to its spatial and temporal locality. GPU-LBM simulations have extremely high computational throughput compared with traditional CFD methods.
+% ---------------------------------------
+
+general purpose GPU (GPGPU) computing
+Despite the growing list of success stories, GPU software development adoption has had a slow rise. The slowness of the rise is attributable to the difficulty in programming GPUs \citep{malcolmArrayFireGPUAcceleration2012}.
 
 \section{Lattice Boltzmann Method}
 
+% --- Prepisat -------------------
 LB method has witnessed an astonishing growth in its methodology development and application over the past quarter of a century. It fills a vital gap between the macroscopic continuum approaches such as the Navier–Stokes solvers and the particle-based microscopic approaches such as molecular dynamics. Such a mesoscopic approach has found applications in almost all areas of energy and combustion \cite{liLatticeBoltzmannMethods2016a}.
+% -------------------------------------
 
+% --- Prepisat -------------------
 Real-time fluid simulation, i.e. the ability to simulate a virtual system as fast as the real system would evolve, can benefit to many engineering application such as the optimisation of the ventilation system design in data centres or the simulation of pollutant transport in hospitals. And although real-time fluid simulation is an active field of research in computer graphics, these are generally focused on creating visually appealing animation rather than aiming for physical accuracy. The approach taken for this thesis is different as it starts from a physics based model, the lattice Boltzmann method, and takes advantage of the computational power of a graphics processing unit (GPU) to achieve real-time compute capability while maintaining good physical accuracy. \cite{delboscRealTimeSimulationIndoor}.
+% ---------------------------------------
 
 turbulence modelling using the Smagorinsky model in LBM for the simu- lation of high Reynolds number flow and the coupling of two LBM simulations to simulate thermal flows under the Boussinesq approximation.
 
+% --- Prepisat -------------------
 Interfaces between different phases and/or components are ubiquitous in multiphase flows and energy applications, such as rain dynamics, plant spraying, water boiling, and gas turbine blade cooling, to name but a few. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. The dynamics of the interfaces is difficult to investigate because typical interfaces are extremely thin, complex in shape, and deforming at short time scales. In addition, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved. Therefore, development of robust and accurate computational methods to capture the com- plex interfacial phenomena is crucial in the study of multiphase flows \cite{feiModelingRealisticMultiphase2019}.
+% -----------------------------------
 
+% --- Prepisat -------------------
 During the last three decades, the mesoscopic lattice Boltzmann method (LBM), based on the kinetic theory, has become an increasingly important method for numerical simulations of multiphase flows, mainly on account of its meso-scale features, easy the numerical stability compared with the SRT-LBM. The corresponding non-orthogonal MRT-LBM has been extended to sim 
+% ----------------------------
 
 implementation, and computational efficiency.
 existing multiphase LB models can be classified into four categories: the color-gradient model, the pseudopotential model, the it was shown by Li et al. that a non-orthogonal MRT-LBM free-energy model, and the mean-field model.
 
+% --- Prepisat -------------------
 Among them, can retain the numerical accuracy while simplifying the implementation of its orthogonal counterpart. In parallel, the CLBM which can be viewed as a non-orthogonal MRT-LBM in the co-moving frame, has been shown to possess very good numerical stability for high Rayleigh number thermal flows,39 as well the pseudopotential model is considered in the present work due to its simplicity and computational efficiency. In this model, the interactions among populations of molecules are modeled by a density-dependent pseudopotential. Through interactions among the particles on the nearest-neighboring sites, phase separation and breakup and/or merging of phase interfaces can be achieved automatically. For further details about the multiphase LB models, interested readers are directed to some comprehensive review
+% ------------------------------------
 
 \subsection{State of The Art}
 
+% --- Prepisat -------------------
 To overcome difficulties of numerical instability in applying the LBM method, the multiple-relaxation-time (MRT) scheme is useful to stabilize the solution and to obtain satisfactory results because the MRT model allows the usage of an independently optimized relaxation-time for each physical process \cite{sugaD3Q27MultiplerelaxationtimeLattice2015}.
+% -----------------------------------------------
 
 \section{Methodology}
 
@@ -193,12 +239,14 @@ The LBE is obtained by discretizing the velocity space of the Boltzmann equation
 
 where $x_i$ is the position vector of node i, $\vec{S}$ is the collision matrix, $m$ is the moment, $F$ represents an external body force and the notation for the column vector (known as the ket vector) such as $|f \rangle$ represents
 
-%\begin{figure}[!ht]
-%	\centering
-%	\includegraphics[width=0.4\textwidth]{figures/d3q27-bad.jpg}
-%	\caption{D3Q27 node - PREROBIT NA DIAGRAM!!!}
-%	\label{fig:d2q27-node}
-%\end{figure}
+\begin{figure}[!ht]
+	\centering
+	\subfloat[D3Q19]{{\includegraphics[width=6cm]{figures/d3q19.jpg} }}
+	\qquad
+	\subfloat[D3Q27]{{\includegraphics[width=6cm]{figures/d3q27.jpg} }}
+	\caption{Three-dimensional lattice node schemes.}
+	\label{fig:lattice-node-schemes}
+\end{figure}
 
 %\begin{equation}
 %|f (x_i,t)\rangle = (f_0(x_i,t),f_1(x_i,t),...,f_Q−1(x_i,t)).
@@ -219,9 +267,20 @@ $p = c_s^2 \rho$ is the pressure, $c_s = \frac{c}{\sqrt{3}}$ is the speed of sou
 
 Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
 
+
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/d3q6.jpg}
+	\caption{D3Q6 lattice node schemes}
+	\label{fig:d3q6-lattice}
+\end{figure}
+
 \section{Simulation Software}
+\label{simulaiton-software}
 
 \subsection{GPU Computing}
+\label{gpu-computing}
 
 GPU-based parallel computing reduces the time for some computing tasks by orders of magnitude, so big computations (like training a machine learning system on a large data set) that took weeks can now happen in hours, and moderate-sized computations (like producing a 3D contour plot) that took minutes can happen interactively in real time \cite{stortiCudaForEngineers2015}. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required.
 
@@ -233,10 +292,108 @@ CUDA is a hardware/software platform for parallel computing created and supporte
 
 \cite{stortiCudaForEngineers2015}
 
-The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy- efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing pro- ductivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \cite{stortiCudaForEngineers2015}.
+The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy- efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing productivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \citep{stortiCudaForEngineers2015}.
+
+
+\citep{karimiPerformanceComparisonCUDA}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/cuda-device-memory.jpg}
+	\caption{CUDA memory model}
+	\label{fig:cuda-memory-model}
+\end{figure}
+
+
+... created a library to simplify programming for the GPU's. 
+
+\citep{Yalamanchili2015}
 
 \subsubsection{ArrayFire}
 
+ArrayFire is a high performance software library for parallel computing with an easy-to-use API. ArrayFire abstracts away much of the details of programming parallel architectures by providing a high-level container object, the Array, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures.
+
+\citep{Yalamanchili2015}
+
+Going on from ArrayFire's version 3.2., the Unified backend was introduced. It allows developers to change between different backends CUDA, OpenCL and CPU
+
+\begin{equation}
+\begin{bmatrix}
+	1 & 2 & 3\\
+	a & b & c
+\end{bmatrix}
+\end{equation}
+
+\subsection{Optimizations for GPU Computing}
+\label{sec:optimizations-for-gpu-computing}
+
+\subsubsection{Removing branch divergence}
+
+\begin{lstlisting}[language=Rust, caption=Pseudo-code of if-statement in kernel]
+	if (node_type == "fluid") {
+		x = a;
+	} else {
+		x = b;
+	}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Rust, caption=Pseudo-code with if-statement removed]
+	let is_fluid = node_type == "fluid";
+	x = a * is_fluid + b * (!is_fluid);
+\end{lstlisting}
+
+\begin{lstlisting}[language=Rust, caption=Example Rust code of removing branch divergence using ArrayFire]
+	use arrayfire as af;
+	
+	fn main() {
+		// dimensions
+		let dims = af::dim4!(3,3,1,1);
+		
+		// 0 -> wall
+		// 1 -> fluid
+		// 2 -> gas
+		let domain = af::Array::new(&[0,0,0,1,1,1,2,2,2], dims);
+		
+		// original array
+		let a = af::randu::<f32>(dims);
+		// part of the domain to be replaced
+		let water = af::constant(1, dims);
+		// new values
+		let b = af::randu::<f32>(dims);
+		
+		let cond = af::eq(&water, &domain, false);
+		
+		let out = af::select(&a, &cond, &b);
+		
+		// Print the values
+		af::af_print!("", &a);
+		af::af_print!("", &b);
+		af::af_print!("", &out);
+		
+		// Values from array `a`
+		// 0.6010     0.2126     0.2864 
+		// 0.0278     0.0655     0.3410 
+		// 0.9806     0.5497     0.7509 
+		
+		// Values from array `b`
+		// 0.4105     0.3543     0.3636 
+		// 0.1583     0.6450     0.4165 
+		// 0.3712     0.9675     0.5814 
+		
+		// Values from boolean array `cond`
+		// 0          1          0 
+		// 0          1          0 
+		// 0          1          0 
+		
+		// Values from array `out`
+		// 0.4105     0.2126     0.3636 
+		// 0.1583     0.0655     0.4165 
+		// 0.3712     0.5497     0.5814 
+	}
+\end{lstlisting}
+
+To avoid if-statements in kernel code for LBM algorithm, a ``ghost layer" is added to the computational domain. In other words, for $n_x$, $n_y$ and $n_z$ as width, height and depth respectively, $n_x+1$, $n_y+1$ and $n_z+1$ nodes are added to the computational domain's grid. Ghost layer helps in a way that we can treat computations at the boundary position as the normal ones and not worry about running out of the index bounds \cite{tranPerformanceOptimization3D2017}.
+	
 \subsection{Programming Language}
 
 The Rust programming language helps you write faster, more reliable software. High-level ergonomics and low-level control are often at odds in programming language design; Rust challenges that conflict. Through balancing powerful technical capacity and a great developer experience, Rust gives you the option to control low-level details (such as memory usage) without all the hassle traditionally associated with such control. \cite{steveklabnik2018}

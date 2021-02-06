@@ -14,11 +14,22 @@ Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
   {\bf 31}(4):~042105.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
 
+\harvarditem[Harwood et~al.]{Harwood, Wenisch \harvardand\
+  Revell}{n.d.}{harwoodREALTIMEMODELLINGSIMULATION}
+Harwood, A. R.~G., Wenisch, P. \harvardand\ Revell, A.~J.  \harvardyearleft
+  n.d.\harvardyearright .
+\newblock A {REAL}-{TIME} {MODELLING} {AND} {SIMULATION} {PLATFORM} {FOR}
+  {VIRTUAL} {ENGINEERING} {DESIGN} {AND} {ANALYSIS},  p.~11.
+
 \harvarditem{Jalkanen}{2006}{Jalkanen2006}
 Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
 \newblock {Experiences in physicochemical modelling of oxygen converter process
   (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
   International Symposium} {\bf 2}:~541--554.
+
+\harvarditem{Karimi}{n.d.}{karimiPerformanceComparisonCUDA}
+Karimi, K.  \harvardyearleft n.d.\harvardyearright .
+\newblock A {{Performance Comparison}} of {{CUDA}} and {{OpenCL}},  p.~10.
 
 \harvarditem{Klabnik}{2018}{steveklabnik2018}
 Klabnik, S.  \harvardyearleft 2018\harvardyearright .
@@ -49,6 +60,15 @@ Lv, M., Zhu, R., Guo, Y.-G. \harvardand\ Wang, Y.-W.  \harvardyearleft
   {\em Metallurgical and Materials Transactions B} {\bf 44}(6):~1560--1571.
 \newline\harvardurl{http://link.springer.com/10.1007/s11663-013-9935-4}
 
+\harvarditem[Malcolm et~al.]{Malcolm, Yalamanchili, McClanahan,
+  Venugopalakrishnan, Patel \harvardand\
+  Melonakos}{2012}{malcolmArrayFireGPUAcceleration2012}
+Malcolm, J., Yalamanchili, P., McClanahan, C., Venugopalakrishnan, V., Patel,
+  K. \harvardand\ Melonakos, J.  \harvardyearleft 2012\harvardyearright .
+\newblock {{ArrayFire}}: A {{GPU}} acceleration platform, {\em in} E.~J.
+  Kelmelis (ed.), {\em {{SPIE Defense}}, {{Security}}, and {{Sensing}}},
+  {Baltimore, Maryland, USA}, p.~84030A.
+
 \harvarditem{Storti \harvardand\ Yurtoglu}{2015}{stortiCudaForEngineers2015}
 Storti, D. \harvardand\ Yurtoglu, M.  \harvardyearleft 2015\harvardyearright .
 \newblock {\em CUDA for Engineers: An Introduction to High-Performance Parallel
@@ -71,6 +91,14 @@ Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
   69}(6):~518--529.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0898122115000346}
 
+\harvarditem[Tran et~al.]{Tran, Lee \harvardand\
+  Hong}{2017}{tranPerformanceOptimization3D2017}
+Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
+  2017\harvardyearright .
+\newblock Performance {Optimization} of {3D} {Lattice} {Boltzmann} {Flow}
+  {Solver} on a {GPU}, {\em Scientific Programming} {\bf 2017}:~1--16.
+\newline\harvardurl{https://www.hindawi.com/journals/sp/2017/1205892/}
+
 \harvarditem{Turkdogan}{1996}{Turkdogan1996}
 Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
 \newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
@@ -91,5 +119,15 @@ Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
 \newblock {Towards Model-Based Closed-Loop Control of the Basic Oxygen
   Steelmaking Process}, {\em IFAC Proceedings Volumes} {\bf 31}(23):~69--74.
 \newline\harvardurl{http://dx.doi.org/10.1016/S1474-6670(17)35858-5}
+
+\harvarditem[Yalamanchili et~al.]{Yalamanchili, Arshad, Mohammed, Garigipati,
+  Entschev, Kloppenborg, Malcolm \harvardand\
+  Melonakos}{2015}{Yalamanchili2015}
+Yalamanchili, P., Arshad, U., Mohammed, Z., Garigipati, P., Entschev, P.,
+  Kloppenborg, B., Malcolm, J. \harvardand\ Melonakos, J.  \harvardyearleft
+  2015\harvardyearright .
+\newblock {ArrayFire - A high performance software library for parallel
+  computing with an easy-to-use API}.
+\newline\harvardurl{https://github.com/arrayfire/arrayfire}
 
 \end{thebibliography}

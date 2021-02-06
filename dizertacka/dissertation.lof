@@ -1,4 +1,9 @@
-\contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Production of steel in the converter with top-blown oxygen (LD/BOF) \citep {Turkdogan1996}.\relax }}{15}{figure.caption.7}% 
+\contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Production of steel in the converter with top-blown oxygen (LD/BOF) \citep {Turkdogan1996}.\relax }}{16}{figure.caption.7}% 
 \contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}2}{\ignorespaces Representation of elementary processes in LD converter.\relax }}{16}{figure.caption.8}% 
 \contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}3}{\ignorespaces Chemical and thermal processes in LD converter \citep {Jalkanen2006}.\relax }}{19}{figure.caption.9}% 
-\contentsline {figure}{\numberline {13\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{37}{figure.caption.10}% 
+\contentsline {figure}{\numberline {7\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Three-dimensional lattice node schemes.\relax }}{28}{figure.caption.10}% 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {D3Q19}}}{28}{subfigure.1.1}% 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {D3Q27}}}{28}{subfigure.1.2}% 
+\contentsline {figure}{\numberline {7\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}2}{\ignorespaces D3Q6 lattice node schemes\relax }}{29}{figure.caption.11}% 
+\contentsline {figure}{\numberline {8\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces CUDA memory model\relax }}{31}{figure.caption.12}% 
+\contentsline {figure}{\numberline {13\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{43}{figure.caption.13}% 
