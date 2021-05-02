@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: dissertation.aux
 The style file: dcu.bst
 A level-1 auxiliary file: mainpart.aux
@@ -10,46 +10,57 @@ Illegal, another \bibstyle command---line 3 of file bibliography.aux
 I'm skipping whatever remains of this command
 Database file #1: references.bib
 Warning--I didn't find a database entry for "gonda"
-Warning--I didn't find a database entry for "Kacur2019"
-You've used 18 entries,
+Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
+Warning--I didn't find a database entry for "succi2018lattice"
+Warning--I didn't find a database entry for "guoDiscreteLatticeEffects2002"
+Warning--I didn't find a database entry for "forge2016"
+Warning--I didn't find a database entry for "chrzeszczykMatrixComputationsGPU"
+Warning--I didn't find a database entry for "januszewskiSailfishFlexibleMultiGPU2014"
+Warning--I didn't find a database entry for "FULLGPUImplementation2017"
+Warning--I didn't find a database entry for "szokePerformanceEvaluationTwoDimensional2017"
+Warning--I didn't find a database entry for "herschlagGPUDataAccess2018"
+Warning--I didn't find a database entry for "MCCOOL2012209"
+Warning--I didn't find a database entry for "TAN2017649"
+Warning--empty booktitle in Kepler2017InSV
+You've used 26 entries,
             2921 wiz_defined-function locations,
-            773 strings with 9340 characters,
-and the built_in function-call counts, 90433 in all, are:
-= -- 14743
-> -- 1364
-< -- 0
-+ -- 7196
-- -- 421
-* -- 7918
-:= -- 17994
-add.period$ -- 37
-call.type$ -- 18
-change.case$ -- 249
-chr.to.int$ -- 18
-cite$ -- 18
-duplicate$ -- 276
-empty$ -- 553
-format.name$ -- 472
-if$ -- 16240
-int.to.chr$ -- 5
+            852 strings with 12808 characters,
+and the built_in function-call counts, 137277 in all, are:
+= -- 22460
+> -- 2034
+< -- 1
++ -- 10954
+- -- 626
+* -- 12075
+:= -- 27156
+add.period$ -- 55
+call.type$ -- 26
+change.case$ -- 361
+chr.to.int$ -- 25
+cite$ -- 27
+duplicate$ -- 413
+empty$ -- 835
+format.name$ -- 711
+if$ -- 24711
+int.to.chr$ -- 6
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 87
-num.names$ -- 193
-pop$ -- 79
+missing$ -- 28
+newline$ -- 130
+num.names$ -- 281
+pop$ -- 102
 preamble$ -- 1
-purify$ -- 270
+purify$ -- 390
 quote$ -- 0
-skip$ -- 242
+skip$ -- 371
 stack$ -- 0
-substring$ -- 20982
-swap$ -- 48
-text.length$ -- 252
+substring$ -- 31965
+swap$ -- 78
+text.length$ -- 365
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 0
-while$ -- 398
+type$ -- 98
+warning$ -- 1
+while$ -- 583
 width$ -- 0
-write$ -- 275
+write$ -- 408
 (There was 1 error message)

@@ -15,6 +15,7 @@
 \renewcommand{\contentsname}{Contents}
 %%
 \usepackage{cite}
+\usepackage[english]{babel}
 \usepackage{latexsym}
 \usepackage[strings]{underscore}
 \usepackage{dcolumn} % alignment on a 'decimal point' in tabular mode
@@ -34,7 +35,7 @@
 % Code rendering
 \usepackage{listings, listings-rust}
 \renewcommand{\lstlistingname}{Algorithm}%
-\definecolor{GrayCodeBlock}{RGB}{241,241,241}
+\definecolor{GrayCodeBlock}{RGB}{249,249,249}
 \definecolor{BlackText}{RGB}{110,107,94}
 \definecolor{RedTypename}{RGB}{182,86,17}
 \definecolor{GreenString}{RGB}{96,172,57}
@@ -78,8 +79,7 @@
 	keywordstyle=\color{PurpleKeyword},
 	ndkeywords={
 		bool,u8,u16,u32,u64,u128,i8,i16,i32,i64,i128,char,str,
-		Self,Option,Some,None,Result,Ok,Err,String,Box,Vec,Rc,Arc,Cell,RefCell,HashMap,BTreeMap,
-		macro_rules
+		Self,Option,Some,None,Result,Ok,Err,String,Box,Vec,Rc,Arc,Cell,RefCell,HashMap,BTreeMap,macro_rules,af,arrayfire
 	},
 	ndkeywordstyle=\color{RedTypename},
 	comment=[l][\color{GrayComment}\slshape]{//},
@@ -94,7 +94,7 @@
 	emph={int,char,double,float,unsigned},
 	emphstyle={\color{blue}}]
 }
-\lstdefinelanguage{c}
+\lstdefinelanguage{cpp}
 {
 	columns=fullflexible,
 	keepspaces=true,
@@ -108,7 +108,7 @@
 	xleftmargin=20pt,
 	xrightmargin=4pt,
 	backgroundcolor=\color{GrayCodeBlock},
-	basicstyle=\ttfamily\color{BlackText},
+	basicstyle=\footnotesize\linespread{0.9}\color{BlackText},
 	numbers=left,                    
 	numbersep=5pt,    
 	breakatwhitespace=false,         
@@ -126,11 +126,11 @@
 		unsafe,async,await,move,
 		use,pub,crate,super,self,mod,
 		struct,enum,fn,const,static,let,mut,ref,type,impl,dyn,trait,where,as,
-		break,continue,if,else,while,for,loop,match,return,yield,in
+		break,continue,if,else,while,for,loop,match,return,yield,in,array
 	},
 	keywordstyle=\color{PurpleKeyword},
 	ndkeywords={
-		bool,u8,u16,u32,u64,u128,i8,i16,i32,i64,i128,char,str,
+		bool,u8,u16,u32,u64,u128,i8,i16,i32,i64,i128,char,str,unsigned,
 		Self,Option,Some,None,Result,Ok,Err,String,Box,Vec,Rc,Arc,Cell,RefCell,HashMap,BTreeMap,
 		macro_rules
 	},
@@ -155,6 +155,18 @@
 \usepackage[hyphens]{url}
 \urlstyle{same}
 \usepackage{etoolbox}
+
+% Quotes
+\makeatletter
+%\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+{\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape}
+{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
 %%
 %\usepackage[dvips]{graphicx}
 %\DeclareGraphicsExtensions{.eps, .mps}

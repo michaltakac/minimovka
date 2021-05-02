@@ -1,9 +1,39 @@
-\contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Production of steel in the converter with top-blown oxygen (LD/BOF) \citep {Turkdogan1996}.\relax }}{16}{figure.caption.7}% 
-\contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}2}{\ignorespaces Representation of elementary processes in LD converter.\relax }}{16}{figure.caption.8}% 
-\contentsline {figure}{\numberline {2\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}3}{\ignorespaces Chemical and thermal processes in LD converter \citep {Jalkanen2006}.\relax }}{19}{figure.caption.9}% 
-\contentsline {figure}{\numberline {7\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Three-dimensional lattice node schemes.\relax }}{28}{figure.caption.10}% 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {D3Q19}}}{28}{subfigure.1.1}% 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {D3Q27}}}{28}{subfigure.1.2}% 
-\contentsline {figure}{\numberline {7\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}2}{\ignorespaces D3Q6 lattice node schemes\relax }}{29}{figure.caption.11}% 
-\contentsline {figure}{\numberline {9\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces CUDA memory model\relax }}{31}{figure.caption.12}% 
-\contentsline {figure}{\numberline {14\tmspace +\thinmuskip {.1667em}--\tmspace +\thinmuskip {.1667em}1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{42}{figure.caption.13}% 
+\babel@toc {english}{}
+\contentsline {figure}{\numberline {3\,--\,1}{\ignorespaces D2Q9 lattice node scheme.\relax }}{20}{figure.caption.7}%
+\contentsline {figure}{\numberline {3\,--\,2}{\ignorespaces Three-dimensional lattice node schemes.\relax }}{22}{figure.caption.8}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {D3Q19}}}{22}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {D3Q27}}}{22}{subfigure.2.2}%
+\contentsline {figure}{\numberline {4\,--\,1}{\ignorespaces Differences between CPU-bound visualization with expensive copying bottleneck and high-performance GPU-bound visualization keeping full speeds of high-bandwidth of PCIe interface.\relax }}{30}{figure.caption.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {High-performance visualization pipeline.}}}{30}{subfigure.1.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {High-performance visualization pipeline.}}}{30}{subfigure.1.2}%
+\contentsline {figure}{\numberline {4\,--\,2}{\ignorespaces Lid-driven cavity test case at 128$\times $128 resolution after 5000 iterations.\relax }}{31}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of lid-driven cavity simulation.}}}{31}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field.}}}{31}{subfigure.2.2}%
+\contentsline {figure}{\numberline {4\,--\,3}{\ignorespaces Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times $300 resolution after 5000 iterations.\relax }}{31}{figure.caption.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of Kármán vortex street simulation.}}}{31}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field (filtered for better presentation).}}}{31}{subfigure.3.2}%
+\contentsline {figure}{\numberline {5\,--\,1}{\ignorespaces CUDA memory model\relax }}{39}{figure.caption.12}%
+\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{55}{figure.caption.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{55}{subfigure.1.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{55}{subfigure.1.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{55}{subfigure.1.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{55}{subfigure.1.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{55}{subfigure.1.5}%
+\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{56}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{56}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{56}{subfigure.2.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{56}{subfigure.2.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{56}{subfigure.2.4}%
+\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{58}{figure.caption.18}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{58}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{58}{subfigure.3.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{58}{subfigure.3.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{58}{subfigure.3.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{58}{subfigure.3.5}%
+\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{59}{figure.caption.19}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{59}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{59}{subfigure.4.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{59}{subfigure.4.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{59}{subfigure.4.4}%
+\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{59}{figure.caption.20}%
+\contentsline {figure}{\numberline {8\,--\,1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{60}{figure.caption.21}%

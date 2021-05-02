@@ -1,9 +1,36 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Bhatnagar et~al.]{Bhatnagar, Gross \harvardand\
+  Krook}{1954a}{bhatnagarModelCollisionProcesses1954}
+Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
+  1954a\harvardyearright .
+\newblock A {Model} for {Collision} {Processes} in {Gases}. {I}. {Small}
+  {Amplitude} {Processes} in {Charged} and {Neutral} {One}-{Component}
+  {Systems}, {\em Physical Review} {\bf 94}(3):~511--525.
+\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRev.94.511}
+
+\harvarditem[Bhatnagar et~al.]{Bhatnagar, Gross \harvardand\
+  Krook}{1954b}{bgk1954}
+Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
+  1954b\harvardyearright .
+\newblock A model for collision processes in gases. i. small amplitude
+  processes in charged and neutral one-component systems, {\em Phys. Rev.} {\bf
+  94}:~511--525.
+\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRev.94.511}
+
 \harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
 Delbosc, N.  \harvardyearleft n.d.\harvardyearright .
 \newblock Real-{Time} {Simulation} of {Indoor} {Air} {Flow} {Using} the
   {Lattice} {Boltzmann} {Method} on {Graphics} {Processing} {Unit},  p.~261.
+
+\harvarditem[Delbosc et~al.]{Delbosc, Summers, Khan, Kapur \harvardand\
+  Noakes}{2014}{delboscOptimizedImplementationLattice2014}
+Delbosc, N., Summers, J., Khan, A., Kapur, N. \harvardand\ Noakes, C.
+  \harvardyearleft 2014\harvardyearright .
+\newblock Optimized implementation of the {Lattice} {Boltzmann} {Method} on a
+  graphics processing unit towards real-time fluid simulation, {\em Computers
+  \& Mathematics with Applications} {\bf 67}(2):~462--475.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0898122113006068}
 
 \harvarditem[Fei et~al.]{Fei, Du, Luo, Succi, Lauricella, Montessori
   \harvardand\ Wang}{2019}{feiModelingRealisticMultiphase2019}
@@ -14,6 +41,13 @@ Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
   {\bf 31}(4):~042105.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
 
+\harvarditem{Glessmer \harvardand\
+  Janßen}{2017}{glessmerUsingInteractiveLattice2017}
+Glessmer, M. \harvardand\ Janßen, C.  \harvardyearleft 2017\harvardyearright .
+\newblock Using an {Interactive} {Lattice} {Boltzmann} {Solver} in {Fluid}
+  {Mechanics} {Instruction}, {\em Computation} {\bf 5}(4):~35.
+\newline\harvardurl{http://www.mdpi.com/2079-3197/5/3/35}
+
 \harvarditem[Harwood et~al.]{Harwood, Wenisch \harvardand\
   Revell}{n.d.}{harwoodREALTIMEMODELLINGSIMULATION}
 Harwood, A. R.~G., Wenisch, P. \harvardand\ Revell, A.~J.  \harvardyearleft
@@ -21,28 +55,64 @@ Harwood, A. R.~G., Wenisch, P. \harvardand\ Revell, A.~J.  \harvardyearleft
 \newblock A {REAL}-{TIME} {MODELLING} {AND} {SIMULATION} {PLATFORM} {FOR}
   {VIRTUAL} {ENGINEERING} {DESIGN} {AND} {ANALYSIS},  p.~11.
 
-\harvarditem{Jalkanen}{2006}{Jalkanen2006}
-Jalkanen, H.  \harvardyearleft 2006\harvardyearright .
-\newblock {Experiences in physicochemical modelling of oxygen converter process
-  (BOF)}, {\em 2006 TMS Fall Extraction and Processing Division: Sohn
-  International Symposium} {\bf 2}:~541--554.
+\harvarditem[Harwood et~al.]{Harwood, O’Connor, Sanchez~Muñoz,
+  Camps~Santasmasas \harvardand\ Revell}{2018}{harwoodLUMAManycoreFluid2018}
+Harwood, A.~R., O’Connor, J., Sanchez~Muñoz, J., Camps~Santasmasas, M.
+  \harvardand\ Revell, A.~J.  \harvardyearleft 2018\harvardyearright .
+\newblock {LUMA}: {A} many-core, {Fluid}–{Structure} {Interaction} solver
+  based on the {Lattice}-{Boltzmann} {Method}, {\em SoftwareX} {\bf 7}:~88--94.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2352711018300219}
+
+\harvarditem{Harwood \harvardand\
+  Revell}{2017}{harwoodParallelisationInteractiveLatticeBoltzmann2017}
+Harwood, A.~R. \harvardand\ Revell, A.~J.  \harvardyearleft
+  2017\harvardyearright .
+\newblock Parallelisation of an interactive lattice-{Boltzmann} method on an
+  {Android}-powered mobile device, {\em Advances in Engineering Software} {\bf
+  104}:~38--50.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0965997816301855}
 
 \harvarditem{Karimi}{n.d.}{karimiPerformanceComparisonCUDA}
 Karimi, K.  \harvardyearleft n.d.\harvardyearright .
 \newblock A {{Performance Comparison}} of {{CUDA}} and {{OpenCL}},  p.~10.
+
+\harvarditem{Kepler \harvardand\ Aries}{2017}{Kepler2017InSV}
+Kepler, N. \harvardand\ Aries  \harvardyearleft 2017\harvardyearright .
+\newblock In situ visualization techniques for high performance computing.
 
 \harvarditem{Klabnik}{2018}{steveklabnik2018}
 Klabnik, S.  \harvardyearleft 2018\harvardyearright .
 \newblock {\em The Rust Programming Language}, No Starch Press.
 \newline\harvardurl{https://www.xarg.org/ref/a/B071YKRV8Q/}
 
-\harvarditem[Laciak et~al.]{Laciak, Petráš, Flegner, Durdán \harvardand\
-  Tréfa}{2017}{sprava2017}
-Laciak, M., Petráš, I., Flegner, P., Durdán, M. \harvardand\ Tréfa, G.
-  \harvardyearleft 2017\harvardyearright .
-\newblock {V{\'{y}}skum nepriameho merania teploty a uhl{\'{i}}ka v procese
-  skujňovania}, {\em Technical report}, {Fakulta BERG {\'{U}}stav riadenia a
-  informatiz{\'{a}}cie v{\'{y}}robn{\'{y}}ch procesov}.
+\harvarditem[Koliha et~al.]{Koliha, Janßen \harvardand\
+  Rung}{2015}{kolihaOnlineVisualizationInteractive2015}
+Koliha, N., Janßen, C. \harvardand\ Rung, T.  \harvardyearleft
+  2015\harvardyearright .
+\newblock Towards {Online} {Visualization} and {Interactive} {Monitoring} of
+  {Real}-{Time} {CFD} {Simulations} on {Commodity} {Hardware}, {\em
+  Computation} {\bf 3}(3):~444--478.
+\newline\harvardurl{http://www.mdpi.com/2079-3197/3/3/444}
+
+\harvarditem[Kotsalos et~al.]{Kotsalos, Latt, Beny \harvardand\
+  Chopard}{2019}{kotsalosDigitalBloodMassively2019}
+Kotsalos, C., Latt, J., Beny, J. \harvardand\ Chopard, B.  \harvardyearleft
+  2019\harvardyearright .
+\newblock Digital {Blood} in {Massively} {Parallel} {CPU}/{GPU} {Systems} for
+  the {Study} of {Platelet} {Transport}, {\em arXiv:1911.03062 [physics]} .
+\newblock arXiv: 1911.03062.
+\newline\harvardurl{http://arxiv.org/abs/1911.03062}
+
+\harvarditem[Körner et~al.]{Körner, Pohl, Rüde, Thürey \harvardand\
+  Zeiser}{2006}{kornerParallelLatticeBoltzmann2006}
+Körner, C., Pohl, T., Rüde, U., Thürey, N. \harvardand\ Zeiser, T.
+  \harvardyearleft 2006\harvardyearright .
+\newblock Parallel {Lattice} {Boltzmann} {Methods} for {CFD} {Applications},
+  {\em in} A.~M. Bruaset \harvardand\ A.~Tveito (eds), {\em Numerical
+  {Solution} of {Partial} {Differential} {Equations} on {Parallel}
+  {Computers}}, Vol.~51, Springer-Verlag, Berlin/Heidelberg, pp.~439--466.
+\newblock Series Title: Lecture Notes in Computational Science and Engineering.
+\newline\harvardurl{http://link.springer.com/10.1007/3-540-31619-1_13}
 
 \harvarditem[Li et~al.]{Li, Luo, Kang, He, Chen \harvardand\
   Liu}{2016}{liLatticeBoltzmannMethods2016a}
@@ -51,6 +121,16 @@ Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
 \newblock Lattice {Boltzmann} methods for multiphase flow and phase-change heat
   transfer, {\em Progress in Energy and Combustion Science} {\bf 52}:~62--105.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0360128515300162}
+
+\harvarditem[Linxweiler et~al.]{Linxweiler, Krafczyk \harvardand\
+  Tölke}{2010}{linxweilerHighlyInteractiveComputational2010}
+Linxweiler, J., Krafczyk, M. \harvardand\ Tölke, J.  \harvardyearleft
+  2010\harvardyearright .
+\newblock Highly interactive computational steering for coupled {3D} flow
+  problems utilizing multiple {GPUs}: {Towards} intuitive desktop environments
+  for interactive {3D} fluid structure interaction, {\em Computing and
+  Visualization in Science} {\bf 13}(7):~299--314.
+\newline\harvardurl{http://link.springer.com/10.1007/s00791-010-0151-3}
 
 \harvarditem[Lv et~al.]{Lv, Zhu, Guo \harvardand\
   Wang}{2013}{lvSimulationFlowFluid2013}
@@ -99,26 +179,21 @@ Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
   {Solver} on a {GPU}, {\em Scientific Programming} {\bf 2017}:~1--16.
 \newline\harvardurl{https://www.hindawi.com/journals/sp/2017/1205892/}
 
-\harvarditem{Turkdogan}{1996}{Turkdogan1996}
-Turkdogan, E.~T.  \harvardyearleft 1996\harvardyearright .
-\newblock {\em Fundamentals of Steelmaking}, The Institute of Materials,
-  London.
+\harvarditem[Wang et~al.]{Wang, Ferey, Bourdot \harvardand\
+  Magoules}{2019}{wangInteractive3DFluid2019}
+Wang, M., Ferey, N., Bourdot, P. \harvardand\ Magoules, F.  \harvardyearleft
+  2019\harvardyearright .
+\newblock Interactive {3D} {Fluid} {Simulation}: {Steering} the {Simulation} in
+  {Progress} {Using} {Lattice} {Boltzmann} {Method}, {\em 2019 18th
+  {International} {Symposium} on {Distributed} {Computing} and {Applications}
+  for {Business} {Engineering} and {Science} ({DCABES})}, IEEE, Wuhan, China,
+  pp.~72--75.
+\newline\harvardurl{https://ieeexplore.ieee.org/document/8921356/}
 
-\harvarditem[Wang et~al.]{Wang, Han \harvardand\ Wang}{2010}{Wang2010}
-Wang, X., Han, M. \harvardand\ Wang, J.  \harvardyearleft 2010\harvardyearright
-  .
-\newblock {Applying input variables selection technique on input weighted
-  support vector machine modeling for BOF endpoint prediction}, {\em
-  Engineering Applications of Artificial Intelligence} {\bf 23}(6):~1012--1018.
-\newline\harvardurl{http://dx.doi.org/10.1016/j.engappai.2009.12.007}
-
-\harvarditem[Widlund et~al.]{Widlund, Medvedev \harvardand\
-  Gyllenram}{1998}{Widlund1998}
-Widlund, D., Medvedev, A. \harvardand\ Gyllenram, R.  \harvardyearleft
-  1998\harvardyearright .
-\newblock {Towards Model-Based Closed-Loop Control of the Basic Oxygen
-  Steelmaking Process}, {\em IFAC Proceedings Volumes} {\bf 31}(23):~69--74.
-\newline\harvardurl{http://dx.doi.org/10.1016/S1474-6670(17)35858-5}
+\harvarditem{Wittmann}{2018}{wittmannLatticeBoltzmannBenchmark2018}
+Wittmann, M.  \harvardyearleft 2018\harvardyearright .
+\newblock Lattice {Boltzmann} benchmark kernels as a testbed for performance
+  analysis,  p.~11.
 
 \harvarditem[Yalamanchili et~al.]{Yalamanchili, Arshad, Mohammed, Garigipati,
   Entschev, Kloppenborg, Malcolm \harvardand\
