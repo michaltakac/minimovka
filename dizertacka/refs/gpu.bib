@@ -1,0 +1,85 @@
+
+@article{karimiPerformanceComparisonCUDAa,
+	title = {A {Performance} {Comparison} of {CUDA} and {OpenCL}},
+	abstract = {CUDA and OpenCL offer two different interfaces for programming GPUs. OpenCL is an open standard that can be used to program CPUs, GPUs, and other devices from different vendors, while CUDA is specific to NVIDIA GPUs. Although OpenCL promises a portable language for GPU programming, its generality may entail a performance penalty. In this paper, we compare the performance of CUDA and OpenCL using complex, near-identical kernels. We show that when using NVIDIA compiler tools, converting a CUDA kernel to an OpenCL kernel involves minimal modifications. Making such a kernel compile with ATI’s build tools involves more modifications. Our performance tests measure and compare data transfer times to and from the GPU, kernel execution times, and end-to-end application execution times for both CUDA and OpenCL.},
+	language = {en},
+	author = {Karimi, Kamran},
+	pages = {10},
+	file = {Karimi - A Performance Comparison of CUDA and OpenCL.pdf:/Users/michaltakac/Zotero/storage/SX7K6H4M/Karimi - A Performance Comparison of CUDA and OpenCL.pdf:application/pdf}
+}
+
+@inproceedings{malcolmArrayFireGPUAcceleration2012a,
+	address = {Baltimore, Maryland, USA},
+	title = {{ArrayFire}: a {GPU} acceleration platform},
+	shorttitle = {{ArrayFire}},
+	url = {http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.921122},
+	doi = {10.1117/12.921122},
+	language = {en},
+	urldate = {2021-05-04},
+	author = {Malcolm, James and Yalamanchili, Pavan and McClanahan, Chris and Venugopalakrishnan, Vishwanath and Patel, Krunal and Melonakos, John},
+	editor = {Kelmelis, Eric J.},
+	month = may,
+	year = {2012},
+	pages = {84030A},
+	file = {Malcolm et al. - 2012 - ArrayFire a GPU acceleration platform.pdf:/Users/michaltakac/Zotero/storage/9KF6MMEZ/Malcolm et al. - 2012 - ArrayFire a GPU acceleration platform.pdf:application/pdf}
+}
+
+@article{sugimotoImprovingCacheLocality2014a,
+	title = {Improving cache locality for {GPU}-based volume rendering},
+	volume = {40},
+	issn = {01678191},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S016781911400043X},
+	doi = {10.1016/j.parco.2014.03.013},
+	abstract = {We present a cache-aware method for accelerating texture-based volume rendering on a graphics processing unit (GPU). Because a GPU has hierarchical architecture in terms of processing and memory units, cache optimization is important to maximize performance for memory-intensive applications. Our method localizes texture memory reference according to the location of the viewpoint and dynamically selects the width and height of thread blocks (TBs) so that each warp, which is a series of 32 threads processed simultaneously, can minimize memory access strides. We also incorporate transposed indexing of threads to perform TB-level cache optimization for speciﬁc viewpoints. Furthermore, we maximize TB size to exploit spatial locality with fewer resident TBs. For viewpoints with relatively large strides, we synchronize threads of the same TB at regular intervals to realize synchronous ray propagation. Experimental results indicate that our cache-aware method doubles the worst rendering performance compared to those provided by the CUDA and OpenCL software development kits.},
+	language = {en},
+	number = {5-6},
+	urldate = {2021-05-04},
+	journal = {Parallel Computing},
+	author = {Sugimoto, Yuki and Ino, Fumihiko and Hagihara, Kenichi},
+	month = may,
+	year = {2014},
+	pages = {59--69},
+	file = {Sugimoto et al. - 2014 - Improving cache locality for GPU-based volume rend.pdf:/Users/michaltakac/Zotero/storage/MKT2RRIZ/Sugimoto et al. - 2014 - Improving cache locality for GPU-based volume rend.pdf:application/pdf}
+}
+
+@inproceedings{fatahalianUnderstandingEfficiencyGPU2004a,
+	address = {Grenoble, France},
+	title = {Understanding the efficiency of {GPU} algorithms for matrix-matrix multiplication},
+	isbn = {978-3-905673-15-9},
+	url = {http://portal.acm.org/citation.cfm?doid=1058129.1058148},
+	doi = {10.1145/1058129.1058148},
+	abstract = {Utilizing graphics hardware for general purpose numerical computations has become a topic of considerable interest. The implementation of streaming algorithms, typiﬁed by highly parallel computations with little reuse of input data, has been widely explored on GPUs. We relax the streaming model’s constraint on input reuse and perform an in-depth analysis of dense matrix-matrix multiplication, which reuses each element of input matrices O(n) times. Its regular data access pattern and highly parallel computational requirements suggest matrix-matrix multiplication as an obvious candidate for efﬁcient evaluation on GPUs but, surprisingly we ﬁnd even nearoptimal GPU implementations are pronouncedly less efﬁcient than current cache-aware CPU approaches. We ﬁnd the key cause of this inefﬁciency is that the GPU can fetch less data and yet execute more arithmetic operations per clock than the CPU when both are operating out of their closest caches. The lack of high bandwidth access to cached data will impair the performance of GPU implementations of any computation featuring signiﬁcant input reuse.},
+	language = {en},
+	urldate = {2021-05-04},
+	booktitle = {Proceedings of the {ACM} {SIGGRAPH}/{EUROGRAPHICS} conference on {Graphics} hardware  - {HWWS} '04},
+	publisher = {ACM Press},
+	author = {Fatahalian, K. and Sugerman, J. and Hanrahan, P.},
+	year = {2004},
+	note = {ISSN: 17273471},
+	pages = {133},
+	file = {Fatahalian et al. - 2004 - Understanding the efficiency of GPU algorithms for.pdf:/Users/michaltakac/Zotero/storage/934QU74Z/Fatahalian et al. - 2004 - Understanding the efficiency of GPU algorithms for.pdf:application/pdf}
+}
+
+@inproceedings{melonakosProductiveHighperformanceSoftware2013b,
+	address = {Baltimore, Maryland, USA},
+	title = {Productive high-performance software for {OpenCL} devices},
+	url = {http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.2016216},
+	doi = {10.1117/12.2016216},
+	abstract = {Over the last three decades, CPUs have continued to produce large performance improvements from one generation to the next. However, CPUs have recently hit a performance wall and need parallel computing to move forward. Parallel computing over the next decade will become increasingly defined by heterogeneous computing, involving the use of accelerators in addition to CPUs to get computational tasks done. In order to use an accelerator, software changes must be made. Regular x86-based compilers cannot compile code to run on accelerators without these needed changes. The amount of software change required varies depending upon the availability of and reliance upon software tools that increase performance and productivity. Writing software that leverages the best parallel computing hardware, adapts well to the rapid pace of hardware updates, and minimizes developer muscle is the industry’s goal. OpenCL is the standard around which developers are able to achieve parallel performance. OpenCL itself is too difficult to program to receive general adoptions, but productive high-performing software libraries are becoming increasingly popular and capable in delivering lasting value to user applications.},
+	language = {en},
+	urldate = {2021-05-04},
+	author = {Melonakos, John M. and Yalamanchili, Pavan and McClanahan, Chris and Arshad, Umar and Landes, Michael and Jamboti, Shivapriya and Joshi, Abhijit and Mohammed, Shehzan and Spafford, Kyle and Venugopalakrishnan, Vishwanath and Malcolm, James},
+	editor = {Kelmelis, Eric J.},
+	month = may,
+	year = {2013},
+	pages = {87520C},
+	file = {Melonakos et al. - 2013 - Productive high-performance software for OpenCL de.pdf:/Users/michaltakac/Zotero/storage/EAIMEWCG/Melonakos et al. - 2013 - Productive high-performance software for OpenCL de.pdf:application/pdf}
+}
+
+@article{chrzeszczykMatrixComputationsGPUb,
+	title = {Matrix {Computations} on {GPU} with {ArrayFire} - {Python} and {ArrayFire} - {C}/{C}++},
+	language = {en},
+	author = {Chrzeszczyk, Andrzej},
+	pages = {88},
+	file = {Chrzeszczyk - Matrix Computations on GPU with ArrayFire - Python.pdf:/Users/michaltakac/Zotero/storage/A2BX9ZBS/Chrzeszczyk - Matrix Computations on GPU with ArrayFire - Python.pdf:application/pdf}
+}

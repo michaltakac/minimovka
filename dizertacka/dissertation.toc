@@ -15,51 +15,51 @@
 \contentsline {subsubsection}{\numberline {3.6.1}Fluid Turbulence}{25}{subsubsection.3.6.1}%
 \contentsline {subsubsection}{\numberline {3.6.2}Sub-grid Scale Modeling}{26}{subsubsection.3.6.2}%
 \contentsline {subsection}{\numberline {3.7}Multiphase Flows}{26}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Adaptive Mesh Refinement}{27}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Complex Fluids and Beyond}{27}{subsection.3.9}%
-\contentsline {section}{\numberline {4}Visualization Methods}{27}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Human-Computer Interface}{27}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}SCADA}{27}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Principles of UI Design}{28}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}From 2D to 3D User Interfaces}{28}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Post Hoc Visualization}{28}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Real-time Visualization}{29}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Interactive Visualization}{30}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Steering the Running Simulation}{33}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Time Manipulation}{33}{subsubsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.5}Virtual and Augmented Reality}{33}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Virtual Reality in Steelmaking}{35}{subsubsection.4.5.1}%
-\contentsline {section}{\numberline {5}GPU Computing}{37}{section.5}%
-\contentsline {subsection}{\numberline {5.1}CUDA}{38}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}OpenCL}{38}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Cross-platform GPU Computing}{38}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Accelerating CFD Simulations with GPUs}{40}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Implementation of a Simulation Software}{42}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Technology Stack}{42}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Cross-platform Development with ArrayFire}{42}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Rust as C/C++ Alternative}{42}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Hardware}{44}{subsubsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.2}Implementation of Lattice Boltzmann Method for GPUs}{44}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}GPU Optimizations}{44}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{46}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{48}{subsubsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.3}Pull vs Push Scheme}{50}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.4}Load Balancing in Multi-GPU Setups}{50}{subsubsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.4}Interactive Simulation}{51}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Visualizing Simulation Output in Real-Time}{51}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Changing Initial Conditions}{52}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Updating Boundary Conditions}{52}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Time Manipulation}{52}{subsubsection.6.4.4}%
-\contentsline {subsection}{\numberline {6.5}Virtual Reality User Interface}{52}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Cross-platform Development}{52}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}VRTK}{52}{subsubsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.3}Interacting with 3D Data}{52}{subsubsection.6.5.3}%
-\contentsline {subsubsection}{\numberline {6.5.4}Plotting in VR}{52}{subsubsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.6}Performance Analysis}{52}{subsection.6.6}%
-\contentsline {subsubsection}{\numberline {6.6.1}Hardware}{52}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Results}{53}{subsubsection.6.6.2}%
-\contentsline {section}{\numberline {7}Conclusions}{54}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{57}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Future Work}{57}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Streaming Visualized Pixels Over Network}{57}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Simulation as an Educational Tool}{57}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {3.8}Adaptive Mesh Refinement}{28}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Complex Fluids and Beyond}{28}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Visualization Methods}{28}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Human-Computer Interface}{28}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}SCADA}{28}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Principles of UI Design}{29}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}From 2D to 3D User Interfaces}{29}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Post Hoc Visualization}{29}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Real-time Visualization}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Interactive Visualization}{31}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Steering the Running Simulation}{34}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Time Manipulation}{34}{subsubsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.5}Virtual and Augmented Reality}{34}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Virtual Reality in Steelmaking}{36}{subsubsection.4.5.1}%
+\contentsline {section}{\numberline {5}GPU Computing}{38}{section.5}%
+\contentsline {subsection}{\numberline {5.1}CUDA}{39}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}OpenCL}{39}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Cross-platform GPU Computing}{39}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Accelerating Lattice Boltzmann Simulations with GPUs}{41}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Implementation of a Simulation Software}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Technology Stack}{43}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Cross-platform Development with ArrayFire}{43}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Rust as C/C++ Alternative}{43}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Hardware}{45}{subsubsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.2}Implementation of Lattice Boltzmann Method for GPUs}{45}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}GPU Optimizations}{45}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{47}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{49}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Pull vs Push Scheme}{51}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Load Balancing in Multi-GPU Setups}{52}{subsubsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.4}Interactive Simulation}{53}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Visualizing Simulation Output in Real-Time}{53}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Changing Initial Conditions}{53}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Updating Boundary Conditions}{53}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.4}Time Manipulation}{53}{subsubsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.5}Virtual Reality User Interface}{53}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Cross-platform Development}{53}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}VRTK}{53}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.3}Interacting with 3D Data}{53}{subsubsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.4}Plotting in VR}{53}{subsubsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.6}Performance Analysis}{53}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Hardware}{54}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Results}{55}{subsubsection.6.6.2}%
+\contentsline {section}{\numberline {7}Conclusions}{56}{section.7}%
+\contentsline {section}{\numberline {8}Discussion}{58}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Future Work}{58}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Streaming Visualized Pixels Over Network}{58}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Simulation as an Educational Tool}{58}{subsubsection.8.1.2}%

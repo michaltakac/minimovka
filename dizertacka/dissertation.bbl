@@ -41,12 +41,29 @@ Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
   {\bf 31}(4):~042105.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
 
+\harvarditem{{\em {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann}
+  {Methods} with {Immersed} {Boundary} {Conditions} for {Fast} {Fluid}
+  {Simulations}}}{2017}{FULLGPUImplementation2017}
+{\em {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann} {Methods} with
+  {Immersed} {Boundary} {Conditions} for {Fast} {Fluid} {Simulations}}
+  \harvardyearleft 2017\harvardyearright .
+\newblock {\em The International Journal of Multiphysics} {\bf 11}(1).
+\newline\harvardurl{http://www.journal.multiphysics.org/index.php/IJM/article/view/11-1-1}
+
 \harvarditem{Glessmer \harvardand\
   Janßen}{2017}{glessmerUsingInteractiveLattice2017}
 Glessmer, M. \harvardand\ Janßen, C.  \harvardyearleft 2017\harvardyearright .
 \newblock Using an {Interactive} {Lattice} {Boltzmann} {Solver} in {Fluid}
   {Mechanics} {Instruction}, {\em Computation} {\bf 5}(4):~35.
 \newline\harvardurl{http://www.mdpi.com/2079-3197/5/3/35}
+
+\harvarditem[Guo et~al.]{Guo, Zheng \harvardand\
+  Shi}{2002}{guoDiscreteLatticeEffects2002}
+Guo, Z., Zheng, C. \harvardand\ Shi, B.  \harvardyearleft 2002\harvardyearright
+  .
+\newblock Discrete lattice effects on the forcing term in the lattice
+  {Boltzmann} method, {\em Physical Review E} {\bf 65}(4):~046308.
+\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevE.65.046308}
 
 \harvarditem[Harwood et~al.]{Harwood, Wenisch \harvardand\
   Revell}{n.d.}{harwoodREALTIMEMODELLINGSIMULATION}
@@ -71,6 +88,26 @@ Harwood, A.~R. \harvardand\ Revell, A.~J.  \harvardyearleft
   {Android}-powered mobile device, {\em Advances in Engineering Software} {\bf
   104}:~38--50.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0965997816301855}
+
+\harvarditem[Herschlag et~al.]{Herschlag, Lee, Vetter \harvardand\
+  Randles}{2018}{herschlagGPUDataAccess2018}
+Herschlag, G., Lee, S., Vetter, J.~S. \harvardand\ Randles, A.
+  \harvardyearleft 2018\harvardyearright .
+\newblock {GPU} {Data} {Access} on {Complex} {Geometries} for {D3Q19} {Lattice}
+  {Boltzmann} {Method}, {\em 2018 {IEEE} {International} {Parallel} and
+  {Distributed} {Processing} {Symposium} ({IPDPS})}, IEEE, Vancouver, BC,
+  pp.~825--834.
+\newline\harvardurl{https://ieeexplore.ieee.org/document/8425236/}
+
+\harvarditem{Januszewski \harvardand\
+  Kostur}{2014}{januszewskiSailfishFlexibleMultiGPU2014}
+Januszewski, M. \harvardand\ Kostur, M.  \harvardyearleft 2014\harvardyearright
+  .
+\newblock Sailfish: a flexible multi-{GPU} implementation of the lattice
+  {Boltzmann} method, {\em Computer Physics Communications} {\bf
+  185}(9):~2350--2368.
+\newblock arXiv: 1311.2404.
+\newline\harvardurl{http://arxiv.org/abs/1311.2404}
 
 \harvarditem{Karimi}{n.d.}{karimiPerformanceComparisonCUDA}
 Karimi, K.  \harvardyearleft n.d.\harvardyearright .
@@ -170,6 +207,16 @@ Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
   turbulent flows, {\em Computers \& Mathematics with Applications} {\bf
   69}(6):~518--529.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0898122115000346}
+
+\harvarditem[Szőke et~al.]{Szőke, Józsa, Koleszár, Moulitsas \harvardand\
+  Könözsy}{2017}{szokePerformanceEvaluationTwoDimensional2017}
+Szőke, M., Józsa, T.~I., Koleszár, �., Moulitsas, I. \harvardand\ Könözsy,
+  L.  \harvardyearleft 2017\harvardyearright .
+\newblock Performance {Evaluation} of a {Two}-{Dimensional} {Lattice}
+  {Boltzmann} {Solver} {Using} {CUDA} and {PGAS} {UPC} {Based}
+  {Parallelisation}, {\em ACM Transactions on Mathematical Software} {\bf
+  44}(1):~1--22.
+\newline\harvardurl{https://dl.acm.org/doi/10.1145/3085590}
 
 \harvarditem[Tran et~al.]{Tran, Lee \harvardand\
   Hong}{2017}{tranPerformanceOptimization3D2017}
