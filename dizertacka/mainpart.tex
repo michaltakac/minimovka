@@ -226,7 +226,7 @@ $p = c_s^2 \rho$ is the pressure, $c_s = \frac{c}{\sqrt{3}}$ is the speed of sou
 \subsection{Bhatnagar-Gross-Krook Model}
 
 
-- TODO: napisat aj o klasickom BGK modeli \citep{bgk1954}
+- TODO: napisat aj o klasickom BGK modeli \citep{bhatnagarModelCollisionProcesses1954}
 
 The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \cite{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
 
@@ -361,7 +361,7 @@ Among them, can retain the numerical accuracy while simplifying the implementati
 
 % prepisat alebo odstranit
 The volume of fluid (VOF) model was used in this simulation. By tracking the volume fraction of each control unit, the VOF model can solve a single momentum equation. Thus, it can be used to simulate the fluid flow of two phase or multiphase, and it is typically applied to track the steady-state or transient gas–liquid interface.
-Each phase in the model has its own volume fraction a. The sum of the volume fraction of each phase in an arbitrary calculation area is 1 \cite{lvSimulationFlowFluid2013}.
+Each phase in the model has its own volume fraction a. The sum of the volume fraction of each phase in an arbitrary calculation area is 1 \cite{lvSimulationFlowFluid}.
 %
 
 \subsection{Adaptive Mesh Refinement}
@@ -528,41 +528,95 @@ Another very interesting project conducted at CIVS involved development of compr
 
 \label{gpu-computing}
 % done
-Innovations in GPUs over the last decades was driven mainly by video games. They advanced from merely displaying pixels to being capable of doing mathematical computations. After the introduction of programmable shaders and floating-point support on graphics processors, the dynamics has changed though. At first it opened the door for using GPUs in complex physics calculations like wind blowing, fluid flows, cloth movement, etc. in games but also for scientific simulation. This movement to leveraging GPU capabilities in serious engineering work became dubbed as general-purpose computing on GPUs (GPGPU).
+Innovations in GPUs over the last decades was driven mainly by video games. They advanced from merely displaying pixels to being capable of doing mathematical computations. After the introduction of programmable shaders and floating-point support on graphics processors, the dynamics has changed though. At first it opened the door for using GPUs in complex physics calculations like wind blowing, fluid flows, cloth movement, etc. in games but also for scientific simulation. This movement to leveraging GPU capabilities in serious engineering work became dubbed as general-purpose computing on GPUs (GPGPU), a term coined by NVIDIA's Distinguished Engineer Mark Harris.
 
-GPU-based parallel computing reduces the time for some computing tasks by orders of magnitude, so big computations (like training a machine learning system on a large data set) that took weeks can now happen in hours, and moderate-sized computations (like producing a 3D contour plot) that took minutes can happen interactively in real time \cite{stortiCudaForEngineers2015}. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required.
+GPU-based parallel computing reduces the time for heavy computing tasks like training a machine learning system on large data set, climate modeling, protein folding, drug discovery, or data analysis, by orders of magnitude \citep{stortiCUDAEngineersIntroduction2016, PACHECO20111}. The massive parallelism achievable with GPUs pushed the developers to invest more time in creating programs that could use it for their advantage. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required. It's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds.
 
-With the power of GPU computing, it's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds. Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time.
+Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time. More computationally intensive tasks like Monte Carlo simulations of molecular dynamics are still hard to speed up to an order of real-time simulation.
 
-general purpose GPU (GPGPU) computing
-Despite the growing list of success stories, GPU software development adoption has had a slow rise. The slowness of the rise is attributable to the difficulty in programming GPUs \citep{malcolmArrayFireGPUAcceleration2012}.
+The main challenge of optimizing the GPU code is reducing the amount of copying between CPU and GPU.
+
+\subsection{Parallel Programming}
+
+For a long time, performance of computers was determined by the amount of transistors that could be fitted to a dense integrated circuit. By following the Moore's law, software developers could just wait for a predictable increase in transistors count. As speed of transistors increased, their power consumption also increased. This power is dissipated as heat, which poises a problem with reliability of the integrated circuit when it gets too hot. And with transistors getting smaller, packing more of them together makes it approach the limits of integrated circuit's ability to dissipate heat.
+
+Rather then building more complex monolithic processors, the industry has decided to put many simpler processors on a single chip, becoming multicore processors \citep{PACHECO20111}. Nowadays practically all processor have multiple cores. Unfortunately, most conventional programs were written for single-core systems that couldn't exploit the multiple cores. To effectively us them, programs have to .. %finish
+
+% add to the text above
+we need to either rewrite our serial programs so that they’re parallel, so that they can make use of multiple cores, or write translation programs, that is, programs that will automatically convert serial programs into parallel programs
+
+
+When we talk about parallel programming, we have to distinguish between CPU and GPU parallel programming.
+
+When it comes to heavy computation, leveraging multiple cores that are nowadays ubiquitous in processing units or other hardware accelerators is necessary for achieving better performance.
+
+Quickly skim through: \\
+Distributed memory parallelism \\
+shared memory parallelism \\
+Message-passing, MPI, Pthreads, OpenMP \\
+Rust multithreading with memory-safety guarantees (Rc, Arc)
+
+Venovat sa skor GPU parallelism \\
+Ako maju GPU rozlozenu memory a ako pracuju s threads vseobecne\\
+
+We can consider matrix multiplication as a great exercise to showcase how code can be transformed from serial to parallel programming and differences between CPU and GPU implementation. Lets consider the problem of computing the product of two large, $N \times N$, dense matrices (represented in row-major order). The naive CPU algorithm can look like in Alg. \ref{serial-loop}.
+
+\begin{lstlisting}[language=Cpp, caption=Pseudocode with serial loop., label=serial-loop]
+for (i=0;i<N;i++) {
+	for (j=0;j<N;j++) {
+		C[i,j] = 0;
+		for (k=0;k<N;k++) {
+			C[i,j] += A[i,k]*B[k,j];
+		}
+	}
+}
+\end{lstlisting}
+
+This example suffers from poor locality. Elements of $B$ are accessed column-wise and therefore they are not in sequential order in memory. The row $i$ could be removed from cache by the time the inner-most loop of $j$ completes. 
+
+% prepisat a doplnit do textu hore?
+Algorithm is bandwidth limited with poor performance and low efficiency (time spent computation versus loading data).
+
+On the GPU, we can write a program, that computes the matrix multiplication in a single pass. GPU texture will store $2 \times 2$ blocks of matrix in 4-component texels. The program will read 2 rows from matrix $A$ and 2 columns of $B$ to compute 4 elements of the output matrix $C$ at once (Alg. \ref{parallel-loop}).
+
+\begin{lstlisting}[language=Cpp, caption=Pseudocode with serial loop., label=parallel-loop]
+for (k=0;k<N/2;k++) {
+	C[i,j].xyzw += A[i,k].xxzz*B[k,j].xyxy + A[i,k].yyww*B[k,j].zwzw;
+}
+\end{lstlisting}
+
+
+
+
+\subsection{Heterogeneous Computing}
 
 \subsection{CUDA}
 
-CUDA is a hardware/software platform for parallel computing created and supported by NVIDIA Corporation to promote access to high-performance parallel computing. The hardware aspect of CUDA involves graphics cards equipped with one or more CUDA-enabled graphics processing units (GPUs). The NVIDIA CUDA Toolkit software provides a development environment based on the C/C++ family of programming languages.
+CUDA is a proprietary hardware and software platform for parallel computing on GPUs created by NVIDIA. It provides access to hardware-specific capabilities of graphics cards equipped with CUDA-enabled graphics processing units \cite{stortiCUDAEngineersIntroduction2016}. The software platform provides a development kit (SDK) and application programming interface (API), build as a superset of C programming language. Since its launch it became a dominant proprietary framework for programming NVIDIA GPUs.
 
-\cite{stortiCudaForEngineers2015}
-
-The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy- efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing productivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \citep{stortiCudaForEngineers2015}.
-
-
-\citep{karimiPerformanceComparisonCUDA}
+The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy-efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing productivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \citep{stortiCUDAEngineersIntroduction2016}.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/cuda-device-memory.jpg}
+	\includegraphics[width=0.5\textwidth]{figures/cuda-device-memory.jpg}
 	\caption{CUDA memory model}
 	\label{fig:cuda-memory-model}
 \end{figure}
 
 \subsection{OpenCL}
 
-\subsection{Cross-platform GPU Computing}
+OpenCL (Open Computing Language) is a free and open-source standard for cross-platform, parallel programming of diverse accelerators like CPUs, GPUs, FPGAs, TPUs, etc. found in devices like personal computers or smartphones, embedded platforms, but also high-performance computing systems and supercomputers. In contrast to proprietary nature of CUDA, OpenCL is not tied to any specific hardware manufacturer, which makes its application good for plethora of different hardware.
+
+\subsection{Cross-platform GPU Programming}
 \label{sec:computer-simulations-using-gpus}
+
+Despite the growing list of success stories, GPU software development adoption has had a slow rise. The slowness of the rise is attributable to the difficulty in programming GPUs \citep{malcolmArrayFireGPUAcceleration2012a}.
+
+\citep{karimiPerformanceComparisonCUDAa}
 
 CUDA and OpenCL APIs differ from each other. They can be considered as extensions of the C/C++ language and require significant experience in low-level C/C++ programming. To write optimized, parallel software, developers need to employ different techniques, specific to the API they choose, which adds substantial overhead when trying to port one to another in case of a need. In heterogeneous computing systems, trying to write optimized cross-platform code for different GPUs means writing multiple hardware-specific kernels in CUDA and OpenCL.
 
-In this work, a high-performance, parallel computing library ArrayFire has been used to significantly simplify programming for GPUs. Its easy-to-use API provides high-level abstractions in the form of hundreds of functions. They are automatically converted to optimized, fast GPU kernels, utilizing just-in-time (JIT) compilation and lazy evaluation \cite{chrzeszczykMatrixComputationsGPU}. ArrayFire's high-level object construct called Array is a data structure that acts as a container that represents memory stored on the device. On top of it, ArrayFire provides abstractions in the form of Unified Backend for working with different computational backends. This way it is possible to switch to CPU, GPU, FPGA, or another type of accelerator at runtime \cite{Yalamanchili2015} (Alg. \ref{cpp-backends}), and permits programmers to write massively parallel applications in a high-level language with a much lower number of lines of code (LoC). Arrays (or matrices) of up to 4 dimensions can be created. 
+In this work, a high-performance, parallel computing library ArrayFire has been used to significantly simplify programming for GPUs. Its easy-to-use API provides high-level abstractions in the form of hundreds of functions. They are automatically converted to optimized, fast GPU kernels, utilizing just-in-time (JIT) compilation and lazy evaluation \cite{chrzeszczykMatrixComputationsGPUb}. ArrayFire's high-level object construct called Array is a data structure that acts as a container that represents memory stored on the device. On top of it, ArrayFire provides abstractions in the form of Unified Backend for working with different computational backends. This way it is possible to switch to CPU, GPU, FPGA, or another type of accelerator at runtime \cite{Yalamanchili2015} (Alg. \ref{cpp-backends}), and permits programmers to write massively parallel applications in a high-level language with a much lower number of lines of code (LoC). Arrays (or matrices) of up to 4 dimensions can be created. 
 
 \begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
 	#include <arrayfire.h>
@@ -574,6 +628,75 @@ In this work, a high-performance, parallel computing library ArrayFire has been 
 		return 0;
 	}
 \end{lstlisting}
+
+% prepisat (z https://arrayfire.org/arrayfire-rust/book/opencl-interop.html a https://arrayfire.org/arrayfire-rust/book/cuda-interop.html)
+Although ArrayFire is quite extensive, there remain many cases in which you may want to write custom kernels in CUDA or OpenCL. For example, you may wish to add ArrayFire to an existing code base to increase your productivity, or you may need to supplement ArrayFire's functionality with your own custom implementation of specific algorithms.
+
+Since I'm targeting different types of GPUs in current work, I'll add examples of how to do the interoperability with OpenCL only. Working with CUDA looks similar in principle, but differs in API implementation (different naming conventions, slightly different semantics when launching kernels).
+% zaclenit do textu hore
+ArrayFire manages its own context, queue, memory, and creates custom IDs for devices. As such, most of the interoperability functions focus on reducing potential synchronization conflicts between ArrayFire and OpenCL. There is some bookkeeping that needs to be done to integrate custom OpenCL kernel. If your kernels can share operate in the same queue as ArrayFire, you should:
+
+\begin{enumerate}
+\item obtain the OpenCL context, device, and queue used by ArrayFire,
+\item obtain cl_mem references to Array objects,
+\item load, build, and use your kernels,
+\item return control of Array memory to ArrayFire.
+\end{enumerate}
+
+Note, ArrayFire uses an in-order queue, thus when ArrayFire and your kernels are operating in the same queue, there is no need to perform any synchronization operations.
+
+If your kernels needs to operate in their own OpenCL queue, the process is essentially identical, except you need to instruct ArrayFire to complete its computations using the sync function prior to launching your own kernel and ensure your kernels are complete using clFinish (or similar) commands prior to returning control of the memory to ArrayFire:
+
+\begin{enumerate}
+\item obtain the OpenCL context, device, and queue used by ArrayFire,
+\item obtain cl_mem references to Array objects,
+\item instruct ArrayFire to finish operations using sync,
+\item load, build, and use your kernels,
+\item instruct OpenCL to finish operations using \texttt{clFinish()} or similar commands,
+\item return control of Array memory to ArrayFire.
+\end{enumerate}
+
+Adding ArrayFire to an existing application is slightly more involved and can be somewhat tricky due to several optimizations we implement. The most important are as follows:
+
+\begin{itemize}
+\item ArrayFire assumes control of all memory provided to it.
+\item ArrayFire does not (in general) support in-place memory transactions.
+\end{itemize}
+
+To add ArrayFire to existing code you need to:
+
+\begin{enumerate}
+\item instruct OpenCL to complete its operations using clFinish (or similar),
+\item instruct ArrayFire to use the user-created OpenCL Context,
+\item create ArrayFire arrays from OpenCL memory objects,
+\item perform ArrayFire operations on the Arrays,
+\item instruct ArrayFire to finish operations using sync,
+\item obtain cl_mem references for important memory,
+\item continue your OpenCL application.
+\end{enumerate}
+	
+ArrayFire's memory manager automatically assumes responsibility for any memory provided to it. If you are creating an array from another RAII style object, you should retain it to ensure your memory is not deallocated if your RAII object were to go out of scope.
+
+If you do not wish for ArrayFire to manage your memory, you may call the \texttt{Array::unlock} function and manage the memory yourself; however, if you do so, please be cautious not to call \texttt{clReleaseMemObj} on a \texttt{cl_mem} when ArrayFire might be using it!
+
+It is fairly straightforward to interface ArrayFire with your own custom code. ArrayFire provides several functions to ease this process. The pointer returned by Array::device_ptr should be cast to cl_mem before using it with OpenCL opaque types. The pointer is a cl_mem internally that is force casted to pointer type by ArrayFire before returning the value to caller.
+
+Additionally, the OpenCL backend permits the programmer to add and remove custom devices from the ArrayFire device manager (Table \ref{table:afcl}). These permit you to attach ArrayFire directly to the OpenCL queue used by other portions of your application.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{||c c||} 
+		\hline
+		Function & Purpose \\ [0.5ex] 
+		\hline\hline
+		add_device_context & Add a new device to ArrayFire's device manager \\ 
+		set_device_context & Set ArrayFire's device from cl_device_id \& cl_context \\
+		delete_device_context & Remove a device from ArrayFire's device manager \\
+		\hline
+	\end{tabular}
+	\caption{Functions for working with OpenCL context in ArrayFire-OpenCL interoperability scenario.}
+	\label{table:afcl}
+\end{table}
 
 \subsection{Accelerating Lattice Boltzmann Simulations with GPUs}
 
@@ -593,9 +716,9 @@ To get more computational power from GPUs, algorithm optimization techniques for
 
 There has been an increase in studies focused on optimizing the execution speed of LBM algorithms, after the idea of using GPGPUs for CFD simulations started gaining traction more than a decade ago. It's been bolstered by the LBM's advantage in the locality of computations since only the values from neighbouring nodes are needed. 
 
-In this space, the most used APIs for programming GPUs are CUDA and OpenCL. CUDA (Compute Unified Device Architecture) is a proprietary API used to program NVIDIA GPUs \cite{stortiCudaForEngineers2015}. OpenCL (Open Computing Language) is an open standard that supports different hardware from various vendors on the market \cite{karimiPerformanceComparisonCUDA}.
+In this space, the most used APIs for programming GPUs are CUDA and OpenCL. CUDA (Compute Unified Device Architecture) is a proprietary API used to program NVIDIA GPUs \cite{stortiCUDAEngineersIntroduction2016}. OpenCL (Open Computing Language) is an open standard that supports different hardware from various vendors on the market \cite{karimiPerformanceComparisonCUDA}.
 
-Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \cite{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, FULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \cite{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \cite{malcolmArrayFireGPUAcceleration2012}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
+Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \cite{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, FULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \cite{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \cite{amalcolmArrayFireGPUAcceleration2012a}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
 
 ArrayFire library can help by automatically leveraging the best hardware features available on multiple architectures, hiding the hardware-specific optimizations. Developers can write code in a high-level language like C++, Rust, or Python (for which the ArrayFire library wrapper exists) and have it compiled for CPU, GPU, or other accelerators like FPGA.
 
@@ -605,21 +728,60 @@ ArrayFire library can help by automatically leveraging the best hardware feature
 
 \section{Implementation of a Simulation Software} 
 
-\subsection{Technology Stack}
+\subsection{Technology Stack} \label{sec:tech-stack}
+
+
+The ArrayFire library is used for high-performance, cross-platform implementation of Lattice Boltzmann algorithm.
 
 \subsubsection{Cross-platform Development with ArrayFire}
 
-\subsubsection{Rust as C/C++ Alternative}
+% prepisat (https://arrayfire.org/arrayfire-rust/book/vectorization.html)
+Programmers and Data Scientists want to take advantage of fast and parallel computational devices. Writing vectorized code is necessary to get the best performance out of the current generation parallel hardware and scientific computing software. However, writing vectorized code may not be immediately intuitive. ArrayFire provides many ways to vectorize a given code segment. In this chapter, we present several methods to vectorize code using ArrayFire and discuss the benefits and drawbacks associated with each method.
 
-The Rust programming language helps you write faster, more reliable software. High-level ergonomics and low-level control are often at odds in programming language design; Rust challenges that conflict. Through balancing powerful technical capacity and a great developer experience, Rust gives you the option to control low-level details (such as memory usage) without all the hassle traditionally associated with such control. \cite{steveklabnik2018}
+ArrayFire is a vectorized library. Most functions operate on Arrays as a whole i.e. on all elements in parallel.
+%----
 
-Rust is ideal for many people for a variety of reasons.
+ArrayFire provides several different methods for manipulating arrays and matrices. The functionality includes:
 
-When 
+\begin{itemize}
+\item \texttt{moddims()} - change the dimensions of an array without changing the data
+\item \texttt{flat()}  - flatten an array to one dimension
+\item \texttt{flip()}  - flip an array along a dimension
+\item \texttt{join()}  - join up to 4 arrays
+\item \texttt{reorder()}  - changes the dimension order within the array
+\item \texttt{shift()}  - shifts data along a dimension
+\item \texttt{tile()}  - repeats an array along a dimension
+\item \texttt{transpose()}  - performs a matrix transpose
+\end{itemize}
+
+The simulation part of the software solution presented in this thesis was built using ArrayFire, a cross-platform library for developing parallel algorithms. I picked it after considering other approaches like using bunch of different helper libraries together for vectorization and cross-compilation of C++ code for different GPU platforms. C++ is battle-tested language with plethora of available libraries and has been extensively used in CFD simulation software development. Although, I would have to optimize the code for specific GPUs and their distinctive features myself, writing extensive amount of code in the process. This is where the ArrayFire library shines the most: it provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more. Writing complex algorithms that are automatically optimized for all kinds of hardware accelerators (GPUs, CPUs, FPGAs etc.) can be done in few lines of code instead of writing hundreds or thousands of lines of kernel code.
+
+ArrayFire main API is written in C with additional wrappers for other languages like C++, Python, Rust and JavaScript. It provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more.
+
+It helped with simplifying the overall implementation and reducing lines of code (LoC).
+
+To start developing cross-platform software with ArrayFire, first it has to be installed on a development machine. It can be installed by either using binary installer for Windows, Linux or OSX, or built from source.
+
+The high-performance visualization library called Forge is bundled with the installer. It can be disabled in the installation process if user doesn't want to install it. I used it in throughout the development process to test early protypes, check if the output is visually correct and also benchmark the simulation software for what computational domain the visualization stays fast enough to show real-time output as the simulation is running.
+
+
+
+\subsubsection{Rust as C/C++ Alternative} \label{sec:rust-alt}
+
+ As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world s a language that could one day replace C or C++ as a go-to languages for writing performant low-level code. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing everyday. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
+
+The main proposition of Rust language is that it helps you write faster, more reliable software. Traditionally, developers who were looking for the best raw performance as they can get to squeeze out of their programs by aggressively optimizing it, were mostly reaching out for C++ as it's possible to get down to low-level if needed. The object-oriented nature of C++ on the other hand allows for constructing code that is easier to reason about. But still, the high-level ergonomics and low-level control are often at odds in programming language design \cite{steveklabnik2018}. Developers are still responsible for managing the memory in C++ applications. This can lead to problems if application is not well architected or developers not being disciplined about memory cleanup after use.
+
+Rust challenges the status quo of high-level ergonomics with low-level performance in one language. Its unique feature called ownership allows the compiler to make memory safety guarantees without the need of an garbage collector. When building low-latency software, garbage collection adds unwanted pauses to the execution time. 
+
+Through balancing powerful technical capacity and a great developer experience, Rust gives you the option to control low-level details (such as memory usage) without all the hassle traditionally associated with such control. \cite{steveklabnik2018}
+
+zero-cost abstractions, borrowing, borrow-checker, memory safety, easy and memory-safe multi-threading, parallel iterators with rayon (par\_iter) generics (compare with templates in C++), pattern matching, macros, foreign function interface FFI with C, can use C libraries if needed
+
 
 Rust is for people who crave speed and stability in a language. By speed, we mean the speed of the programs that you can create with Rust and the speed at which Rust lets you write them. The Rust compiler’s checks ensure stability through feature additions and refactoring. This is in contrast to the brittle legacy code in languages without these checks, which developers are often afraid to modify. By striving for zero-cost abstractions, higher-level features that compile to lower-level code as fast as code written manually, Rust endeavors to make safe code be fast code as well. \cite{steveklabnik2018}
 
-The Rust language hopes to support many other users as well; those mentioned here are merely some of the biggest stakeholders. Overall, Rust’s greatest ambition is to eliminate the trade-offs that programmers have accepted for decades by providing safety and productivity, speed and ergonomics. Give Rust a try and see if its choices work for you. \cite{steveklabnik2018}
+Overall, Rust’s greatest ambition is to eliminate the trade-offs that programmers have accepted for decades by providing safety and productivity, speed and ergonomics. \cite{steveklabnik2018}
 
 It wasn’t always so clear, but the Rust programming language is fundamentally about empowerment: no matter what kind of code you are writing now, Rust empowers you to reach farther, to program with confidence in a wider variety of domains than you did before.
 
@@ -631,9 +793,10 @@ Programmers who are already working with low-level code can use Rust to raise th
 
 But Rust isn’t limited to low-level systems programming. It’s expressive and ergonomic enough to make CLI apps, web servers, and many other kinds of code quite pleasant to write — you’ll find simple examples of both later in the book. Working with Rust allows you to build skills that transfer from one domain to another; you can learn Rust by writing a web app, then apply those same skills to target your Raspberry Pi.
 
-This book fully embraces the potential of Rust to empower its users. It’s a friendly and approachable text intended to help you level up not just your knowledge of Rust, but also your reach and confidence as a programmer in general. So dive in, get ready to learn—and welcome to the Rust community!
 
 \cite{steveklabnik2018}
+
+% Info o pouzivani pointers a references v Ruste vs C++ --> useful pre ukazku ako sa pouzivaju pointers vo FFI s C# pre pracu s Unity
 
 \subsubsection{Hardware}
 
@@ -642,8 +805,26 @@ This book fully embraces the potential of Rust to empower its users. It’s a fr
 \subsection{Implementation of Lattice Boltzmann Method for GPUs}
 
 - BGK \\
+
+\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
+	#include <arrayfire.h>
+	int main()
+	{
+		af::setBackend(AF_BACKEND_CUDA);
+		// af::setBackend(AF_BACKEND_OPENCL);
+		// af::setBackend(AF_BACKEND_CPU);
+		return 0;
+	}
+\end{lstlisting}
+
 - MRT \\
+
+
 - Boundary conditions
+
+\subsubsection{External Force}
+
+%The implementation of external force on the fluid simulation is straightforward - it's a simple addition to the 
 
 \subsection{GPU Optimizations}
 % DONE
@@ -659,7 +840,7 @@ ArrayFire is a high performance software library for parallel computing with an 
 Going on from ArrayFire's version 3.2., the Unified backend was introduced. It allows developers to change between different backends CUDA, OpenCL and CPU
 
 %% tu spomenut, ze GFOR nie je dobre pouzivat
-ArrayFire provides the only GPU-enabled data-parallel loop: $gfor$. Use $gfor$ in your code in place of standard for-loops to batch process data parallel operations \citep{malcolmArrayFireGPUAcceleration2012}. 
+ArrayFire provides the only GPU-enabled data-parallel loop: $gfor$. Use $gfor$ in your code in place of standard for-loops to batch process data parallel operations \citep{malcolmArrayFireGPUAcceleration2012a}. 
 You can think of gfor as performing auto-vectorization of your code, e.g. you write a gfor-loop that increments every element of a vector but behind the scenes ArrayFire rewrites it to operate on the entire vector in parallel \citep{Yalamanchili2015}. For example, the following for-loop calculates several matrix multiplications serially:
 
 \begin{lstlisting}[language=Rust, caption=Pseudo-code with imerative for loop]
@@ -677,7 +858,7 @@ The same three matrix multiplications can be carried out in one pass instead of 
 	}
 \end{lstlisting}
 
-Whereas the former loop serially computes each matrix multiplication, the latter loop computes all matrix multiplications in one pass. Similarly, gfor can be used for other such embarrassingly parallel codes in a straightforward fashion. A good way of thinking about gfor is to consider it as syntactic sugar: gfor serves as an iterative style of writing otherwise vectorized algorithms \citep{malcolmArrayFireGPUAcceleration2012}.
+Whereas the former loop serially computes each matrix multiplication, the latter loop computes all matrix multiplications in one pass. Similarly, gfor can be used for other such embarrassingly parallel codes in a straightforward fashion. A good way of thinking about gfor is to consider it as syntactic sugar: gfor serves as an iterative style of writing otherwise vectorized algorithms \citep{malcolmArrayFireGPUAcceleration2012a}.
 
 \subsubsection{Data Organization}
 % DONE
@@ -722,7 +903,7 @@ Targeting any of the 9 direction in 1D array can be done by computing $[node\_po
 
 \subsubsection{Removing Branch Divergence}
 % DONE
-When writing classical, imperative code, handling control flow is usually done by using \texttt{if-else} blocks, creating different possible branches. In multithreaded execution model like SIMT used in GPUs, the processor's threads execute different paths of the control flow, leading to poor utilisation due to thread-specific control flow using masking \cite{MCCOOL2012209}. Branch divergence is a major cause for performance degradation in GPGPU applications \cite{TAN2017649}. To keep the flow coherent for the processing threads, it's recommended to remove \texttt{if-else} blocks from the code (Alg. \ref{alg:branch-cpp}).
+When writing classical, imperative code, handling control flow is usually done by using \texttt{if-else} blocks, creating different possible branches. In multithreaded execution model like SIMT used in GPUs, the processor's threads execute different paths of the control flow, leading to poor utilisation due to thread-specific control flow using masking \cite{delboscOptimizedImplementationLattice2014}. Branch divergence is a major cause for performance degradation in GPGPU applications \cite{TAN2017649}. To keep the flow coherent for the processing threads, it's recommended to remove \texttt{if-else} blocks from the code (Alg. \ref{alg:branch-cpp}).
 
 \begin{lstlisting}[language=Cpp, caption=Pseudo-code showcasing the removal of branch divergence by removing if statement., label=alg:branch-pseudo]
 	// With branch divergence
@@ -800,11 +981,88 @@ The idea behind preferring coalesced writes to GPU device memory is that the req
 
 With heterogenous GPU computing constraints (that means, group of GPUS each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
 
-Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
+Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
 
 % -------------------------------
 
 \subsection{Interactive Simulation}
+
+\subsubsection{Unity and Rust Interop}
+
+%OpenGL and OpenCL interop
+
+Note that OpenCL-GL sharing works in a very particular way. The OpenCL context that needs to be shared with an OpenGL context has to be created using the OS specific OpenGL context handle as one of it's context properties. In your current code, the OpenGL context used by ArrayFire's GL-CL shared context is totally different from the OpenGL context the rust window toolkit is showing.
+
+Error executing function: clCreateFromGLTexture2D  
+Status error code: CL_INVALID_CONTEXT (-34)  
+
+What you need is the following
+
+
+\begin{itemize}
+\item Pick the device you want to do CL-GL sharing on and create a ocl_device_id handle using the ocl create
+\item Now, for this device from step (1) create a new OpenGL context using the OpenGL context and passing the opengl context properties specific to your OS
+\item Create an OpenCL queue for this device in this CL-GL shared context
+\item Now add this context to ArrayFire device manager using afcl::add_device_context 
+\item Finally, set this device/context queue as your ArrayFire device using set_device_context()
+\end{itemize}
+
+All of these has to be completed before any ArrayFire computations are carried out so that you don't have buffers that are created on a totally different OpenCL context.
+
+Now, you can create a shared CL-GL buffer using the texture using this texture like you are doing now. Note that once you pass the cl_mem/device-ptr to ArrayFire, it shall assume control of that buffer, so take care of ownership of that object using methods like the following
+Array.lock() and Array.unlock().
+
+% prepisat, zo stackoverflow (https://stackoverflow.com/questions/62232753/differences-between-a-pointer-and-a-reference-in-rust), niektore veci mozno prehodit do sekcie "Technology Stack" ----------
+Use references when you can, use pointers when you must. If you're not doing FFI or memory management beyond what the compiler can validate, you don't need to use pointers.
+
+Both references and pointers exist in two variants. There are shared references \& and mutable references \&mut. There are const pointers *const and mut pointers *mut (which map to const and non-const pointers in C). However, the semantics of references is completely different from the semantics of pointers.
+
+References are generic over a type and over a lifetime. Shared references are written \&'a T in long form (where 'a and T are parameters). The lifetime parameter can be omitted in many situations. The lifetime parameter is used by the compiler to ensure that a reference doesn't live longer than the borrow is valid for.
+
+Pointers have no lifetime parameter. Therefore, the compiler cannot check that a particular pointer is valid to use. That's why dereferencing a pointer is considered unsafe.
+
+When you create a shared reference to an object, that freezes the object (i.e. the object becomes immutable while the shared reference exists), unless the object uses some form of interior mutability (e.g. using Cell, RefCell, Mutex or RwLock). However, when you have a const pointer to an object, that object may still change while the pointer is alive.
+
+When you have a mutable reference to an object, you are guaranteed to have exclusive access to that object through this reference. Any other way to access the object is either disabled temporarily or impossible to achieve. For example:
+
+\begin{lstlisting}
+let mut x = 0;
+{
+	let y = &mut x;
+	let z = &mut x; // ERROR: x is already borrowed mutably
+	*y = 1; // OK
+	x = 2; // ERROR: x is borrowed
+}
+x = 3; // OK, y went out of scope
+\end{lstlisting}
+
+Mut pointers have no such guarantee.
+
+A reference cannot be null (much like C++ references). A pointer can be null.
+
+Pointers may contain any numerical value that could fit in a usize. Initializing a pointer is not unsafe; only dereferencing it is.
+
+If you have a *const T, you can freely cast it to a *const U or to a *mut T using as. You can't do that with references. However, you can cast a reference to a pointer using as, and you can "upgrade" a pointer to a reference by dereferencing the pointer (which, again, is unsafe) and then borrowing the place using \& or \&mut. For example:
+
+\begin{lstlisting}
+use std::ffi::OsStr;
+use std::path::Path;
+
+pub fn os_str_to_path(s: &OsStr) -> &Path {
+	unsafe { &*(s as *const OsStr as *const Path) }
+}
+\end{lstlisting}
+
+n C++, references are "automatically dereferenced pointers". In Rust, you often still need to dereference references explicitly. The exception is when you use the . operator: if the left side is a reference, the compiler will automatically dereference it (recursively if necessary!). Pointers, however, are not automatically dereferenced. This means that if you want to dereference and access a field or a method, you need to write (*pointer).field or (*pointer).method(). There is no -> operator in Rust.
+
+% ------------------------
+
+% Multithreading
+% - moving Array to thread,
+% - read Array from multiple threada, 
+% - write to Array from multiple threads,
+% - write to single Array using Channel
+
 
 \subsubsection{Visualizing Simulation Output in Real-Time}
 

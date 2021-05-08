@@ -1,22 +1,18 @@
 \begin{thebibliography}{xx}
 
 \harvarditem[Bhatnagar et~al.]{Bhatnagar, Gross \harvardand\
-  Krook}{1954a}{bhatnagarModelCollisionProcesses1954}
+  Krook}{1954}{bhatnagarModelCollisionProcesses1954}
 Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
-  1954a\harvardyearright .
+  1954\harvardyearright .
 \newblock A {Model} for {Collision} {Processes} in {Gases}. {I}. {Small}
   {Amplitude} {Processes} in {Charged} and {Neutral} {One}-{Component}
   {Systems}, {\em Physical Review} {\bf 94}(3):~511--525.
 \newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRev.94.511}
 
-\harvarditem[Bhatnagar et~al.]{Bhatnagar, Gross \harvardand\
-  Krook}{1954b}{bgk1954}
-Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
-  1954b\harvardyearright .
-\newblock A model for collision processes in gases. i. small amplitude
-  processes in charged and neutral one-component systems, {\em Phys. Rev.} {\bf
-  94}:~511--525.
-\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRev.94.511}
+\harvarditem{Chrzeszczyk}{n.d.}{chrzeszczykMatrixComputationsGPUb}
+Chrzeszczyk, A.  \harvardyearleft n.d.\harvardyearright .
+\newblock Matrix {Computations} on {GPU} with {ArrayFire} - {Python} and
+  {ArrayFire} - {C}/{C}++,  p.~88.
 
 \harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
 Delbosc, N.  \harvardyearleft n.d.\harvardyearright .
@@ -65,13 +61,6 @@ Guo, Z., Zheng, C. \harvardand\ Shi, B.  \harvardyearleft 2002\harvardyearright
   {Boltzmann} method, {\em Physical Review E} {\bf 65}(4):~046308.
 \newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevE.65.046308}
 
-\harvarditem[Harwood et~al.]{Harwood, Wenisch \harvardand\
-  Revell}{n.d.}{harwoodREALTIMEMODELLINGSIMULATION}
-Harwood, A. R.~G., Wenisch, P. \harvardand\ Revell, A.~J.  \harvardyearleft
-  n.d.\harvardyearright .
-\newblock A {REAL}-{TIME} {MODELLING} {AND} {SIMULATION} {PLATFORM} {FOR}
-  {VIRTUAL} {ENGINEERING} {DESIGN} {AND} {ANALYSIS},  p.~11.
-
 \harvarditem[Harwood et~al.]{Harwood, O’Connor, Sanchez~Muñoz,
   Camps~Santasmasas \harvardand\ Revell}{2018}{harwoodLUMAManycoreFluid2018}
 Harwood, A.~R., O’Connor, J., Sanchez~Muñoz, J., Camps~Santasmasas, M.
@@ -109,27 +98,9 @@ Januszewski, M. \harvardand\ Kostur, M.  \harvardyearleft 2014\harvardyearright
 \newblock arXiv: 1311.2404.
 \newline\harvardurl{http://arxiv.org/abs/1311.2404}
 
-\harvarditem{Karimi}{n.d.}{karimiPerformanceComparisonCUDA}
+\harvarditem{Karimi}{n.d.}{karimiPerformanceComparisonCUDAa}
 Karimi, K.  \harvardyearleft n.d.\harvardyearright .
-\newblock A {{Performance Comparison}} of {{CUDA}} and {{OpenCL}},  p.~10.
-
-\harvarditem{Kepler \harvardand\ Aries}{2017}{Kepler2017InSV}
-Kepler, N. \harvardand\ Aries  \harvardyearleft 2017\harvardyearright .
-\newblock In situ visualization techniques for high performance computing.
-
-\harvarditem{Klabnik}{2018}{steveklabnik2018}
-Klabnik, S.  \harvardyearleft 2018\harvardyearright .
-\newblock {\em The Rust Programming Language}, No Starch Press.
-\newline\harvardurl{https://www.xarg.org/ref/a/B071YKRV8Q/}
-
-\harvarditem[Koliha et~al.]{Koliha, Janßen \harvardand\
-  Rung}{2015}{kolihaOnlineVisualizationInteractive2015}
-Koliha, N., Janßen, C. \harvardand\ Rung, T.  \harvardyearleft
-  2015\harvardyearright .
-\newblock Towards {Online} {Visualization} and {Interactive} {Monitoring} of
-  {Real}-{Time} {CFD} {Simulations} on {Commodity} {Hardware}, {\em
-  Computation} {\bf 3}(3):~444--478.
-\newline\harvardurl{http://www.mdpi.com/2079-3197/3/3/444}
+\newblock A {Performance} {Comparison} of {CUDA} and {OpenCL},  p.~10.
 
 \harvarditem[Kotsalos et~al.]{Kotsalos, Latt, Beny \harvardand\
   Chopard}{2019}{kotsalosDigitalBloodMassively2019}
@@ -169,28 +140,27 @@ Linxweiler, J., Krafczyk, M. \harvardand\ Tölke, J.  \harvardyearleft
   Visualization in Science} {\bf 13}(7):~299--314.
 \newline\harvardurl{http://link.springer.com/10.1007/s00791-010-0151-3}
 
-\harvarditem[Lv et~al.]{Lv, Zhu, Guo \harvardand\
-  Wang}{2013}{lvSimulationFlowFluid2013}
-Lv, M., Zhu, R., Guo, Y.-G. \harvardand\ Wang, Y.-W.  \harvardyearleft
-  2013\harvardyearright .
-\newblock Simulation of {Flow} {Fluid} in the {BOF} {Steelmaking} {Process},
-  {\em Metallurgical and Materials Transactions B} {\bf 44}(6):~1560--1571.
-\newline\harvardurl{http://link.springer.com/10.1007/s11663-013-9935-4}
-
 \harvarditem[Malcolm et~al.]{Malcolm, Yalamanchili, McClanahan,
   Venugopalakrishnan, Patel \harvardand\
-  Melonakos}{2012}{malcolmArrayFireGPUAcceleration2012}
+  Melonakos}{2012}{malcolmArrayFireGPUAcceleration2012a}
 Malcolm, J., Yalamanchili, P., McClanahan, C., Venugopalakrishnan, V., Patel,
   K. \harvardand\ Melonakos, J.  \harvardyearleft 2012\harvardyearright .
-\newblock {{ArrayFire}}: A {{GPU}} acceleration platform, {\em in} E.~J.
-  Kelmelis (ed.), {\em {{SPIE Defense}}, {{Security}}, and {{Sensing}}},
-  {Baltimore, Maryland, USA}, p.~84030A.
+\newblock {ArrayFire}: a {GPU} acceleration platform, Baltimore, Maryland, USA,
+  p.~84030A.
+\newline\harvardurl{http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.921122}
 
-\harvarditem{Storti \harvardand\ Yurtoglu}{2015}{stortiCudaForEngineers2015}
-Storti, D. \harvardand\ Yurtoglu, M.  \harvardyearleft 2015\harvardyearright .
-\newblock {\em CUDA for Engineers: An Introduction to High-Performance Parallel
-  Computing}, Addison-Wesley Professional.
-\newline\harvardurl{http://cudaforengineers.com/}
+\harvarditem{Pacheco}{2011}{PACHECO20111}
+Pacheco, P.~S.  \harvardyearleft 2011\harvardyearright .
+\newblock Chapter 1 - why parallel computing?, {\em in} P.~S. Pacheco (ed.),
+  {\em An introduction to parallel programming}, Morgan Kaufmann, Boston,
+  pp.~1--14.
+\newline\harvardurl{https://www.sciencedirect.com/science/article/pii/B9780123742605000014}
+
+\harvarditem{Storti \harvardand\
+  Yurtoglu}{2016}{stortiCUDAEngineersIntroduction2016}
+Storti, D. \harvardand\ Yurtoglu, M.  \harvardyearleft 2016\harvardyearright .
+\newblock {\em {CUDA} for engineers: an introduction to high-performance
+  parallel computing}, Addison-Wesley, New York.
 
 \harvarditem{Succi}{2001}{succi2001lattice}
 Succi, S.  \harvardyearleft 2001\harvardyearright .
@@ -210,7 +180,7 @@ Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
 
 \harvarditem[Szőke et~al.]{Szőke, Józsa, Koleszár, Moulitsas \harvardand\
   Könözsy}{2017}{szokePerformanceEvaluationTwoDimensional2017}
-Szőke, M., Józsa, T.~I., Koleszár, �., Moulitsas, I. \harvardand\ Könözsy,
+Szőke, M., Józsa, T.~I., Koleszár, A., Moulitsas, I. \harvardand\ Könözsy,
   L.  \harvardyearleft 2017\harvardyearright .
 \newblock Performance {Evaluation} of a {Two}-{Dimensional} {Lattice}
   {Boltzmann} {Solver} {Using} {CUDA} and {PGAS} {UPC} {Based}
@@ -241,15 +211,5 @@ Wang, M., Ferey, N., Bourdot, P. \harvardand\ Magoules, F.  \harvardyearleft
 Wittmann, M.  \harvardyearleft 2018\harvardyearright .
 \newblock Lattice {Boltzmann} benchmark kernels as a testbed for performance
   analysis,  p.~11.
-
-\harvarditem[Yalamanchili et~al.]{Yalamanchili, Arshad, Mohammed, Garigipati,
-  Entschev, Kloppenborg, Malcolm \harvardand\
-  Melonakos}{2015}{Yalamanchili2015}
-Yalamanchili, P., Arshad, U., Mohammed, Z., Garigipati, P., Entschev, P.,
-  Kloppenborg, B., Malcolm, J. \harvardand\ Melonakos, J.  \harvardyearleft
-  2015\harvardyearright .
-\newblock {ArrayFire - A high performance software library for parallel
-  computing with an easy-to-use API}.
-\newline\harvardurl{https://github.com/arrayfire/arrayfire}
 
 \end{thebibliography}

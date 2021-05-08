@@ -10,127 +10,68 @@ Illegal, another \bibstyle command---line 3 of file bibliography.aux
 I'm skipping whatever remains of this command
 I couldn't open database file refs/hci.bib
 ---line 4 of file bibliography.aux
- : \bibdata{references,refs/cfd,refs/lbm,refs/gpu,refs/interaction,refs/interfaces,refs/hci
- :                                                                                         ,refs/design,refs/ml,refs/processes,refs/visualization,refs/programming,refs/simulation,refs/ar,refs/vr}
+ : \bibdata{refs/cfd,refs/lbm,refs/gpu,refs/interaction,refs/interfaces,refs/hci
+ :                                                                              ,refs/design,refs/ml,refs/processes,refs/visualization,refs/programming,refs/simulation,refs/ar,refs/vr}
 I'm skipping whatever remains of this command
-Database file #1: references.bib
-Database file #2: refs/cfd.bib
-Database file #3: refs/lbm.bib
-Repeated entry---line 2 of file refs/lbm.bib
- : @article{harwoodParallelisationInteractiveLatticeBoltzmann2017
- :                                                               ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 19 of file refs/lbm.bib
- : @article{linxweilerHighlyInteractiveComputational2010
- :                                                      ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 37 of file refs/lbm.bib
- : @article{harwoodLUMAManycoreFluid2018
- :                                      ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 141 of file refs/lbm.bib
- : @article{delboscRealTimeSimulationIndoor
- :                                         ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 149 of file refs/lbm.bib
- : @inproceedings{wangInteractive3DFluid2019
- :                                          ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 168 of file refs/lbm.bib
- : @article{glessmerUsingInteractiveLattice2017
- :                                             ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 215 of file refs/lbm.bib
- : @article{bhatnagarModelCollisionProcesses1954
- :                                              ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 249 of file refs/lbm.bib
- : @article{kotsalosDigitalBloodMassively2019
- :                                           ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 343 of file refs/lbm.bib
- : @article{sugaD3Q27MultiplerelaxationtimeLattice2015
- :                                                    ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 361 of file refs/lbm.bib
- : @article{feiModelingRealisticMultiphase2019
- :                                            ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 379 of file refs/lbm.bib
- : @article{liLatticeBoltzmannMethods2016a
- :                                        ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 445 of file refs/lbm.bib
- : @article{wittmannLatticeBoltzmannBenchmark2018
- :                                               ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 454 of file refs/lbm.bib
- : @article{tranPerformanceOptimization3D2017
- :                                           ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 470 of file refs/lbm.bib
- : @incollection{kornerParallelLatticeBoltzmann2006
- :                                                 ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 500 of file refs/lbm.bib
- : @article{delboscOptimizedImplementationLattice2014
- :                                                   ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 518 of file refs/lbm.bib
- : @book{succi2001lattice
- :                       ,
-I'm skipping whatever remains of this entry
-Database file #4: refs/gpu.bib
-Database file #5: refs/interaction.bib
-Database file #6: refs/interfaces.bib
+Database file #1: refs/cfd.bib
+Database file #2: refs/lbm.bib
+Database file #3: refs/gpu.bib
+Database file #4: refs/interaction.bib
+Database file #5: refs/interfaces.bib
 Warning--I didn't find a database entry for "gonda"
+Warning--I didn't find a database entry for "harwoodREALTIMEMODELLINGSIMULATION"
 Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
 Warning--I didn't find a database entry for "succi2018lattice"
+Warning--I didn't find a database entry for "lvSimulationFlowFluid"
+Warning--I didn't find a database entry for "Kepler2017InSV"
 Warning--I didn't find a database entry for "forge2016"
-Warning--I didn't find a database entry for "chrzeszczykMatrixComputationsGPU"
-Warning--I didn't find a database entry for "MCCOOL2012209"
+Warning--I didn't find a database entry for "kolihaOnlineVisualizationInteractive2015"
+Warning--I didn't find a database entry for "Yalamanchili2015"
+Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
+Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration2012a"
+Warning--I didn't find a database entry for "steveklabnik2018"
 Warning--I didn't find a database entry for "TAN2017649"
 Warning--empty author in FULLGPUImplementation2017
-Warning--empty booktitle in Kepler2017InSV
-You've used 31 entries,
+Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
+You've used 26 entries,
             2921 wiz_defined-function locations,
-            886 strings with 14148 characters,
-and the built_in function-call counts, 165940 in all, are:
-= -- 27269
-> -- 2354
+            873 strings with 13299 characters,
+and the built_in function-call counts, 133446 in all, are:
+= -- 21904
+> -- 1855
 < -- 1
-+ -- 13268
-- -- 724
-* -- 14633
-:= -- 32689
-add.period$ -- 66
-call.type$ -- 31
-change.case$ -- 425
-chr.to.int$ -- 30
-cite$ -- 33
-duplicate$ -- 495
-empty$ -- 1004
-format.name$ -- 824
-if$ -- 29916
-int.to.chr$ -- 6
++ -- 10594
+- -- 570
+* -- 11716
+:= -- 26339
+add.period$ -- 56
+call.type$ -- 26
+change.case$ -- 356
+chr.to.int$ -- 26
+cite$ -- 28
+duplicate$ -- 434
+empty$ -- 859
+format.name$ -- 651
+if$ -- 24074
+int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 156
-num.names$ -- 324
-pop$ -- 112
+missing$ -- 28
+newline$ -- 132
+num.names$ -- 269
+pop$ -- 92
 preamble$ -- 1
-purify$ -- 460
+purify$ -- 385
 quote$ -- 0
-skip$ -- 445
+skip$ -- 391
 stack$ -- 0
-substring$ -- 38827
-swap$ -- 102
-text.length$ -- 425
+substring$ -- 31113
+swap$ -- 99
+text.length$ -- 355
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
+type$ -- 100
 warning$ -- 2
-while$ -- 679
+while$ -- 571
 width$ -- 0
-write$ -- 488
-(There were 18 error messages)
+write$ -- 414
+(There were 2 error messages)
