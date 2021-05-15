@@ -23,6 +23,7 @@ Warning--I didn't find a database entry for "harwoodREALTIMEMODELLINGSIMULATION"
 Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
 Warning--I didn't find a database entry for "succi2018lattice"
 Warning--I didn't find a database entry for "lvSimulationFlowFluid"
+Warning--I didn't find a database entry for "kressSituVisualizationTechniques"
 Warning--I didn't find a database entry for "Kepler2017InSV"
 Warning--I didn't find a database entry for "forge2016"
 Warning--I didn't find a database entry for "kolihaOnlineVisualizationInteractive2015"
@@ -35,7 +36,7 @@ Warning--empty author in FULLGPUImplementation2017
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 You've used 26 entries,
             2921 wiz_defined-function locations,
-            873 strings with 13299 characters,
+            875 strings with 13363 characters,
 and the built_in function-call counts, 133446 in all, are:
 = -- 21904
 > -- 1855

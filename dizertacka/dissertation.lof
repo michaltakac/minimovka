@@ -9,31 +9,34 @@
 \contentsline {figure}{\numberline {4\,--\,2}{\ignorespaces Lid-driven cavity test case at 128$\times $128 resolution after 5000 iterations.\relax }}{32}{figure.caption.10}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of lid-driven cavity simulation.}}}{32}{subfigure.2.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field.}}}{32}{subfigure.2.2}%
-\contentsline {figure}{\numberline {4\,--\,3}{\ignorespaces Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times $300 resolution after 5000 iterations.\relax }}{32}{figure.caption.11}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of Kármán vortex street simulation.}}}{32}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field (filtered for better presentation).}}}{32}{subfigure.3.2}%
+\contentsline {figure}{\numberline {4\,--\,3}{\ignorespaces Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times $300 resolution after 5000 iterations.\relax }}{33}{figure.caption.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of Kármán vortex street simulation.}}}{33}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field (filtered for better presentation).}}}{33}{subfigure.3.2}%
 \contentsline {figure}{\numberline {5\,--\,1}{\ignorespaces CUDA memory model\relax }}{42}{figure.caption.12}%
-\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{68}{figure.caption.16}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{68}{subfigure.1.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{68}{subfigure.1.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{68}{subfigure.1.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{68}{subfigure.1.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{68}{subfigure.1.5}%
-\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{69}{figure.caption.17}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{69}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{69}{subfigure.2.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{69}{subfigure.2.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{69}{subfigure.2.4}%
-\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{71}{figure.caption.19}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{71}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{71}{subfigure.3.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{71}{subfigure.3.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{71}{subfigure.3.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{71}{subfigure.3.5}%
-\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{72}{figure.caption.20}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{72}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{72}{subfigure.4.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{72}{subfigure.4.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{72}{subfigure.4.4}%
-\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{72}{figure.caption.21}%
-\contentsline {figure}{\numberline {8\,--\,1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{73}{figure.caption.22}%
+\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Unity Editor with script interface.\relax }}{70}{figure.caption.14}%
+\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Interface for controlling the state of simulation.\relax }}{71}{figure.caption.15}%
+\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Interface for controlling the state of simulation.\relax }}{72}{figure.caption.16}%
+\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{76}{figure.caption.19}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{76}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{76}{subfigure.4.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{76}{subfigure.4.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{76}{subfigure.4.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{76}{subfigure.4.5}%
+\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{77}{figure.caption.20}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{77}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{77}{subfigure.5.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{77}{subfigure.5.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{77}{subfigure.5.4}%
+\contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{79}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{79}{subfigure.6.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on Tesla K20c GPU.}}}{79}{subfigure.6.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{79}{subfigure.6.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{79}{subfigure.6.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{79}{subfigure.6.5}%
+\contentsline {figure}{\numberline {6\,--\,7}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{80}{figure.caption.23}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{80}{subfigure.7.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{80}{subfigure.7.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{80}{subfigure.7.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{80}{subfigure.7.4}%
+\contentsline {figure}{\numberline {6\,--\,8}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{80}{figure.caption.24}%
+\contentsline {figure}{\numberline {8\,--\,1}{\ignorespaces Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.\relax }}{81}{figure.caption.25}%
