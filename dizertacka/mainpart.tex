@@ -162,8 +162,7 @@ To re-cast the the N-S equations to the Lagrangian form, which emphasizes the tr
 
 The N-S equations describe the notion of ideal, incompressible fluid. They agree well with real experiments of real fluids under different circumstances. The importance of these equations are of very high order within science and engineering fields, since the presence of fluid flows is prevalent across most human activities and daily life. Engineers are concerned with finding the solutions to N-S equations numerically with the accuracy and effectiveness their computers allows them to achieve. Mathematicians are more interested in knowing if actual solution exists and whether if there is only one solution. Although the N-S equations are known for nearly two centuries (with the Euler equation being discovered more than 250 years ago), they are still very poorly understood, which presents a major challenge. There is no consensus if N-S or Euler solutions exist for all time or if they break down at a finite time. Any mathematically rigorous proof was not yet accepted. In fact, solving the problem of Navier-Stokes existence and uniqueness bares a prize of 1,000,000 US dollars put forward by Clay Mathematics Institute. Having such proof would help with fundamental way of understanding the physical world we live in.
 
-\subsection{MOVE ME!}
-
+\subsection{Lattice Boltzmann Method}
 
 
 LBM	formulated in 1988 by	McNamara and	Zanetti
@@ -180,6 +179,12 @@ LBM	formulated in 1988 by	McNamara and	Zanetti
 Gas	Automata	(LGA)	
 
 – 1980:	Finite	volume	method	(FVM)	at	Imperial	College	
+
+% -------------
+
+Since its inception from Lattice gas automata
+
+Popularity of the Lattice-Boltzmann method (LBM) has steadily grown since its inception from Lattice gas automata more than three decades ago \citep{Hardy1973, frischLatticeGasAutomataNavierStokes1986}.
 
 %% --- Prepisat -------------------
 LB method has witnessed an astonishing growth in its methodology development and application over the past quarter of a century. It fills a vital gap between the macroscopic continuum approaches such as the Navier–Stokes solvers and the particle-based microscopic approaches such as molecular dynamics. Such a mesoscopic approach has found applications in almost all areas of energy and combustion \cite{liLatticeBoltzmannMethods2016a}.
@@ -425,21 +430,21 @@ For fluid flow over a porous boundary, the fluid velocity can be discontinuous b
 
 
 
-
-\subsection{Turbulence Modeling}
-
-
-\subsubsection{Fluid Turbulence}
-
-% upravit (z https://www.math.u-bordeaux.fr/~marnaudo/publis/Text_Fig3_f.pdf)
-Turbulent regimes are often studied in the perspective of the theory of dynamical systems as chaotic systems, which are characterized by a strong sensitivity to
-initial conditions.
-
-Simple regular Euler flow can give rise to chaotic particle trajectories, a phenomenon which has been intensively studied, is also present in fluid dynamics ..
-
-turbulence modelling using the Smagorinsky model in LBM for the simulation of high Reynolds number flow and the coupling of two LBM simulations to simulate thermal flows under the Boussinesq approximation.
-
-\subsubsection{Sub-grid Scale Modeling}
+%
+%\subsection{Turbulence Modeling}
+%
+%
+%\subsubsection{Fluid Turbulence}
+%
+%% upravit (z https://www.math.u-bordeaux.fr/~marnaudo/publis/Text_Fig3_f.pdf)
+%Turbulent regimes are often studied in the perspective of the theory of dynamical systems as chaotic systems, which are characterized by a strong sensitivity to
+%initial conditions.
+%
+%Simple regular Euler flow can give rise to chaotic particle trajectories, a phenomenon which has been intensively studied, is also present in fluid dynamics ..
+%
+%turbulence modelling using the Smagorinsky model in LBM for the simulation of high Reynolds number flow and the coupling of two LBM simulations to simulate thermal flows under the Boussinesq approximation.
+%
+%\subsubsection{Sub-grid Scale Modeling}
 
 \subsection{Multiphase Flows}
 
@@ -474,8 +479,18 @@ Each phase in the model has its own volume fraction a. The sum of the volume fra
 
 \subsection{Adaptive Mesh Refinement}
 
+Turbulent flows or multiphase flows involves different densities, like gas bubbles, liquid droplets or creation of foam. Turbulence is a complex, non-linear, multi-scale phenomenon, which is very difficult to simulate accurately for smaller parts of the turbulent flows. Problem with bubbles is that the gas-liquid interface typically spans to a thickness of 3-5 grid spacing. Both of these problems need denser grid to accurately represent them, thus requiring more computational power to simulate them effectively. Typically, not everything in the computational domain needs to be represented with the same amount of accuracy.
+
+Effective technique for such problems can be an Adaptive Mesh Refinement. With this technique, the mesh resolution is not constant, but adapts according to the accuracy requirements in specific part of the domain. Fine mesh resolution is used for problematic parts where high accuracy is needed and coarse mesh is applied to the bulk fluid away from the interface. This gives a tremendous benefit in reducing the computation cost \citep{yuanAdaptiveMeshRefinementmultiphase2017}.
+
 \subsection{Complex Fluids and Beyond}
 % Quantum LBM, Bose-Einstein condensates, relativity...
+
+In modern science and technology, we often deal with complex flows such as flows with chemical reactions, phase transitions, suspended particles, etc. Broad range of physical phenomena go beyond the classic Navier-Stokes equations. For instance, it's possible to implement a electromagnetic forces within the Lattice-Boltzmann formalism, opening the door to magnetohydrodynamics. As a result, this allows extending LBM to be used for studying properties and dynamics of plasmas, liquid metals, salt water or electrolytes.
+
+Another interesting frontier of modern physics is soft matter, in which LBM is also trying to establish itself as a viable method for studying polymers, foams, gels, granular materials, liquid crystals and some biological materials.
+
+It doesn't stay there. Lattice-Boltzmann formalism doesn't restrict itself only to classical Newtonian mechanics, but allows to be extended to the case of relativistic as well as quantum fluids in a comparatively simple manner. The kinetic theory harnessed in LBM can serve as a very effective functional generator of a variety of linear and non-linear partial differential equations of mathematical physics \citep{succi2018}.
 
 % -------------------------------------------------------------------------------
 
@@ -580,24 +595,26 @@ Scientific visualization for exascale computing is very likely to require in sit
 
 \subsection{Real-time Visualization}
 \label{rt-viz}
+% DONE
+Real-time simulation, i.e. the ability to simulate a virtual system as fast as the real system would evolve, can be beneficial to many engineering applications. To achieve real-time fluid flow simulation, numerical methods need to be selected carefully to make full use of the hardware capabilities. Generally, these were often simplified for use in games with lower accuracy, as the focus in gaming environments is more on creating visually appealing animation rather than aiming for physical accuracy \citep{delboscRealTimeSimulationIndoor}.
 
-Real-time fluid simulation, i.e. the ability to simulate a virtual system as fast as the real system would evolve, can benefit to many engineering application such as the optimisation of the ventilation system design in data centres or the simulation of pollutant transport in hospitals. And although real-time fluid simulation is an active field of research in computer graphics, these are generally focused on creating visually appealing animation rather than aiming for physical accuracy. The approach taken for this thesis is different as it starts from a physics based model, the lattice Boltzmann method, and takes advantage of the computational power of a graphics processing unit (GPU) to achieve real-time compute capability while maintaining good physical accuracy. \cite{delboscRealTimeSimulationIndoor}.
+The Lattice-Boltzmann method in context of CFD simulations is ideally suited to acceleration on GPUs due to its spatial and temporal locality. Thanks to this they have extremely high computational throughput compared with traditional CFD methods. Therefore with such method as LBM, it is now possible to achieve sound physical accuracy and good enough speed to reach real-time simulation capabilities.
 
-The progress of scientific computations can be viewed in real-time thanks to the high-performance OpenGL visualization library called Forge. It is developed by the same team behind ArrayFire and distributed together with their library for high-performance parallel computing. It is written specifically for use with GPU-accelerated applications as it doesn't require the expensive copying from GPU to CPU and back to GPU for rendering, but instead it builds on CUDA/OpenCL interoperability with OpenGL and allows for direct reading of the data on GPU \cite{forge2016}. Forge provides various plotting and visualization functions for 2D and 3D domains.
+The progress of scientific computations can be viewed in real-time thanks to the high-performance OpenGL visualization library called Forge. It is developed by the same team behind ArrayFire and distributed together with their library for high-performance parallel computing. It is written specifically for use with GPU-accelerated applications as it doesn't require the expensive copying from GPU to CPU and back to GPU for rendering, but instead it builds on CUDA/OpenCL interoperability with OpenGL and allows for direct reading of the data on GPU \citep{forge2016}. Forge provides various plotting and visualization functions for 2D and 3D domains.
 
 \begin{figure}[!ht]
 	\centering
 	\subfloat[High-performance visualization pipeline.\label{fig:viz-classic}]{%
-		\includegraphics[width=0.367\textwidth]{figures/viz-classic.pdf}%
+		\includegraphics[width=0.51\textwidth]{figures/viz-classic.pdf}%
 	} \qquad
 	\subfloat[High-performance visualization pipeline.\label{fig:viz-forge}]{%
-		\includegraphics[width=0.312\textwidth]{figures/viz-forge.pdf}%
+		\includegraphics[width=0.43\textwidth]{figures/viz-forge.pdf}%
 	}
 	\caption{Differences between CPU-bound visualization with expensive copying bottleneck and high-performance GPU-bound visualization keeping full speeds of high-bandwidth of PCIe interface.}
 	\label{fig:viz-forge-main}
 \end{figure}
 
-Practical scientific simulations for in-depth study of complex physical phenomena from real world, e.g. direct numerical simulation of cellular blood flow \cite{kotsalosDigitalBloodMassively2019}, requires higher accuracy. Instead of single-precision floating-point type (\texttt{f32}) computation, double-precision floating-point (\texttt{f64} has to be chosen. In LBM context, this practically doubles the amount of memory needed. For real-time visualizations of results with this type of precision, they have to be converted to a single-precision floating-point for Forge to effectively work with the data. In ArrayFire (and generally in programming), function for this operation is called \texttt{cast} (Alg. \ref{forge-cast-f32}).
+Practical scientific simulations for in-depth study of complex physical phenomena from real world, e.g. direct numerical simulation of cellular blood flow \citep{kotsalosDigitalBloodMassively2019}, requires higher accuracy. Instead of single-precision floating-point type (\texttt{f32}) computation, double-precision floating-point (\texttt{f64} has to be chosen. In LBM context, this practically doubles the amount of memory needed. For real-time visualizations of results with this type of precision, they have to be converted to a single-precision floating-point for Forge to effectively work with the data. In ArrayFire (and generally in programming), function for this operation is called \texttt{cast} (Alg. \ref{forge-cast-f32}).
 
 \begin{lstlisting}[language=Rust, caption={Converting to single precision floating point for Forge visualization in C, C++ and Rust}, label=forge-cast-f32]
 	// C
@@ -613,7 +630,7 @@ Practical scientific simulations for in-depth study of complex physical phenomen
 	let B_f32 = A_f64.cast::<f32>();
 \end{lstlisting}
 
-In the current implementation, we used \texttt{image()} and \texttt{vector_field_2()} functions for visualizing density and velocity of on both lid-driven cavity and Kármán vortex street test cases (Figure~ \ref{fig:d2q9_lid} and Figure~ \ref{fig:d2q9_channel}).
+While developing the C++ and Rust implementations of LBM simulation backend, we used \texttt{image()} and \texttt{vector_field_2()} functions from Forge library for visualizing density and velocity of both lid-driven cavity and Kármán vortex street test cases in 2D (Figure~ \ref{fig:d2q9_lid} and Figure~ \ref{fig:d2q9_channel}).
 
 \begin{figure}[!ht]
 	\centering
@@ -640,24 +657,16 @@ In the current implementation, we used \texttt{image()} and \texttt{vector_field
 	\label{fig:d2q9_channel}
 \end{figure}
 
-Visualizations can be zoomed, panned and rotated with a mouse.
+% Visualizations can be zoomed, panned and rotated with a mouse.
 
 \subsection{Interactive Visualization}
 \label{interactive-simulation}
+% DONE
+Interpreting simulation results is often a laborious process. Already few decades ago, it was clear that to understand fluid phenomena in depth, we should move towards interactive simulation \citep{frischLatticeGasAutomataNavierStokes1986}. This would allow run-time manipulation of geometrical and physical simulation variables, opening ways to rapidly and intuitively investigate different scenarios and design configurations.
 
-% --- Prepisat -------------------
-A real-time simulation platform is a manifestation of this concept, allowing run-time manipulation of geometrical and physical simulation variables. This enables users to rapidly and intuitively investigate different scenarios and design configurations. Ultimately, a complete interactive simulation package would be capable of simulating a multi-physics 3D environment in real-time to an application-appropriate degree of accuracy. However, significant inter-disciplinary research is required in reduced-order physical modelling, numerical methods, and software integration to realise a solution \citep{harwoodREALTIMEMODELLINGSIMULATION}.
-% --------------------------
+Recently, the increase of computational power and advances in general-purpose computing on GPUs (GPGPU) made this possible  \citep{delboscRealTimeSimulationIndoor, harwoodParallelisationInteractiveLatticeBoltzmann2017, kolihaOnlineVisualizationInteractive2015, glessmerUsingInteractiveLattice2017}. Together with the performance and speed of the LBM method, it's now possible to compute several hundreds of iterations per second which makes an interaction with the simulation in progress possible \citep{wangInteractive3DFluid2019}. Getting instant feedback according to the change of various parameters in simulation gives researchers the ability to iterate faster toward the creation of accurate model, better understanding of underlying phenomena, or employing simulation within the control of industrial systems. It is therefore desirable to push the limits of execution speed of LBM simulations.
 
-% --- Prepisat -------------------
-In order to achieve real-time flow simulation, numerical methods need to be selected carefully such that they can make full use of the capabilities of accelerated computing hardware. Our work focuses on the use of the lattice-Boltzmann Method (LBM):2 a CFD method ideally suited to acceleration on GPUs due to its spatial and temporal locality. GPU-LBM simulations have extremely high computational throughput compared with traditional CFD methods.
-% ---------------------------------------
-
-Recently, the increase of computational power and advances in general-purpose computing on GPUs (GPGPU) opened the door for real-time and interactive CFD simulations \cite{delboscOptimizedImplementationLattice2014, delboscRealTimeSimulationIndoor, harwoodParallelisationInteractiveLatticeBoltzmann2017, kolihaOnlineVisualizationInteractive2015, glessmerUsingInteractiveLattice2017}. Together with the performance and speed of the LBM method, it's now possible to compute several hundreds of iterations per second which makes an interaction with the simulation in progress possible \cite{wangInteractive3DFluid2019}. Getting instant feedback according to the change of various parameters in simulation gives researchers the ability to iterate faster toward the creation of accurate model, better understanding of underlying phenomena, or employing simulation within the control of industrial systems. It is therefore desirable to push the limits of execution speed of LBM simulations.
-
-% prepisat
-Main goal to implement LBM algorithm for our simulation software is the ability to high performance computation. Various optimization techniques exist to parallelize and optimize LBM algorithms \cite{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. Wang et. al. \cite{wangInteractive3DFluid2019} was able to leverage performance and speed of the LBM method to reach interactive simulation time, i.e. providing several timestep per second to see the impact on interaction of user during a simulation in progress.
-% prepisat
+Main goal to implement LBM algorithms for our simulation software is the ability to perform high performance computation and still keep the CPU free to do the additional work. The reason for it is that the visualization part is performed in virtual reality, which needs most of the CPU resources for processing the user tracking. Thanks to the fact that ArrayFire library was used, many hardware-specific optimizations were done for us behind-the-scenes. Although, there is growing body of work on optimizing LBM simulations \citep{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. We used some of the methods described in these articles. They are described in section \ref{optimizations-for-gpu}.
 
 \subsubsection{Steering the Running Simulation}
 
@@ -691,12 +700,12 @@ In field of mathematics, VR application named Cal (2019) is making serious progr
 One can say that virtual reality established itself in many disciplines of human activities, as a medium that allows easier perception of data or natural phenomena appearance. In fact, theme of this dissertation was influenced by my previous work with using virtual reality for mathematics education at the university TODO: CITOVAT MATHWORLDVR CLANOK!!!
 
 \subsubsection{Virtual Reality in Steelmaking}
-
+% vytiahnut len par veci a prehodit  vyssie
 Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars (more than 36.1 million e at the time of this writing) in savings for companies. In collaboration with other universities and companies from steelmaking industry, they focus on research regarding integration of virtual reality with simulation technologies and high performance computing; application of simulation and visualization technologies to industrial processes for process design trouble-shooting and optimization to address the issues of productivity, energy, environment, and quality; and last but not least, development of advanced learning environments in virtual reality for training and education. They launched novel, industry-led association of steel manufacturers and stakeholders called Steel Manufacturing Simulation and Visualization Consortium (SMSVC).
 
 Interesting application of combining 3D CFD smulation and virtual reality for visual in- spection is pulverized coal injection (PCI) and coke combustion model. Research efforts between the Canadian government (CANMET), CIVS and the American Iron and Steel Institute (AISI) were conducted and resulted in modeling of the blowpipe and tuyere of the blast furnace. Combination of aforementioned technologies turned out to be powerful and provided detailed information of flow streams that were previously very difficult to measure. The CFD model shown in Figure~ 2 – 12 was used to simulate PCI with natural gas co-injection in the lance, blowpipe and tuyere TODO: DOPLNIT CITACIU!!!.
 
-Another very interesting project conducted at CIVS involved development of compre- hensive package of modules for simulating multiple processes in blast furnace. 3D CFD model shown in Figure~ 2 – 13 has been developed by Zheng and Hu (2014) specifically for simulating the blast furnace hearth. The campaign life of a blast furnace is highly dependent on residual thickness of refractory lining in the hearth. The progress of hearth lining erosion is greatly affected by hot metal flow patterns and heat transfer in refractory under different operating conditions. CFD model incorporates both the hot metal flow and conjugate heat transfer through the refractories. They achieved consistency of results between measured and calculated refractory temperature profiles, as the model has been extensively validated using measurement data from industry blast furnace. The virtual reality (VR) visualization technology has been used to analyze the velocity and temperature distributions and wear patterns of different furnaces and operating conditions. This interactive 3D visualization is shown in Figure~ 2 – 14. Based on the results, it was possible to predict the inner profile of hearth and provide guidance to protecting the blast furnace hearth.
+Another very interesting project conducted at CIVS involved development of comprehensive package of modules for simulating multiple processes in blast furnace. 3D CFD model shown in Figure~ 2 – 13 has been developed by Zheng and Hu (2014) specifically for simulating the blast furnace hearth. The campaign life of a blast furnace is highly dependent on residual thickness of refractory lining in the hearth. The progress of hearth lining erosion is greatly affected by hot metal flow patterns and heat transfer in refractory under different operating conditions. CFD model incorporates both the hot metal flow and conjugate heat transfer through the refractories. They achieved consistency of results between measured and calculated refractory temperature profiles, as the model has been extensively validated using measurement data from industry blast furnace. The virtual reality (VR) visualization technology has been used to analyze the velocity and temperature distributions and wear patterns of different furnaces and operating conditions. This interactive 3D visualization is shown in Figure~ 2 – 14. Based on the results, it was possible to predict the inner profile of hearth and provide guidance to protecting the blast furnace hearth.
 
 
 % ----------------------------------------------------------------
@@ -815,7 +824,7 @@ ArrayFire manages its own context, queue, memory, and creates custom IDs for dev
 
 \begin{enumerate}
 \item obtain the OpenCL context, device, and queue used by ArrayFire,
-\item obtain cl_mem references to Array objects,
+\item obtain \texttt{cl_mem} references to Array objects,
 \item load, build, and use your kernels,
 \item return control of Array memory to ArrayFire.
 \end{enumerate}
@@ -848,29 +857,33 @@ To add ArrayFire to existing code you need to:
 \item create ArrayFire arrays from OpenCL memory objects,
 \item perform ArrayFire operations on the Arrays,
 \item instruct ArrayFire to finish operations using sync,
-\item obtain cl_mem references for important memory,
+\item obtain \texttt{cl_mem} references for important memory,
 \item continue your OpenCL application.
 \end{enumerate}
 	
 ArrayFire's memory manager automatically assumes responsibility for any memory provided to it. If you are creating an array from another RAII style object, you should retain it to ensure your memory is not deallocated if your RAII object were to go out of scope.
 
-If you do not wish for ArrayFire to manage your memory, you may call the \texttt{Array::unlock} function and manage the memory yourself; however, if you do so, please be cautious not to call \texttt{clReleaseMemObj} on a \texttt{cl_mem} when ArrayFire might be using it!
+If you do not wish for ArrayFire to manage your memory, you may call the \texttt{Array::unlock()} function and manage the memory yourself; however, if you do so, please be cautious not to call \texttt{clReleaseMemObj} on a \texttt{cl_mem} when ArrayFire might be using it!
 
-It is fairly straightforward to interface ArrayFire with your own custom code. ArrayFire provides several functions to ease this process. The pointer returned by Array::device_ptr should be cast to cl_mem before using it with OpenCL opaque types. The pointer is a cl_mem internally that is force casted to pointer type by ArrayFire before returning the value to caller.
+It is fairly straightforward to interface ArrayFire with your own custom code. ArrayFire provides several functions to ease this process. The pointer returned by \texttt{Array::device_ptr()} should be cast to \texttt{cl_mem} before using it with OpenCL opaque types. The pointer is a \texttt{cl_mem} internally that is force casted to pointer type by ArrayFire before returning the value to caller.
 
 Additionally, the OpenCL backend permits the programmer to add and remove custom devices from the ArrayFire device manager (Table \ref{table:afcl}). These permit you to attach ArrayFire directly to the OpenCL queue used by other portions of your application.
 
 \begin{table}[h!]
-	\centering
-	\begin{tabular}{||c c||} 
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.4em}
+	\begin{tabular}{|c|c|} 
 		\hline
-		Function & Purpose \\ [0.5ex] 
-		\hline\hline
-		add_device_context & Add a new device to ArrayFire's device manager \\ 
-		set_device_context & Set ArrayFire's device from cl_device_id \& cl_context \\
-		delete_device_context & Remove a device from ArrayFire's device manager \\
+		Function & Purpose \\
 		\hline
-	\end{tabular}
+		\texttt{add_device_context} & Add a new device to ArrayFire's device manager \\ 
+		\hline
+		\texttt{set_device_context} & Set ArrayFire's device from \texttt{cl_device_id} \& \texttt{cl_context} \\
+		\hline
+		\texttt{delete_device_context} & Remove a device from ArrayFire's device manager \\
+		\hline
+	\end{tabular}}}
 	\caption{Functions for working with OpenCL context in ArrayFire-OpenCL interoperability scenario.}
 	\label{table:afcl}
 \end{table}
@@ -944,82 +957,96 @@ The high-performance visualization library called Forge is bundled with the inst
 
 
 \subsubsection{Rust as C/C++ Alternative} \label{sec:rust-alt}
+% DONE
+ As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world as a language that could one day replace C or C++ as a go-to language for writing performant low-level applications and systems. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing daily. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
 
- As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world s a language that could one day replace C or C++ as a go-to languages for writing performant low-level code. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing everyday. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
-
-The main proposition of Rust language is that it helps you write faster, more reliable software. Traditionally, developers who were looking for the best raw performance as they can get to squeeze out of their programs by aggressively optimizing it, were mostly reaching out for C++ as it's possible to get down to low-level if needed. The object-oriented nature of C++ on the other hand allows for constructing code that is easier to reason about. But still, the high-level ergonomics and low-level control are often at odds in programming language design \cite{steveklabnik2018}. Developers are still responsible for managing the memory in C++ applications. This can lead to problems if application is not well architected or developers not being disciplined about memory cleanup after use.
+The main proposition of Rust language is that it helps you write faster, more reliable software. Traditionally, developers who were looking for the best raw performance as they can get to squeeze out of their programs by aggressively optimizing it, were mostly reaching out for C++ as it's possible to get down to low-level if needed. The object-oriented nature of C++ on the other hand allows for constructing code that is easier to reason about. But still, the high-level ergonomics and low-level control are often at odds in programming language design \citep{steveklabnik2018}. Developers are still responsible for managing the memory in C++ applications. This can lead to problems if application is not well architected or developers not being disciplined about memory cleanup after use.
 
 Rust challenges the status quo of high-level ergonomics with low-level performance in one language. Its unique feature called ownership allows the compiler to make memory safety guarantees without the need of an garbage collector. When building low-latency software, garbage collection adds unwanted pauses to the execution time. 
 
-Through balancing powerful technical capacity and a great developer experience, Rust gives you the option to control low-level details (such as memory usage) without all the hassle traditionally associated with such control. \cite{steveklabnik2018}
-
-zero-cost abstractions, borrowing, borrow-checker, memory safety, easy and memory-safe multi-threading, parallel iterators with rayon (par\_iter) generics (compare with templates in C++), pattern matching, macros, foreign function interface FFI with C, can use C libraries if needed
-
-
-Rust is for people who crave speed and stability in a language. By speed, we mean the speed of the programs that you can create with Rust and the speed at which Rust lets you write them. The Rust compiler’s checks ensure stability through feature additions and refactoring. This is in contrast to the brittle legacy code in languages without these checks, which developers are often afraid to modify. By striving for zero-cost abstractions, higher-level features that compile to lower-level code as fast as code written manually, Rust endeavors to make safe code be fast code as well. \cite{steveklabnik2018}
-
-Overall, Rust’s greatest ambition is to eliminate the trade-offs that programmers have accepted for decades by providing safety and productivity, speed and ergonomics. \cite{steveklabnik2018}
-
-It wasn’t always so clear, but the Rust programming language is fundamentally about empowerment: no matter what kind of code you are writing now, Rust empowers you to reach farther, to program with confidence in a wider variety of domains than you did before.
-
-Take, for example, “systems-level” work that deals with low-level details of memory management, data representation, and concurrency. Traditionally, this realm of programming is seen as arcane, accessible only to a select few who have devoted the necessary years learning to avoid its infamous pitfalls. And even those who practice it do so with caution, lest their code be open to exploits, crashes, or corruption.
-
-Rust breaks down these barriers by eliminating the old pitfalls and providing a friendly, polished set of tools to help you along the way. Programmers who need to “dip down” into lower-level control can do so with Rust, without taking on the customary risk of crashes or security holes, and without having to learn the fine points of a fickle toolchain. Better yet, the language is designed to guide you naturally towards reliable code that is efficient in terms of speed and memory usage.
-
-Programmers who are already working with low-level code can use Rust to raise their ambitions. For example, introducing parallelism in Rust is a relatively low-risk operation: the compiler will catch the classical mistakes for you. And you can tackle more aggressive optimizations in your code with the confidence that you won’t accidentally introduce crashes or vulnerabilities.
-
-But Rust isn’t limited to low-level systems programming. It’s expressive and ergonomic enough to make CLI apps, web servers, and many other kinds of code quite pleasant to write — you’ll find simple examples of both later in the book. Working with Rust allows you to build skills that transfer from one domain to another; you can learn Rust by writing a web app, then apply those same skills to target your Raspberry Pi.
-
-
-\cite{steveklabnik2018}
-
-% Info o pouzivani pointers a references v Ruste vs C++ --> useful pre ukazku ako sa pouzivaju pointers vo FFI s C# pre pracu s Unity
+The simulation backend (i.e. actual implementation of LBM solver) was written in both C++ and Rust programming languages to compare the resulting performance and overall development experience. Both of those versions perform very similarly, but since Rust is being very interesting to work with in term of memory-safety, it was picked as a winner. Therefore the simulation backend that is used in tandem with VR visualization frontend is actually implemented in Rust. 
 
 \subsubsection{Hardware}
-
-% dopisat/prepisat
-The focus of this work was to build a high-performance simulation and virtual reality visualization software that can be used on variety of platforms. 
+% DONE
+The focus of this work was to build a high-performance simulation software with integrated VR visualization that can be used on variety of platforms. VR is readily supported on Windows systems, with bit of an additional tuning here-and-there on Linux distributions. MacOS is not supported from any platform as of today, but the hardware it runs on is not powerful enough anyway (this can change in not-so-distant future, though!). Hardware requirement for running the VR application that is described in this work is clearly displayed in Table~\ref{tab:vr-specs} in section \ref{sec:hardware-req} of Appendix A. The performance of simulation backend was thoroughly benchmarked. List of GPUs that was used throughout the development is clearly displayed in Table~\ref{tab:gpus} in section \ref{sec:hardware-gpus}.
 
 % ---------------------------------------------------------
 
 \subsection{Implementation of Lattice Boltzmann Method for GPUs}
 
-Implementation of D2Q9 stencil which mean 2 dimensional computation domain with each node having 9 discrete speeds pointing in the directions of where the particle distribution can move.
-
-In this section I'll take you through each step in the program lifecycle and show how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
-
-The code is constructed in a way that it is easy to interface with the Unity.
+In this section, each step in the program lifecycle is presented, showing how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
 
 \subsubsection{Initialization}
 
-The simulation program needs to be initialized at the start with correct parameters. 
+In Rust, the common data structure for composing various types of data under one roof is \texttt{struct}. In our simulation implementation, \texttt{struct Sim \{...\}} stores the all parameters and other data structures that are needed during the program lifecycle. Structs can be instantiated in different ways. Most common way is via the constructor method \texttt{new()}. For proper constructing of \texttt{Sim} and its properties, the struct implementation has to be defined with \texttt{impl Sim \{...\}} (Listing~\ref{sim-struct}). Additional directive \texttt{\#[repr(C)]} is added on top of \texttt{Sim} struct to specify alternative data layout, specifically to represent it as how it would be done with C or C++ language. That means the order, size, and alignment of fields is exactly what would be expect from C or C++.
 
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
+\begin{lstlisting}[language=Rust, caption=Implementation of Sim struct with constructor method., label=sim-struct]
+#[repr(C)]
+pub struct Sim {
+	// ... all the fields are defined here
+}
+
+impl Sim {
+	pub fn new(nx: u64, ny: u64, initial_density: f32, initial_ux: f32, omega: f32, obstacle_x: u64, obstacle_y: u64, obstacle_r: u64
+	) -> Result<Sim, String> {
+		// ... rest of the implementation
 	}
+}
+\end{lstlisting}
+
+The simulation program needs to be initialized at the start with correct parameters. These are passed into the \texttt{new()} constructor method as its arguments and then used for initialization in ArrayFire Arrays. There are number of independent Arrays being initialized in this method, such as discrete velocities, weights for computing particle distributions in equilibrium, etc. (Listing~\ref{independent-initial-params}).
+
+\begin{lstlisting}[language=Rust, caption=Setting initial parameters that are independent from constructor method's input arguments., label=independent-initial-params]
+let t1: f32 = 4. / 9.;
+let t2: f32 = 1. / 9.;
+let t3: f32 = 1. / 36.;
+// Discrete velocities
+let ex = Array::<f32>::new(&[0., 1., 0., -1., 0., 1., -1., -1., 1.], dim4!(9));
+let ey = Array::<f32>::new(&[0., 0., 1., 0., -1., 1., 1., -1., -1.], dim4!(9));
+// weights
+let w = Array::new(&[t1, t2, t2, t2, t2, t3, t3, t3, t3], dim4!(9));
+// Initial physical parameters
+let mut density = constant::<f32>(initial_density, dim4!(nx, ny));
+let mut ux = constant::<f32>(initial_ux, dim4!(nx, ny));
+let mut uy = constant::<f32>(0.0, dim4!(nx, ny));
+// ...
 \end{lstlisting}
 
 
 \subsubsection{Boundary Conditions}
 
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
+Two types of boundary conditions, namely geometrical and physical, are implemented with ArrayFire Arrays as a mask on 2D or 3D grids. 
+
+\begin{lstlisting}[language=Rust, caption=Setting the geometrical boundary conditions of circle in a pipe flow (2D Karmán vortex)., label=init-circle]
+let mut bound = constant::<f32>(1.0, dim4!(nx, ny));
+// circle
+let r = constant::<f32>(obstacle_r as f32, dim4!(nx, ny));
+let r_sq = &r * &r;
+let circle = moddims(
+	&le(
+		&(pow(
+			&(flat(&x) - obstacle_x as f32),
+			&(2.0 as f32), false)
+		+ pow(
+			&(flat(&y) - obstacle_y as f32),
+			&(2.0 as f32), false)
+		),
+		&flat(&r_sq),
+		false
+	),
+	dim4!(nx, ny),
+);
+bound = selectr(&bound, &circle, 0.0 as f64);
+// top
+set_col(&mut bound, &constant::<f32>(1.0, dim4!(nx)), 0);
+// bottom
+set_col(
+	&mut bound,
+	&constant::<f32>(1.0, dim4!(nx)),
+	ny as i64 - 1,
+);
 \end{lstlisting}
 
-\subsubsection{Initial Conditions}
 
 Physical and lattice parameters that are supplied to the simulation at the start so it can begin with something.
 
@@ -1055,7 +1082,7 @@ There is difference between initial conditions in BGK and MRT code.
 
 Streaming in generally implemented as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed.
 
-In out program, the streaming is implemented as a shift of indices of neighbouring nodes. In this fashion, the index is pre-computed at the beginning and then used throughout the simulation lifetime to index into the particle distributions of neighbouring nodes.
+In current implementation, the streaming is implemented as a shift of indices of neighbouring nodes. In this fashion, the index is pre-computed at the beginning and then used throughout the simulation lifetime to index into the particle distributions of neighbouring nodes.
 
 \begin{lstlisting}[language=Rust, caption=Pre-computed streaming step in the way of shifting indices during the program intialization phase., label=rust-nb-index]
 	let ci: Array<u64> = (range::<u64>(dim4!(1, 8), 1) + 1) * total_nodes;
@@ -1545,52 +1572,20 @@ General zooming functionality ... \ref{unity-zoom-interaction-code}.
 	}
 \end{lstlisting}
 
-% dopisat
-The zooming than can be performed by moving both hand controllers (Figure~ \ref{fig:zoom-interaction-hand-controllers}) or virtual hands (Figure~ \ref{fig:zoom-interaction-hands}) into the visualization object,  clicking the appropriate buttons (or grabbing gesture) and moving them towards each other for zoom-in or outwards from each other for zoom-out (Figure~ \ref{fig:grab-interaction}).
 
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Zoom interaction with hand controllers.\label{fig:zoom-interaction-hand-controllers}]{%
-		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
-	}\qquad
-	\subfloat[Zoom interaction with virtual hands.\label{fig:zoom-interaction-hands}]{%
-		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Variations of zoom interaction.}
-	\label{fig:zoom-interaction}
-\end{figure}
-
-\subsubsection{Plotting in VR}
 
 % --------------------------------------------------------------------
 
 \subsection{Interactive Simulation}
+% DONE
+In this section, the implementation of interactive virtual reality visualization is presented. Unity game engine was picked as it provides an easy-to-use visual development environment with great support for VR baked-in. Their XR Plugin not only helped with VR development in current version of presented software, but offers a clear transition step towards supporting augmented reality in future.
+
+VR user interface is also presented, showcasing different ways of how to interact with the running simulation. 
+
 
 \subsubsection{Unity and Rust Interop}
 
-%OpenGL and OpenCL interop
 
-Note that OpenCL-GL sharing works in a very particular way. The OpenCL context that needs to be shared with an OpenGL context has to be created using the OS specific OpenGL context handle as one of it's context properties. In your current code, the OpenGL context used by ArrayFire's GL-CL shared context is totally different from the OpenGL context the rust window toolkit is showing.
-
-Error executing function: clCreateFromGLTexture2D  
-Status error code: CL_INVALID_CONTEXT (-34)  
-
-What you need is the following
-
-
-\begin{itemize}
-\item Pick the device you want to do CL-GL sharing on and create a ocl_device_id handle using the ocl create
-\item Now, for this device from step (1) create a new OpenGL context using the OpenGL context and passing the opengl context properties specific to your OS
-\item Create an OpenCL queue for this device in this CL-GL shared context
-\item Now add this context to ArrayFire device manager using afcl::add_device_context 
-\item Finally, set this device/context queue as your ArrayFire device using set_device_context()
-\end{itemize}
-
-All of these has to be completed before any ArrayFire computations are carried out so that you don't have buffers that are created on a totally different OpenCL context.
-
-Now, you can create a shared CL-GL buffer using the texture using this texture like you are doing now. Note that once you pass the cl_mem/device-ptr to ArrayFire, it shall assume control of that buffer, so take care of ownership of that object using methods like the following
-Array.lock() and Array.unlock().
 
 % prepisat, zo stackoverflow (https://stackoverflow.com/questions/62232753/differences-between-a-pointer-and-a-reference-in-rust), niektore veci mozno prehodit do sekcie "Technology Stack" ----------
 Use references when you can, use pointers when you must. If you're not doing FFI or memory management beyond what the compiler can validate, you don't need to use pointers.
@@ -1637,6 +1632,24 @@ n C++, references are "automatically dereferenced pointers". In Rust, you often 
 
 % ------------------------
 
+\begin{lstlisting}[language=Csharp, caption=., label=unity-rust-ffi-init-sim]
+public class LBMAF
+{
+	private static IntPtr _sim_handle;
+	private static IntPtr _data_handle;
+	
+	[DllImport("lbmaf")]
+	private static extern bool init_sim(out IntPtr sim_handle, out IntPtr data_handle, UInt32 width, UInt32 height, float inflow_density, float inflow_ux, float omega, UInt32 obstacle_x, UInt32 obstacle_y, UInt32 obstacle_r);
+	
+	// C#/Unity interface with the Rust FFI
+	public static bool InitSimulation(UInt32 w, UInt32 h, float rho0, float in_ux, float om, UInt32 obs_x, UInt32 obs_y, UInt32 obs_r)
+	{
+		return init_sim(out _sim_handle, out _data_handle, w, h, rho0, in_ux, om, obs_x, obs_y, obs_r);
+	}
+	// ... rest of the methods
+}
+\end{lstlisting}
+
 % Multithreading
 % - moving Array to thread,
 % - read Array from multiple threada, 
@@ -1645,12 +1658,93 @@ n C++, references are "automatically dereferenced pointers". In Rust, you often 
 
 \subsubsection{Visualizing Simulation Output in Real-Time}
 
-Unity Game Engine as a Rendering Platform \\
+First, on the Rust side, the data output from the LBM simulation has to be normalized to the range within minimum and maximum values (Listing \ref{rust-normalize}). 
 
-- CPU-bound (using Marshal.Copy) \\
-- GPU-bound (Render to texture, fast) \\
+\begin{lstlisting}[language=Rust, caption=Normalization of the simulation output., label=rust-normalize]
+fn normalize(a: &Array<FloatNum>) -> Array<FloatNum> {
+	let min = min_all(a).0;
+	let max = max_all(a).0;
+	(a - min) / (max - min) as FloatNum
+}
+\end{lstlisting}
+
+% CPU-bound (Marshal.Copy)
+
+This range is then color-coded to the rainbow colormap. Blue-ish colors denote slower velocities and red-ish colors faster velocities (Listing \ref{rust-colors-array}). Data representing information about color and opacity (alpha) of each pixel is ordered in $r$, $g$, $b$ and $a$ sub-arrays, then joined together and shuffled around to be correctly represented as Unity's Texture2D RGBA32 texture format.
+
+\begin{lstlisting}[language=Rust, caption=Preparing the data output from Rust side of LBM simulation., label=rust-colors-array]
+pub fn simulate(&mut self, inflow_density: FloatNum, inflow_ux: FloatNum, omega: FloatNum) {
+	// ... code for actual computation
+	
+	results = normalize(&results);
+	// Colormap for Unity's Texture2D (RGBA32)
+	let r = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.5f32)))) * 255));
+	let g = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.25f32)))) * 255));
+	let b = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * &results))) * 255));
+	let a = flat(&constant::<f32>(1.0 as FloatNum, self.dims));
+	self.colors = flat(&transpose(&join_many(1, vec![&r, &g, &b, &a]), false)).cast::<u8>();
+	
+	// ... rest of the code
+}
+
+// Function for copying ArrayFire data to Rust's Vec
+pub fn copy_colors_host(&mut self) {
+	self.colors.host(self.results.as_mut_slice());
+}
+\end{lstlisting}
+
+Second, on the Unity side
+
+\begin{lstlisting}[language=Csharp, caption=The CPU-bound copying of the simulation results., label=unity-marshal-copy]
+	public class LBMAF
+	{
+		private static IntPtr _sim_handle;
+		private static IntPtr _data_handle;
+		
+		[DllImport("lbmaf")]
+		private static extern bool init_sim(out IntPtr sim_handle, out IntPtr data_handle, UInt32 width, UInt32 height, float inflow_density, float inflow_ux, float omega, UInt32 obstacle_x, UInt32 obstacle_y, UInt32 obstacle_r);
+		
+		// C#/Unity interface with the Rust FFI
+		public static bool InitSimulation(UInt32 w, UInt32 h, float rho0, float in_ux, float om, UInt32 obs_x, UInt32 obs_y, UInt32 obs_r)
+		{
+			return init_sim(out _sim_handle, out _data_handle, w, h, rho0, in_ux, om, obs_x, obs_y, obs_r);
+		}
+		// ... rest of the methods
+	}
+\end{lstlisting}
+
+% GPU-bound (OpenGL and OpenCL interop)
+The faster alternative to CPU-bound data copying is to work only within context of the GPU, since we already have the data residing there after doing computations for LBM simulation. The easiest way to do this is to leverage OpenCL and OpenGL interoperability. \citep{malcolmArrayFireGPUAcceleration2012}
+ 
+OpenCL-OpenGL sharing works in a very particular way. The OpenCL context that needs to be shared with an OpenGL context has to be created using an OS specific OpenGL context handle as one of it's context properties. The OpenGL context used by ArrayFire's OpenCL-OpenGL shared context is completely different from the OpenGL context that Unity uses.
+
+As for such attempts trying to use ArrayFire's OpenGL context for copying data from OpenCL Arrays to Unity's OpenGL texture, common error usually pops up:
+
+\begin{lstlisting}
+Error executing function: clCreateFromGLTexture2D  
+Status error code: CL_INVALID_CONTEXT (-34)  
+\end{lstlisting}
+
+First, a workaround has to be implemented prior to doing any work with external OpenGL context. Simply put, ArrayFire has to switch to this context and use it. Workaround procedure consists of the following:
+
+\begin{enumerate}
+	\item Pick the device you want to do OpenCL-OpenGL sharing on and create a \texttt{ocl_device_id} handle using fuctions from the\texttt{ocl} Rust create.
+	\item Now, for this device from step (1), create a new OpenGL context, passing the properties specific to your OS as an arguments for the creation function.
+	\item Create an OpenCL queue for this device in newly created OpenCL-OpenGL shared context.
+	\item Now add this context to ArrayFire device manager using \texttt{afcl::add_device_context}.
+	\item Finally, set this device/context queue as your ArrayFire device using \texttt{set_device_context()}.
+\end{enumerate}
+
+All of these has to be completed before any ArrayFire computations are carried out so that you don't have buffers that are created on a different OpenCL context. Only after this initial procedure, the creation of a shared OpenCL-OpenGL buffer that is then used for direct memory copying to the Unity's OpenGL texture is then possible. ArrayFire shall assume control of shared OpenCL-OpenGL buffer to take care of ownership, only this way it can operate on shared OpenCL memory. For such case ArrayFire provides 
+\texttt{Array.lock()} and \texttt{Array.unlock()} functions.
+
+Implementing OpenGL-OpenCL interoperability with ArrayFire and Unity isn't straightforward and involves additional help from the ArrayFire developers. Although it is documented for simple windowing platforms that use OpenGL textures for drawing to the screen, it's much more complex within the setting of this work, such as implementing interoperability with Unity game engine. On the other note, OpenGL support in virtual reality headsets that use cable connection to PC workstations (setting currently needed for having access to powerful GPUs) is very limited. Therefore it was not successfully implemented in current work. 
+
+Still, it is of very high importance to implement GPU-bound visualization techniques into the future versions of LBM solver, though. When dealing with complex 3D simulation, multiple-relaxation time algorithm and more directions of particle distribution function within the lattice node, CPU-bound visualization could easily become a bottle neck.
 
 \subsubsection{Setting Initial Conditions}
+
+Before starting a simulation, user is encouraged to configure the initial parameters that are then sent to the simulation software which uses them for setting the simulation's initial boundary conditions and underlying physics for specified model. Default parameters are provided for the user, so if nothing is changed, D2Q9-LBM simulation of Kármán vortex street on 300x100 grid is initialized, with initial conditions of inflow density $\rho = 1.0$, inflow speed $\bm{u}_x = 0.1$ and Reynolds number $Re = 220$.
 
 The physics and lattice parameters can be set in Unity Editor and also inside the virtual reality environment.
 
@@ -1683,7 +1777,37 @@ When looking into the Unity Editor, the script interface now has two numerical i
 \end{figure}
 
 
+
+
 \subsubsection{Updating Boundary Conditions}
+
+\begin{lstlisting}[language=Rust, caption=".", label=]
+#[no_mangle]
+pub extern "C" fn simulate(
+	ptr: *mut Sim,
+	inflow_density: FloatNum,
+	inflow_ux: FloatNum,
+	omega: FloatNum
+) {
+	if !ptr.is_null() {
+		Sim::from_ptr(ptr).simulate(inflow_density, inflow_ux, omega);
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Csharp, caption=".", label=]
+	#[no_mangle]
+	pub extern "C" fn simulate(
+	ptr: *mut Sim,
+	inflow_density: FloatNum,
+	inflow_ux: FloatNum,
+	omega: FloatNum
+	) {
+		if !ptr.is_null() {
+			Sim::from_ptr(ptr).simulate(inflow_density, inflow_ux, omega);
+		}
+	}
+\end{lstlisting}
 
 \subsubsection{Time Manipulation}
 
@@ -1737,7 +1861,7 @@ At the time of writing, the fastest supercomputer in the world runs at roughly 4
 
 Performance of LBM simulations is measured in ``Million Lattice Updates Per Second" (MLUPS), which is a standard unit of measurement within the LBM research community. It states that the simulation code updates a computational domain of million cells in lattice during one CPU second. The same metric is used for both single and double-precision floating-point operations in benchmarked simulations. 
 
-\subsubsection{Hardware}
+\subsubsection{Hardware}\label{sec:hardware-gpus}
 % DONE
 Since ArrayFire allows for using not only GPU backends but also CPU, we added a CPU benchmarks executed on Intel Core i7 6800K running at 3.40GHz. Performance peaked at around 19 MLUPS and stayed the same between various domain sizes across both academic test cases.
 
@@ -1746,19 +1870,26 @@ Most of the GPU benchmarks were done using both CUDA and OpenCL backends, althou
 We tested the solver performance on 4 different GPUs. The AMD Radeon R9 M370X is of mobile GPU type installed in laptops. In the current study, the AMD GPU was tested on the higher-end Macbook Pro 2015. The NVIDIA GTX 1070 is the average desktop GPU and its price at the time of writing this article is \$443.78 USD according to PassMark G3D Mark (a GPU benchmarking website). The NVIDIA RTX 3090 is a top-of-the-line, consumer-grade, enthusiast-level GPU with the price of \$2139.99 USD according to PassMark G3D Mark at the time of writing. Also, to test the performance across multiple architectures of NVIDIA GPU cards, we added a NVIDIA GeForce RTX 2080 Ti to the suite of benchmarks.
 
 \begin{table*}[!ht]
-	\centering
-	\begin{tabular}{ |p{5.3cm}||p{2.3cm}|p{2.5cm}|p{2.5cm}|p{2.8cm}| }
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.4em}
+	\begin{tabular}{ |p{4.3cm}||p{2.1cm}|p{2.2cm}|p{2.2cm}|p{2.5cm}| }
 		\hline
 		& R9 M370X \newline(AMD) & GTX 1070 \newline(NVIDIA) & RTX 2080 Ti \newline(NVIDIA) & RTX 3090 \newline(NVIDIA) \\
 		\hline
 		Architecture   & GCN 1.0 & Pascal  & Turing &  Ampere  \\
+		\hline
 		Number of cores (CU/SM)   & 640 (10 CU) & 1920~(15~SM)   &  4352 (68 SM) &  10496 (82 SM) \\
+		\hline
 		Peak f32 perf. (TFLOPS)   & 1.024  & 6.463  & 13.45 &  35.58 \\
+		\hline
 		Memory clock (MHz)   & 1125  & 2002   & 1750 &   1219 \\
+		\hline
 		Memory bandwidth (GB/s)   & 72.00  & 256.3   & 616.0 &   936.2 \\
+		\hline
 		L1 cache size (KB)   & 16  & 48   & 64 &   128 \\
 		\hline
-	\end{tabular}
+	\end{tabular}}}
 	\caption{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url{https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.}
 	\label{tab:gpus}
 \end{table*}
@@ -1768,20 +1899,28 @@ We tested the solver performance on 4 different GPUs. The AMD Radeon R9 M370X is
 In 2D lid-driven cavity test, benchmarks showed great results with significant speedup compared to CPU backend (Table \ref{tab:lid-mlups-all-2d}).
 
 \begin{table}[!ht]
-	\centering
-	\begin{tabular}{ |p{3cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+	\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.1cm}|  }
 		\hline
 		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
 		\hline
 		64$\times$64   & 23 & 40  & 11  & 55  \\
+		\hline
 		128$\times$128   & 59 & 226  & 50   & 225  \\
+		\hline
 		256$\times$256   & 97 & 675  & 186   & 868  \\
+		\hline
 		512$\times$512   & 120 & 1006  & 600   & 2890  \\
+		\hline
 		1024$\times$1024   & 111 & 1143   & 1401   & 4620  \\
+		\hline
 		2048$\times$2048   & - & 1200  & 2195  & 5465  \\
+		\hline
 		4096$\times$4096   & - & -  & 2394  & 5730  \\
 		\hline
-	\end{tabular}
+	\end{tabular}}}
 	\caption{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
 	\label{tab:lid-mlups-all-2d}
 \end{table}
@@ -1829,23 +1968,34 @@ Single floating-point (f32) calculations perform significantly faster than doubl
 For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{tab:channel-mlups}). The performance spikes in so-called "warm-up" phase at the start of simulation were less significant in double-precision benchmarks than in lid-driven cavity test. 
 
 \begin{table}[!ht]
-	\centering
-	\begin{tabular}{ |p{3cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+	\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.21cm}|  }
 		\hline
 		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
 		\hline
 		300$\times$100   & 73 & 340 & 361    & 361  \\
+		\hline
 		420$\times$150   & 93 & 627 & 122    & 740  \\
+		\hline
 		600$\times$200   & 107 & 810 & 180    & 1343  \\
+		\hline
 		1000$\times$300   & 123 & 1007 & 325    & 3000  \\
+		\hline
 		1500$\times$400   & 117 & 1100 & 731    & 4055  \\
+		\hline
 		2000$\times$500   & 130 & 1140 & 1010    & 4510  \\
+		\hline
 		3000$\times$1000   & 113 & 1175 & 1311    & 5313  \\
+		\hline
 		4200$\times$1500   & - & 1194 & 2016    & 5557  \\
+		\hline
 		6000$\times$2000   & - & - & 2522  & 5670  \\
+		\hline
 		10000$\times$3000   & - & - & -   & 5720  \\
 		\hline
-	\end{tabular}
+	\end{tabular}}}
 	\caption{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
 	\label{tab:channel-mlups}
 \end{table}
@@ -1904,17 +2054,22 @@ For the 3D LBM simulation with D3Q27 stencil and multiple-relaxation time (MRT),
 In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectations and actual results (Table \ref{tab:lid-mlups-all-3d}). The performance is lower in coarse grids ($16^3$ and $32^3$) with more powerful RTX 2080 Ti conversely to higher performance reported with weaker GTX 1070 (Figure~\ref{fig:d3q27_lid_mlups_gtx1070_32bit} and Figure~\ref{fig:d3q27_lid_mlups_rtx2080ti_32bit}). This points to the well-known problem of representing multi-dimensional data in the most optimal way stop GPU from cache misses. It means the data organization of 27 individual distribution functions in D3Q27 lattice nodes along 3D grid has to be rethought and reimplemented to address this issue.  
 
 \begin{table}[!ht]
-	\centering
-	\begin{tabular}{ |p{3.5cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+	\begin{tabular}{ |p{3.2cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
 		\hline
 		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
 		\hline
 		16$\times$16$\times$16   & 7 & 25  & 28  & 40  \\
+		\hline
 		32$\times$32$\times$32   & 18 & 155  & 70   & 225  \\
+		\hline
 		64$\times$64$\times$64   & 97 & 675  & 186   & 868  \\
+		\hline
 		128$\times$128$\times$128   & 120 & 1006  & 600   & 2890  \\
 		\hline
-	\end{tabular}
+	\end{tabular}}}
 	\caption{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
 	\label{tab:lid-mlups-all-3d}
 \end{table}
@@ -1980,6 +2135,7 @@ As with work such as these
 
 \subsubsection{Application to Real World}
 
+Biology \\
 Steelmaking \\
 Non-newtonian fluids \\
 
@@ -1993,15 +2149,15 @@ Describe non-Newtonian fluids found in steelmaking processes...
 \subsubsection{Streaming Visualized Pixels Over Network}
 
 \subsubsection{Simulation as an Educational Tool}
-
-In some simplified form, combinations of numerical simulations and visualizations of steel- making processes can be used as a educational tool in process control courses at technical universities. The aim of the online, web-based interactive simulation of basic oxygen steelmaking at steeluniversity.org shown in Figure~ \ref{fig:steeluniversity} is to introduce students to this process in a more fun and engaging way.
-
-\begin{figure}[!ht]
-	\label{fig:steeluniversity}
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/steeluniversity.jpg}
-	\caption{Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.}
-\end{figure}
+%
+%In some simplified form, combinations of numerical simulations and visualizations of steel- making processes can be used as a educational tool in process control courses at technical universities. The aim of the online, web-based interactive simulation of basic oxygen steelmaking at steeluniversity.org shown in Figure~ \ref{fig:steeluniversity} is to introduce students to this process in a more fun and engaging way.
+%
+%\begin{figure}[!ht]
+%	\label{fig:steeluniversity}
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{figures/steeluniversity.jpg}
+%	\caption{Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.}
+%\end{figure}
 
 
 % USE AT YOUR OWN RISK

@@ -48,6 +48,14 @@ Fei, L., Du, J., Luo, K.~H., Succi, S., Lauricella, M., Montessori, A.
   {\bf 31}(4):~042105.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5087266}
 
+\harvarditem[Frisch et~al.]{Frisch, Hasslacher \harvardand\
+  Pomeau}{1986}{frischLatticeGasAutomataNavierStokes1986}
+Frisch, U., Hasslacher, B. \harvardand\ Pomeau, Y.  \harvardyearleft
+  1986\harvardyearright .
+\newblock Lattice-{Gas} {Automata} for the {Navier}-{Stokes} {Equation}, {\em
+  Physical Review Letters} {\bf 56}(14):~1505--1508.
+\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevLett.56.1505}
+
 \harvarditem{{\em {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann}
   {Methods} with {Immersed} {Boundary} {Conditions} for {Fast} {Fluid}
   {Simulations}}}{2017}{FULLGPUImplementation2017}
@@ -71,6 +79,22 @@ Guo, Z., Zheng, C. \harvardand\ Shi, B.  \harvardyearleft 2002\harvardyearright
 \newblock Discrete lattice effects on the forcing term in the lattice
   {Boltzmann} method, {\em Physical Review E} {\bf 65}(4):~046308.
 \newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevE.65.046308}
+
+\harvarditem[Hardy et~al.]{Hardy, Pomeau \harvardand\
+  de~Pazzis}{1973}{Hardy1973}
+Hardy, J., Pomeau, Y. \harvardand\ de~Pazzis, O.  \harvardyearleft
+  1973\harvardyearright .
+\newblock Time evolution of a two-dimensional classical lattice system, {\em
+  Physical Review Letters} {\bf 31}(5):~276--279.
+\newblock Number of pages: 0 Publisher: American Physical Society.
+\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevLett.31.276}
+
+\harvarditem[Harwood et~al.]{Harwood, Wenisch \harvardand\
+  Revell}{n.d.}{harwoodREALTIMEMODELLINGSIMULATION}
+Harwood, A. R.~G., Wenisch, P. \harvardand\ Revell, A.~J.  \harvardyearleft
+  n.d.\harvardyearright .
+\newblock A {REAL}-{TIME} {MODELLING} {AND} {SIMULATION} {PLATFORM} {FOR}
+  {VIRTUAL} {ENGINEERING} {DESIGN} {AND} {ANALYSIS},  p.~11.
 
 \harvarditem[Harwood et~al.]{Harwood, O’Connor, Sanchez~Muñoz,
   Camps~Santasmasas \harvardand\ Revell}{2018}{harwoodLUMAManycoreFluid2018}
@@ -221,6 +245,12 @@ Succi, S.  \harvardyearleft 2001\harvardyearright .
 \newblock tex.lccn: 2001036220.
 \newline\harvardurl{https://books.google.hu/books?id=OC0Sj_xgnhAC}
 
+\harvarditem{Succi}{2018}{succi2018}
+Succi, S.  \harvardyearleft 2018\harvardyearright .
+\newblock {\em The lattice boltzmann equation: {For} complex states of flowing
+  matter}.
+\newblock Pages: 1-762.
+
 \harvarditem[Suga et~al.]{Suga, Kuwata, Takashima \harvardand\
   Chikasue}{2015}{sugaD3Q27MultiplerelaxationtimeLattice2015}
 Suga, K., Kuwata, Y., Takashima, K. \harvardand\ Chikasue, R.  \harvardyearleft
@@ -263,5 +293,14 @@ Wang, M., Ferey, N., Bourdot, P. \harvardand\ Magoules, F.  \harvardyearleft
 Wittmann, M.  \harvardyearleft 2018\harvardyearright .
 \newblock Lattice {Boltzmann} benchmark kernels as a testbed for performance
   analysis,  p.~11.
+
+\harvarditem[Yuan et~al.]{Yuan, Wang \harvardand\
+  Shu}{2017}{yuanAdaptiveMeshRefinementmultiphase2017}
+Yuan, H.~Z., Wang, Y. \harvardand\ Shu, C.  \harvardyearleft
+  2017\harvardyearright .
+\newblock An adaptive mesh refinement-multiphase lattice {Boltzmann} flux
+  solver for simulation of complex binary fluid flows, {\em Physics of Fluids}
+  {\bf 29}(12):~123604.
+\newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5007232}
 
 \end{thebibliography}

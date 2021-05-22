@@ -27,7 +27,6 @@ Database file #8: refs/ml.bib
 Database file #9: refs/visualization.bib
 Database file #10: refs/programming.bib
 Warning--I didn't find a database entry for "gonda"
-Warning--I didn't find a database entry for "harwoodREALTIMEMODELLINGSIMULATION"
 Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
 Warning--I didn't find a database entry for "succi2018lattice"
 Warning--I didn't find a database entry for "lvSimulationFlowFluid"
@@ -37,47 +36,49 @@ Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
 Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration2012a"
 Warning--I didn't find a database entry for "steveklabnik2018"
 Warning--I didn't find a database entry for "TAN2017649"
+Warning--I didn't find a database entry for "malcolmArrayFireGPUAcceleration2012"
 Warning--empty author in FULLGPUImplementation2017
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
-You've used 32 entries,
+Warning--empty publisher in succi2018
+You've used 37 entries,
             2921 wiz_defined-function locations,
-            920 strings with 15150 characters,
-and the built_in function-call counts, 161677 in all, are:
-= -- 26459
-> -- 2313
+            953 strings with 16288 characters,
+and the built_in function-call counts, 181899 in all, are:
+= -- 29720
+> -- 2617
 < -- 1
-+ -- 12782
-- -- 710
-* -- 14182
-:= -- 31955
-add.period$ -- 68
-call.type$ -- 32
-change.case$ -- 440
-chr.to.int$ -- 32
-cite$ -- 34
-duplicate$ -- 540
-empty$ -- 1077
-format.name$ -- 808
-if$ -- 29177
++ -- 14338
+- -- 801
+* -- 15927
+:= -- 36036
+add.period$ -- 80
+call.type$ -- 37
+change.case$ -- 509
+chr.to.int$ -- 37
+cite$ -- 40
+duplicate$ -- 615
+empty$ -- 1237
+format.name$ -- 913
+if$ -- 32809
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 34
-newline$ -- 161
-num.names$ -- 334
-pop$ -- 114
+missing$ -- 40
+newline$ -- 186
+num.names$ -- 388
+pop$ -- 132
 preamble$ -- 1
-purify$ -- 475
+purify$ -- 550
 quote$ -- 0
-skip$ -- 489
+skip$ -- 554
 stack$ -- 0
-substring$ -- 37542
-swap$ -- 125
-text.length$ -- 439
+substring$ -- 42124
+swap$ -- 136
+text.length$ -- 509
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 124
-warning$ -- 2
-while$ -- 709
+type$ -- 142
+warning$ -- 3
+while$ -- 820
 width$ -- 0
-write$ -- 513
+write$ -- 592
 (There were 2 error messages)
