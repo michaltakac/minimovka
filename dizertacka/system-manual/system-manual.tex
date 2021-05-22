@@ -1,0 +1,311 @@
+\documentclass[]{tukethesis}
+%% -------------------------------------------------------------------------
+%% UTF-8 encoding used. Use pdfcslatex to compile your document
+%% Tukethesis Class for Win XP and GNU/Linux
+%% -------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{lmodern,cmap}
+%\usepackage{english}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\refname}{Bibliography}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\contentsname}{Contents}
+%%
+\usepackage{cite}
+\usepackage[english]{babel}
+\usepackage{latexsym}
+\usepackage[strings]{underscore}
+\usepackage{dcolumn} % alignment on a 'decimal point' in tabular mode
+\usepackage{hhline}
+\usepackage{amsmath}
+\usepackage{mhchem}
+\usepackage{nicefrac} % nice fractions
+\usepackage{upgreek} % e.g. $\upmu\mathrm{m}$ type micrometer (mu)
+\usepackage[final]{showkeys}%color%notref%notcite%final
+\usepackage[noprefix]{nomencl}
+\makeglossary % command to make *.glo file
+\usepackage{parskip}%
+\usepackage{caption}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{subfig}
+% Code rendering
+\usepackage{listings, listings-rust}
+\renewcommand{\lstlistingname}{Listing}%
+\definecolor{GrayCodeBlock}{RGB}{249,249,249}
+\definecolor{BlackText}{RGB}{110,107,94}
+\definecolor{RedTypename}{RGB}{182,86,17}
+\definecolor{GreenString}{RGB}{96,172,57}
+\definecolor{PurpleKeyword}{RGB}{184,84,212}
+\definecolor{GrayComment}{RGB}{170,170,170}
+\definecolor{GoldDocumentation}{RGB}{180,165,45}
+\lstdefinelanguage{rust}
+{
+	columns=fullflexible,
+	keepspaces=true,
+	frame=single,
+	framesep=0pt,
+	framerule=0pt,
+	framexleftmargin=35pt,
+	framexrightmargin=4pt,
+	framextopmargin=5pt,
+	framexbottommargin=3pt,
+	xleftmargin=35pt,
+	xrightmargin=4pt,
+	backgroundcolor=\color{GrayCodeBlock},
+	basicstyle=\ttfamily\color{BlackText}\linespread{0.9}\footnotesize,
+	numbers=left,                    
+	numbersep=5pt,    
+	numberstyle=\color{GrayComment}\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                         
+	numbers=left,                    
+	numbersep=20pt,           
+	showspaces=false,                
+	showstringspaces=true,
+	showtabs=false,                  
+	tabsize=2,
+	keywords={
+		true,false,
+		unsafe,async,await,move,
+		use,pub,crate,super,self,mod,
+		struct,enum,fn,const,static,let,mut,ref,type,impl,dyn,trait,where,as,
+		break,continue,if,else,while,for,loop,match,return,yield,in
+	},
+	keywordstyle=\color{PurpleKeyword},
+	ndkeywords={
+		bool,u8,u16,u32,u64,u128,i8,i16,i32,i64,i128,char,str,
+		Self,Option,Some,None,Result,Ok,Err,String,Box,Vec,Rc,Arc,Cell,RefCell,HashMap,BTreeMap,macro_rules,af,arrayfire
+	},
+	ndkeywordstyle=\color{RedTypename},
+	comment=[l][\color{GrayComment}\slshape]{//},
+	morecomment=[s][\color{GrayComment}\slshape]{/*}{*/},
+	morecomment=[l][\color{GoldDocumentation}\slshape]{///},
+	morecomment=[s][\color{GoldDocumentation}\slshape]{/*!}{*/},
+	morecomment=[l][\color{GoldDocumentation}\slshape]{//!},
+	morecomment=[s][\color{RedTypename}]{\#![}{]},
+	morecomment=[s][\color{RedTypename}]{\#[}{]},
+	stringstyle=\color{GreenString},
+	string=[b]"
+	emph={int,char,double,float,unsigned},
+	emphstyle={\color{blue}}]
+}
+\lstdefinelanguage{cpp}
+{
+	columns=fullflexible,
+	keepspaces=true,
+	frame=single,
+	framesep=0pt,
+	framerule=0pt,
+	framexleftmargin=20pt,
+	framexrightmargin=4pt,
+	framextopmargin=5pt,
+	framexbottommargin=3pt,
+	xleftmargin=20pt,
+	xrightmargin=4pt,
+	backgroundcolor=\color{GrayCodeBlock},
+	basicstyle=\footnotesize\linespread{0.9}\color{BlackText},
+	numbers=left,                    
+	numbersep=5pt,    
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                         
+	numbers=left,                    
+	numbersep=5pt,      
+	numberstyle=\footnotesize,     % numbers size        
+	showspaces=false,                
+	showstringspaces=true,
+	showtabs=false,                  
+	tabsize=2,
+	keywords={
+		true,false,
+		unsafe,async,await,move,
+		use,pub,crate,super,self,mod,
+		struct,enum,fn,const,static,let,mut,ref,type,impl,dyn,trait,where,as,
+		break,continue,if,else,while,for,loop,match,return,yield,in,array
+	},
+	keywordstyle=\color{PurpleKeyword},
+	ndkeywords={
+		bool,u8,u16,u32,u64,u128,i8,i16,i32,i64,i128,char,str,unsigned,
+		Self,Option,Some,None,Result,Ok,Err,String,Box,Vec,Rc,Arc,Cell,RefCell,HashMap,BTreeMap,
+		macro_rules
+	},
+	ndkeywordstyle=\color{RedTypename},
+	comment=[l][\color{GrayComment}\slshape]{//},
+	morecomment=[s][\color{GrayComment}\slshape]{/*}{*/},
+	morecomment=[l][\color{GoldDocumentation}\slshape]{///},
+	morecomment=[s][\color{GoldDocumentation}\slshape]{/*!}{*/},
+	morecomment=[l][\color{GoldDocumentation}\slshape]{//!},
+	morecomment=[s][\color{RedTypename}]{\#![}{]},
+	morecomment=[s][\color{RedTypename}]{\#[}{]},
+	stringstyle=\color{GreenString},
+	string=[b]"
+}
+%%%%%%%
+\usepackage{bm}
+%
+\usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+\usepackage{natbib}
+\usepackage[hyphens]{url}
+\urlstyle{same}
+\usepackage{etoolbox}
+
+
+
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps}
+\graphicspath{{figures/}} % directory for figures
+%%
+%% numerical citations (vancouer style)
+%\usepackage[numbers]{natbib}
+%%
+%% author-year citations (harvard style) -- prefered !!!
+\usepackage{natbib}
+\citestyle{chicago}
+% -----------------------------------------------------------------
+%% tlač !!!
+\usepackage[pdftex,unicode=true,bookmarksnumbered=true,
+bookmarksopen=true,pdfmenubar=true,pdfview=Fit,linktocpage=true,
+pageanchor=true,bookmarkstype=toc,pdfpagemode=UseOutlines,
+pdfstartpage=1]{hyperref}
+
+\hypersetup{%
+baseurl={http://www.tuke.sk/sevcovic},
+pdfcreator={pdfcsLaTeX},
+pdfkeywords={System Manual},
+pdftitle={Design and implementation of modern methods of modeling and control of technological objects and processes},
+pdfauthor={Ing. Michal Tak\'ač},
+pdfsubject={System Manual}
+colorlinks=true,       % false: boxed links; true: colored links
+citebordercolor=1 1 1,
+breaklinks=true,
+linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+citecolor=blue,        % color of links to bibliography
+filecolor=blue,      % color of file links
+urlcolor=blue           % color of external links
+} 
+
+%% -----------------------------------------------------------------
+%% START YOUR THESIS
+%% -----------------------------------------------------------------
+%%
+
+\masterthesis{System Manual}
+
+
+\author{Michal Takáč}
+\title{Design and Implementation of Modern Methods for Modeling and Control of Technological Objects and Processes}
+\subtitle{}
+\abstrakte{}
+\keywords{System Manual}
+\degree{PhD.}
+\university{Technical University of Košice}
+\faculty{Faculty of Mining, Ecology, Process Control and Geotechnologies}
+\facultyabbr{FBERG}
+\department{Institute of Process Control and Informatization}
+\departmentabbr{URIVP}
+\fieldofstudy{Process Control}
+\studyprogramme{Cybernetics}
+\supervisor{prof.~Ing.~Ivo~Petráš, DrSc.}
+%\consultanta{}
+%\consultantb{}
+\dateofsubmission{May. 27. 2021} 
+\town{Košice}
+\abstrakt{}
+\klucoveslova{Systémová príručka}
+
+\begin{document}
+\renewcommand\theHfigure{\theHsection.\arabic{figure}}
+\renewcommand\theHtable{\theHsection.\arabic{table}}
+\bibliographystyle{dcu}
+%% input the 'First page of the Thesis'
+\firstpage
+
+
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\thispagestyle{empty}
+%\addcontentsline{toc}{section}{\numberline{}List of Figures}
+\listoffigures
+\newpage
+
+\thispagestyle{empty}
+%\addcontentsline{toc}{section}{\numberline{}List of Tables}
+\listoftables
+\newpage
+
+%\thispagestyle{empty}
+%\addcontentsline{toc}{section}{\numberline{}List of Symbols and
+%Abbreviations}
+%\printglossary % input the 'List of Symbols and Abbreviations'
+%\newpage
+
+%\addcontentsline{toc}{section}{\numberline{}List of Therms}
+%\listofterms % begin the 'List of Therms'
+%
+%\begin{description}
+%	\item[Dizertácia] je rozsiahla vedecká rozprava, v~ktorej sa na
+%základe vedeckého výskumu a~s~použitím (využitím) bohatého dokladového
+%materiálu  ako i~vedeckých metód rieši zložitý odborný problém.
+%	\item[Font] je súbor, obsahujúci predpisy na zobrazenie textu
+%v~danom písme, napr. na tlačiarni. To čo vidíme je písmo; font je súbor
+%a~nevidíme ho.
+%	\item[Kritika] je odborne vyhrotený, prísny pohľad na hodnotenú
+%vec. Medzi recenziou a kritikou je taký pomer ako medzi diskusiou a
+%polemikou. Pri kritike treba prísnosť\/ chápať\/ v~tom zmysle, že sa
+%v~nej okrem iného navrhuje, ako hodnotené dielo skvalitniť\/.
+%	\item[Meter (m)] je vzdialenosť\/, ktorú svetlo vo vákuu prejde
+%za časový interval $\nicefrac{1}{299\,792\,458}$~sekundy.
+%	\item[Písmom] rozumieme vlastný vzhľad znakov.
+%	\item[Problém] termín používaný vo všeobecnom zmysle vo vzťahu
+%k~akejkoľvek duševnej aktivite, ktorá má nejaký rozoznateľný cieľ.
+%Samotný cieľ nemusí byť\/ v~dohľadne. Problémy možno charakterizovať\/
+%tromi rozmermi -- oblasťou, obtiažnosťou a veľkosťou.
+%	\item[Proces] je postupnonosť\/ či rad časovo usporiadaných
+%udalostí tak, že každá predchádzajúca udalosť\/ sa zúčastňuje na
+%determinácii nasledujúcej udalosti.
+%\end{description}
+%
+%\endlistofterms
+%
+
+% --------------------------------------------------------------------------
+\section{Hardware Requirements}
+
+TODO: \\
+
+Hardware requirements (PC, VR) \\
+
+\begin{table}[!ht]
+	\centering\footnotesize
+	\begin{tabular}{ |p{4cm}||p{5.1cm}|p{5.1cm}|  }
+		\hline
+		Component & Recommended Specs & Minimum Specs \\
+		\hline
+		Processor & Intel i5-4590 / AMD Ryzen 5 1500X or greater & Intel i3-6100 / AMD Ryzen 3 1200, FX4350 or greater  \\
+		Graphics Card & NVIDIA GTX 1060 / AMD Radeon RX 480 or greater & NVIDIA GTX 1050 Ti / AMD Radeon RX 470 or greater  \\
+		Alternative Graphics Card & NVIDIA GTX 970 / AMD Radeon R9 290 or greater & NVIDIA GTX 960 4GB / AMD Radeon R9 290 or greater  \\
+		Memory & 8GB+ RAM & 8GB+ RAM  \\
+		Operating System & Windows 10 & Windows 10  \\
+		USB Ports & 3x USB 3.0 ports, plus 1x USB 2.0 port & 1x USB 3.0 port, plus 2x USB 2.0 ports  \\
+		Video Output & 	Compatible HDMI 1.3 video output & Compatible HDMI 1.3 video output  \\
+		\hline
+	\end{tabular}
+	\caption{Hardware specifications for VR support.}
+	\label{tab:vr-specs}
+\end{table}
+
+Windows 10 is the minimum supported operating system because Microsoft stopped supporting the Windows 7 and 8.1, beginning from 14th of January 2020.
+
+% --------------------------------------------------------------------------
+
+\end{document}
+%%

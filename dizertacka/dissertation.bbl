@@ -14,6 +14,17 @@ Chrzeszczyk, A.  \harvardyearleft n.d.\harvardyearright .
 \newblock Matrix {Computations} on {GPU} with {ArrayFire} - {Python} and
   {ArrayFire} - {C}/{C}++,  p.~88.
 
+\harvarditem[Dangeti et~al.]{Dangeti, Chen \harvardand\
+  Zheng}{2016}{dangetiComparingBarehandinairGesture2016}
+Dangeti, S., Chen, Y.~V. \harvardand\ Zheng, C.  \harvardyearleft
+  2016\harvardyearright .
+\newblock Comparing bare-hand-in-air {Gesture} and {Object}-in-hand {Tangible}
+  {User} {Interaction} for {Navigation} of {3D} {Objects} in {Modeling}, {\em
+  Proceedings of the {TEI} '16: {Tenth} {International} {Conference} on
+  {Tangible}, {Embedded}, and {Embodied} {Interaction} - {TEI} '16}, ACM Press,
+  Eindhoven, Netherlands, pp.~417--421.
+\newline\harvardurl{http://dl.acm.org/citation.cfm?doid=2839462.2856555}
+
 \harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
 Delbosc, N.  \harvardyearleft n.d.\harvardyearright .
 \newblock Real-{Time} {Simulation} of {Indoor} {Air} {Flow} {Using} the
@@ -102,6 +113,15 @@ Januszewski, M. \harvardand\ Kostur, M.  \harvardyearleft 2014\harvardyearright
 Karimi, K.  \harvardyearleft n.d.\harvardyearright .
 \newblock A {Performance} {Comparison} of {CUDA} and {OpenCL},  p.~10.
 
+\harvarditem[Koliha et~al.]{Koliha, Janßen \harvardand\
+  Rung}{2015}{kolihaOnlineVisualizationInteractive2015}
+Koliha, N., Janßen, C. \harvardand\ Rung, T.  \harvardyearleft
+  2015\harvardyearright .
+\newblock Towards {Online} {Visualization} and {Interactive} {Monitoring} of
+  {Real}-{Time} {CFD} {Simulations} on {Commodity} {Hardware}, {\em
+  Computation} {\bf 3}(3):~444--478.
+\newline\harvardurl{http://www.mdpi.com/2079-3197/3/3/444}
+
 \harvarditem[Kotsalos et~al.]{Kotsalos, Latt, Beny \harvardand\
   Chopard}{2019}{kotsalosDigitalBloodMassively2019}
 Kotsalos, C., Latt, J., Beny, J. \harvardand\ Chopard, B.  \harvardyearleft
@@ -110,6 +130,11 @@ Kotsalos, C., Latt, J., Beny, J. \harvardand\ Chopard, B.  \harvardyearleft
   the {Study} of {Platelet} {Transport}, {\em arXiv:1911.03062 [physics]} .
 \newblock arXiv: 1911.03062.
 \newline\harvardurl{http://arxiv.org/abs/1911.03062}
+
+\harvarditem{Kress}{n.d.}{kressSituVisualizationTechniques}
+Kress, J.  \harvardyearleft n.d.\harvardyearright .
+\newblock In {Situ} {Visualization} {Techniques} for {High} {Performance}
+  {Computing},  p.~26.
 
 \harvarditem[Körner et~al.]{Körner, Pohl, Rüde, Thürey \harvardand\
   Zeiser}{2006}{kornerParallelLatticeBoltzmann2006}
@@ -129,6 +154,15 @@ Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
 \newblock Lattice {Boltzmann} methods for multiphase flow and phase-change heat
   transfer, {\em Progress in Energy and Combustion Science} {\bf 52}:~62--105.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0360128515300162}
+
+\harvarditem[Lin et~al.]{Lin, Liu \harvardand\
+  Collu}{2020}{linWindPowerPrediction2020}
+Lin, Z., Liu, X. \harvardand\ Collu, M.  \harvardyearleft 2020\harvardyearright
+  .
+\newblock Wind power prediction based on high-frequency {SCADA} data along with
+  isolation forest and deep learning neural networks, {\em International
+  Journal of Electrical Power \& Energy Systems} {\bf 118}:~105835.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0142061519332491}
 
 \harvarditem[Linxweiler et~al.]{Linxweiler, Krafczyk \harvardand\
   Tölke}{2010}{linxweilerHighlyInteractiveComputational2010}
@@ -155,6 +189,24 @@ Pacheco, P.~S.  \harvardyearleft 2011\harvardyearright .
   {\em An introduction to parallel programming}, Morgan Kaufmann, Boston,
   pp.~1--14.
 \newline\harvardurl{https://www.sciencedirect.com/science/article/pii/B9780123742605000014}
+
+\harvarditem[Soete et~al.]{Soete, Claeys, Hoedt, Mahy \harvardand\
+  Cottyn}{2015}{soeteMixedRealitySCADA2015}
+Soete, N., Claeys, A., Hoedt, S., Mahy, B. \harvardand\ Cottyn, J.
+  \harvardyearleft 2015\harvardyearright .
+\newblock Towards {Mixed} {Reality} in {SCADA} {Applications}, {\em
+  IFAC-PapersOnLine} {\bf 48}(3):~2417--2422.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2405896315006898}
+
+\harvarditem[Spadafora et~al.]{Spadafora, Chahuneau, Martelaro, Sirkin
+  \harvardand\ Ju}{2016}{spadaforaDesigningBehaviorInteractive2016}
+Spadafora, M., Chahuneau, V., Martelaro, N., Sirkin, D. \harvardand\ Ju, W.
+  \harvardyearleft 2016\harvardyearright .
+\newblock Designing the {Behavior} of {Interactive} {Objects}, {\em Proceedings
+  of the {TEI} '16: {Tenth} {International} {Conference} on {Tangible},
+  {Embedded}, and {Embodied} {Interaction} - {TEI} '16}, ACM Press, Eindhoven,
+  Netherlands, pp.~70--77.
+\newline\harvardurl{http://dl.acm.org/citation.cfm?doid=2839462.2839502}
 
 \harvarditem{Storti \harvardand\
   Yurtoglu}{2016}{stortiCUDAEngineersIntroduction2016}

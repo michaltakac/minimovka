@@ -77,6 +77,95 @@ Modern fluid mechanics problems would be impossible to solve without use of Comp
 
 \section{Lattice Boltzmann Method}
 
+The study of fluids and their mechanics goes back to ancient Greece with the works of Archimedes
+
+Fluid dynamics is the branch of fluid mechanics, that is concerned with the study of the effect of forces n fluid motion. It models matter as a macroscopic quantity rather than microscopic. 
+
+A discipline called Computational Fluid Dynamics (CFD) is devoted to using numerical methods for studying mathematically complex fluid problems.
+
+Before diving into the kinetic viewpoint on fluids, it's desirable to ..
+
+\subsection{Navier-Stokes Equations}
+
+The equations governing the motion of fluid was described by Claude-Luis Navier (1785-1836) and Gabriel Stokes (1819-1903). They are collectively called Navier-Stokes (N-S) equations. 
+
+Let's consider Euclidean space $\mathbb{R}^d$, with $d$ equal to 2 or 3 (representing dimensions). At position $x = (x_1,...,x_d) \in \mathbb{R}^d$ and at time $t \in \mathbb{R}$, the fluid is moving with a velocity vector $\bm{u}(x,t) = (\bm{u}_1(x,t),...,\bm{u}_d(x,t)) \in \mathbb{R}^d$ and the fluid pressure is $p(x,t) \in \mathbb{R}$. We can state the Euler equation as
+
+%\begin{align} 
+%\label{eqn:nse}
+%\partial_t \rho + \nabla \cdot (\rho\bm{u}) &= 0, \\
+%\partial_t (\rho\bm{u}) + \nabla \cdot (\rho\bm{u}\bm{u} + p) &= \nabla \cdot \
+%\end{align}
+
+\begin{equation} 
+	\label{eqn:ee}
+	\left(\frac{\partial}{\partial t} + \sum_{j=1}^{d} u_j \frac{\partial}{\partial x_j}\right) u_i(x,t) = - \frac{\partial p}{\partial x_i} (x,t) \quad  i = 1,...d
+\end{equation}
+
+for all $(x, t)$. Or in modern notation, the Euler's equation can be stated as
+
+\begin{equation} 
+	\label{eqn:ee-modern}
+	\frac{\partial \bm{u}}{\partial t} + \bm{u} \cdot \nabla \bm{u} = - \frac{\nabla p}{\rho}
+\end{equation}
+
+The Navier-Stokes equation is stated as
+
+\begin{align} 
+	\label{eqn:ns}
+	\left(\frac{\partial}{\partial t} + \sum_{j=1}^{d} u_j \frac{\partial}{\partial x_j}\right) &u_i(x,t) \\
+	 = \nu \left(\sum_{j=1}^{d} \frac{\partial^2}{\partial x_j^2}\right) &u_i(x,t) - \frac{\partial p}{\partial x_i} (x,t) \quad  i = 1,...d
+\end{align}
+
+for all $(x, t)$, or in modern form
+
+\begin{equation} 
+	\label{eqn:ns-modern}
+	\frac{\partial \bm{u}}{\partial t} + \bm{u} \cdot \nabla \bm{u} = - \frac{\nabla p}{\rho} + \nu \nabla^2 \bm{u}.
+\end{equation}
+
+The viscosity $\nu$ is a coefficient of friction and is $\nu  > 0$.
+
+To not over-complicate things, we'll stay within the realm of incompressible fluids, which means that the velocity field doesn't diverge and can be stated as
+
+\begin{equation} 
+	\label{eqn:div-u}
+	\nabla \cdot \bm{u} \equiv \sum_{j=1}^{d} u_j \frac{\partial u_j}{\partial x_j}= 0
+\end{equation}
+
+for all $(x, t)$.
+
+Fluid flows can be described from different viewpoints. One is called Eulerian and second is called Lagrangian approach. The qualitative difference is in how the observer looks at the physics of the fluid. In the Eulerian approach, the observer stands still at a given space location and watches the fluid flow through defined control space (usually a grid). In the Lagrangian approach, observer moves with the fluid and tracks the infinitesimal elements or "patches" of fluid.
+
+The Eulerian form (\ref{eqn:ee}) can be also put as ``conservation form". Simply put, it's the limiting case $\nu = 0$ of Navier-Stokes. It emphasizes the mathematical interpretation of the equation as conservation equations with the time evolution through control volume fixed in space. The equations are adjustable according to the problem at hand and are expressed based on principles of mass, momentum and energy conservation. The conservation of mass is defined by continuity equation
+
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla \cdot j = 0,
+\end{equation}
+
+where $j$ defines the flux of total amount of the quantity in the fluid volume. It implies that the conserved quantity cannot be crated or destroyed. In the integral form of continuity equation, the surface integral is defined for any closed surface that fully encloses a volume. 
+
+The Lagrangian approach studies the configuration of the underlying particles, namely the solution of the equation
+
+\begin{equation} 
+	\label{eqn:lagrange-hydro}
+	\frac{d}{dt} g(t) = u(t, g(t))
+\end{equation}
+
+To re-cast the the N-S equations to the Lagrangian form, which emphasizes the transport along the fluid lines whose tangent identifies with the fluid velocity itself, we can rewrite the above N-S equations to
+
+% prepisat
+\begin{equation} 
+	\label{eqn:lagrange-ns-modern}
+	\frac{\partial \bm{u}}{\partial t} + \bm{u} \cdot \nabla \bm{u} = - \frac{\nabla p}{\rho} + \nu \nabla^2 \bm{u}.
+\end{equation}
+
+The N-S equations describe the notion of ideal, incompressible fluid. They agree well with real experiments of real fluids under different circumstances. The importance of these equations are of very high order within science and engineering fields, since the presence of fluid flows is prevalent across most human activities and daily life. Engineers are concerned with finding the solutions to N-S equations numerically with the accuracy and effectiveness their computers allows them to achieve. Mathematicians are more interested in knowing if actual solution exists and whether if there is only one solution. Although the N-S equations are known for nearly two centuries (with the Euler equation being discovered more than 250 years ago), they are still very poorly understood, which presents a major challenge. There is no consensus if N-S or Euler solutions exist for all time or if they break down at a finite time. Any mathematically rigorous proof was not yet accepted. In fact, solving the problem of Navier-Stokes existence and uniqueness bares a prize of 1,000,000 US dollars put forward by Clay Mathematics Institute. Having such proof would help with fundamental way of understanding the physical world we live in.
+
+\subsection{MOVE ME!}
+
+
+
 LBM	formulated in 1988 by	McNamara and	Zanetti
 
 – 1859:	Maxwell's	distribution	function	
@@ -148,7 +237,7 @@ where $c_s$ is the speed of sound within the lattice, usually set to $c_s = \fra
 
 With a proper set of discrete velocities, the LBE recovers the incompressible Navier–Stokes equations by the Chapman–Enskog expansion. For the flows within the incompressible limit, assumptions such as low-Mach number and variations in density of order $\mathcal{O}(M^2)$ has to be made.
 
-The present study focuses on the D2Q9 discrete velocity model which is illustrated in Fig. \ref{fig:d2q9-node}. 
+The present study focuses on the D2Q9 discrete velocity model which is illustrated in Figure~ \ref{fig:d2q9-node}. 
 
 \begin{figure}[!ht]
 	\centering
@@ -188,6 +277,10 @@ During the last three decades, the mesoscopic lattice Boltzmann method (LBM), ba
 
 
 \subsection{Kinetic Theory}
+
+% --- move me? + prepisat/dopisat
+The fluid mechanics (and it's subsequent branch of fluid dynamics) work with the inherent continuum assumption, under which fluids are treated as continuous, even though at the microscopic scale they are composed of molecules. Within the continuum assumption, the macroscopic properties such as density, pressure, bulk velocity can be defined as very small (infinitesimal) elements, in molecular length scales such elements would be regarded as very large. The continuum hypothesis is not accurate enough for the problems of molecular or nano-scale flows, or for very high speeds of fluid flows like supersonic flow.
+% ------------------------
 
 The main properties of any numerical scheme can be classified as follows \citep{succi2001lattice}:
 
@@ -268,7 +361,7 @@ A general collision step in MRT can be written as \cite{feiModelingRealisticMult
 
 where $\bm{x}$ is the spatial position in the 3D grid, $t$ is time, $F_i$ are the forcing terms in discrete velocity space, and collision operator $\Lambda_{i,k}$ computed as \cite{feiModelingRealisticMultiphase2019}
 
-Although many schemes to discretize the velocity space have been proposed, for three-dimensional (3-D) flows, the present study focuses on so called the three- dimensional twenty-seven (D3Q27) discrete velocity model which is illustrated in Fig. 1. Table 1 lists the sound speed $c_S$ , the discrete velocity $e_\alpha$ and the weight parameter $w_\alpha$ in the model with $c = \delta x / \delta t$ where $\delta x$ and $\delta t$ are the lattice spacing and the time step, respectively. The MRT LBM transforms the distribution function in the velocity space to the moment space by the transformation matrix $M$ . Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
+Although many schemes to discretize the velocity space have been proposed, for three-dimensional (3-D) flows, the present study focuses on so called the three- dimensional twenty-seven (D3Q27) discrete velocity model which is illustrated in Figure~ 1. Table 1 lists the sound speed $c_S$ , the discrete velocity $e_\alpha$ and the weight parameter $w_\alpha$ in the model with $c = \delta x / \delta t$ where $\delta x$ and $\delta t$ are the lattice spacing and the time step, respectively. The MRT LBM transforms the distribution function in the velocity space to the moment space by the transformation matrix $M$ . Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
 
 \begin{equation}
 	\label{eq:moments}
@@ -318,6 +411,15 @@ For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. I
 
 \subsection{Boundary Conditions}
 
+
+
+% prepisat -----------------
+An inviscid fluid has no viscosity, $\nu = 0$. In practice, an inviscid flow is an idealization, one that facilitates mathematical treatment. In fact, purely inviscid flows are only known to be realized in the case of superfluidity. Otherwise, fluids are generally viscous, a property that is often most important within a boundary layer near a solid surface,[21] where the flow must match onto the no-slip condition at the solid. In some cases, the mathematics of a fluid mechanical system can be treated by assuming that the fluid outside of boundary layers is inviscid, and then matching its solution onto that for a thin laminar boundary layer.
+
+For fluid flow over a porous boundary, the fluid velocity can be discontinuous between the free fluid and the fluid in the porous media (this is related to the Beavers and Joseph condition). Further, it is useful at low subsonic speeds to assume that gas is incompressible—that is, the density of the gas does not change even though the speed and static pressure change.
+% --------------------------
+
+
 \subsection{Lattice Boltzmann In Context of Computational Fluid Dynamics}
 
 
@@ -328,6 +430,12 @@ For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. I
 
 
 \subsubsection{Fluid Turbulence}
+
+% upravit (z https://www.math.u-bordeaux.fr/~marnaudo/publis/Text_Fig3_f.pdf)
+Turbulent regimes are often studied in the perspective of the theory of dynamical systems as chaotic systems, which are characterized by a strong sensitivity to
+initial conditions.
+
+Simple regular Euler flow can give rise to chaotic particle trajectories, a phenomenon which has been intensively studied, is also present in fluid dynamics ..
 
 turbulence modelling using the Smagorinsky model in LBM for the simulation of high Reynolds number flow and the coupling of two LBM simulations to simulate thermal flows under the Boussinesq approximation.
 
@@ -349,7 +457,7 @@ A major area of LB application is the simulation of a variety of multiphase and 
 
 where $\psi(\vec{x})$ is a local functional of the fluid density $\rho(\vec{x})$.
 
-By proper choice of this functional, the main features of non-ideal fluids, namely a non-monotonic equation of state supporting phase transitions and non-zero surface tension can be incorporated at a minimum programming effort. This simple variant opens up a vast scenario of applications involving multiphase and multicomponent flows, including foams and emulsions (see fig. 2). Needless to say, this variant comes with a number of limitations, such as spurious interface currents, which severly constrain the accessible range of density ratios between the liquid and vapor phase. Yet, owing to its simplicity and efficiency, the method has gained increasing popularity over the years. Subsequent developments have improved significantly over the original version, but much remains to be done to gain further accuracy, especially in terms of multigrid/multiscale procedures at complex fluid interfaces. Another important issue is the incorporation of finite-temperature fluctuations for nanoscale flows.
+By proper choice of this functional, the main features of non-ideal fluids, namely a non-monotonic equation of state supporting phase transitions and non-zero surface tension can be incorporated at a minimum programming effort. This simple variant opens up a vast scenario of applications involving multiphase and multicomponent flows, including foams and emulsions (see Figure~ 2). Needless to say, this variant comes with a number of limitations, such as spurious interface currents, which severly constrain the accessible range of density ratios between the liquid and vapor phase. Yet, owing to its simplicity and efficiency, the method has gained increasing popularity over the years. Subsequent developments have improved significantly over the original version, but much remains to be done to gain further accuracy, especially in terms of multigrid/multiscale procedures at complex fluid interfaces. Another important issue is the incorporation of finite-temperature fluctuations for nanoscale flows.
 
 % dopisat
 existing multiphase LB models can be classified into four categories: the color-gradient model, the pseudopotential model, the it was shown by Li et al. that a non-orthogonal MRT-LBM free-energy model, and the mean-field model.
@@ -373,6 +481,10 @@ Each phase in the model has its own volume fraction a. The sum of the volume fra
 
 \section{Visualization Methods}
 
+\begin{chapquote}{J. Joyce, \textit{Ulysses}}
+	``Errors are the portals to discovery."
+\end{chapquote}
+
 Visualization facilitates insight into data across many disciplines. It's an essential tool for displaying trends in data. These can be in a form of plots, graphs or colorful patterns drawn on screen. The target audience doesn't need to be just scientists, but also general public. 
 
 % prepisat
@@ -385,17 +497,65 @@ Much of computer science is about transforming and representing information that
 
 \subsection{Human-Computer Interface}
 
+% upravit a povyberat co treba
+Designing the behavior of an interactive object requires understanding and handling a large number of variables linked to: the function of the object (what-level), the way the function is accomplished (how-level) and the way a user experiences that function (why-level). Traditionally HCI uses a paradigm based on ``efficiency" to drive the design process, but recently integrated an aesthetics approach as a way to design the behavior from an experiential, rather than a functional, point of view ...  \citep{spadaforaDesigningBehaviorInteractive2016}
+
+When dealing with interactive objects, we deal with Pragmatist Aesthetics. This kind of aesthetics underlines “how people experience the world dialogically as embodied subjects”
+
+ \citep{spadaforaDesigningBehaviorInteractive2016}.
+
 \subsubsection{SCADA}
 
-- ako sa scada systemy pouzivaju
+% upravit https://www.dpstele.com/scada/how-systems-work.php
+Supervisory Control and Data Acquisition (SCADA) is a system that aims to monitor and control field devices at your remote sites. SCADA systems are critical as it helps maintain efficiency by collecting and processing real-time data.
 
-- neexistuje prepojenie s virtualnou realitou
+SCADA is a centralized system that monitors and controls the entire area. This supervisory system gathers data on the process and sends the commands control to the process.
 
-- future work co by sa dalo spravit
+The main goal of this supervisory system is to monitor and control equipment in the industrial processes for companies in the public and private sectors. As a matter of fact, in today's world, there are SCADA systems almost everywhere. This includes industrial plants, manufacturing, transportation, oil and gas, power distribution, water control and etc.
+
+Four SCADA Functions:
+
+\begin{enumerate}
+	\item Data acquisition
+	\item Networked Data Communication
+	\item Data presentation
+	\item Control
+\end{enumerate}
+
+In data acquisition, the collection of SCADA data frequently involves some kind of analog to digital conversion. Temperature is converted to degrees Celsius. Transmit signal strength is converted to dBm. Channel quality is measured in errored seconds. 
+
+The collected data is transmitted either spontaneously or in response to a request for data to some kind of upstream consolidator or master. The communication channel can be analog (T202, POTS) or digital (RS485, TCP/IP). SCADA network topology typically also includes some kind of transport validation independent of any content validation.
+
+
+The collected data is processed, organized and presented for system operators to make appropriate response and control decisions. The presentation can vary from tabular presentation of logged events to graphical presentation against mapping or image backgrounds.
+
+If control decisions are warranted and the system supports output, appropriate commands can be dispatched to affect specific operational or configuration changes. Most control actions are performed by RTUs and PLCs.
+
+Four main components of SCADA: inputs, remote telemetry units (RTUs),human-machine interface (HMI) and communication network.
+
+% Vysvetlenie preco SCADA nie je dostacujuca pre to co potrebujeme v real-time modsim a preco chceme VR
+
+SCADA systems provide an invaluable interface for working with real-time data from various processes. Especially for many in the business of data and natural sciences, SCADA is a rich source of real-world data on demand. It's been successfully coupled with the machine learning to work with high-frequency of large amounts of data \citep{linWindPowerPrediction2020}. 
+
+% trosku doplnit/prepisat
+The problem with visual design approaches in SCADA applications is that the interfaces was mostly limited to simple graphics like plots, simple 2D animations, animated gauges, interactive knobs etc. It can be argued that it's often not needed to have complex visuals in specialized SCADA applications and they are "good enough" for the job at hand.
+
+% nejake premostenie?
+
+An interesting look into the future of SCADA interfaces was presented in study by \cite{soeteMixedRealitySCADA2015}, in which they managed to implement a Augmented Reality (AR) supporting tool for SCADA application in simulated automated logistic process. It shows potential benefits of using VR and AR technologies in the development of supervisory control and support. AR and VR is fairly new and relatively unknown in the industry, so the integration of such technologies is still in its infancy.
+
+% Mozno spomenut este vyuztie computer vision libraries ako OpenCV (C++), ktore je potrebne vyuzit pre implementaciu mixed reality aplikacii v spojeni so SCADA systemami (sledovat co sa deje v realnom svete a dalej pracovat s tymito datami... spojit to s machine learningom a object recognition... 
+
+% doplnit/upravit aby to davalo zmysel.. mozno prehodit inde?
+To really understand the nature of the processes, we have to build a better tools for "seeing" and experimentation on demand. 
+
+... doplnit nejake veci od Breta Victora rovno tu??
 
 \subsubsection{Principles of UI Design}
 
 \subsubsection{From 2D to 3D User Interfaces}
+
+
 
 \subsection{Post Hoc Visualization}
 
@@ -412,7 +572,7 @@ In order to achieve parallel scalability for massive threading, visualization al
 
 % prepisat, z abstraktu od Keplera
 Scientific visualization for exascale computing is very likely to require in situ processing. Traditional simulation checkpointing and post hoc visualization will likely be unsustainable on future systems at current trends due to the growing gap between I/O bandwidth and FLOPS. As a result, the majority of simulation data may be lost if in situ visualization techniques are not deployed. In situ visualization in this paradigm will be given unprecedented access to simulation output, potentially being able to process all relevant simulation output at every simulation time step, allowing for very high temporal fidelity compared to traditional post hoc visualization. However, this access poses many challenges in terms of data management, resource management and sharing, algorithm development and design, and implementation approaches. Currently, the community primarily relies on two in situ techniques: tightly coupled (on the same resource as the simulation) and loosely coupled (not sharing resources with the simulation). Each of these approaches have positive and negative factors which affect their performance under different simulation, resource, and visualization type constraints. Meaning, that for every given visualization task, it is not generally known which method would give the best performance on every data type, architecture, and set of resource constraints. Due to the lack of research and development on this topic it is still an open research problem requiring future research
-\cite{Kepler2017InSV}
+\citep{kressSituVisualizationTechniques}
 
 - The Visualization Toolkit \\
 - ParaView \\
@@ -453,7 +613,7 @@ Practical scientific simulations for in-depth study of complex physical phenomen
 	let B_f32 = A_f64.cast::<f32>();
 \end{lstlisting}
 
-In the current implementation, we used \texttt{image()} and \texttt{vector_field_2()} functions for visualizing density and velocity of on both lid-driven cavity and Kármán vortex street test cases (Fig. \ref{fig:d2q9_lid} and Fig. \ref{fig:d2q9_channel}).
+In the current implementation, we used \texttt{image()} and \texttt{vector_field_2()} functions for visualizing density and velocity of on both lid-driven cavity and Kármán vortex street test cases (Figure~ \ref{fig:d2q9_lid} and Figure~ \ref{fig:d2q9_channel}).
 
 \begin{figure}[!ht]
 	\centering
@@ -515,6 +675,13 @@ Historically, the early attempts at using head-mounted virtual reality technolog
 
 Advent of commodity-level VR hardware like HTC Vive or Oculus Touch has made this technology accessible for meaningful applications. These headset utilize lasers and photosensitive sensors (HTC Vive) or cameras (Oculus Touch) for head and hands tracking and provide six degrees of freedom (6DoF) for movement in virtual environment. By immersing the user into the simulation itself, virtual reality reveals the spatially complex structures in computational science in a way that makes them easy to understand and study. But beyond adding a 3D interface, virtual reality also means greater computational complexity (Bryson; 1996). The ability to provide real-time interaction can provide strong depth cues, either through allowing interactive rotations or through the use of head-tracked rendering. Applications and techniques are being developed to discern how immersive technology benefits visualization. The medical field provides an especially promising context for this development, as medical practitioners require a thorough understanding of specific 3D structures: human anatomy. Users may interact simultaneously with high resolution computed tomography (CT) scans and their corresponding, 3D anatomical structures.
 
+
+With the addition of inside-out tracking in VR headsets like Widows Mixed Reality and Oculus Quest, it brought the hand tracking support into the software development kits for each platform. More and more VR developers started to leverage the hand tracking in the interfaces of their applications. Thanks to the growth of gestures usage in virtual reality and embodied cognition, there have been various new technologies developed to either improve the modelling efficiency, or to provide more nature intuitive experience to the users \citep{dangetiComparingBarehandinairGesture2016}.
+
+% prepisat
+Embodied cognition theory suggested that the cognition is not only what happens in visual perception and brain, but rather involves many aspects of an agent’s body. It is built based on the interaction between the object and the body. In the traditional mouse/keyboard method, the user visually sees the object and controls the hand to move and click on the mouse. The loop of eye-hand coordination is indirect, where the interaction takes place between the mouse and hand, before the model’s position on screen is changed.
+%%%
+
 Another frequently used type of immersive, interactive display technology nowadays is projection-screen-based Cave Automatic Virtual Environment (CAVE). These systems consists of 3 to 6 large displays positioned into a room-sized cube around the observer. The walls of a CAVE are typically made up of rear-projection screens, but recently the flat panel displays are commonly used. The floor can be a downward-projection screen, a bottom projected screen or a flat panel display. The projection systems are very high-resolution due to the near distance viewing which requires very small pixel sizes to retain the illusion of reality. The user wears 3D glasses inside the CAVE to see 3D graphics generated by the CAVE. People using the CAVE can see objects apparently floating in the air, and can walk around them, getting a proper view of what they would look like in reality. This is made possible by infrared cameras. Movement of the observer in the CAVE is tracked by the sensors typically attached to the 3D glasses and the video continually adjusts to retain the viewers perspective.
 
 Many universities and engineering companies own and use CAVE systems. Researchers can use these systems to conduct their research topic in a more effective and accessible method. Engineers have found them useful in enhancing of a product development through prototyping and testing phases.
@@ -527,9 +694,9 @@ One can say that virtual reality established itself in many disciplines of human
 
 Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars (more than 36.1 million e at the time of this writing) in savings for companies. In collaboration with other universities and companies from steelmaking industry, they focus on research regarding integration of virtual reality with simulation technologies and high performance computing; application of simulation and visualization technologies to industrial processes for process design trouble-shooting and optimization to address the issues of productivity, energy, environment, and quality; and last but not least, development of advanced learning environments in virtual reality for training and education. They launched novel, industry-led association of steel manufacturers and stakeholders called Steel Manufacturing Simulation and Visualization Consortium (SMSVC).
 
-Interesting application of combining 3D CFD smulation and virtual reality for visual in- spection is pulverized coal injection (PCI) and coke combustion model. Research efforts between the Canadian government (CANMET), CIVS and the American Iron and Steel Institute (AISI) were conducted and resulted in modeling of the blowpipe and tuyere of the blast furnace. Combination of aforementioned technologies turned out to be powerful and provided detailed information of flow streams that were previously very difficult to measure. The CFD model shown in Fig. 2 – 12 was used to simulate PCI with natural gas co-injection in the lance, blowpipe and tuyere TODO: DOPLNIT CITACIU!!!.
+Interesting application of combining 3D CFD smulation and virtual reality for visual in- spection is pulverized coal injection (PCI) and coke combustion model. Research efforts between the Canadian government (CANMET), CIVS and the American Iron and Steel Institute (AISI) were conducted and resulted in modeling of the blowpipe and tuyere of the blast furnace. Combination of aforementioned technologies turned out to be powerful and provided detailed information of flow streams that were previously very difficult to measure. The CFD model shown in Figure~ 2 – 12 was used to simulate PCI with natural gas co-injection in the lance, blowpipe and tuyere TODO: DOPLNIT CITACIU!!!.
 
-Another very interesting project conducted at CIVS involved development of compre- hensive package of modules for simulating multiple processes in blast furnace. 3D CFD model shown in Fig. 2 – 13 has been developed by Zheng and Hu (2014) specifically for simulating the blast furnace hearth. The campaign life of a blast furnace is highly dependent on residual thickness of refractory lining in the hearth. The progress of hearth lining erosion is greatly affected by hot metal flow patterns and heat transfer in refractory under different operating conditions. CFD model incorporates both the hot metal flow and conjugate heat transfer through the refractories. They achieved consistency of results between measured and calculated refractory temperature profiles, as the model has been extensively validated using measurement data from industry blast furnace. The virtual reality (VR) visualization technology has been used to analyze the velocity and temperature distributions and wear patterns of different furnaces and operating conditions. This interactive 3D visualization is shown in Fig. 2 – 14. Based on the results, it was possible to predict the inner profile of hearth and provide guidance to protecting the blast furnace hearth.
+Another very interesting project conducted at CIVS involved development of compre- hensive package of modules for simulating multiple processes in blast furnace. 3D CFD model shown in Figure~ 2 – 13 has been developed by Zheng and Hu (2014) specifically for simulating the blast furnace hearth. The campaign life of a blast furnace is highly dependent on residual thickness of refractory lining in the hearth. The progress of hearth lining erosion is greatly affected by hot metal flow patterns and heat transfer in refractory under different operating conditions. CFD model incorporates both the hot metal flow and conjugate heat transfer through the refractories. They achieved consistency of results between measured and calculated refractory temperature profiles, as the model has been extensively validated using measurement data from industry blast furnace. The virtual reality (VR) visualization technology has been used to analyze the velocity and temperature distributions and wear patterns of different furnaces and operating conditions. This interactive 3D visualization is shown in Figure~ 2 – 14. Based on the results, it was possible to predict the inner profile of hearth and provide guidance to protecting the blast furnace hearth.
 
 
 % ----------------------------------------------------------------
@@ -809,6 +976,9 @@ But Rust isn’t limited to low-level systems programming. It’s expressive and
 % Info o pouzivani pointers a references v Ruste vs C++ --> useful pre ukazku ako sa pouzivaju pointers vo FFI s C# pre pracu s Unity
 
 \subsubsection{Hardware}
+
+% dopisat/prepisat
+The focus of this work was to build a high-performance simulation and virtual reality visualization software that can be used on variety of platforms. 
 
 % ---------------------------------------------------------
 
@@ -1163,6 +1333,238 @@ Focus of this study was to test performance of ArrayFire implementation of LBM c
 
 % -------------------------------
 
+\subsection{Virtual Reality User Interface}
+
+VR interface includes: \\ 
+
+...
+
+TODO: how to enable VR support in Unity
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
+	\caption{Setting up VR support in Unity.}
+	\label{fig:unity-vr-support}
+\end{figure}
+
+\subsubsection{Cross-Platform Development}
+
+Unity can build apps for multiple platforms:
+
+\begin{itemize}
+	\item Oculus Quest
+	\item Oculus Rift
+	\item HTC Vive
+	\item Windows Mixed Reality
+	\item PlayStation VR
+	\item HoloLens
+	\item Magic Leap
+\end{itemize}
+
+Doplnit:\\
+- ze spojenie VR a AR je XR (extended reality, mixed reality?)
+- Khronos group najprv vydali OpenVR pre VR \\
+- nasledovnikom tohto api je OpenXR, ktory taktiez vydali \\
+- Popisat OpenXR
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/unity-xr-tech-stack.png}
+	\caption{.}
+	\label{fig:unity-xr-tech-stack}
+\end{figure}
+
+Oculus Quest as a standalone VR is great device for games and applications that need only baseline VR performance... When used for scientific visualization in standalone mode, the communication would have to be wireless and implemented with client-server architecture, which means the speed of sending data would deteriorate the usefulness of such application. It's still possible to use Oculus Quest for scientific visualization in VR, but it has to be connected to the powerful PC by special wire called Oculus Link, which is not part of the standard package. It has to be bought separately.
+
+VR hardware like Oculus Rift, HTC Vive, PlayStationVR, and all Windows Mixed Reality headsets can be used for the high-performance visualization software, as the heavy computation is done by GPU on dedicated PC workstation.
+
+% dopisat
+Current software implementation was tested on Oculus Rift, HTC Vive and Oculus Quest with Link cable.
+
+% upravit
+Also, the augmented reality (AR) apps can be build from single codebase with Unity. Developers need to plan ahead and decide whether they want to target VR users, AR users or have the app be used by both device types (VR and AR). Usually, the term Mixed Reality is used to describe apps that target both types of devices. In this work, the focus was only on VR. Although in future, the AR looks as promising technology for specific usecases across scientific visualization, simulation and modeling industry. By leveraging Unity engine for the development of the visualization software for  this thesis, extending the software to support AR will be straightforward process.
+
+Unity High Definition Render Pipeline (better for games, for simulation software not needed). \\
+
+XR Interaction Toolkit - add interactivity to VR apps by dropping components into the scene. No need for coding the interaction scripts from scratch, developers can edit them for their own liking.
+
+% trochu editovat (ne je to uplne odslova-doslova z Unity webu (https://docs.unity3d.com/Manual/SinglePassInstancing.html)
+Single Pass Instanced rendering also known as Stereo Instancing, the GPU performs a single render pass, replacing each draw call with an instanced draw call. Thanks to this, the CPU usage is decreased heavily. Also the GPU usage is decreased thanks to the cache coherency between the two draw calls - significantly reduces power consumption of the VR application.
+
+Windows and Linux (MacOS not supported) \\
+
+Oculus Rift, Oculus Quest with Link cable, HTC Vive and Windows Mixed Reality headsets \\
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
+	\caption{Native VR development with pre-packaged Unity scene.}
+	\label{fig:unity-native-vr-dev}
+\end{figure}
+
+Setting up Oculus support in Unity
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
+	\caption{Oculus support.}
+	\label{fig:unity-oculus-support}
+\end{figure}
+
+Setting up HTC Vive support
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
+	\caption{Oculus setup}
+	\label{fig:unity-htc-support}
+\end{figure}
+
+\subsubsection{Interactivity}\label{sec:interactivity}
+
+% dorobit + mozno premiestnit na spodok sekcie???
+Natural way of interacting with the software has been for the long time through graphical user interfaces. Many programmers would still say that using terminal and learning the hotkeys for quicker work with the text and terminal window is much more effective than moving through the application interface with mouse. In fact, we could argue that GUIs helped to spread the software usage to more people and help them ... 
+
+The conceptual move from 2D plane of our screens towards working immersed within 3D virtual world brings new challenges to the table. 
+%-------------------------------------------
+
+With the current technology, it's possible to not only use dedicated devices like hand controllers for using hands within virtual environments, but also hand tracking... %doplnit vetu?
+%prepisat (copy-paste https://developer.oculus.com/documentation/unity/unity-handtracking/)
+Hand tracking analyzes discrete hand poses and tracks the position of certain key points on your hands, such as knuckles or fingertips, in real time as your hands are moving. When you use hands as input, the hand’s pose drives a laser cursor-pointer that behaves like the standard controller cursor. You can use the cursor-pointer to highlight, select, click, or write your own app-level event logic. Integrated hands can perform object interactions by using simple hand gestures such as point, pinch, unpinch, scroll, and palm pinch.
+
+Depending on your app’s input logic, you can use hands and controllers interchangeably. Hand tracking complements the Touch controllers and is not intended to replace controllers in all scenarios, especially with games or creative tools that require a high degree of precision. By opting-in to hand support, your app also needs to satisfy additional technical requirements specific to hand tracking for the Oculus store to accept it. To submit an app to Oculus Store, the app must support controllers along with hand tracking.
+
+We support the use of hand tracking on Windows through the Unity editor, when using Oculus Quest + Oculus Link. 
+% ------
+
+%%%
+% Native VR alebo VRTK Tilia??? Alebo Oculus Integration Package???
+%%%
+
+%To set up the interaction support across VR hardware, the appropriate scripts for each platform needs to be added and called in the application initialization part. For Oculus devices, the Oculus Integration Unity plugin provides \texttt{OVRInput.cs} script.
+%
+%For the controller haptics, Oculus provides \texttt{OVRHaptics.cs} script.
+
+
+% upravit
+It's often useful get the information about the physical variable !!!(nechat variable?)!!! in arbitrary part of the simulation. The most natural way to do that in VR is to point the finger, or in the case of hand controllers, pointing the hand interaction device to the part of running visualization. 
+
+% dopisat
+Application has to know where exactly the ray casted from the hand controller collided with the surface of the visualization object.  ... \ref{unity-pointer-interaction-code}.
+
+\begin{lstlisting}[language=Rust, caption="Grab interaction code.", label=unity-pointer-interaction-code]
+	public class Sim : MonoBehaviour
+	{
+		void Start()
+		{
+			// ...
+			// ....
+		}
+		
+		void PointerInteraction() {
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+		}
+	}
+\end{lstlisting}
+
+% dopisat zrozumitelnejsie a rozsirit
+After user points the hand controller or virtual hand to the visualization surface, information about the physical variables are shown within the VR environment (Figure~ \ref{fig:pointer-interaction}).
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Pointer interaction with hand controllers.\label{fig:pointer-interaction-hand-controllers}]{%
+		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
+	}\qquad
+	\subfloat[Pointer interaction with virtual hands.\label{fig:pointer-interaction-hands}]{%
+		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Information about the physical variables shown after user points to the specific part of the visualization.}
+	\label{fig:pointer-interaction}
+\end{figure}
+
+% dopisat
+Moving the objects in VR environment is done by hand controllers or with hands if the VR hardware supports it. 
+
+General grabbing functionality ... \ref{unity-grab-interaction-code}.
+
+\begin{lstlisting}[language=Rust, caption="Grab interaction code.", label=unity-grab-interaction-code]
+	public class Sim : MonoBehaviour
+	{
+		void Start()
+		{
+			// ...
+			// ....
+		}
+		
+		void Interaction() {
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+		}
+	}
+\end{lstlisting}
+
+The grabbing than can be performed by moving the hand controllers or virtual hands into the visualization object and clicking the appropriate buttons (or grabbing gesture) (Figure~ \ref{fig:grab-interaction}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
+	\caption{Grab interaction.}
+	\label{fig:grab-interaction}
+\end{figure}
+
+% dopisat
+General zooming functionality ... \ref{unity-zoom-interaction-code}.
+
+\begin{lstlisting}[language=Rust, caption="Zooming interaction code.", label=unity-zoom-interaction-code]
+	public class Sim : MonoBehaviour
+	{
+		void Start()
+		{
+			// ...
+			// ....
+		}
+		
+		void Zooming() {
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+			// ... rest of the code
+		}
+	}
+\end{lstlisting}
+
+% dopisat
+The zooming than can be performed by moving both hand controllers (Figure~ \ref{fig:zoom-interaction-hand-controllers}) or virtual hands (Figure~ \ref{fig:zoom-interaction-hands}) into the visualization object,  clicking the appropriate buttons (or grabbing gesture) and moving them towards each other for zoom-in or outwards from each other for zoom-out (Figure~ \ref{fig:grab-interaction}).
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Zoom interaction with hand controllers.\label{fig:zoom-interaction-hand-controllers}]{%
+		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
+	}\qquad
+	\subfloat[Zoom interaction with virtual hands.\label{fig:zoom-interaction-hands}]{%
+		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Variations of zoom interaction.}
+	\label{fig:zoom-interaction}
+\end{figure}
+
+\subsubsection{Plotting in VR}
+
+% --------------------------------------------------------------------
+
 \subsection{Interactive Simulation}
 
 \subsubsection{Unity and Rust Interop}
@@ -1241,6 +1643,13 @@ n C++, references are "automatically dereferenced pointers". In Rust, you often 
 % - write to Array from multiple threads,
 % - write to single Array using Channel
 
+\subsubsection{Visualizing Simulation Output in Real-Time}
+
+Unity Game Engine as a Rendering Platform \\
+
+- CPU-bound (using Marshal.Copy) \\
+- GPU-bound (Render to texture, fast) \\
+
 \subsubsection{Setting Initial Conditions}
 
 The physics and lattice parameters can be set in Unity Editor and also inside the virtual reality environment.
@@ -1248,23 +1657,23 @@ The physics and lattice parameters can be set in Unity Editor and also inside th
 In development phase, these parameters are available as a part of the simulation script interface. The inputs are generated automatically for each public variable in script's class (Listing \ref{unity-public-variables-editor}).
 
 \begin{lstlisting}[language=Rust, caption=Boundary conditions at solid nodes., label=unity-public-variables-editor]
-public class Sim : MonoBehaviour
-{
-	public UInt32 width = 0;
-	public UInt32 height = 0;
-	private Texture2D image;
-	
-	void Start()
+	public class Sim : MonoBehaviour
 	{
-		image = new Texture2D(width, height, TextureFormat.RGBA32, false);
-		GetComponent<Renderer>().material.mainTexture = image;
+		public UInt32 width = 0;
+		public UInt32 height = 0;
+		private Texture2D image;
+		
+		void Start()
+		{
+			image = new Texture2D(width, height, TextureFormat.RGBA32, false);
+			GetComponent<Renderer>().material.mainTexture = image;
+		}
+		
+		// ... rest of the code
 	}
-	
-	// ... rest of the code
-}
 \end{lstlisting}
 
-When looking into the Unity Editor, the script interface now has two numerical inputs, \texttt{width} and \texttt{height} (Fig. \ref{fig:unity-script-interface-public-vars}).
+When looking into the Unity Editor, the script interface now has two numerical inputs, \texttt{width} and \texttt{height} (Figure~ \ref{fig:unity-script-interface-public-vars}).
 
 \begin{figure}[!ht]
 	\centering
@@ -1273,12 +1682,6 @@ When looking into the Unity Editor, the script interface now has two numerical i
 	\label{fig:unity-script-interface-public-vars}
 \end{figure}
 
-\subsubsection{Visualizing Simulation Output in Real-Time}
-
-Unity Game Engine as a Rendering Platform \\
-
-- CPU-bound (using Marshal.Copy) \\
-- GPU-bound (Render to texture, fast) \\
 
 \subsubsection{Updating Boundary Conditions}
 
@@ -1287,7 +1690,7 @@ Unity Game Engine as a Rendering Platform \\
 Visualization is running continuously throughout the simulation in parallel to the actual computations. It's sometimes good to pause the running simulation when there's something interesting to investigate or explore in more detail.
 
 % editovat aby to znelo lepsie
-For simple pausing and continuing the simulation, the VR interface contains a GUI for that (Fig. \ref{fig:unity-pause-play}).
+For simple pausing and continuing the simulation, the VR interface contains a GUI for that (Figure~ \ref{fig:unity-pause-play}).
 
 \begin{figure}[!ht]
 	\centering
@@ -1316,7 +1719,7 @@ Implementation of the co-routine starting, pausing and stopping is implemented i
 % editovat aby to znelo lepsie
 To manipulate time and go back in history, the simulation data has to be stored to the disk. Each second, XY GB of data is stored. 
 
-To go back in time, user can use the slider and move the knob backward or forward (Fig. \ref{fig:unity-time-manipulation}).
+To go back in time, user can use the slider and move the knob backward or forward (Figure~ \ref{fig:unity-time-manipulation}).
 
 \begin{figure}[!ht]
 	\centering
@@ -1326,18 +1729,6 @@ To go back in time, user can use the slider and move the knob backward or forwar
 \end{figure}
 
 % ----------------------------------------------------------------
-
-\subsection{Virtual Reality User Interface}
-
-\subsubsection{Cross-platform Development}
-
-\subsubsection{VRTK} % or MRTK, pick one
-
-\subsubsection{Interacting with 3D Data}
-
-\subsubsection{Plotting in VR}
-
-% --------------------------------------------------------------------
 
 \subsection{Performance Analysis}
 The performance of computers used for scientific applications are commonly measure in floating point operations per second (FLOPS), which represents the time it takes for multiplying two 32 or 64 bit floating-point numbers.
@@ -1352,58 +1743,55 @@ Since ArrayFire allows for using not only GPU backends but also CPU, we added a 
 
 Most of the GPU benchmarks were done using both CUDA and OpenCL backends, although differences between them were minimal. Therefore in following tables and graphical representations of the data, we show MLUPS numbers solely from OpenCL benchmarks, since testing on this platform allowed us to perform benchmarks not only on NVIDIA hardware, but also on AMD GPU.
 
-We tested the solver performance on 5 different GPUs. The AMD Radeon R9 M370X is of mobile GPU type installed in laptops. In the current study, the AMD GPU was tested on the higher-end Macbook Pro 2015. The NVIDIA GTX 1070 is the average desktop GPU and its price at the time of writing this article is \$443.78 USD according to PassMark G3D Mark (a GPU benchmarking website). The NVIDIA RTX 3090 is a top-of-the-line, consumer-grade, enthusiast-level GPU with the price of \$2139.99 USD according to PassMark G3D Mark at the time of writing. We've included two other GPUs to test across multiple architectures, namely NVIDIA Tesla K20c and NVIDIA GeForce RTX 2080 Ti.
+We tested the solver performance on 4 different GPUs. The AMD Radeon R9 M370X is of mobile GPU type installed in laptops. In the current study, the AMD GPU was tested on the higher-end Macbook Pro 2015. The NVIDIA GTX 1070 is the average desktop GPU and its price at the time of writing this article is \$443.78 USD according to PassMark G3D Mark (a GPU benchmarking website). The NVIDIA RTX 3090 is a top-of-the-line, consumer-grade, enthusiast-level GPU with the price of \$2139.99 USD according to PassMark G3D Mark at the time of writing. Also, to test the performance across multiple architectures of NVIDIA GPU cards, we added a NVIDIA GeForce RTX 2080 Ti to the suite of benchmarks.
 
 \begin{table*}[!ht]
 	\centering
-	\begin{tabular}{ |p{4.9cm}||p{2cm}|p{2cm}|p{2cm}|p{2.1cm}|p{2.2cm}| }
+	\begin{tabular}{ |p{5.3cm}||p{2.3cm}|p{2.5cm}|p{2.5cm}|p{2.8cm}| }
 		\hline
-		& R9 M370X & Tesla K20c & GTX 1070 & RTX 2080 Ti & RTX 3090 \\
+		& R9 M370X \newline(AMD) & GTX 1070 \newline(NVIDIA) & RTX 2080 Ti \newline(NVIDIA) & RTX 3090 \newline(NVIDIA) \\
 		\hline
-		Architecture   & GCN 1.0 & Kepler & Pascal  & Turing &  Ampere  \\
-		Number of cores (CU/SM)   & 640 (10 CU) & 2496~(13~SM) & 1920~(15~SM)   &  4352 (68 SM) &  10496 (82 SM) \\
-		Peak f32 performance (TFLOPS)   & 1.024  & 3.524 & 6.463  & 13.45 &  35.58 \\
-		Memory clock (MHz)   & 1125  & 1300 & 2002   & 1750 &   1219 \\
-		Memory bandwidth (GB/s)   & 72.00  & 208.0  & 256.3   & 616.0 &   936.2 \\
-		L1 cache size (KB)   & 16  & 16  & 48   & 64 &   128 \\
+		Architecture   & GCN 1.0 & Pascal  & Turing &  Ampere  \\
+		Number of cores (CU/SM)   & 640 (10 CU) & 1920~(15~SM)   &  4352 (68 SM) &  10496 (82 SM) \\
+		Peak f32 perf. (TFLOPS)   & 1.024  & 6.463  & 13.45 &  35.58 \\
+		Memory clock (MHz)   & 1125  & 2002   & 1750 &   1219 \\
+		Memory bandwidth (GB/s)   & 72.00  & 256.3   & 616.0 &   936.2 \\
+		L1 cache size (KB)   & 16  & 48   & 64 &   128 \\
 		\hline
 	\end{tabular}
-	\caption{Hardware specifications for GPUs used for testing the simulation software described in this paper (taken from \url{https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.}
+	\caption{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url{https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.}
 	\label{tab:gpus}
 \end{table*}
 
 \subsubsection{Results}
 
-For the 2D lid-driven cavity test, benchmarks showed great results (Table \ref{tab:lid-mlups-all}) with significant speedup compared to CPU backend.
+In 2D lid-driven cavity test, benchmarks showed great results with significant speedup compared to CPU backend (Table \ref{tab:lid-mlups-all-2d}).
 
-\begin{table}!ht]
+\begin{table}[!ht]
 	\centering
-	\begin{tabular}{ |p{1.7cm}||p{1.6cm}|p{0.9cm}|p{1.5cm}|p{1.7cm}|p{1.5cm}|  }
+	\begin{tabular}{ |p{3cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
 		\hline
-		Domain & R9 M370X & K20c & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
 		\hline
-		64$\times$64   & 23 & 40 & 40  & 11  & 55  \\
-		128$\times$128   & 59 & 157 & 226  & 50   & 225  \\
-		256$\times$256   & 97 & 468 & 675  & 186   & 868  \\
-		512$\times$512   & 120 & 531 & 1006  & 600   & 2890  \\
-		1024$\times$1024   & 111 & 559 & 1143   & 1401   & 4620  \\
-		2048$\times$2048   & - & 566 & 1200  & 2195  & 5465  \\
-		4096$\times$4096   & - & - & -  & 2394  & 5730  \\
+		64$\times$64   & 23 & 40  & 11  & 55  \\
+		128$\times$128   & 59 & 226  & 50   & 225  \\
+		256$\times$256   & 97 & 675  & 186   & 868  \\
+		512$\times$512   & 120 & 1006  & 600   & 2890  \\
+		1024$\times$1024   & 111 & 1143   & 1401   & 4620  \\
+		2048$\times$2048   & - & 1200  & 2195  & 5465  \\
+		4096$\times$4096   & - & -  & 2394  & 5730  \\
 		\hline
 	\end{tabular}
-	\caption{Average MLUPS of lid-driven cavity test case with single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
-	\label{tab:lid-mlups-all}
+	\caption{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\label{tab:lid-mlups-all-2d}
 \end{table}
 
-Single floating-point calculations perform significantly faster than double-precision (Fig. \ref{fig:d2q9_lid_mlups_f32} and Fig. \ref{fig:d2q9_lid_mlups_f64} for lid-driven cavity tests, Fig. \ref{fig:d2q9_channel_mlups_f32} and Fig. \ref{fig:d2q9_channel_mlups_f64} for Kármán vortex tests).
+Single floating-point (f32) calculations perform significantly faster than double-precision (f64). The difference between f32 and f64 computation is the doubling of the problem data size. ArrayFire's Array objects are typed, i.e. syntactic construction of a f32 type array looks different from f64 array. It's not hidden in any fashion. In fact, the programmer needs to know what type they are using as performance on accelerators (GPUs) is not the same for all types, scalar or vector types. Type dictates the size of memory on the GPU that will be used, and hence the amount of bandwidth that can be utilized during data transfers. Usually similar sized types have similar data transfer characteristics. Doubles are theoretically expected to have half the performance given by Floats. This difference can be seen in D2Q9 lid-driven cavity and Kármán vortex test cases (Figure~\ref{fig:d2q9_lid_mlups_f32} ,\ref{fig:d2q9_lid_mlups_f64}, \ref{fig:d2q9_channel_mlups_f32}, \ref{fig:d2q9_channel_mlups_f64}, but it's manifesting much better in D3Q27-MRT lid-driven cavity benchmarks (Figure~\ref{fig:d3q27_lid_mlups_f32} ,\ref{fig:d3q27_lid_mlups_f64}).
 
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_32bit}]{%
 		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on Tesla K20c GPU.\label{fig:d2q9_lid_mlups_r9_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/k20_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_32bit}]{%
 		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d2q9_bgk_lid_mlups.pdf}%
@@ -1415,7 +1803,7 @@ Single floating-point calculations perform significantly faster than double-prec
 		\includegraphics[width=0.32\textwidth]{data/rtx3090_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
-	\caption{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
+	\caption{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
 	\label{fig:d2q9_lid_mlups_f32}
 \end{figure}
 
@@ -1434,7 +1822,7 @@ Single floating-point calculations perform significantly faster than double-prec
 		\includegraphics[width=0.32\textwidth]{data/rtx3090_64bit_d2q9_bgk_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
-	\caption{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
+	\caption{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
 	\label{fig:d2q9_lid_mlups_f64}
 \end{figure}
 
@@ -1442,23 +1830,23 @@ For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{ta
 
 \begin{table}[!ht]
 	\centering
-	\begin{tabular}{ |p{1.9cm}||p{1.6cm}|p{0.9cm}|p{1.5cm}|p{1.7cm}|p{1.5cm}|  }
+	\begin{tabular}{ |p{3cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
 		\hline
-		Domain & R9 M370X & K20c & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
 		\hline
-		300$\times$100   & 73 & 253 & 340 & 361    & 361  \\
-		420$\times$150   & 93 & 448 & 627 & 122    & 740  \\
-		600$\times$200   & 107 & 498 & 810 & 180    & 1343  \\
-		1000$\times$300   & 123 & 527 & 1007 & 325    & 3000  \\
-		1500$\times$400   & 117 & 543 & 1100 & 731    & 4055  \\
-		2000$\times$500   & 130 & 552 & 1140 & 1010    & 4510  \\
-		3000$\times$1000   & 113 & 557 & 1175 & 1311    & 5313  \\
-		4200$\times$1500   & - & 565 & 1194 & 2016    & 5557  \\
-		6000$\times$2000   & - & - & - & 2522  & 5670  \\
-		10000$\times$3000   & - & - & - & -   & 5720  \\
+		300$\times$100   & 73 & 340 & 361    & 361  \\
+		420$\times$150   & 93 & 627 & 122    & 740  \\
+		600$\times$200   & 107 & 810 & 180    & 1343  \\
+		1000$\times$300   & 123 & 1007 & 325    & 3000  \\
+		1500$\times$400   & 117 & 1100 & 731    & 4055  \\
+		2000$\times$500   & 130 & 1140 & 1010    & 4510  \\
+		3000$\times$1000   & 113 & 1175 & 1311    & 5313  \\
+		4200$\times$1500   & - & 1194 & 2016    & 5557  \\
+		6000$\times$2000   & - & - & 2522  & 5670  \\
+		10000$\times$3000   & - & - & -   & 5720  \\
 		\hline
 	\end{tabular}
-	\caption{Average MLUPS of Kármán vortex street test case with single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\caption{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
 	\label{tab:channel-mlups}
 \end{table}
 
@@ -1467,9 +1855,6 @@ For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{ta
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_32bit}]{%
 		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on Tesla K20c GPU.\label{fig:d2q9_channel_mlups_r9_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/k20_32bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_32bit}]{%
 		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d2q9_bgk_channel_mlups.pdf}%
@@ -1514,6 +1899,73 @@ Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases ar
 	\label{fig:max_mlups}
 \end{figure}
 
+For the 3D LBM simulation with D3Q27 stencil and multiple-relaxation time (MRT), results showed the computation speeds reaching up to 1500 MLUPS in single-precision (Figure~\ref{fig:d3q27_lid_mlups_f32}) and up to 490 MLUPS in double-precision benchmarks Figure~\ref{fig:d3q27_lid_mlups_f64}. The MRT is much more computationally intensive than BGK and with the 27 particle distributions to track, the difference between D2Q9 and D3Q27 is significant. The memory bandwidth for D3Q27 lid-driven cavity tests is much higher, therefore we were limited to grids under $128^3$ in current implementation.
+
+In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectations and actual results (Table \ref{tab:lid-mlups-all-3d}). The performance is lower in coarse grids ($16^3$ and $32^3$) with more powerful RTX 2080 Ti conversely to higher performance reported with weaker GTX 1070 (Figure~\ref{fig:d3q27_lid_mlups_gtx1070_32bit} and Figure~\ref{fig:d3q27_lid_mlups_rtx2080ti_32bit}). This points to the well-known problem of representing multi-dimensional data in the most optimal way stop GPU from cache misses. It means the data organization of 27 individual distribution functions in D3Q27 lattice nodes along 3D grid has to be rethought and reimplemented to address this issue.  
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{ |p{3.5cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
+		\hline
+		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+		\hline
+		16$\times$16$\times$16   & 7 & 25  & 28  & 40  \\
+		32$\times$32$\times$32   & 18 & 155  & 70   & 225  \\
+		64$\times$64$\times$64   & 97 & 675  & 186   & 868  \\
+		128$\times$128$\times$128   & 120 & 1006  & 600   & 2890  \\
+		\hline
+	\end{tabular}
+	\caption{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\label{tab:lid-mlups-all-3d}
+\end{table}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_32bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_32bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_32bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_32bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/rtx3090_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.}
+	\label{fig:d3q27_lid_mlups_f32}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_64bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/r9_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_64bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/gtx1070_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_64bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_64bit}]{%
+		\includegraphics[width=0.32\textwidth]{data/rtx3090_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..}
+	\label{fig:d3q27_lid_mlups_f64}
+\end{figure}
+
+When comparing the 3D performance of LBM solvers, and specifically those using D3Q27 stencil with multiple-relaxation times, our LBM-MRT solver has still lot of room for improvement. One of the fastest solvers on the market for such 3D LBM smulation is Sailfish \cite{januszewskiSailfishFlexibleMultiGPU2014}. They take advantage of multi-GPU and many-core CPU support in their software, but even for single-GPU, our solver doesn't reach the satisfactory speeds comparable to Sailfish. In D3Q27 solver described in this work, maximum MLUPS achieved for single-precision calculations in 3D test cases on similar hardware is shown in Figure~\ref{fig:max_mlups_3d}. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{data/max_mlups_3d.pdf}
+	\caption{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.}
+	\label{fig:max_mlups_3d}
+\end{figure}
+
 \section{Conclusions}
 
 For this thesis, the cross-platform LBM solver that can be used on variety of parallel accelerators (e.g. GPUs, CPUs or FPGAs) was implemented. It uses ArrayFire, a high-performance parallel computing library (version 3.8.0 was used for this work). We created reference implementation in C++ and ported the same code to Rust. We chose Rust because it has modern capabilities, is memory safe and its performance is comparable to C/C++. We were able to produce sufficient LBM solver in under 150 lines of code, including real-time visualization code. Benchmarks were concluded for both C++ and Rust versions, resulting in identical performance. Data reported in this study are taken from the Rust version. 
@@ -1524,11 +1976,25 @@ For the benchmarks, we analyzed two classical, academic test cases, the lid-driv
 
 \subsection{Future Work}
 
+As with work such as these
+
+\subsubsection{Application to Real World}
+
+Steelmaking \\
+Non-newtonian fluids \\
+
+%https://en.wikipedia.org/wiki/Fluid_mechanics#Newtonian_versus_non-Newtonian_fluids
+
+
+A Newtonian fluid (named after Isaac Newton) is defined to be a fluid whose shear stress is linearly proportional to the velocity gradient in the direction perpendicular to the plane of shear. This definition means regardless of the forces acting on a fluid, it continues to flow. For example, water is a Newtonian fluid, because it continues to display fluid properties no matter how much it is stirred or mixed. A slightly less rigorous definition is that the drag of a small object being moved slowly through the fluid is proportional to the force applied to the object. (Compare friction). Important fluids, like water as well as most gases, behave—to good approximation—as a Newtonian fluid under normal conditions on Earth.
+
+Describe non-Newtonian fluids found in steelmaking processes...
+
 \subsubsection{Streaming Visualized Pixels Over Network}
 
 \subsubsection{Simulation as an Educational Tool}
 
-In some simplified form, combinations of numerical simulations and visualizations of steel- making processes can be used as a educational tool in process control courses at technical universities. The aim of the online, web-based interactive simulation of basic oxygen steelmaking at steeluniversity.org shown in Fig. \ref{fig:steeluniversity} is to introduce students to this process in a more fun and engaging way.
+In some simplified form, combinations of numerical simulations and visualizations of steel- making processes can be used as a educational tool in process control courses at technical universities. The aim of the online, web-based interactive simulation of basic oxygen steelmaking at steeluniversity.org shown in Figure~ \ref{fig:steeluniversity} is to introduce students to this process in a more fun and engaging way.
 
 \begin{figure}[!ht]
 	\label{fig:steeluniversity}
@@ -1537,8 +2003,6 @@ In some simplified form, combinations of numerical simulations and visualization
 	\caption{Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.}
 \end{figure}
 
-
-% ---------------------------------------------------------------------------------
 
 % USE AT YOUR OWN RISK
 
