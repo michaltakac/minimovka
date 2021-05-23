@@ -25,6 +25,11 @@ Dangeti, S., Chen, Y.~V. \harvardand\ Zheng, C.  \harvardyearleft
   Eindhoven, Netherlands, pp.~417--421.
 \newline\harvardurl{http://dl.acm.org/citation.cfm?doid=2839462.2856555}
 
+\harvarditem{{Dassault Systems}}{2019}{systemsExperienceYourDesign2019}
+{Dassault Systems}  \harvardyearleft 2019\harvardyearright .
+\newblock Experience your design with {Integrated} {Modeling} and {Simulation}.
+\newline\harvardurl{https://ifwe.3ds.com/modeling-and-simulation}
+
 \harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
 Delbosc, N.  \harvardyearleft n.d.\harvardyearright .
 \newblock Real-{Time} {Simulation} of {Indoor} {Air} {Flow} {Using} the
@@ -171,7 +176,15 @@ Körner, C., Pohl, T., Rüde, U., Thürey, N. \harvardand\ Zeiser, T.
 \newblock Series Title: Lecture Notes in Computational Science and Engineering.
 \newline\harvardurl{http://link.springer.com/10.1007/3-540-31619-1_13}
 
-\harvarditem[Li et~al.]{Li, Luo, Kang, He, Chen \harvardand\
+\harvarditem{Li, Ma \harvardand\
+  Lange}{2016}{liAssociationDesignSimulation2016}
+Li, L., Ma, Y. \harvardand\ Lange, C.~F.  \harvardyearleft
+  2016\harvardyearright .
+\newblock Association of {Design} and {Simulation} {Intent} in {CAD}/{CFD}
+  {Integration}, {\em Procedia CIRP} {\bf 56}:~1--6.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2212827116309982}
+
+\harvarditem{Li, Luo, Kang, He, Chen \harvardand\
   Liu}{2016}{liLatticeBoltzmannMethods2016a}
 Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
   \harvardyearleft 2016\harvardyearright .
@@ -198,6 +211,15 @@ Linxweiler, J., Krafczyk, M. \harvardand\ Tölke, J.  \harvardyearleft
   Visualization in Science} {\bf 13}(7):~299--314.
 \newline\harvardurl{http://link.springer.com/10.1007/s00791-010-0151-3}
 
+\harvarditem[Mahmood et~al.]{Mahmood, Kausar, Sarjoughian, Malik \harvardand\
+  Riaz}{2019}{mahmoodIntegratedModelingSimulation2019}
+Mahmood, I., Kausar, T., Sarjoughian, H.~S., Malik, A.~W. \harvardand\ Riaz, N.
+   \harvardyearleft 2019\harvardyearright .
+\newblock An {Integrated} {Modeling}, {Simulation} and {Analysis} {Framework}
+  for {Engineering} {Complex} {Systems}, {\em IEEE Access} {\bf
+  7}:~67497--67514.
+\newline\harvardurl{https://ieeexplore.ieee.org/document/8718666/}
+
 \harvarditem[Malcolm et~al.]{Malcolm, Yalamanchili, McClanahan,
   Venugopalakrishnan, Patel \harvardand\
   Melonakos}{2012}{malcolmArrayFireGPUAcceleration2012a}
@@ -207,12 +229,29 @@ Malcolm, J., Yalamanchili, P., McClanahan, C., Venugopalakrishnan, V., Patel,
   p.~84030A.
 \newline\harvardurl{http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.921122}
 
+\harvarditem{Neumaier}{2004}{Neumaier2004}
+Neumaier, A.  \harvardyearleft 2004\harvardyearright .
+\newblock Mathematical model building, {\em in} J.~Kallrath (ed.), {\em
+  Modeling languages in mathematical optimization}, Springer US, Boston, MA,
+  pp.~37--43.
+\newline\harvardurl{https://doi.org/10.1007/978-1-4613-0215-5}
+
 \harvarditem{Pacheco}{2011}{PACHECO20111}
 Pacheco, P.~S.  \harvardyearleft 2011\harvardyearright .
 \newblock Chapter 1 - why parallel computing?, {\em in} P.~S. Pacheco (ed.),
   {\em An introduction to parallel programming}, Morgan Kaufmann, Boston,
   pp.~1--14.
 \newline\harvardurl{https://www.sciencedirect.com/science/article/pii/B9780123742605000014}
+
+\harvarditem{Rago}{2015}{rago2015numerical}
+Rago, G.  \harvardyearleft 2015\harvardyearright .
+\newblock {\em Numerical simulation: {Theory} and analysis}, Clanrye
+  International.
+\newline\harvardurl{https://books.google.sk/books?id=nRwdrgEACAAJ}
+
+\harvarditem{Rapp}{2017}{rapp2017}
+Rapp, B.  \harvardyearleft 2017\harvardyearright .
+\newblock Computational fluid dynamics, pp.~609--622.
 
 \harvarditem[Soete et~al.]{Soete, Claeys, Hoedt, Mahy \harvardand\
   Cottyn}{2015}{soeteMixedRealitySCADA2015}
@@ -294,6 +333,11 @@ Wittmann, M.  \harvardyearleft 2018\harvardyearright .
 \newblock Lattice {Boltzmann} benchmark kernels as a testbed for performance
   analysis,  p.~11.
 
+\harvarditem{Yang}{2017}{yangEngineeringMathematicsExamples2017}
+Yang, X.-S.  \harvardyearleft 2017\harvardyearright .
+\newblock {\em Engineering mathematics with examples and applications},
+  Academic Press, an imprint of Elsevier, London ; San Diego, CA.
+
 \harvarditem[Yuan et~al.]{Yuan, Wang \harvardand\
   Shu}{2017}{yuanAdaptiveMeshRefinementmultiphase2017}
 Yuan, H.~Z., Wang, Y. \harvardand\ Shu, C.  \harvardyearleft
@@ -302,5 +346,11 @@ Yuan, H.~Z., Wang, Y. \harvardand\ Shu, C.  \harvardyearleft
   solver for simulation of complex binary fluid flows, {\em Physics of Fluids}
   {\bf 29}(12):~123604.
 \newline\harvardurl{http://aip.scitation.org/doi/10.1063/1.5007232}
+
+\harvarditem{Zhang}{2011}{zhangLatticeBoltzmannMethod2011}
+Zhang, J.  \harvardyearleft 2011\harvardyearright .
+\newblock Lattice {Boltzmann} method for microfluidics: models and
+  applications, {\em Microfluidics and Nanofluidics} {\bf 10}(1):~1--28.
+\newline\harvardurl{http://link.springer.com/10.1007/s10404-010-0624-1}
 
 \end{thebibliography}

@@ -8,24 +8,24 @@ Illegal, another \bibstyle command---line 3 of file bibliography.aux
  : \bibstyle
  :          {spbasic}
 I'm skipping whatever remains of this command
-I couldn't open database file refs/simulation.bib
----line 4 of file bibliography.aux
- : \bibdata{refs/cfd,refs/lbm,refs/gpu,refs/interaction,refs/interfaces,refs/hci,refs/design,refs/ml,refs/visualization,refs/programming,refs/simulation
- :                                                                                                                                                      ,refs/ar,refs/vr}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: appendices.aux
 A level-1 auxiliary file: appendixa.aux
 A level-1 auxiliary file: appendixb.aux
-Database file #1: refs/cfd.bib
-Database file #2: refs/lbm.bib
-Database file #3: refs/gpu.bib
-Database file #4: refs/interaction.bib
-Database file #5: refs/interfaces.bib
-Database file #6: refs/hci.bib
-Database file #7: refs/design.bib
-Database file #8: refs/ml.bib
-Database file #9: refs/visualization.bib
-Database file #10: refs/programming.bib
+Database file #1: refs/mathematics.bib
+Database file #2: refs/modeling.bib
+Database file #3: refs/cfd.bib
+Database file #4: refs/lbm.bib
+Database file #5: refs/gpu.bib
+Database file #6: refs/interaction.bib
+Database file #7: refs/interfaces.bib
+Database file #8: refs/hci.bib
+Database file #9: refs/design.bib
+Database file #10: refs/ml.bib
+Database file #11: refs/visualization.bib
+Database file #12: refs/programming.bib
+Database file #13: refs/simulation.bib
+Database file #14: refs/ar.bib
+Database file #15: refs/vr.bib
 Warning--I didn't find a database entry for "gonda"
 Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
 Warning--I didn't find a database entry for "succi2018lattice"
@@ -39,46 +39,48 @@ Warning--I didn't find a database entry for "TAN2017649"
 Warning--I didn't find a database entry for "malcolmArrayFireGPUAcceleration2012"
 Warning--empty author in FULLGPUImplementation2017
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
+Warning--empty booktitle in rapp2017
+Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
-You've used 37 entries,
+You've used 45 entries,
             2921 wiz_defined-function locations,
-            953 strings with 16288 characters,
-and the built_in function-call counts, 181899 in all, are:
-= -- 29720
-> -- 2617
+            1009 strings with 17967 characters,
+and the built_in function-call counts, 205934 in all, are:
+= -- 33512
+> -- 2966
 < -- 1
-+ -- 14338
-- -- 801
-* -- 15927
-:= -- 36036
-add.period$ -- 80
-call.type$ -- 37
-change.case$ -- 509
-chr.to.int$ -- 37
-cite$ -- 40
-duplicate$ -- 615
-empty$ -- 1237
-format.name$ -- 913
-if$ -- 32809
++ -- 16077
+- -- 909
+* -- 17902
+:= -- 41042
+add.period$ -- 96
+call.type$ -- 45
+change.case$ -- 619
+chr.to.int$ -- 45
+cite$ -- 50
+duplicate$ -- 743
+empty$ -- 1504
+format.name$ -- 1035
+if$ -- 37104
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 40
-newline$ -- 186
-num.names$ -- 388
-pop$ -- 132
+missing$ -- 49
+newline$ -- 224
+num.names$ -- 470
+pop$ -- 174
 preamble$ -- 1
-purify$ -- 550
+purify$ -- 670
 quote$ -- 0
-skip$ -- 554
+skip$ -- 661
 stack$ -- 0
-substring$ -- 42124
-swap$ -- 136
-text.length$ -- 509
+substring$ -- 47367
+swap$ -- 159
+text.length$ -- 621
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 142
-warning$ -- 3
-while$ -- 820
+type$ -- 170
+warning$ -- 5
+while$ -- 1003
 width$ -- 0
-write$ -- 592
-(There were 2 error messages)
+write$ -- 705
+(There was 1 error message)

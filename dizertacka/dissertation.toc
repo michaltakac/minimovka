@@ -1,22 +1,21 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{15}{section.1}%
-\contentsline {section}{\numberline {2}Modeling and Simulation}{17}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Mathematical Modeling}{17}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Numerical Simulation}{17}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Computational Fluid Dynamics}{18}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Integrated Modeling and Simulation}{19}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Lattice Boltzmann Method}{19}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Navier-Stokes Equations}{19}{subsection.3.1}%
+\contentsline {section}{\numberline {2}Modeling and Simulation}{15}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mathematical Modeling}{15}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Numerical Simulation}{16}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Computational Fluid Dynamics}{17}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Integrated Modeling and Simulation}{18}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Mesoscopic Approach to Fluid Dynamics}{19}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Navier-Stokes Equations}{20}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Lattice Boltzmann Method}{22}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Kinetic Theory}{26}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Bhatnagar-Gross-Krook Model}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Bhatnagar-Gross-Krook Model}{28}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Multiple Relaxation Time}{28}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Boundary Conditions}{30}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Lattice Boltzmann In Context of Computational Fluid Dynamics}{30}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Multiphase Flows}{30}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Adaptive Mesh Refinement}{32}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Complex Fluids and Beyond}{33}{subsection.3.10}%
-\contentsline {section}{\numberline {4}Visualization Methods}{33}{section.4}%
+\contentsline {subsection}{\numberline {3.7}Multiphase Flows}{31}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Adaptive Mesh Refinement}{32}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Complex Fluids and Beyond}{33}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Visualization Methods}{34}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Human-Computer Interface}{34}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}SCADA}{35}{subsubsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.2}Principles of UI Design}{37}{subsubsection.4.1.2}%
@@ -34,7 +33,7 @@
 \contentsline {subsection}{\numberline {5.3}CUDA}{50}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}OpenCL}{50}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Cross-platform GPU Programming}{51}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Accelerating Lattice Boltzmann Simulations with GPUs}{54}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.6}Accelerating Lattice Boltzmann Simulations with GPUs}{55}{subsection.5.6}%
 \contentsline {section}{\numberline {6}Implementation of a Simulation Software}{57}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Technology Stack}{57}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Cross-platform Development with ArrayFire}{57}{subsubsection.6.1.1}%
@@ -43,17 +42,17 @@
 \contentsline {subsection}{\numberline {6.2}Implementation of Lattice Boltzmann Method for GPUs}{61}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Initialization}{61}{subsubsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.2}Boundary Conditions}{62}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Streaming}{63}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.3}Streaming}{64}{subsubsection.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.2.4}Collision}{66}{subsubsection.6.2.4}%
 \contentsline {subsubsection}{\numberline {6.2.5}External Force}{67}{subsubsection.6.2.5}%
 \contentsline {subsection}{\numberline {6.3}GPU Optimizations}{67}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{69}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{71}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.3}Pull vs Push Scheme}{73}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.4}Load Balancing in Multi-GPU Setups}{73}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.4}Load Balancing in Multi-GPU Setups}{74}{subsubsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.4}Virtual Reality User Interface}{74}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{74}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Interactivity}{78}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2}Interactivity}{77}{subsubsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.5}Interactive Simulation}{82}{subsection.6.5}%
 \contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interop}{83}{subsubsection.6.5.1}%
 \contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{85}{subsubsection.6.5.2}%
@@ -62,11 +61,11 @@
 \contentsline {subsubsection}{\numberline {6.5.5}Time Manipulation}{90}{subsubsection.6.5.5}%
 \contentsline {subsection}{\numberline {6.6}Performance Analysis}{91}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Hardware}{92}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Results}{93}{subsubsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2}Results}{94}{subsubsection.6.6.2}%
 \contentsline {section}{\numberline {7}Conclusions}{98}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{100}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Future Work}{100}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Application to Real World}{100}{subsubsection.8.1.1}%
+\contentsline {section}{\numberline {8}Discussion}{101}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Future Work}{101}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Application to Real World}{102}{subsubsection.8.1.1}%
 \contentsline {subsubsection}{\numberline {8.1.2}Streaming Visualized Pixels Over Network}{102}{subsubsection.8.1.2}%
 \contentsline {subsubsection}{\numberline {8.1.3}Simulation as an Educational Tool}{102}{subsubsection.8.1.3}%
 \contentsline {section}{\hbox to\@tempdima {\hfil }Appendices}{109}{section*.37}%

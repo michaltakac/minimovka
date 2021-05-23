@@ -6,16 +6,16 @@
 \contentsline {figure}{\numberline {4\,--\,1}{\ignorespaces Differences between CPU-bound visualization with expensive copying bottleneck and high-performance GPU-bound visualization keeping full speeds of high-bandwidth of PCIe interface.\relax }}{39}{figure.caption.9}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {High-performance visualization pipeline.}}}{39}{subfigure.1.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {High-performance visualization pipeline.}}}{39}{subfigure.1.2}%
-\contentsline {figure}{\numberline {4\,--\,2}{\ignorespaces Lid-driven cavity test case at 128$\times $128 resolution after 5000 iterations.\relax }}{40}{figure.caption.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of lid-driven cavity simulation.}}}{40}{subfigure.2.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field.}}}{40}{subfigure.2.2}%
+\contentsline {figure}{\numberline {4\,--\,2}{\ignorespaces Lid-driven cavity test case at 128$\times $128 resolution after 5000 iterations.\relax }}{41}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of lid-driven cavity simulation.}}}{41}{subfigure.2.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field.}}}{41}{subfigure.2.2}%
 \contentsline {figure}{\numberline {4\,--\,3}{\ignorespaces Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times $300 resolution after 5000 iterations.\relax }}{41}{figure.caption.11}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of Kármán vortex street simulation.}}}{41}{subfigure.3.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field (filtered for better presentation).}}}{41}{subfigure.3.2}%
 \contentsline {figure}{\numberline {5\,--\,1}{\ignorespaces CUDA memory model\relax }}{51}{figure.caption.12}%
 \contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Setting up VR support in Unity.\relax }}{75}{figure.caption.14}%
 \contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces .\relax }}{76}{figure.caption.15}%
-\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Native VR development with pre-packaged Unity scene.\relax }}{77}{figure.caption.16}%
+\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Native VR development with pre-packaged Unity scene.\relax }}{78}{figure.caption.16}%
 \contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Oculus support.\relax }}{78}{figure.caption.17}%
 \contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Oculus setup\relax }}{79}{figure.caption.18}%
 \contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Information about the physical variables shown after user points to the specific part of the visualization.\relax }}{81}{figure.caption.19}%
