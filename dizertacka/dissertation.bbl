@@ -1,5 +1,17 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Ahrens et~al.]{Ahrens, Geveci \harvardand\
+  Law}{2005}{paraview2005}
+Ahrens, J.~P., Geveci, B. \harvardand\ Law, C.~C.  \harvardyearleft
+  2005\harvardyearright .
+\newblock {ParaView}: {An} end-user tool for large-data visualization, {\em in}
+  C.~D. Hansen \harvardand\ C.~R. Johnson (eds), {\em The visualization
+  handbook}, Academic Press / Elsevier, pp.~717--731.
+\newblock tex.bibsource: dblp computer science bibliography, https://dblp.org
+  tex.biburl: https://dblp.org/rec/books/el/05/AhrensGL05.bib tex.timestamp:
+  Fri, 28 Jun 2019 10:05:27 +0200.
+\newline\harvardurl{https://doi.org/10.1016/b978-012387582-2/50038-1}
+
 \harvarditem[Bhatnagar et~al.]{Bhatnagar, Gross \harvardand\
   Krook}{1954}{bhatnagarModelCollisionProcesses1954}
 Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
@@ -77,13 +89,13 @@ Glessmer, M. \harvardand\ Janßen, C.  \harvardyearleft 2017\harvardyearright .
   {Mechanics} {Instruction}, {\em Computation} {\bf 5}(4):~35.
 \newline\harvardurl{http://www.mdpi.com/2079-3197/5/3/35}
 
-\harvarditem[Guo et~al.]{Guo, Zheng \harvardand\
-  Shi}{2002}{guoDiscreteLatticeEffects2002}
-Guo, Z., Zheng, C. \harvardand\ Shi, B.  \harvardyearleft 2002\harvardyearright
-  .
-\newblock Discrete lattice effects on the forcing term in the lattice
-  {Boltzmann} method, {\em Physical Review E} {\bf 65}(4):~046308.
-\newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevE.65.046308}
+\harvarditem[Hanwell et~al.]{Hanwell, Martin, Chaudhary \harvardand\
+  Avila}{2015}{hanwellVisualizationToolkitVTK2015}
+Hanwell, M.~D., Martin, K.~M., Chaudhary, A. \harvardand\ Avila, L.~S.
+  \harvardyearleft 2015\harvardyearright .
+\newblock The {Visualization} {Toolkit} ({VTK}): {Rewriting} the rendering code
+  for modern graphics cards, {\em SoftwareX} {\bf 1-2}:~9--12.
+\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2352711015000035}
 
 \harvarditem[Hardy et~al.]{Hardy, Pomeau \harvardand\
   de~Pazzis}{1973}{Hardy1973}
@@ -142,6 +154,10 @@ Januszewski, M. \harvardand\ Kostur, M.  \harvardyearleft 2014\harvardyearright
 Karimi, K.  \harvardyearleft n.d.\harvardyearright .
 \newblock A {Performance} {Comparison} of {CUDA} and {OpenCL},  p.~10.
 
+\harvarditem{Klabnik \harvardand\ Nichols}{2018}{steveklabnik2018}
+Klabnik, S. \harvardand\ Nichols, C.  \harvardyearleft 2018\harvardyearright .
+\newblock {\em The rust programming language}, No Starch Press, USA.
+
 \harvarditem[Koliha et~al.]{Koliha, Janßen \harvardand\
   Rung}{2015}{kolihaOnlineVisualizationInteractive2015}
 Koliha, N., Janßen, C. \harvardand\ Rung, T.  \harvardyearleft
@@ -164,6 +180,15 @@ Kotsalos, C., Latt, J., Beny, J. \harvardand\ Chopard, B.  \harvardyearleft
 Kress, J.  \harvardyearleft n.d.\harvardyearright .
 \newblock In {Situ} {Visualization} {Techniques} for {High} {Performance}
   {Computing},  p.~26.
+
+\harvarditem[Kreylos et~al.]{Kreylos, Tesdall, Hamanny, Hunter \harvardand\
+  Joy}{2002}{kreylos2002}
+Kreylos, O., Tesdall, A.~M., Hamanny, B., Hunter, J.~K. \harvardand\ Joy, K.~I.
+   \harvardyearleft 2002\harvardyearright .
+\newblock Interactive visualization and steering of {CFD} simulations, {\em in}
+  D.~Ebert, P.~Brunet \harvardand\ I.~Navazo (eds), {\em Eurographics / {IEEE}
+  {VGTC} symposium on visualization}, The Eurographics Association.
+\newblock ISSN: 1727-5296.
 
 \harvarditem[Körner et~al.]{Körner, Pohl, Rüde, Thürey \harvardand\
   Zeiser}{2006}{kornerParallelLatticeBoltzmann2006}
@@ -191,15 +216,6 @@ Li, Q., Luo, K., Kang, Q., He, Y., Chen, Q. \harvardand\ Liu, Q.
 \newblock Lattice {Boltzmann} methods for multiphase flow and phase-change heat
   transfer, {\em Progress in Energy and Combustion Science} {\bf 52}:~62--105.
 \newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0360128515300162}
-
-\harvarditem[Lin et~al.]{Lin, Liu \harvardand\
-  Collu}{2020}{linWindPowerPrediction2020}
-Lin, Z., Liu, X. \harvardand\ Collu, M.  \harvardyearleft 2020\harvardyearright
-  .
-\newblock Wind power prediction based on high-frequency {SCADA} data along with
-  isolation forest and deep learning neural networks, {\em International
-  Journal of Electrical Power \& Energy Systems} {\bf 118}:~105835.
-\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S0142061519332491}
 
 \harvarditem[Linxweiler et~al.]{Linxweiler, Krafczyk \harvardand\
   Tölke}{2010}{linxweilerHighlyInteractiveComputational2010}
@@ -229,6 +245,15 @@ Malcolm, J., Yalamanchili, P., McClanahan, C., Venugopalakrishnan, V., Patel,
   p.~84030A.
 \newline\harvardurl{http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.921122}
 
+\harvarditem{Mawson}{2014}{Mawson2014InteractiveFI}
+Mawson, M.  \harvardyearleft 2014\harvardyearright .
+\newblock {\em Interactive fluid-structure interaction with many-core
+  accelerators}, PhD thesis, University of Manchester, UK.
+\newblock tex.bibsource: dblp computer science bibliography, https://dblp.org
+  tex.biburl: https://dblp.org/rec/phd/ethos/Mawson14.bib tex.timestamp: Mon,
+  15 Aug 2016 18:48:06 +0200.
+\newline\harvardurl{http://www.manchester.ac.uk/escholar/uk-ac-man-scw:219513}
+
 \harvarditem{Neumaier}{2004}{Neumaier2004}
 Neumaier, A.  \harvardyearleft 2004\harvardyearright .
 \newblock Mathematical model building, {\em in} J.~Kallrath (ed.), {\em
@@ -252,14 +277,6 @@ Rago, G.  \harvardyearleft 2015\harvardyearright .
 \harvarditem{Rapp}{2017}{rapp2017}
 Rapp, B.  \harvardyearleft 2017\harvardyearright .
 \newblock Computational fluid dynamics, pp.~609--622.
-
-\harvarditem[Soete et~al.]{Soete, Claeys, Hoedt, Mahy \harvardand\
-  Cottyn}{2015}{soeteMixedRealitySCADA2015}
-Soete, N., Claeys, A., Hoedt, S., Mahy, B. \harvardand\ Cottyn, J.
-  \harvardyearleft 2015\harvardyearright .
-\newblock Towards {Mixed} {Reality} in {SCADA} {Applications}, {\em
-  IFAC-PapersOnLine} {\bf 48}(3):~2417--2422.
-\newline\harvardurl{https://linkinghub.elsevier.com/retrieve/pii/S2405896315006898}
 
 \harvarditem[Spadafora et~al.]{Spadafora, Chahuneau, Martelaro, Sirkin
   \harvardand\ Ju}{2016}{spadaforaDesigningBehaviorInteractive2016}
@@ -316,6 +333,11 @@ Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
 \newblock Performance {Optimization} of {3D} {Lattice} {Boltzmann} {Flow}
   {Solver} on a {GPU}, {\em Scientific Programming} {\bf 2017}:~1--16.
 \newline\harvardurl{https://www.hindawi.com/journals/sp/2017/1205892/}
+
+\harvarditem{Victor}{2018}{victorInventingOnPrinciple2018}
+Victor, B.  \harvardyearleft 2018\harvardyearright .
+\newblock Inventing on principle.
+\newline\harvardurl{https://www.youtube.com/watch?v=8QiPFmIMxFc\\&t=834s}
 
 \harvarditem[Wang et~al.]{Wang, Ferey, Bourdot \harvardand\
   Magoules}{2019}{wangInteractive3DFluid2019}

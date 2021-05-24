@@ -1,5 +1,7 @@
 \section{Introduction}
 
+... DOPLNIT ...
+
 %The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an eye on the big picture was, until not so long ago, a human process.
 %
 %Although a device was used to automate a human function in an effort to control a variable, there was no sense of what the process was doing overall. A basic controller could keep an individual loop on an even keel, more or less, so long as there was not too much disruption. Complex processes might employ dozens or even hundreds of such controllers, each with its performance displayed on a panel board, but keeping an eye on the big picture was still a human process.
@@ -12,9 +14,9 @@
 
 
 
-With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that ...
-
-We'll discuss the path towards interactive simulation in section \ref{interactive-simulation}.
+%With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that ...
+%
+%We'll discuss the path towards interactive simulation in section \ref{interactive-simulation}.
 
 
 \section{Modeling and Simulation}
@@ -44,7 +46,7 @@ A numerical simulation is a computer calculation of a mathematical model for a p
 The mathematical models for which numerical simulation is employed usually consists of ordinary differential equations (ODEs) and partial differential equations (PDEs) \citep{yangEngineeringMathematicsExamples2017}. Coming up and refining actual model to needed accuracy is often very laborious and time consuming. Also, the actual simulation part can take hours or days to complete. Thanks to modern computing capabilities, the effectiveness of various accelerators like GPUs, FPGAs, etc. and recently developed optimizations techniques allowed the simulation times to dramatically shorten - nowadays towards minutes, seconds or even to the point of interactive and real-time simulations \citep{harwoodREALTIMEMODELLINGSIMULATION}.
 
 
-\subsection{Computational Fluid Dynamics}
+\subsection{Computational Fluid Dynamics}\label{sec:cfd}
 % DONE
 Fluid dynamics is the branch of fluid mechanics, that is concerned with the study of the effect of forces on fluids and fluid motion. It models matter as a macroscopic quantity rather than microscopic. Computational Fluid Dynamics (CFD) is the analysis of fluid flow, heat transfer and additional phenomena like chemical reactions with aid of computer-based simulations. Since its inception in 1960s until today, it has been heavily applied in the multitude of industries around the world. Some examples of the applications areas include:
 
@@ -100,8 +102,8 @@ This section describes the Lattice-Boltzmann method, how Boltzmann's kinetic the
 
 
 \subsection{Navier-Stokes Equations}
-
-The equations governing the motion of fluid was described by Claude-Luis Navier (1785-1836) and Gabriel Stokes (1819-1903). They are collectively called Navier-Stokes (N-S) equations. 
+% DONE
+The famous equations governing the motion of fluid was described by Claude-Luis Navier (1785-1836) and Gabriel Stokes (1819-1903). They are collectively called Navier-Stokes (N-S) equations.
 
 Let's consider Euclidean space $\mathbb{R}^d$, with $d$ equal to 2 or 3 (representing dimensions). At position $x = (x_1,...,x_d) \in \mathbb{R}^d$ and at time $t \in \mathbb{R}$, the fluid is moving with a velocity vector $\bm{u}(x,t) = (\bm{u}_1(x,t),...,\bm{u}_d(x,t)) \in \mathbb{R}^d$ and the fluid pressure is $p(x,t) \in \mathbb{R}$. We can state the Euler equation as
 
@@ -176,49 +178,122 @@ To re-cast the the N-S equations to Lagrangian form, which emphasizes the transp
 
 The N-S equations describe the notion of ideal, incompressible fluid. They agree well with real experiments of real fluids under different circumstances. The importance of these equations are of very high order within science and engineering fields, since the presence of fluid flows is prevalent across most human activities and daily life. Engineers are concerned with finding the solutions to N-S equations numerically with the accuracy and effectiveness that conventional computers allows them to achieve. Mathematicians are more interested in knowing if actual solution exists and whether if there is only one solution. Although the N-S equations are known for nearly two centuries (with the Euler equation being discovered more than 250 years ago), they are still very poorly understood, which presents a major challenge. There is no consensus if N-S or Euler solutions exist for all time or if they break down at a finite time. Any mathematically rigorous proof was not yet accepted. In fact, solving the problem of Navier-Stokes existence and uniqueness bares a prize of 1,000,000 US dollars put forward by Clay Mathematics Institute. Having such proof would help with fundamental way of understanding the physical world we live in.
 
+\subsection{Real-Life Fluid Flows}
+% DONE
+Numerical treatment of the N-S equations with use of computer simulation, also called Computational Fluid Dynamics (CFD, discussed in section \ref{sec:cfd}), is leading a forefront of computational science. Along with the major progress, CFD analysis also shown many times that despite the harmless look of the N-S equations, they prove exceedingly hard to solve on digital computers due to the chaotic behaviour of turbulence at higher Reynolds numbers. Turbulence results from acting of large-scale advection, the term $\bm{u}\cdot \nabla\bm{u}$ and small-scale dissipation \citep{succi2018}. This ratio is measured in Reynolds number, i.e.
+
+\begin{equation}
+Re = \frac{UL}{\nu}
+\end{equation}
+
+In most of the real-life fluid flows we encounter, the Reynolds number easily exceeds millions. The reason behind the overwhelming non-linearity over dissipation is best highlighted by re-casting the Reynolds number to Von Kármán ratio
+
+\begin{equation}
+	Re = \frac{U}{c_s} \frac{L}{l_\mu} = \frac{Ma}{Kn}
+\end{equation}
+
+where $c_s$ is the speed of sound and $l_\mu = \nu / c_s$ is the molecular mean free path (the average distance travelled by a molecule before colliding with another molecule). The $Ma$ stands for Mach number, representing the ratio of fluid to sound speed
+
+\begin{equation}
+	Ma = \frac{U}{c_s}
+\end{equation}
+
+and $Kn$ is a Knudsen number, representing the ratio of molecular mean free path length to a physical length scale
+
+\begin{equation}
+	Kn = \frac{L}{l_\mu}.
+\end{equation}
+
+In air, molecules travel about $0.1\mu$ before collision happens. If the physical scale length is $L = 1m$, the resulting ratio $L/l_\mu$ is $10$ million. Reynolds number is huge because it measures the physical length in units of mean free path. The advection acts at macroscopic scales, but dissipation in much smaller scales, also called Kolmogorov scales. According to the scaling theory formulated by Kolmogorov, the smallest active scale in turbulent flow a given Reynolds number is given by
+
+\begin{equation}
+	l_d = \frac{L}{RE^{3/4}},
+\end{equation}
+
+and thus the number of degrees of freedom in a turbulent flow of size $L$ is
+
+\begin{equation}
+	N_{dof} = \left(\frac{L}{l_d}\right)^3 \approx Re^{9/4}.
+\end{equation}
+
+In realistic flows with Reynolds number in millions, or $Re \approx 10^6$, this results in about $N_{dof} \approx 10^{14}$ degrees of freedom. Current state-of-the-art CFD solvers that simulate turbulent fluid flows of such scale can handle orders of tens of billions of degrees of freedom on conventional supercomputers. Adding to this, the fluids of practical interest usually move in complex geometries. Because of this combined difficulty, simulating close to real physics with N-S equations in classical CFD solvers is extremely difficult \citep{succi2018}.
+
 \subsection{Lattice Boltzmann Method}
+% DONE
+Majority of traditional CFD methods focus on various discretization of N-S equations, as a set of non-linear partial differential equations, starting with their continuum form and transforming them for the use on discrete grid (Eulerian form) or moving along the with the fluid (Lagrangian form). For simulation to be spatially resolved, the grid spacing must be smaller than the Kolmogorov scale ($\delta x < l_d$). According to this, the number of grid points must exceed the number of physical degrees of freedom dictated by physics of turbulence, hence they do not depend on the specific discretization procedure \citep{succi2018}.
 
+Conversely, alternative method like Lattice-Boltzmann (LBM) doesn't go down the path of discretizing partial differential equations in N-S. Instead, the main idea is to track distributions of fictitious particles between each node of discrete lattice and extract the macroscopic fluid behavior as an emergent phenomenon \citep{succi2018}. This dynamics is the heritage of a LBM predecessor, the Lattice Gas Automata (LGCA) \citep{Hardy1973, frischLatticeGasAutomataNavierStokes1986}.
 
+The big advantage is that the underlying dynamics of LBM is much simpler than the dynamics of hydrodynamic fields. As a result, the popularity of LBM has steadily grown since its inception from LGCA. It has witnessed an astonishing growth in its methodology development and application over the past quarter of a century. It fills a vital gap between the macroscopic continuum approaches such as the Navier–Stokes solvers and the particle-based microscopic approaches such as molecular dynamics \citep{liLatticeBoltzmannMethods2016a}.
 
-Popularity of the Lattice-Boltzmann method (LBM) has steadily grown since its inception from Lattice gas automata more than three decades ago \citep{Hardy1973, frischLatticeGasAutomataNavierStokes1986}.
-
-%% --- Prepisat -------------------
-LB method has witnessed an astonishing growth in its methodology development and application over the past quarter of a century. It fills a vital gap between the macroscopic continuum approaches such as the Navier–Stokes solvers and the particle-based microscopic approaches such as molecular dynamics. Such a mesoscopic approach has found applications in almost all areas of energy and combustion \cite{liLatticeBoltzmannMethods2016a}.
-% -------------------------------------
-
-The lattice Boltzmann method (LBM) originally grew out of the lattice gas automata \cite{succi2001lattice}. It is positioned in the middle between Eulerian and Lagrangian methods for solving fluid flow problems. Instead of calculating the properties of individual particles, the particle distribution function (PDF) is used for describing the distribution of particles that is computed for each node in the discretized domain. As we mentioned earlier, each node needs only its neighbours for the actual computation, allowing for good parallelization. A collision of particle distributions is described by $\Omega$ operator, that states the rate of change of PDF (denoted as $f$) is equal to the rate of collision in the limit of $dt \xrightarrow[]{} 0$:
+Instead of calculating the properties of individual particles, the particle distribution function (PDF) is used for describing the distribution of particles that is computed for each node in the discretized domain. Each node needs only its neighbours for the actual computation, allowing for good parallelization. A collision of particle distributions is described by $\Omega$ operator, that states the rate of change of PDF (denoted as $f$) is equal to the rate of collision in the limit of $dt \xrightarrow[]{} 0$:
 
 \begin{equation}
 	\label{eq:collision-operator}
 	\frac{df}{dt} = \Omega(f).
 \end{equation}
 
-The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \cite{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
+The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \citep{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
 
 \begin{equation}
 	\label{eq:bgk-operator}
 	\Omega_i = \frac{1}{\tau}(f^{eq}_i - f_i),
 \end{equation}
+
 where $f^{eq}_i $ is an particle distribution function in an equilibrium state of the system obtained by Taylor expansion of the Maxwell-Boltzmann equilibrium function. The relaxation parameter $\tau$ is the reciprocal that presents a time in which the systems relaxes towards the equilibrium.
 
-The Lattice Boltzmann Equation (LBE) in its discrete form, the fundamental part of the lattice Boltzmann method, is obtained by discretization of the velocity space of the Boltzmann equation into a finite number of discrete velocities $e_i$, $i = 0,1,...,8$. It can be stated as
+The Lattice Boltzmann Equation (LBE) in its discrete form, the fundamental part of the lattice Boltzmann method, is obtained by discretization of the velocity space of the Boltzmann equation into a finite number of discrete velocities $e_i$, $i = 0,1,...,Q$, with $Q = 9$ for D2Q9 and $Q = 27$ for D3Q27 stencil respectively (Figure~\ref{fig:stencils}). 
+
+\begin{figure}[!ht]
+	\centering
+	\captionsetup{justification=centering}
+	\subfloat[D2Q9.\label{fig:d2q9-node}]{%
+		\includegraphics[width=0.3\textwidth]{figures/D2Q9_colored.pdf}%
+	} \qquad
+	\subfloat[D3Q27.\label{fig:d3q27-node}]{%
+		\includegraphics[width=0.32\textwidth]{figures/d3q27.jpg}%
+	}
+	\caption{Lattice stencils.}
+	\label{fig:stencils}
+\end{figure}
+
+The LBE can be stated as
 
 \begin{equation}
 	\label{eq:lbe-bgk}
 	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f_i (\bm{x},t)-\frac{1}{\tau}\Big[f_i (\bm{x},t) - f_i^{eq} (\bm{x},t)\Big],
 \end{equation}
-where $f_i (\bm{x},t)$ denotes the individual direction of the PDF at each lattice point in particular time and $f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t)$ is equal to resulting PDF for all neighbouring nodes in the next iteration step. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \cite{succi2001lattice}.
+where $f_i (\bm{x},t)$ denotes the individual direction of the PDF at each lattice point in particular time and $f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t)$ is equal to resulting PDF for all neighbouring nodes in the next iteration step. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \citep{succi2001lattice}. Discrete velocities $\bm{e}_i$ in D2Q9 model can be expressed in an array as
 
-Macroscopic quantities are obtained from hydrodynamic moments of the distribution function. They are computed with \ref{eq:density} and momentum flux \ref{eq:velocity} (from which the velocity can be obtained by simply dividing the equation by $\rho$)
+\begin{equation}
+	\label{discrete-velocities}
+	\bm{e}_i = \begin{bmatrix}
+		\phantom{-}0 & \phantom{-}1 & \phantom{-}0 &-1 & \phantom{-}0 & \phantom{-}1 &-1 &-1 & \phantom{-}1\phantom{-}\\
+		\phantom{-}0 & \phantom{-}0 & \phantom{-}1 & \phantom{-}0 &-1 & \phantom{-}1 & \phantom{-}1 &-1 &-1\phantom{-}
+	\end{bmatrix}
+\end{equation}
+
+for the single node in 2D grid and for D3Q27 the array is extended to accommodate 27 velocities moving in 3D grid
+
+\begin{equation}
+	\label{discrete-velocities-3d}
+	\resizebox{0.89\textwidth}{!}{$\bm{e}_i = \left[ \begin{array}{@{}*{27}{c}@{}}
+			\phantom{-}0 & \phantom{-}1 &-1 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 &-1 & \phantom{-}1 &-1 & \phantom{-}1 &-1 & \phantom{-}1 &-1 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1&-1 & \phantom{-}1 &-1 & \phantom{-}1 &-1 & \phantom{-}1 &-1 \phantom{-} \\
+			\phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 &-1 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 & \phantom{-}1 &-1 &-1 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 &-1 & \phantom{-}1 &-1 & \phantom{-}1 & \phantom{-}1 &-1 &-1 & \phantom{-}1 & \phantom{-}1 &-1 &-1 \phantom{-} \\
+			\phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 &-1 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}0 & \phantom{-}1 & \phantom{-}1 &-1 &-1 & \phantom{-}1 & \phantom{-}1 &-1 &-1 & \phantom{-}1 & \phantom{-}1 & \phantom{-}1 & \phantom{-}1 &-1 &-1 &-1 &-1\phantom{-}
+		\end{array} \right]$}
+\end{equation}
+
+Macroscopic quantities are obtained from hydrodynamic moments of the distribution function (Eq. \ref{eq:density}, \ref{eq:velocity})
 
 \begin{equation}
 	\label{eq:density}
-	\rho = \sum_{i=0}^{9}f_i,
+	\rho = \sum_{i=0}^{Q}f_i,
 \end{equation}
 
 \begin{equation}
 	\label{eq:velocity}
-	\rho\bm{u} = \sum_{i=0}^{9} \bm{e}_i  f_i .
+	\rho\bm{u} = \sum_{i=0}^{Q} \bm{e}_i  f_i .
 \end{equation}
 
 Equilibrium distribution function $f^{eq}$ can be expressed by performing a Hermite expansion of the Boltzmann equilibrium function as
@@ -233,30 +308,10 @@ where $c_s$ is the speed of sound within the lattice, usually set to $c_s = \fra
 	\label{weights}
 	\omega_0 &= 4/9,\\
 	\omega_{1,2,3,4} &= 1/9,\\
-	\omega_{5,6,7,8} &= 1/36.\\
+	\omega_{5,6,7,8} &= 1/36.
 \end{align}
 
 With a proper set of discrete velocities, the LBE recovers the incompressible Navier–Stokes equations by the Chapman–Enskog expansion. For the flows within the incompressible limit, assumptions such as low-Mach number and variations in density of order $\mathcal{O}(M^2)$ has to be made.
-
-The present study focuses on the D2Q9 discrete velocity model which is illustrated in Figure~ \ref{fig:d2q9-node}. 
-
-\begin{figure}[!ht]
-	\centering
-	\captionsetup{justification=centering}
-	\includegraphics[width=0.25\textwidth]{figures/D2Q9_colored.pdf}
-	\caption{D2Q9 lattice node scheme.}
-	\label{fig:d2q9-node}
-\end{figure}
-
-Discrete velocities $\bm{e}_i$ are expressed as
-
-\begin{equation}
-	\label{discrete-velocities}
-	\bm{e}_i = \begin{bmatrix}
-		0 & 1 & 0 &-1 & 0 & 1 &-1 &-1 & 1\\
-		0 & 0 & 1 & 0 &-1 & 1 & 1 &-1 &-1
-	\end{bmatrix}
-\end{equation}
 
 Two general steps of the LBM solver involve solving  Eq. \ref{eq:collision} for collision and Eq. \ref{eq:streaming} for streaming in each iteration.
 
@@ -270,154 +325,198 @@ Two general steps of the LBM solver involve solving  Eq. \ref{eq:collision} for 
 	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f_i (\bm{x},t+\Delta t).
 \end{equation}
 
-For the boundary condition, we implemented a simple no-slip boundary known as bounce-back, which effectively reverses the direction of $f_i$ \cite{Mawson2014InteractiveFI}. In places like input and output of simulated pipe for Kármán vortex test case, we implemented periodic boundary conditions \cite{succi2018lattice}.
+To overcome difficulties of numerical instability in applying the 3D LBM method, the multiple-relaxation-time (MRT) scheme is useful to stabilize the solution and to obtain satisfactory results. The MRT model allows for independent tuning of the relaxation times for each physical process \citep{sugaD3Q27MultiplerelaxationtimeLattice2015}. It's therefore natural to extend current work to include MRT. In this study we implemented non-orthogonal MRT-LBM in D3Q27 because it simplifies the transformation between the discrete velocity space and the moment space \citep{feiModelingRealisticMultiphase2019}.
 
-% --- Prepisat -------------------
-During the last three decades, the mesoscopic lattice Boltzmann method (LBM), based on the kinetic theory, has become an increasingly important method for numerical simulations of multiphase flows, mainly on account of its meso-scale features, easy the numerical stability compared with the SRT-LBM. The corresponding non-orthogonal MRT-LBM has been extended to sim 
-% ----------------------------
-
-
-\subsection{Kinetic Theory}
-
-% --- move me? + prepisat/dopisat
-The fluid mechanics (and it's subsequent branch of fluid dynamics) work with the inherent continuum assumption, under which fluids are treated as continuous, even though at the microscopic scale they are composed of molecules. Within the continuum assumption, the macroscopic properties such as density, pressure, bulk velocity can be defined as very small (infinitesimal) elements, in molecular length scales such elements would be regarded as very large. The continuum hypothesis is not accurate enough for the problems of molecular or nano-scale flows, or for very high speeds of fluid flows like supersonic flow.
-% ------------------------
-
-The main properties of any numerical scheme can be classified as follows \citep{succi2001lattice}:
-
-\begin{itemize}
-	\item causality,
-	\item accuracy,
-	\item stability,
-	\item consistency,
-	\item efficiency,
-	\item flexibility. 
-\end{itemize}
-
-With respect to above properties, lattice Boltzmann equation (LBE) can be classified as an explicit, Lagrangian, finite-hyperbolicity approximation of Navier-Stokes equations. 
-
-
-The LBE is obtained by discretizing the velocity space of the Boltzmann equation into a finite number of discrete velocities $e_\alpha$ \{$\alpha$ = 0,1,...,26\}. With a proper set of discrete velocities, the LBE recovers the continuum Navier–Stokes equations by the Chapman–Enskog expansion.
-
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[D3Q19]{{\includegraphics[width=6cm]{figures/d3q19.jpg} }}
-	\qquad
-	\subfloat[D3Q27]{{\includegraphics[width=6cm]{figures/d3q27.jpg} }}
-	\caption{Three-dimensional lattice node schemes.}
-	\label{fig:lattice-node-schemes}
-\end{figure}
-
-
-Caution have to be taken when working within lattice's discrete world. For simulating the interface of blown oxygen with melted fluid slag, we're working with higher Mach speeds. The basic notion is that the lattice can only support signals with a finite propagation speed. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \cite{succi2001lattice}.
-
-We can calculate the error to $\varepsilon(Ma^3)$ in space and proportional to $\varepsilon (Ma \cdot dt)$ in time, where $Ma = \frac{u}{c_s}$ is the Mach number of the system.
-
-$p = c_s^2 \rho$ is the pressure, $c_s = \frac{c}{\sqrt{3}}$ is the speed of sound, and the kinematic and viscosity $\nu$ is related to the relaxation time rates for the second-order moments by $\nu = \left(\frac{1}{s_v - 0.5}\right) c_s^2 \Delta t$ and $\xi = \frac{2}{3}\left(\frac{1}{s_b - 0.5}\right)$ respectively.
-
-
-\subsection{Bhatnagar-Gross-Krook Model}
-
-
-- TODO: napisat aj o klasickom BGK modeli \citep{bhatnagarModelCollisionProcesses1954}
-
-The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \cite{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
+The collision operator in MRT-LBM is defined as 
 
 \begin{equation}
-	\label{eq:std-bgk}
-	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f_i (\bm{x},t)-\frac{1}{\tau}\Big(f_i (\bm{x},t) - f_i^{eq} (\bm{x},t)\Big)
+	\Omega_{MRT} = M^{-1} SM,
 \end{equation}
 
-In the presence of a body force density $\bm{F} = \rho \bm{g}$, where $\bm{g}$ is
-the acceleration due to $\bm{F}$, the LBE must be modified to account for the force \cite{guoDiscreteLatticeEffects2002}.
+where $S$ is a diagonal relaxation matrix and $M$ being the transformation matrix \citep{feiModelingRealisticMultiphase2019}. The collision step is performed in moment space. Formally it can be defined as
 
 \begin{equation}
-	\label{eq:feq}
-	f_i^{eq} = \omega_i \rho \left( 1+3\frac{\bm{e}_i \cdot \bm{u}}{c} + \frac{9}{2}\frac{(\bm{e}_i \cdot \bm{u})^2}{c^2}-\frac{3}{2}\frac{\bm{u}^2}{c^2}\right)
+	m^* = m - S(m-m^{eq}),
 \end{equation}
+
+where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distribution function is be reconstructed by $f^* = M^{-1}m^*$ and used in the streaming step as usual
 
 \begin{equation}
-	\label{eq:density}
-	\rho = \sum_{i=0}^{27}f_i
+	\label{eq:lbe-post-collision}
+	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f^{*}_i (\bm{x},t+\Delta t).
 \end{equation}
 
-\begin{equation}
-	\label{eq:velocity}
-	\rho\bm{u} = \sum_{i=0}^{27} f_i \bm{e}_i + \frac{\Delta t \bm{F}}{2}
-\end{equation}
-
-\subsection{Multiple Relaxation Time}
-
-% --- Prepisat -------------------
-To overcome difficulties of numerical instability in applying the LBM method, the multiple-relaxation-time (MRT) scheme is useful to stabilize the solution and to obtain satisfactory results because the MRT model allows the usage of an independently optimized relaxation-time for each physical process \cite{sugaD3Q27MultiplerelaxationtimeLattice2015}.
-% -----------------------------------------------
-
-A general collision step in MRT can be written as \cite{feiModelingRealisticMultiphase2019}
-
-\begin{equation}
-	\label{eq:mrt-collision}
-	f_i^{*} (\bm{x},t) = f_i (\bm{x},t)-\Lambda_{i,k}\big[f_k - f_k^{eq}\big]_{(\bm{x},t)} +\frac{\Delta t}{2} \big[ F_i (\bm{x},t) +  F_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) \big]
-\end{equation}
-
-where $\bm{x}$ is the spatial position in the 3D grid, $t$ is time, $F_i$ are the forcing terms in discrete velocity space, and collision operator $\Lambda_{i,k}$ computed as \cite{feiModelingRealisticMultiphase2019}
-
-Although many schemes to discretize the velocity space have been proposed, for three-dimensional (3-D) flows, the present study focuses on so called the three- dimensional twenty-seven (D3Q27) discrete velocity model which is illustrated in Figure~ 1. Table 1 lists the sound speed $c_S$ , the discrete velocity $e_\alpha$ and the weight parameter $w_\alpha$ in the model with $c = \delta x / \delta t$ where $\delta x$ and $\delta t$ are the lattice spacing and the time step, respectively. The MRT LBM transforms the distribution function in the velocity space to the moment space by the transformation matrix $M$ . Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
-
-\begin{equation}
-	\label{eq:moments}
-	M = ... doplnit
-\end{equation}
-
-Since the moments of the distribution function correspond directly to flow quantities, the moment representation allows us to perform the relaxation processes with different relaxation-times according to different time-scales of various physical processes. The evolution equation for the particle distribution function f is thus written as
-
-\begin{equation}
-	|f (x_i +e_\alpha \delta t,t+ \delta t)\rangle-|f (x_i,t)\rangle=-M^{-1} S [|m(x_i,t)\rangle - |m^{eq} (x_i,t)\rangle]+|F(x_i,t)\rangle.
-\end{equation}
-
-where $x_i$ is the position vector of node i, $\vec{S}$ is the collision matrix, $m$ is the moment, $F$ represents an external body force and the notation for the column vector (known as the ket vector) such as $|f \rangle$ represents
-
-\begin{equation}
-	\label{eq:collision-operator}
-	\Lambda_{i,k} = (\bm{M}^{-1}\bm{SM})_{i,k}
-\end{equation}
-
-in which $S$ is a diagonal relaxation matrix.
-
-\begin{equation}
-	\label{eq:feq}
-	f_i^{eq} = \omega_i \rho \left( 1+3\frac{\bm{e}_i \cdot \bm{u}}{c} + \frac{9}{2}\frac{(\bm{e}_i \cdot \bm{u})^2}{c^2}-\frac{3}{2}\frac{\bm{u}^2}{c^2}\right)
-\end{equation}
+%For the boundary condition, we implemented a simple no-slip boundary known as bounce-back, which effectively reverses the direction of $f_i$ \cite{Mawson2014InteractiveFI}. In places like input and output of simulated pipe for Kármán vortex test case, we implemented periodic boundary conditions \cite{succi2018lattice}.
 
 
-\begin{equation}
-	\label{eq:collision-moment-space}
-	\small
-	\bm{m^*}=\bm{m}-\bm{S}\big(\bm{m}-\bm{m}^{eq}\big)+\Big(\bm{I}-\frac{\bm{S}}{2}\Big)\Delta t\bm{F}
-\end{equation}
+%\subsection{Kinetic Theory}
+%
+%% --- move me? + prepisat/dopisat
+%The fluid mechanics (and it's subsequent branch of fluid dynamics) work with the inherent continuum assumption, under which fluids are treated as continuous, even though at the microscopic scale they are composed of molecules. Within the continuum assumption, the macroscopic properties such as density, pressure, bulk velocity can be defined as very small (infinitesimal) elements, in molecular length scales such elements would be regarded as very large. The continuum hypothesis is not accurate enough for the problems of molecular or nano-scale flows, or for very high speeds of fluid flows like supersonic flow.
+%% ------------------------
+%
+%The main properties of any numerical scheme can be classified as follows \citep{succi2001lattice}:
+%
+%\begin{itemize}
+%	\item causality,
+%	\item accuracy,
+%	\item stability,
+%	\item consistency,
+%	\item efficiency,
+%	\item flexibility. 
+%\end{itemize}
+%
+%With respect to above properties, lattice Boltzmann equation (LBE) can be classified as an explicit, Lagrangian, finite-hyperbolicity approximation of Navier-Stokes equations. 
+%
+%
+%The LBE is obtained by discretizing the velocity space of the Boltzmann equation into a finite number of discrete velocities $e_\alpha$ \{$\alpha$ = 0,1,...,26\}. With a proper set of discrete velocities, the LBE recovers the continuum Navier–Stokes equations by the Chapman–Enskog expansion.
+%
+%
+%\begin{figure}[!ht]
+%	\centering
+%	\subfloat[D3Q19]{{\includegraphics[width=6cm]{figures/d3q19.jpg} }}
+%	\qquad
+%	\subfloat[D3Q27]{{\includegraphics[width=6cm]{figures/d3q27.jpg} }}
+%	\caption{Three-dimensional lattice node schemes.}
+%	\label{fig:lattice-node-schemes}
+%\end{figure}
+%
+%
+%Caution have to be taken when working within lattice's discrete world. For simulating the interface of blown oxygen with melted fluid slag, we're working with higher Mach speeds. The basic notion is that the lattice can only support signals with a finite propagation speed. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \cite{succi2001lattice}.
+%
+%We can calculate the error to $\varepsilon(Ma^3)$ in space and proportional to $\varepsilon (Ma \cdot dt)$ in time, where $Ma = \frac{u}{c_s}$ is the Mach number of the system.
+%
+%$p = c_s^2 \rho$ is the pressure, $c_s = \frac{c}{\sqrt{3}}$ is the speed of sound, and the kinematic and viscosity $\nu$ is related to the relaxation time rates for the second-order moments by $\nu = \left(\frac{1}{s_v - 0.5}\right) c_s^2 \Delta t$ and $\xi = \frac{2}{3}\left(\frac{1}{s_b - 0.5}\right)$ respectively.
 
-where $\bm{m}=\bm{Mf}$, $\bm{m^{eq}}=\bm{Mf^{eq}}$, and $\bm{F}=\bm{MF}$.
 
+%\subsection{Bhatnagar-Gross-Krook Model}
+%
+%
+%- TODO: napisat aj o klasickom BGK modeli \citep{bhatnagarModelCollisionProcesses1954}
+%
+%The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \cite{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
+%
 %\begin{equation}
-%|f (x_i,t)\rangle = (f_0(x_i,t),f_1(x_i,t),...,f_Q−1(x_i,t)).
+%	\label{eq:std-bgk}
+%	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f_i (\bm{x},t)-\frac{1}{\tau}\Big(f_i (\bm{x},t) - f_i^{eq} (\bm{x},t)\Big)
 %\end{equation}
-
-\begin{equation}
-	\label{eq:moments}
-	\bm{m} = [m_0, m_1,...,m_{26}]^T
-\end{equation}
-
-For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. It allows for more degrees of freedom and better tunability of relaxation parameters. Stability is a key property in any numerical scheme \cite{succi2001lattice}. It helps to protect against cumulative error build-up or other sources of inaccuracies.
+%
+%In the presence of a body force density $\bm{F} = \rho \bm{g}$, where $\bm{g}$ is
+%the acceleration due to $\bm{F}$, the LBE must be modified to account for the force \cite{guoDiscreteLatticeEffects2002}.
+%
+%\begin{equation}
+%	\label{eq:feq}
+%	f_i^{eq} = \omega_i \rho \left( 1+3\frac{\bm{e}_i \cdot \bm{u}}{c} + \frac{9}{2}\frac{(\bm{e}_i \cdot \bm{u})^2}{c^2}-\frac{3}{2}\frac{\bm{u}^2}{c^2}\right)
+%\end{equation}
+%
+%\begin{equation}
+%	\label{eq:density}
+%	\rho = \sum_{i=0}^{27}f_i
+%\end{equation}
+%
+%\begin{equation}
+%	\label{eq:velocity}
+%	\rho\bm{u} = \sum_{i=0}^{27} f_i \bm{e}_i + \frac{\Delta t \bm{F}}{2}
+%\end{equation}
+%
+%\subsection{Multiple Relaxation Time}
+%
+%% --- Prepisat -------------------
+%To overcome difficulties of numerical instability in applying the LBM method, the multiple-relaxation-time (MRT) scheme is useful to stabilize the solution and to obtain satisfactory results because the MRT model allows the usage of an independently optimized relaxation-time for each physical process \cite{sugaD3Q27MultiplerelaxationtimeLattice2015}.
+%% -----------------------------------------------
+%
+%A general collision step in MRT can be written as \cite{feiModelingRealisticMultiphase2019}
+%
+%\begin{equation}
+%	\label{eq:mrt-collision}
+%	f_i^{*} (\bm{x},t) = f_i (\bm{x},t)-\Lambda_{i,k}\big[f_k - f_k^{eq}\big]_{(\bm{x},t)} +\frac{\Delta t}{2} \big[ F_i (\bm{x},t) +  F_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) \big]
+%\end{equation}
+%
+%where $\bm{x}$ is the spatial position in the 3D grid, $t$ is time, $F_i$ are the forcing terms in discrete velocity space, and collision operator $\Lambda_{i,k}$ computed as \cite{feiModelingRealisticMultiphase2019}
+%
+%Although many schemes to discretize the velocity space have been proposed, for three-dimensional (3-D) flows, the present study focuses on so called the three- dimensional twenty-seven (D3Q27) discrete velocity model which is illustrated in Figure~ 1. Table 1 lists the sound speed $c_S$ , the discrete velocity $e_\alpha$ and the weight parameter $w_\alpha$ in the model with $c = \delta x / \delta t$ where $\delta x$ and $\delta t$ are the lattice spacing and the time step, respectively. The MRT LBM transforms the distribution function in the velocity space to the moment space by the transformation matrix $M$ . Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
+%
+%\begin{equation}
+%	\label{eq:moments}
+%	M = ... doplnit
+%\end{equation}
+%
+%Since the moments of the distribution function correspond directly to flow quantities, the moment representation allows us to perform the relaxation processes with different relaxation-times according to different time-scales of various physical processes. The evolution equation for the particle distribution function f is thus written as
+%
+%\begin{equation}
+%	|f (x_i +e_\alpha \delta t,t+ \delta t)\rangle-|f (x_i,t)\rangle=-M^{-1} S [|m(x_i,t)\rangle - |m^{eq} (x_i,t)\rangle]+|F(x_i,t)\rangle.
+%\end{equation}
+%
+%where $x_i$ is the position vector of node i, $\vec{S}$ is the collision matrix, $m$ is the moment, $F$ represents an external body force and the notation for the column vector (known as the ket vector) such as $|f \rangle$ represents
+%
+%\begin{equation}
+%	\label{eq:collision-operator-mrt}
+%	\Lambda_{i,k} = (\bm{M}^{-1}\bm{SM})_{i,k}
+%\end{equation}
+%
+%in which $S$ is a diagonal relaxation matrix.
+%
+%\begin{equation}
+%	\label{eq:feq}
+%	f_i^{eq} = \omega_i \rho \left( 1+3\frac{\bm{e}_i \cdot \bm{u}}{c} + \frac{9}{2}\frac{(\bm{e}_i \cdot \bm{u})^2}{c^2}-\frac{3}{2}\frac{\bm{u}^2}{c^2}\right)
+%\end{equation}
+%
+%
+%\begin{equation}
+%	\label{eq:collision-moment-space}
+%	\small
+%	\bm{m^*}=\bm{m}-\bm{S}\big(\bm{m}-\bm{m}^{eq}\big)+\Big(\bm{I}-\frac{\bm{S}}{2}\Big)\Delta t\bm{F}
+%\end{equation}
+%
+%where $\bm{m}=\bm{Mf}$, $\bm{m^{eq}}=\bm{Mf^{eq}}$, and $\bm{F}=\bm{MF}$.
+%
+%%\begin{equation}
+%%|f (x_i,t)\rangle = (f_0(x_i,t),f_1(x_i,t),...,f_Q−1(x_i,t)).
+%%\end{equation}
+%
+%\begin{equation}
+%	\label{eq:moments}
+%	\bm{m} = [m_0, m_1,...,m_{26}]^T
+%\end{equation}
+%
+%For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. It allows for more degrees of freedom and better tunability of relaxation parameters. Stability is a key property in any numerical scheme \cite{succi2001lattice}. It helps to protect against cumulative error build-up or other sources of inaccuracies.
 
 
 \subsection{Boundary Conditions}
+%DONE
+Dynamics of the fluid flow is dependent on the surrounding environment described mathematically with suitable boundary conditions. They play a crucial role as they select solutions which are compatible with external constraints. Their overall treatment makes the difference in the quality of CFD simulation \citep{succi2018}.
 
+At the start point during the simulation initialization phase, an initial conditions have to be set up. They are basically a boundary conditions at $t = 0$. Popular practice is to set the PDF to local equilibrium according to the prescribed value of the hydrodynamic field and initial density with initial velocity to zero
 
+\begin{equation}
+	\label{eq:initial-conditions-pdf}
+	f_i (\bm{x},t_0) = f_i^{eq} (\bm{x},t_0),
+\end{equation}
 
-% prepisat -----------------
-An inviscid fluid has no viscosity, $\nu = 0$. In practice, an inviscid flow is an idealization, one that facilitates mathematical treatment. In fact, purely inviscid flows are only known to be realized in the case of superfluidity. Otherwise, fluids are generally viscous, a property that is often most important within a boundary layer near a solid surface,[21] where the flow must match onto the no-slip condition at the solid. In some cases, the mathematics of a fluid mechanical system can be treated by assuming that the fluid outside of boundary layers is inviscid, and then matching its solution onto that for a thin laminar boundary layer.
+\begin{equation}
+	\label{eq:initial-conditions-density}
+	\rho_0 (\bm{x}) = \rho (\bm{x},t_0), 
+\end{equation}
 
-For fluid flow over a porous boundary, the fluid velocity can be discontinuous between the free fluid and the fluid in the porous media (this is related to the Beavers and Joseph condition). Further, it is useful at low subsonic speeds to assume that gas is incompressible—that is, the density of the gas does not change even though the speed and static pressure change.
+\begin{equation}
+	\label{eq:initial-conditions-velocity}
+	\bm{u}_0 (\bm{x}) = \bm{u} (\bm{x},t_0).
+\end{equation}
+
+Geometric boundary conditions have multiple forms, namely:
+
+\begin{itemize}
+	\item periodic,
+	\item no-slip,
+	\item free-slip,
+	\item frictional slip,
+	\item sliding walls,
+	\item open inlet and outlet.
+\end{itemize}
+
+Various LBM solvers implement different types of listed boundary conditions, but usually for the sake of simplicity and lower computational cost, periodic and no-slip are used. Periodic boundary conditions are one of the simplest to implement. They are typically used to isolate bulk fluid phenomena from boundaries of physical system. No-slip boundary-condition, also known as bounce-back, refers to solid surfaces with zero fluid velocities. They expect that the solid walls have enough rugosity to prevent any additional motion of the fluid relative to the wall \citep{succi2018}. Effectively, this results in a reversal of the discrete velocities direction of $f_i$ \citep{Mawson2014InteractiveFI}.
+
+In current work, the simulation software implements a simple no-slip boundary. In places like inflow and outflow of simulated pipe for Kármán vortex test case, we implemented periodic boundary conditions \citep{succi2001lattice}.
 % --------------------------
 
 %
@@ -437,38 +536,51 @@ For fluid flow over a porous boundary, the fluid velocity can be discontinuous b
 %\subsubsection{Sub-grid Scale Modeling}
 
 \subsection{Multiphase Flows}
+% DONE
+An important area of LBM applications is multiphase and multicomponent simulations. Such phenomena can be observed when fluids of different densities meet at some interface, usually between gases and liquids. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. 
 
-% --- Prepisat -------------------
-Interfaces between different phases and/or components are ubiquitous in multiphase flows and energy applications, such as rain dynamics, plant spraying, water boiling, and gas turbine blade cooling, to name but a few. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. The dynamics of the interfaces is difficult to investigate because typical interfaces are extremely thin, complex in shape, and deforming at short time scales. In addition, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved. Therefore, development of robust and accurate computational methods to capture the complex interfacial phenomena is crucial in the study of multiphase flows \cite{feiModelingRealisticMultiphase2019}.
-% -----------------------------------
+Dynamics of multicomponent flows are difficult to investigate due to thinness and complexness of the interface between them. The problem with multiphase flows, in turn, can be very short times of change between phases. Additionally, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved \citep{feiModelingRealisticMultiphase2019}. 
 
-% prepisat
-Non-ideal fluids and multiphase flows. 
-A major area of LB application is the simulation of a variety of multiphase and multicomponent flows [24–26]. Here, the main asset is the flexibility of the source term and/or local equilibria towards the inclusion of non-ideal interactions. A particularly popular expression is the one proposed by Shan and Chen,
+Development of accurate and robust multiphase models to investigate complex processes at the interfaces is crucial. Such models mostly fall into the following categories:
 
-\begin{equation}
-	\vec{F}(\vec{x}) = \psi(\vec{x}) \sum_{i=0}^{b}G(\vec{x},\vec{x}+\vec{c_i})\vec{c_i}\psi(\vec{x}+\vec{c_i}),
-\end{equation}
+\begin{itemize}
+	\item color-gradient methods,
+	\item pseudopotential methods,
+	\item free-energy methods,
+	\item phase-field methods.
+\end{itemize}
 
-where $\psi(\vec{x})$ is a local functional of the fluid density $\rho(\vec{x})$.
+All of aforementioned methods were successfully applied to dynamic multiphase flows at large density ratios ($\rho_l / \rho_g \approx 10^3$) and high Reynolds numbers \citep{liLatticeBoltzmannMethods2016a}. Practical applications include droplet splashing and droplet collision, water-gas two-phase transport in fuel cells, electrolyte transport dynamics in batteries, and phase-change heat transfer like boiling or evaporation.
 
-By proper choice of this functional, the main features of non-ideal fluids, namely a non-monotonic equation of state supporting phase transitions and non-zero surface tension can be incorporated at a minimum programming effort. This simple variant opens up a vast scenario of applications involving multiphase and multicomponent flows, including foams and emulsions (see Figure~ 2). Needless to say, this variant comes with a number of limitations, such as spurious interface currents, which severly constrain the accessible range of density ratios between the liquid and vapor phase. Yet, owing to its simplicity and efficiency, the method has gained increasing popularity over the years. Subsequent developments have improved significantly over the original version, but much remains to be done to gain further accuracy, especially in terms of multigrid/multiscale procedures at complex fluid interfaces. Another important issue is the incorporation of finite-temperature fluctuations for nanoscale flows.
+Although multiphase flows are interesting use-case for LBM simulation, their support was not implemented in current solver implementation described in this thesis. But at the same time, some parts of the research that is being done at the Institute of Control and Informatization of Production Processes at Technical University of Košice, where I currently work, focuses on steelmaking and underground gasification of coal. Simulating involved processes with LBM and multiphase methods can pave a new way towards better understanding of the phenomena in those areas.
 
-% dopisat
-existing multiphase LB models can be classified into four categories: the color-gradient model, the pseudopotential model, the it was shown by Li et al. that a non-orthogonal MRT-LBM free-energy model, and the mean-field model.
+%% --- Prepisat -------------------
+%Interfaces between different phases and/or components are ubiquitous in multiphase flows and energy applications, such as rain dynamics, plant spraying, water boiling, and gas turbine blade cooling, to name but a few. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. The dynamics of the interfaces is difficult to investigate because typical interfaces are extremely thin, complex in shape, and deforming at short time scales. In addition, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved. Therefore, development of robust and accurate computational methods to capture the complex interfacial phenomena is crucial in the study of multiphase flows \cite{feiModelingRealisticMultiphase2019}.
+%% -----------------------------------
 %
-
-% --- Prepisat -------------------
-Among them, can retain the numerical accuracy while simplifying the implementation of its orthogonal counterpart. In parallel, the CLBM which can be viewed as a non-orthogonal MRT-LBM in the co-moving frame, has been shown to possess very good numerical stability for high Rayleigh number thermal flows,39 as well the pseudopotential model is considered in the present work due to its simplicity and computational efficiency. In this model, the interactions among populations of molecules are modeled by a density-dependent pseudopotential. Through interactions among the particles on the nearest-neighboring sites, phase separation and breakup and/or merging of phase interfaces can be achieved automatically. For further details about the multiphase LB models, interested readers are directed to some comprehensive review
-% ------------------------------------
-
-% prepisat alebo odstranit
-The volume of fluid (VOF) model was used in this simulation. By tracking the volume fraction of each control unit, the VOF model can solve a single momentum equation. Thus, it can be used to simulate the fluid flow of two phase or multiphase, and it is typically applied to track the steady-state or transient gas–liquid interface.
-Each phase in the model has its own volume fraction a. The sum of the volume fraction of each phase in an arbitrary calculation area is 1 \cite{lvSimulationFlowFluid}.
+%% prepisat
+%Non-ideal fluids and multiphase flows. 
+%A major area of LB application is the simulation of a variety of multiphase and multicomponent flows [24–26]. Here, the main asset is the flexibility of the source term and/or local equilibria towards the inclusion of non-ideal interactions. A particularly popular expression is the one proposed by Shan and Chen,
 %
+%\begin{equation}
+%	\vec{F}(\vec{x}) = \psi(\vec{x}) \sum_{i=0}^{b}G(\vec{x},\vec{x}+\vec{c_i})\vec{c_i}\psi(\vec{x}+\vec{c_i}),
+%\end{equation}
+%
+%where $\psi(\vec{x})$ is a local functional of the fluid density $\rho(\vec{x})$.
+%
+%By proper choice of this functional, the main features of non-ideal fluids, namely a non-monotonic equation of state supporting phase transitions and non-zero surface tension can be incorporated at a minimum programming effort. This simple variant opens up a vast scenario of applications involving multiphase and multicomponent flows, including foams and emulsions (see Figure~ 2). Needless to say, this variant comes with a number of limitations, such as fake interface currents, which severly constrain the accessible range of density ratios between the liquid and vapor phase. Yet, owing to its simplicity and efficiency, the method has gained increasing popularity over the years. Subsequent developments have improved significantly over the original version, but much remains to be done to gain further accuracy, especially in terms of multigrid/multiscale procedures at complex fluid interfaces. Another important issue is the incorporation of finite-temperature fluctuations for nanoscale flows.
+%
+%% dopisat
+%existing multiphase LB models can be classified into four categories: the color-gradient model, the pseudopotential model, the it was shown by Li et al. that a non-orthogonal MRT-LBM free-energy model, and the mean-field model.
+%%
+%
+%% --- Prepisat -------------------
+%Among them, can retain the numerical accuracy while simplifying the implementation of its orthogonal counterpart. In parallel, the CLBM which can be viewed as a non-orthogonal MRT-LBM in the co-moving frame, has been shown to possess very good numerical stability for high Rayleigh number thermal flows,39 as well the pseudopotential model is considered in the present work due to its simplicity and computational efficiency. In this model, the interactions among populations of molecules are modeled by a density-dependent pseudopotential. Through interactions among the particles on the nearest-neighboring sites, phase separation and breakup and/or merging of phase interfaces can be achieved automatically. For further details about the multiphase LB models, interested readers are directed to some comprehensive review
+%% ------------------------------------
+
 
 \subsection{Adaptive Mesh Refinement}
-
+% DONE?
 Turbulent flows or multiphase flows involves different densities, like gas bubbles, liquid droplets or creation of foam. Turbulence is a complex, non-linear, multi-scale phenomenon, which is very difficult to simulate accurately for smaller parts of the turbulent flows. Problem with bubbles is that the gas-liquid interface typically spans to a thickness of 3-5 grid spacing. Both of these problems need denser grid to accurately represent them, thus requiring more computational power to simulate them effectively. Typically, not everything in the computational domain needs to be represented with the same amount of accuracy.
 
 Effective technique for such problems can be an Adaptive Mesh Refinement. With this technique, the mesh resolution is not constant, but adapts according to the accuracy requirements in specific part of the domain. Fine mesh resolution is used for problematic parts where high accuracy is needed and coarse mesh is applied to the bulk fluid away from the interface. This gives a tremendous benefit in reducing the computation cost \citep{yuanAdaptiveMeshRefinementmultiphase2017}.
@@ -483,290 +595,75 @@ It doesn't stay there. Lattice-Boltzmann formalism doesn't restrict itself only 
 
 % -------------------------------------------------------------------------------
 
-\section{Visualization Methods}
-
-\begin{chapquote}{J. Joyce, \textit{Ulysses}}
-	``Errors are the portals to discovery."
-\end{chapquote}
-
-Visualization facilitates insight into data across many disciplines. It's an essential tool for displaying trends in data. These can be in a form of plots, graphs or colorful patterns drawn on screen. The target audience doesn't need to be just scientists, but also general public. 
-
-% prepisat
-Scientific visualization is the use of computer graphics to create visual images that aid in the understanding of complex numerical representations of scientific concepts or results. Computational fluid dynamics (CFD) based numerical simulations often output massive amounts of data. These simulations often contain high-dimensional data in a three- dimensional volume. The display of phenomena associated with this data may involve complex three-dimensional structures.
-%
-
-% prepisat
-Much of computer science is about transforming and representing information that enables or supports information processing, either by machines or humans. Graphics, visualization and human-computer interaction comprises the science, engineering and design of graphical, visual, informational and interactive representations for use by humans. At UC Davis, we study theories and principles fundamental to the construction and optimization of graphics, visualization and interactive systems, as well as applications and use of these technologies in a broader, interdisciplinary context.
-%
-
-\subsection{Human-Computer Interface}
-
-% upravit a povyberat co treba
-Designing the behavior of an interactive object requires understanding and handling a large number of variables linked to: the function of the object (what-level), the way the function is accomplished (how-level) and the way a user experiences that function (why-level). Traditionally HCI uses a paradigm based on ``efficiency" to drive the design process, but recently integrated an aesthetics approach as a way to design the behavior from an experiential, rather than a functional, point of view ...  \citep{spadaforaDesigningBehaviorInteractive2016}
-
-When dealing with interactive objects, we deal with Pragmatist Aesthetics. This kind of aesthetics underlines “how people experience the world dialogically as embodied subjects”
-
- \citep{spadaforaDesigningBehaviorInteractive2016}.
-
-\subsubsection{SCADA}
-
-% upravit https://www.dpstele.com/scada/how-systems-work.php
-Supervisory Control and Data Acquisition (SCADA) is a system that aims to monitor and control field devices at your remote sites. SCADA systems are critical as it helps maintain efficiency by collecting and processing real-time data.
-
-SCADA is a centralized system that monitors and controls the entire area. This supervisory system gathers data on the process and sends the commands control to the process.
-
-The main goal of this supervisory system is to monitor and control equipment in the industrial processes for companies in the public and private sectors. As a matter of fact, in today's world, there are SCADA systems almost everywhere. This includes industrial plants, manufacturing, transportation, oil and gas, power distribution, water control and etc.
-
-Four SCADA Functions:
-
-\begin{enumerate}
-	\item Data acquisition
-	\item Networked Data Communication
-	\item Data presentation
-	\item Control
-\end{enumerate}
-
-In data acquisition, the collection of SCADA data frequently involves some kind of analog to digital conversion. Temperature is converted to degrees Celsius. Transmit signal strength is converted to dBm. Channel quality is measured in errored seconds. 
-
-The collected data is transmitted either spontaneously or in response to a request for data to some kind of upstream consolidator or master. The communication channel can be analog (T202, POTS) or digital (RS485, TCP/IP). SCADA network topology typically also includes some kind of transport validation independent of any content validation.
-
-
-The collected data is processed, organized and presented for system operators to make appropriate response and control decisions. The presentation can vary from tabular presentation of logged events to graphical presentation against mapping or image backgrounds.
-
-If control decisions are warranted and the system supports output, appropriate commands can be dispatched to affect specific operational or configuration changes. Most control actions are performed by RTUs and PLCs.
-
-Four main components of SCADA: inputs, remote telemetry units (RTUs),human-machine interface (HMI) and communication network.
-
-% Vysvetlenie preco SCADA nie je dostacujuca pre to co potrebujeme v real-time modsim a preco chceme VR
-
-SCADA systems provide an invaluable interface for working with real-time data from various processes. Especially for many in the business of data and natural sciences, SCADA is a rich source of real-world data on demand. It's been successfully coupled with the machine learning to work with high-frequency of large amounts of data \citep{linWindPowerPrediction2020}. 
-
-% trosku doplnit/prepisat
-The problem with visual design approaches in SCADA applications is that the interfaces was mostly limited to simple graphics like plots, simple 2D animations, animated gauges, interactive knobs etc. It can be argued that it's often not needed to have complex visuals in specialized SCADA applications and they are "good enough" for the job at hand.
-
-% nejake premostenie?
-
-An interesting look into the future of SCADA interfaces was presented in study by \cite{soeteMixedRealitySCADA2015}, in which they managed to implement a Augmented Reality (AR) supporting tool for SCADA application in simulated automated logistic process. It shows potential benefits of using VR and AR technologies in the development of supervisory control and support. AR and VR is fairly new and relatively unknown in the industry, so the integration of such technologies is still in its infancy.
-
-% Mozno spomenut este vyuztie computer vision libraries ako OpenCV (C++), ktore je potrebne vyuzit pre implementaciu mixed reality aplikacii v spojeni so SCADA systemami (sledovat co sa deje v realnom svete a dalej pracovat s tymito datami... spojit to s machine learningom a object recognition... 
-
-% doplnit/upravit aby to davalo zmysel.. mozno prehodit inde?
-To really understand the nature of the processes, we have to build a better tools for "seeing" and experimentation on demand. 
-
-... doplnit nejake veci od Breta Victora rovno tu??
-
-\subsubsection{Principles of UI Design}
-
-\subsubsection{From 2D to 3D User Interfaces}
-
-
-
-\subsection{Post Hoc Visualization}
-
-Scientific visualization is usually performed as a post-processing task \citep{kressSituVisualizationTechniques}. The output from simulation is saved to disk and then the data are loaded into visualization software for further processing. The goal is to gather the insights from data, 
-% toto zaclenit hore do odseku
-to communicate insights to other scientists, professionals or general public. 
-
-% prepisat (\citep{kressSituVisualizationTechniques})
-This approach has the benefit that the visualization software has access to all of the data from every step all at once, making algorithms and visualization workflows easier to develop.
-
-Most of the parallelism in current scientific visualization tools relies on not just distributed memory parallelism, but specifically the message passing interface (MPI). MPI is heavyweight, and requires a whole copy of the visualization program per process. As we transition our visualization codes to higher and higher concurrencies on the march to exascale, this overhead can exceed the system memory and disk space before any data is even loaded [19]. This revelation is important to consider when running a visualization tool at scales approaching those the size of the scientific simulations themselves.
-In order to achieve parallel scalability for massive threading, visualization algorithms will have to be redesigned [23]. The key in this redesign will be to focus on data model, data interdependencies, and portable performance.
-% --------------------------
-
-% prepisat, z abstraktu od Keplera
-Scientific visualization for exascale computing is very likely to require in situ processing. Traditional simulation checkpointing and post hoc visualization will likely be unsustainable on future systems at current trends due to the growing gap between I/O bandwidth and FLOPS. As a result, the majority of simulation data may be lost if in situ visualization techniques are not deployed. In situ visualization in this paradigm will be given unprecedented access to simulation output, potentially being able to process all relevant simulation output at every simulation time step, allowing for very high temporal fidelity compared to traditional post hoc visualization. However, this access poses many challenges in terms of data management, resource management and sharing, algorithm development and design, and implementation approaches. Currently, the community primarily relies on two in situ techniques: tightly coupled (on the same resource as the simulation) and loosely coupled (not sharing resources with the simulation). Each of these approaches have positive and negative factors which affect their performance under different simulation, resource, and visualization type constraints. Meaning, that for every given visualization task, it is not generally known which method would give the best performance on every data type, architecture, and set of resource constraints. Due to the lack of research and development on this topic it is still an open research problem requiring future research
-\citep{kressSituVisualizationTechniques}
-
-- The Visualization Toolkit \\
-- ParaView \\
-
-
-\subsection{Real-time Visualization}
-\label{rt-viz}
-% DONE
-Real-time simulation, i.e. the ability to simulate a virtual system as fast as the real system would evolve, can be beneficial to many engineering applications. To achieve real-time fluid flow simulation, numerical methods need to be selected carefully to make full use of the hardware capabilities. Generally, these were often simplified for use in games with lower accuracy, as the focus in gaming environments is more on creating visually appealing animation rather than aiming for physical accuracy \citep{delboscRealTimeSimulationIndoor}.
-
-The Lattice-Boltzmann method in context of CFD simulations is ideally suited to acceleration on GPUs due to its spatial and temporal locality. Thanks to this they have extremely high computational throughput compared with traditional CFD methods. Therefore with such method as LBM, it is now possible to achieve sound physical accuracy and good enough speed to reach real-time simulation capabilities.
-
-The progress of scientific computations can be viewed in real-time thanks to the high-performance OpenGL visualization library called Forge. It is developed by the same team behind ArrayFire and distributed together with their library for high-performance parallel computing. It is written specifically for use with GPU-accelerated applications as it doesn't require the expensive copying from GPU to CPU and back to GPU for rendering, but instead it builds on CUDA/OpenCL interoperability with OpenGL and allows for direct reading of the data on GPU \citep{forge2016}. Forge provides various plotting and visualization functions for 2D and 3D domains.
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[High-performance visualization pipeline.\label{fig:viz-classic}]{%
-		\includegraphics[width=0.51\textwidth]{figures/viz-classic.pdf}%
-	} \qquad
-	\subfloat[High-performance visualization pipeline.\label{fig:viz-forge}]{%
-		\includegraphics[width=0.43\textwidth]{figures/viz-forge.pdf}%
-	}
-	\caption{Differences between CPU-bound visualization with expensive copying bottleneck and high-performance GPU-bound visualization keeping full speeds of high-bandwidth of PCIe interface.}
-	\label{fig:viz-forge-main}
-\end{figure}
-
-Practical scientific simulations for in-depth study of complex physical phenomena from real world, e.g. direct numerical simulation of cellular blood flow \citep{kotsalosDigitalBloodMassively2019}, requires higher accuracy. Instead of single-precision floating-point type (\texttt{f32}) computation, double-precision floating-point (\texttt{f64} has to be chosen. In LBM context, this practically doubles the amount of memory needed. For real-time visualizations of results with this type of precision, they have to be converted to a single-precision floating-point for Forge to effectively work with the data. In ArrayFire (and generally in programming), function for this operation is called \texttt{cast} (Alg. \ref{forge-cast-f32}).
-
-\begin{lstlisting}[language=Rust, caption={Converting to single precision floating point for Forge visualization in C, C++ and Rust}, label=forge-cast-f32]
-	// C
-	af_array A_f64 = af_randu(100,100);
-	af_array B_f32;
-	cast(*B_f32, A_f64, f32);
-	// C++
-	array A_f64 = randu(100,100);
-	array B_f32 = A_f64.as(f32);
-	// Rust
-	let dims = af::Dim4::new(&[100, 100,  1, 1]);
-	let A_f64 = af::randu::<f64>(dims);
-	let B_f32 = A_f64.cast::<f32>();
-\end{lstlisting}
-
-While developing the C++ and Rust implementations of LBM simulation backend, we used \texttt{image()} and \texttt{vector_field_2()} functions from Forge library for visualizing density and velocity of both lid-driven cavity and Kármán vortex street test cases in 2D (Figure~ \ref{fig:d2q9_lid} and Figure~ \ref{fig:d2q9_channel}).
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Visualization of lid-driven cavity simulation.\label{fig:d2q9_lid_5000_viz}]{%
-		\includegraphics[width=0.3\textwidth]{figures/d2q9_lid_5000_viz.jpg}%
-	}\qquad
-	\subfloat[Velocity vector field.\label{fig:d2q9_lid_5000_u_field}]{%
-		\includegraphics[width=0.335\textwidth]{figures/d2q9_lid_5000_u_field.jpg}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Lid-driven cavity test case at 128$\times$128 resolution after 5000 iterations.}
-	\label{fig:d2q9_lid}
-\end{figure}
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Visualization of Kármán vortex street simulation.\label{fig:d2q9_channel_5000_viz}]{%
-		\includegraphics[width=0.63\textwidth]{figures/d2q9_channel_5000_viz.jpg}%
-	} \par
-	\subfloat[Velocity vector field (filtered for better presentation).\label{fig:d2q9_channel_5000_u_field}]{%
-		\includegraphics[width=0.65\textwidth]{figures/d2q9_channel_5000_u_field.jpg}%
-	}
-	\caption{Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times$300 resolution after 5000 iterations.}
-	\label{fig:d2q9_channel}
-\end{figure}
-
-% Visualizations can be zoomed, panned and rotated with a mouse.
-
-\subsection{Interactive Visualization}
-\label{interactive-simulation}
-% DONE
-Interpreting simulation results is often a laborious process. Already few decades ago, it was clear that to understand fluid phenomena in depth, we should move towards interactive simulation \citep{frischLatticeGasAutomataNavierStokes1986}. This would allow run-time manipulation of geometrical and physical simulation variables, opening ways to rapidly and intuitively investigate different scenarios and design configurations.
-
-Recently, the increase of computational power and advances in general-purpose computing on GPUs (GPGPU) made this possible  \citep{delboscRealTimeSimulationIndoor, harwoodParallelisationInteractiveLatticeBoltzmann2017, kolihaOnlineVisualizationInteractive2015, glessmerUsingInteractiveLattice2017}. Together with the performance and speed of the LBM method, it's now possible to compute several hundreds of iterations per second which makes an interaction with the simulation in progress possible \citep{wangInteractive3DFluid2019}. Getting instant feedback according to the change of various parameters in simulation gives researchers the ability to iterate faster toward the creation of accurate model, better understanding of underlying phenomena, or employing simulation within the control of industrial systems. It is therefore desirable to push the limits of execution speed of LBM simulations.
-
-Main goal to implement LBM algorithms for our simulation software is the ability to perform high performance computation and still keep the CPU free to do the additional work. The reason for it is that the visualization part is performed in virtual reality, which needs most of the CPU resources for processing the user tracking. Thanks to the fact that ArrayFire library was used, many hardware-specific optimizations were done for us behind-the-scenes. Although, there is growing body of work on optimizing LBM simulations \citep{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. We used some of the methods described in these articles. They are described in section \ref{optimizations-for-gpu}.
-
-\subsubsection{Steering the Running Simulation}
-
-\subsubsection{Time Manipulation}
-
-\subsection{Virtual and Augmented Reality}
-
-Non-immersive interactive visualization systems implemented for the conventional desktop and mouse are effective for moderately complex problems. Immersive virtual environments, by comparison, lie at the other end of the spectrum and permit looking around an object by moving one's head position.
-
-Therefore, a fundamental difference between desktop-and-mouse virtual realia and immersive VR is that the latter is a true 3D representation that may be either viewer or object-centered while the first is exclusively viewer-centered. In other words, changes in the relative positions of a 2D object’s components result from shifts in the viewer’s perspective. The same may be true for objects viewed in a three dimensional environment, whether real or vir- tual. However, in such an environment, an object may also appear to change shape (e.g., through foreshortening), not due to an altered position of the viewer, but because the ob- ject itself has moved to a different position. Immersive virtual reality displays aid in the unambiguous display of these structures by providing a rich set of spatial and depth cues. Virtual reality interface concepts allow the rapid and intuitive exploration of the volume containing the data, enabling the phenomena at various places in the volume to be ex- plored, as well as provide simple control of the visualization environment through inter- faces integrated into the environment (Bryson; 1996).
-
-Desktop-and-mouse interfaces for 3D visualizations make it difficult to specify positions in three dimensions and do not provide unambiguous display of 3D structure. Virtual reality interfaces attempt to provide the most anthropomorphic interfaces possible - that means they must be human-conforming and should be designed to allow the most natural, unambiguous way of scientific exploration. They must include two components: display and user control. Scientific visualization makes particular demands on virtual reality displays. The phenomena to be displayed in a scientific visualization application often involve delicate and detailed structure, requiring high-quality, high-resolution full-color displays. A wide field of view is often desirable, because it allows the researcher to view how detailed structures are related to larger, more global phenomena.
-
-Historically, the early attempts at using head-mounted virtual reality technologies started with CRT-based Binocular Omni-Oriented Monitor (BOOM) created by Fakespace Systems Inc. BOOM was a stereoscopic display device with screens and optical system housed in a box that is attached to a multi-link arm. Head tracking was accomplished via sensors in the links of the arm that holds the box.
-
-Advent of commodity-level VR hardware like HTC Vive or Oculus Touch has made this technology accessible for meaningful applications. These headset utilize lasers and photosensitive sensors (HTC Vive) or cameras (Oculus Touch) for head and hands tracking and provide six degrees of freedom (6DoF) for movement in virtual environment. By immersing the user into the simulation itself, virtual reality reveals the spatially complex structures in computational science in a way that makes them easy to understand and study. But beyond adding a 3D interface, virtual reality also means greater computational complexity (Bryson; 1996). The ability to provide real-time interaction can provide strong depth cues, either through allowing interactive rotations or through the use of head-tracked rendering. Applications and techniques are being developed to discern how immersive technology benefits visualization. The medical field provides an especially promising context for this development, as medical practitioners require a thorough understanding of specific 3D structures: human anatomy. Users may interact simultaneously with high resolution computed tomography (CT) scans and their corresponding, 3D anatomical structures.
-
-
-With the addition of inside-out tracking in VR headsets like Widows Mixed Reality and Oculus Quest, it brought the hand tracking support into the software development kits for each platform. More and more VR developers started to leverage the hand tracking in the interfaces of their applications. Thanks to the growth of gestures usage in virtual reality and embodied cognition, there have been various new technologies developed to either improve the modelling efficiency, or to provide more nature intuitive experience to the users \citep{dangetiComparingBarehandinairGesture2016}.
-
-% prepisat
-Embodied cognition theory suggested that the cognition is not only what happens in visual perception and brain, but rather involves many aspects of an agent’s body. It is built based on the interaction between the object and the body. In the traditional mouse/keyboard method, the user visually sees the object and controls the hand to move and click on the mouse. The loop of eye-hand coordination is indirect, where the interaction takes place between the mouse and hand, before the model’s position on screen is changed.
-%%%
-
-Another frequently used type of immersive, interactive display technology nowadays is projection-screen-based Cave Automatic Virtual Environment (CAVE). These systems consists of 3 to 6 large displays positioned into a room-sized cube around the observer. The walls of a CAVE are typically made up of rear-projection screens, but recently the flat panel displays are commonly used. The floor can be a downward-projection screen, a bottom projected screen or a flat panel display. The projection systems are very high-resolution due to the near distance viewing which requires very small pixel sizes to retain the illusion of reality. The user wears 3D glasses inside the CAVE to see 3D graphics generated by the CAVE. People using the CAVE can see objects apparently floating in the air, and can walk around them, getting a proper view of what they would look like in reality. This is made possible by infrared cameras. Movement of the observer in the CAVE is tracked by the sensors typically attached to the 3D glasses and the video continually adjusts to retain the viewers perspective.
-
-Many universities and engineering companies own and use CAVE systems. Researchers can use these systems to conduct their research topic in a more effective and accessible method. Engineers have found them useful in enhancing of a product development through prototyping and testing phases.
-
-In field of mathematics, VR application named Cal (2019) is making serious progress. It is developed by a company Nanome, Inc. started by students from University of California San Diego. Team behind Calcflow is using VR to help students grasp the biggest ideas in vector calculus. Its features include visualizations of vector addition, cross product, parametrized functions, spherical coordinate mapping, double and surface integrals. Beside Calcflow, they are implementing a VR platform specialized for atomic, molecular and protein visualization, built for researchers and scientists (Nan; 2019).
-
-One can say that virtual reality established itself in many disciplines of human activities, as a medium that allows easier perception of data or natural phenomena appearance. In fact, theme of this dissertation was influenced by my previous work with using virtual reality for mathematics education at the university TODO: CITOVAT MATHWORLDVR CLANOK!!!
-
-\subsubsection{Virtual Reality in Steelmaking}
-% vytiahnut len par veci a prehodit  vyssie
-Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars (more than 36.1 million e at the time of this writing) in savings for companies. In collaboration with other universities and companies from steelmaking industry, they focus on research regarding integration of virtual reality with simulation technologies and high performance computing; application of simulation and visualization technologies to industrial processes for process design trouble-shooting and optimization to address the issues of productivity, energy, environment, and quality; and last but not least, development of advanced learning environments in virtual reality for training and education. They launched novel, industry-led association of steel manufacturers and stakeholders called Steel Manufacturing Simulation and Visualization Consortium (SMSVC).
-
-Interesting application of combining 3D CFD smulation and virtual reality for visual in- spection is pulverized coal injection (PCI) and coke combustion model. Research efforts between the Canadian government (CANMET), CIVS and the American Iron and Steel Institute (AISI) were conducted and resulted in modeling of the blowpipe and tuyere of the blast furnace. Combination of aforementioned technologies turned out to be powerful and provided detailed information of flow streams that were previously very difficult to measure. The CFD model shown in Figure~ 2 – 12 was used to simulate PCI with natural gas co-injection in the lance, blowpipe and tuyere TODO: DOPLNIT CITACIU!!!.
-
-Another very interesting project conducted at CIVS involved development of comprehensive package of modules for simulating multiple processes in blast furnace. 3D CFD model shown in Figure~ 2 – 13 has been developed by Zheng and Hu (2014) specifically for simulating the blast furnace hearth. The campaign life of a blast furnace is highly dependent on residual thickness of refractory lining in the hearth. The progress of hearth lining erosion is greatly affected by hot metal flow patterns and heat transfer in refractory under different operating conditions. CFD model incorporates both the hot metal flow and conjugate heat transfer through the refractories. They achieved consistency of results between measured and calculated refractory temperature profiles, as the model has been extensively validated using measurement data from industry blast furnace. The virtual reality (VR) visualization technology has been used to analyze the velocity and temperature distributions and wear patterns of different furnaces and operating conditions. This interactive 3D visualization is shown in Figure~ 2 – 14. Based on the results, it was possible to predict the inner profile of hearth and provide guidance to protecting the blast furnace hearth.
-
-
-% ----------------------------------------------------------------
-
 \section{GPU Computing}
-
 \label{gpu-computing}
-% done
+% DONE
 Innovations in GPUs over the last decades was driven mainly by video games. They advanced from merely displaying pixels to being capable of doing mathematical computations. After the introduction of programmable shaders and floating-point support on graphics processors, the dynamics has changed though. At first it opened the door for using GPUs in complex physics calculations like wind blowing, fluid flows, cloth movement, etc. in games but also for scientific simulation. This movement to leveraging GPU capabilities in serious engineering work became dubbed as general-purpose computing on GPUs (GPGPU), a term coined by NVIDIA's Distinguished Engineer Mark Harris.
 
-GPU-based parallel computing reduces the time for heavy computing tasks like training a machine learning system on large data set, climate modeling, protein folding, drug discovery, or data analysis, by orders of magnitude \citep{stortiCUDAEngineersIntroduction2016, PACHECO20111}. The massive parallelism achievable with GPUs pushed the developers to invest more time in creating programs that could use it for their advantage. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required. It's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds.
+GPU-based parallel computing reduces the time for heavy computation tasks like training a machine learning system on large data set, climate modeling, protein folding, drug discovery, or data analysis, by orders of magnitude \citep{stortiCUDAEngineersIntroduction2016, PACHECO20111}. The massive parallelism achievable with GPUs pushed the developers to invest more time in creating programs that could use it for their advantage. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required. It's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds. Although, more computationally intensive tasks like Monte Carlo simulations of molecular dynamics are still hard to speed up to an order of real-time simulation.
 
-Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time. More computationally intensive tasks like Monte Carlo simulations of molecular dynamics are still hard to speed up to an order of real-time simulation.
-
-The main challenge of optimizing the GPU code is reducing the amount of copying between CPU and GPU.
+Interesting case of engineering problem for which GPU computing is showing tremendous potential is solving differential equations while changing the initial or boundary conditions in real-time. In following sections, various techniques on how to tap into the power of GPU computing will be presented.
 
 \subsection{Parallel Programming}
-
+% DONE
 For a long time, performance of computers was determined by the amount of transistors that could be fitted to a dense integrated circuit. By following the Moore's law, software developers could just wait for a predictable increase in transistors count. As speed of transistors increased, their power consumption also increased. This power is dissipated as heat, which poises a problem with reliability of the integrated circuit when it gets too hot. And with transistors getting smaller, packing more of them together makes it approach the limits of integrated circuit's ability to dissipate heat.
 
-Rather then building more complex monolithic processors, the industry has decided to put many simpler processors on a single chip, becoming multicore processors \citep{PACHECO20111}. Nowadays practically all processor have multiple cores. Unfortunately, most conventional programs were written for single-core systems that couldn't exploit the multiple cores. To effectively us them, programs have to .. %finish
-
-% add to the text above
-we need to either rewrite our serial programs so that they’re parallel, so that they can make use of multiple cores, or write translation programs, that is, programs that will automatically convert serial programs into parallel programs
-
-
-When we talk about parallel programming, we have to distinguish between CPU and GPU parallel programming.
-
-When it comes to heavy computation, leveraging multiple cores that are nowadays ubiquitous in processing units or other hardware accelerators is necessary for achieving better performance.
-
-Quickly skim through: \\
-Distributed memory parallelism \\
-shared memory parallelism \\
-Message-passing, MPI, Pthreads, OpenMP \\
-Rust multithreading with memory-safety guarantees (Rc, Arc)
-
-Venovat sa skor GPU parallelism \\
-Ako maju GPU rozlozenu memory a ako pracuju s threads vseobecne\\
+Rather then building more complex monolithic processors, the industry has decided to put many simpler processors on a single chip, which becoming multicore processors \citep{PACHECO20111}. Nowadays practically all processor have multiple cores. Unfortunately, most conventional programs were written for single-core systems that couldn't exploit the multiple cores. To effectively use them, software have to employ parallel programming model.
 
 We can consider matrix multiplication as a great exercise to showcase how code can be transformed from serial to parallel programming and differences between CPU and GPU implementation. Lets consider the problem of computing the product of two large, $N \times N$, dense matrices (represented in row-major order). The naive CPU algorithm can look like in Alg. \ref{serial-loop}.
 
 \begin{lstlisting}[language=Cpp, caption=Pseudocode with serial loop., label=serial-loop]
-for (i=0;i<N;i++) {
-	for (j=0;j<N;j++) {
-		C[i,j] = 0;
-		for (k=0;k<N;k++) {
-			C[i,j] += A[i,k]*B[k,j];
+	for (i=0;i<N;i++) {
+		for (j=0;j<N;j++) {
+			C[i,j] = 0;
+			for (k=0;k<N;k++) {
+				C[i,j] += A[i,k]*B[k,j];
+			}
 		}
 	}
-}
 \end{lstlisting}
 
 This example suffers from poor locality. Elements of $B$ are accessed column-wise and therefore they are not in sequential order in memory. The row $i$ could be removed from cache by the time the inner-most loop of $j$ completes. 
 
-% prepisat a doplnit do textu hore?
-Algorithm is bandwidth limited with poor performance and low efficiency (time spent computation versus loading data).
-
-On the GPU, we can write a program, that computes the matrix multiplication in a single pass. GPU texture will store $2 \times 2$ blocks of matrix in 4-component texels. The program will read 2 rows from matrix $A$ and 2 columns of $B$ to compute 4 elements of the output matrix $C$ at once (Alg. \ref{parallel-loop}).
+We can write a program that executes on the GPU, which computes the matrix multiplication in a single pass. GPU texture will store $2 \times 2$ blocks of matrix in 4-component texels. The program will read 2 rows from matrix $A$ and 2 columns of $B$ to compute 4 elements of the output matrix $C$ at once (Alg. \ref{parallel-loop}).
 
 \begin{lstlisting}[language=Cpp, caption=Pseudocode with serial loop., label=parallel-loop]
-for (k=0;k<N/2;k++) {
-	C[i,j].xyzw += A[i,k].xxzz*B[k,j].xyxy + A[i,k].yyww*B[k,j].zwzw;
-}
+	for (k=0;k<N/2;k++) {
+		C[i,j].xyzw += A[i,k].xxzz*B[k,j].xyxy + A[i,k].yyww*B[k,j].zwzw;
+	}
 \end{lstlisting}
 
+Considering the small size of this toy problem, the difference between CPU and GPU version in computation speed won't be noticeable. But with larger problems in terms of bigger and complex physics simulations, amount of operations can grow to extreme numbers. At that stage, speed differences between slower CPU and faster GPU computation can reach orders of hundreds.
+
+In this work we compared benchmarks of simulation software, developed with parallel algorithms, on CPU and different GPUs. Performance analysis is described in section \ref{perf-analysis}, showing noticeable differences.
+
+%When we talk about parallel programming, we have to distinguish between CPU and GPU parallel programming.
+%
+%When it comes to heavy computation, leveraging multiple cores that are nowadays ubiquitous in processing units or other hardware accelerators is necessary for achieving better performance.
+%
+%Quickly skim through: \\
+%Distributed memory parallelism \\
+%shared memory parallelism \\
+%Message-passing, MPI, Pthreads, OpenMP \\
+%Rust multithreading with memory-safety guarantees (Rc, Arc)
+%
+%Venovat sa skor GPU parallelism \\
+%Ako maju GPU rozlozenu memory a ako pracuju s threads vseobecne\\
+%
+%
+%% prepisat a doplnit do textu hore?
+%Algorithm is bandwidth limited with poor performance and low efficiency (time spent computation versus loading data).
 
 
 
 \subsection{Heterogeneous Computing}
+% DONE
+Scaling of the computational power in high-performance accelerators and supercomputers was historically done by adding more and more CPUs together to a multi-processor distributed system, also known as many-core system. When single CPU started to have multiple cores, scaling the power of those systems was done by switching older CPUs to multi-core ones. But adding more and more cores is not infinite process. With increasing number of transistors stuffed into the same size of the chip, the power and heat starts to rise again. Physical limitations were starting to manifest themselves.
+
+More than a decade ago, the GPUs were starting to supplement CPUs for computational work. The general processor (the CPU) with one type of architecture was being helped by the other processor with different architecture type (the GPU). This was the start of moving from homogenous computing towards heterogeneous computing, for which the coordination of two or more different processors is needed. 
 
 \subsection{CUDA}
-
+%DONE
 CUDA is a proprietary hardware and software platform for parallel computing on GPUs created by NVIDIA. It provides access to hardware-specific capabilities of graphics cards equipped with CUDA-enabled graphics processing units \cite{stortiCUDAEngineersIntroduction2016}. The software platform provides a development kit (SDK) and application programming interface (API), build as a superset of C programming language. Since its launch it became a dominant proprietary framework for programming NVIDIA GPUs.
 
 The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy-efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing productivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \citep{stortiCUDAEngineersIntroduction2016}.
@@ -779,7 +676,7 @@ The GPU-based approach to massively parallel computing used by CUDA is also the 
 \end{figure}
 
 \subsection{OpenCL}
-
+% mozno staci
 OpenCL (Open Computing Language) is a free and open-source standard for cross-platform, parallel programming of diverse accelerators like CPUs, GPUs, FPGAs, TPUs, etc. found in devices like personal computers or smartphones, embedded platforms, but also high-performance computing systems and supercomputers. In contrast to proprietary nature of CUDA, OpenCL is not tied to any specific hardware manufacturer, which makes its application good for plethora of different hardware.
 
 \subsection{Cross-platform GPU Programming}
@@ -879,8 +776,6 @@ Additionally, the OpenCL backend permits the programmer to add and remove custom
 
 \subsection{Accelerating Lattice Boltzmann Simulations with GPUs}
 
-
-
 % done
 Nowadays, the limiting factor is the cost of accessing data. It must be watched carefully in LBM applications, because it's going to be more and more demanding as the size of the problems to be simulated increases. A common LBM simulation program needs roughly 200 FLOPS per node and requires about 20 arrays. The amount of Bytes to be accessed in memory for one floating-point operation is in the order of 0.5 Bytes/FLOP. 
 
@@ -904,6 +799,228 @@ ArrayFire library can help by automatically leveraging the best hardware feature
 %% ---------------------------------------------------------------------------------------
 % Application
 %% ---------------------------------------------------------------------------------------
+
+\section{Visualization Methods}
+%DONE
+\begin{chapquote}{J. Joyce, \textit{Ulysses}}
+	``Errors are the portals to discovery."
+\end{chapquote}
+
+Visualization facilitates insight into data across many disciplines. It's an essential tool for displaying trends in data. These can be in a form of plots, graphs or colorful patterns drawn on screen. The target audience can be not only scientists, but also general public. But let's keep focus on a scientific visualization in the course of this work. 
+
+Numerical simulations of Computational Fluid Dynamics (CFD) often output massive amounts of high-dimensional data. Visualizing them is usually done as a separate, independent step after the data are generated and stored. These types of visualizations can be classified as post-hoc. 
+
+With current performance of conventional computers, it's no longer necessary to separate these steps. It's now possible to have a ``live" visualization running alongside the simulation. It all depends on the complexity of investigated fluid flow phenomena and the power of hardware at hand. Visualization like this is called real-time.
+
+This section will explore differences between post-hoc and real-time visualization in sections \ref{sec:post-hoc} and \ref{rt-viz}. From there on, it is just a small step from real-time visualization towards an interactive one. That step will be taken in section \ref{interactive-simulation}, and another beyond simple interactivity on 2D screen. With the emerging virtual reality technology, section \ref{sec:vrar} will explore how immersive user interface can take things further.
+
+\subsection{Post Hoc Visualization}\label{sec:post-hoc}
+% DONE
+Scientific visualization is usually performed as a post-processing task \citep{kressSituVisualizationTechniques}. The output from simulation is saved to disk and then the data are loaded into visualization software for further processing. The benefit to this approach is that the majority of computation load is focused on graphics rendering to the screen. Final products of the post-hoc visualizations are high-quality pictures of 2D or 3D post-processed simulation data.
+
+When doing a post-hoc visualization of CFD simulation, user's main concern with this approach is the post-processing. Three-dimensional rendering is done by marching squares algorithm by the program automatically. For fluid flows around complex geometries, the geometric structures should generally be visible, with filtered data shown as isolines. Commercial software like ANSYS, SimScale or COMSOL Multiphysics have integrated visualization software into their platforms (Fig.~\ref{fig:comsol-post-hoc-viz} with the example visualization). They provide plethora of options.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/comsol-post-hoc-viz.jpg}
+	\caption{Example of post-hoc visualization with applied post-processing techniques.}
+	\label{fig:comsol-post-hoc-viz}
+\end{figure}
+
+A Visualization Toolkit (VTK) exists as an open-source alternative to proprietary visualization software. It's fully programmable and it can be deployed on highly parallelized architectures with large core counts. It implements polygonal, glyphing and volume rendering for 3D data and plotting capabilities for creating 2D charts. API is provided for C++ with Python and Java wrappers \citep{hanwellVisualizationToolkitVTK2015}.
+
+VTK has been implemented and integrated into large number of applications for scientific data visualizations, like ParaView, VisIt, 3D Slicer, Medical Imaging Interaction Toolkit and so on. The aforementioned ParaView is worth a more detailed mention. It is developed by the team behind VTK (Kitware, Inc.) and integrates all the programmable parts of it into the cohesive experience packaged as desktop client application with GUI. Besides all of the classic tools for preparing the quality visualization output, it can render 3D content into virtual reality headsets like Oculus Rift or HTC Vive \citep{paraview2005}. Both VTK and ParaView can leverage parallel architectures with built-in Message-Passing Interface (MPI) support.
+
+
+% prepisat, z abstraktu od Keplera
+%Scientific visualization for exascale computing is very likely to require in situ processing. Traditional simulation checkpointing and post hoc visualization will likely be unsustainable on future systems at current trends due to the growing gap between I/O bandwidth and FLOPS. As a result, the majority of simulation data may be lost if in situ visualization techniques are not deployed. In situ visualization in this paradigm will be given unprecedented access to simulation output, potentially being able to process all relevant simulation output at every simulation time step, allowing for very high temporal fidelity compared to traditional post hoc visualization. However, this access poses many challenges in terms of data management, resource management and sharing, algorithm development and design, and implementation approaches. Currently, the community primarily relies on two in situ techniques: tightly coupled (on the same resource as the simulation) and loosely coupled (not sharing resources with the simulation). Each of these approaches have positive and negative factors which affect their performance under different simulation, resource, and visualization type constraints. Meaning, that for every given visualization task, it is not generally known which method would give the best performance on every data type, architecture, and set of resource constraints. Due to the lack of research and development on this topic it is still an open research problem requiring future research
+%\citep{kressSituVisualizationTechniques}
+
+
+
+\subsection{Real-time Visualization}
+\label{rt-viz}
+% DONE
+Real-time simulation, i.e. the ability to simulate a virtual system as fast as the real system would evolve, can be beneficial to many engineering applications. To achieve real-time fluid flow simulation, numerical methods need to be selected carefully to make full use of the hardware capabilities. Generally, these were often simplified for use in games with lower accuracy, as the focus in gaming environments is more on creating visually appealing animation rather than aiming for physical accuracy \citep{delboscRealTimeSimulationIndoor}.
+
+The Lattice-Boltzmann method in context of CFD simulations is ideally suited to acceleration on GPUs due to its spatial and temporal locality. Thanks to this they have extremely high computational throughput compared with traditional CFD methods. Therefore, with such method as LBM, it is now possible to achieve sound physical accuracy and good enough speed to reach real-time simulation capabilities.
+
+The progress of scientific computations can be viewed in real-time thanks to the high-performance OpenGL visualization library called Forge. It is developed by the same team behind ArrayFire and distributed together with their library for high-performance parallel computing. The main challenge of optimizing the GPU code is reducing the amount of copying between CPU and GPU. It is written specifically for use with GPU-accelerated applications as it doesn't require the expensive copying from GPU to CPU and back to GPU for rendering, but instead it builds on CUDA/OpenCL interoperability with OpenGL and allows for direct reading of the data on GPU \citep{forge2016}. Forge provides various plotting and visualization functions for 2D and 3D domains.
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Common visualization pipeline.\label{fig:viz-classic}]{%
+		\includegraphics[width=0.51\textwidth]{figures/viz-classic.pdf}%
+	} \qquad
+	\subfloat[High-performance visualization pipeline.\label{fig:viz-forge}]{%
+		\includegraphics[width=0.43\textwidth]{figures/viz-forge.pdf}%
+	}
+	\caption{Differences between CPU-bound visualization with expensive copying bottleneck and high-performance GPU-bound visualization keeping full speeds of high-bandwidth of PCIe interface.}
+	\label{fig:viz-forge-main}
+\end{figure}
+
+Practical scientific simulations for in-depth study of complex physical phenomena from real world, e.g. direct numerical simulation of cellular blood flow \citep{kotsalosDigitalBloodMassively2019}, requires higher accuracy. Instead of single-precision floating-point type (\texttt{f32}) computation, double-precision floating-point (\texttt{f64} has to be chosen. In LBM context, this practically doubles the amount of memory needed. For real-time visualizations of results with this type of precision, they have to be converted to a single-precision floating-point for Forge to effectively work with the data. In ArrayFire (and generally in programming), function for this operation is called \texttt{cast} (Alg. \ref{forge-cast-f32}).
+
+\begin{lstlisting}[language=Rust, caption={Converting to single precision floating point for Forge visualization in C, C++ and Rust}, label=forge-cast-f32]
+	// C
+	af_array A_f64 = af_randu(100,100);
+	af_array B_f32;
+	cast(*B_f32, A_f64, f32);
+	// C++
+	array A_f64 = randu(100,100);
+	array B_f32 = A_f64.as(f32);
+	// Rust
+	let dims = af::Dim4::new(&[100, 100,  1, 1]);
+	let A_f64 = af::randu::<f64>(dims);
+	let B_f32 = A_f64.cast::<f32>();
+\end{lstlisting}
+
+While developing the C++ and Rust implementations of LBM simulation backend, we used \texttt{image()} and \texttt{vector_field_2()} functions from Forge library for visualizing density and velocity of both lid-driven cavity and Kármán vortex street test cases in 2D (Figure~ \ref{fig:d2q9_lid} and Figure~ \ref{fig:d2q9_channel}).
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Visualization of lid-driven cavity simulation.\label{fig:d2q9_lid_5000_viz}]{%
+		\includegraphics[width=0.3\textwidth]{figures/d2q9_lid_5000_viz.jpg}%
+	}\qquad
+	\subfloat[Velocity vector field.\label{fig:d2q9_lid_5000_u_field}]{%
+		\includegraphics[width=0.335\textwidth]{figures/d2q9_lid_5000_u_field.jpg}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Lid-driven cavity test case at 128$\times$128 resolution after 5000 iterations.}
+	\label{fig:d2q9_lid}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Visualization of Kármán vortex street simulation.\label{fig:d2q9_channel_5000_viz}]{%
+		\includegraphics[width=0.63\textwidth]{figures/d2q9_channel_5000_viz.jpg}%
+	} \par
+	\subfloat[Velocity vector field (filtered for better presentation).\label{fig:d2q9_channel_5000_u_field}]{%
+		\includegraphics[width=0.65\textwidth]{figures/d2q9_channel_5000_u_field.jpg}%
+	}
+	\caption{Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times$300 resolution after 5000 iterations.}
+	\label{fig:d2q9_channel}
+\end{figure}
+
+% Visualizations can be zoomed, panned and rotated with a mouse.
+
+\subsection{Interactive Visualization}
+\label{interactive-simulation}
+% DONE
+Interpreting simulation results is often a laborious process. Already few decades ago, it was clear that to understand fluid phenomena in depth, we should move towards interactive simulation \citep{frischLatticeGasAutomataNavierStokes1986}. This would allow run-time manipulation of geometrical and physical simulation variables, opening ways to rapidly and intuitively investigate different scenarios and design configurations.
+
+Recently, the increase of computational power and advances in general-purpose computing on GPUs (GPGPU) made this possible  \citep{delboscRealTimeSimulationIndoor, harwoodParallelisationInteractiveLatticeBoltzmann2017, kolihaOnlineVisualizationInteractive2015, glessmerUsingInteractiveLattice2017}. Together with the performance and speed of the LBM method, it's now possible to compute several hundreds of iterations per second which makes an interaction with the simulation in progress possible \citep{wangInteractive3DFluid2019}. Getting instant feedback according to the change of various parameters in simulation gives researchers the ability to iterate faster toward the creation of accurate model, better understanding of underlying phenomena, or employing simulation within the control of industrial systems. It is therefore desirable to push the limits of execution speed of LBM simulations.
+
+Main goal to implement LBM algorithms for our simulation software is the ability to perform high performance computation and still keep the CPU free to do the additional work. The reason for it is that the visualization part is performed in virtual reality, which needs most of the CPU resources for processing the user tracking. Thanks to the fact that ArrayFire library was used, many hardware-specific optimizations were done for us behind-the-scenes. Although, there is growing body of work on optimizing LBM simulations \citep{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. We used some of the methods described in these articles. They are described in section \ref{optimizations-for-gpu}.
+
+\subsubsection{Steering the Running Simulation}
+
+When the simulation together with visualization are fast enough to stream live data to the screen, it's convenient to send signals to the simulation to change itself with updated parameters. This way, the model optimization can be sped up as the finding if result of the simulation is incorrect can happen much faster. Detecting a simulation that will  \citep{kreylos2002}
+
+
+%Because of the difficulty of editing simulations by hand, computer graphics researchers have also considered how to control physics-based simulations. However, instead of the inefficient forward gradient computation, we use a technique, the adjoint method, that is orders of magnitude more efficient. This allows us to fully control 3D simulations in a fraction of the time
+%\citep{mcnamaraFluidControl2004}
+
+% upravit a povyberat co treba
+Designing the behavior of an interactive object requires understanding and handling a large number of variables linked to: the function of the object (what-level), the way the function is accomplished (how-level) and the way a user experiences that function (why-level). Traditionally HCI uses a paradigm based on ``efficiency" to drive the design process, but recently integrated an aesthetics approach as a way to design the behavior from an experiential, rather than a functional, point of view ...  \citep{spadaforaDesigningBehaviorInteractive2016}
+
+When dealing with interactive objects, we deal with Pragmatist Aesthetics. This kind of aesthetics underlines “how people experience the world dialogically as embodied subjects”
+
+\citep{spadaforaDesigningBehaviorInteractive2016}.
+
+\subsubsection{Time Manipulation}
+
+To really understand the nature of the processes, we have to build a better tools for "seeing" and experimentation on demand. 
+
+The computer is a medium of dynamic pictures -- visualizations driven by parameters and data.
+\citep{victorInventingOnPrinciple2018}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/victor-time-manip.jpg}
+	\caption{ \citep{victorInventingOnPrinciple2018}.}
+	\label{fig:victor-time-manip}
+\end{figure}
+
+\subsection{Virtual and Augmented Reality}\label{sec:vrar}
+
+Non-immersive interactive visualization systems implemented for the conventional desktop and mouse are effective for moderately complex problems. Immersive virtual environments, by comparison, lie at the other end of the spectrum and permit looking around an object by moving user's head position.
+
+Therefore, a fundamental difference between desktop-and-mouse virtual realia and immersive VR is that the latter is a true 3D representation that may be either viewer or object-centered while the first is exclusively viewer-centered. In other words, changes in the relative positions of a 2D object’s components result from shifts in the viewer’s perspective. The same may be true for objects viewed in a three dimensional environment, whether real or virtual. However, in such an environment, an object may also appear to change shape (e.g., through foreshortening), not due to an altered position of the viewer, but because the ob- ject itself has moved to a different position. Immersive virtual reality displays aid in the unambiguous display of these structures by providing a rich set of spatial and depth cues. Virtual reality interface concepts allow the rapid and intuitive exploration of the volume containing the data, enabling the phenomena at various places in the volume to be ex- plored, as well as provide simple control of the visualization environment through inter- faces integrated into the environment \citep{brysonVirtualRealityScientific}.
+
+Desktop-and-mouse interfaces for 3D visualizations make it difficult to specify positions in three dimensions and do not provide unambiguous display of 3D structure. Virtual reality interfaces attempt to provide the most anthropomorphic interfaces possible - that means they must be human-conforming and should be designed to allow the most natural, unambiguous way of scientific exploration. They must include two components: display and user control. Scientific visualization makes particular demands on virtual reality displays. The phenomena to be displayed in a scientific visualization application often involve delicate and detailed structure, requiring high-quality, high-resolution full-color displays. A wide field of view is often desirable, because it allows the researcher to view how detailed structures are related to larger, more global phenomena.
+
+Historically, the early attempts at using head-mounted virtual reality technologies started with CRT-based Binocular Omni-Oriented Monitor (BOOM) created by Fakespace Systems Inc. BOOM was a stereoscopic display device with screens and optical system housed in a box that is attached to a multi-link arm. Head tracking was accomplished via sensors in the links of the arm that holds the box.
+
+Advent of commodity-level VR hardware like HTC Vive or Oculus Touch has made this technology accessible for meaningful applications. These headset utilize lasers and photosensitive sensors (HTC Vive) or cameras (Oculus Touch) for head and hands tracking and provide six degrees of freedom (6DoF) for movement in virtual environment. By immersing the user into the simulation itself, virtual reality reveals the spatially complex structures in computational science in a way that makes them easy to understand and study. But beyond adding a 3D interface, virtual reality also means greater computational complexity \citep{brysonVirtualRealityScientific}. The ability to provide real-time interaction can provide strong depth cues, either through allowing interactive rotations or through the use of head-tracked rendering. Applications and techniques are being developed to discern how immersive technology benefits visualization. The medical field provides an especially promising context for this development, as medical practitioners require a thorough understanding of specific 3D structures: human anatomy. Users may interact simultaneously with high resolution computed tomography (CT) scans and their corresponding, 3D anatomical structures.
+
+With the addition of inside-out tracking in VR headsets like Widows Mixed Reality and Oculus Quest, it brought the hand tracking support into the software development kits for each platform. More and more VR developers started to leverage the hand tracking in the interfaces of their applications. Thanks to the growth of gestures usage in virtual reality and embodied cognition, there have been various new technologies developed to either improve the modelling efficiency, or to provide more nature intuitive experience to the users \citep{dangetiComparingBarehandinairGesture2016}.
+
+Another frequently used type of immersive, interactive display technology nowadays is projection-screen-based Cave Automatic Virtual Environment (CAVE). These systems consists of 3 to 6 large displays positioned into a room-sized cube around the observer. The walls of a CAVE are typically made up of rear-projection screens, but recently the flat panel displays are commonly used. The floor can be a downward-projection screen, a bottom projected screen or a flat panel display. The projection systems are very high-resolution due to the near distance viewing which requires very small pixel sizes to retain the illusion of reality. The user wears 3D glasses inside the CAVE to see 3D graphics generated by the CAVE. People using the CAVE can see objects apparently floating in the air, and can walk around them, getting a proper view of what they would look like in reality. This is made possible by infrared cameras. Movement of the observer in the CAVE is tracked by the sensors typically attached to the 3D glasses and the video continually adjusts to retain the viewers perspective.
+
+Many universities and engineering companies own and use CAVE systems. Researchers can use these systems to conduct their research topic in a more effective and accessible method. Engineers have found them useful in enhancing of a product development through prototyping and testing phases.
+
+Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars in savings for companies.
+
+One can say that virtual reality established itself in many disciplines of human activities, as a medium that allows easier perception of data or natural phenomena appearance.
+
+% ----------------------------------------------------------------
+
+%\section{Human-Computer Interface}
+%
+%% upravit a povyberat co treba
+%Designing the behavior of an interactive object requires understanding and handling a large number of variables linked to: the function of the object (what-level), the way the function is accomplished (how-level) and the way a user experiences that function (why-level). Traditionally HCI uses a paradigm based on ``efficiency" to drive the design process, but recently integrated an aesthetics approach as a way to design the behavior from an experiential, rather than a functional, point of view ...  \citep{spadaforaDesigningBehaviorInteractive2016}
+%
+%When dealing with interactive objects, we deal with Pragmatist Aesthetics. This kind of aesthetics underlines “how people experience the world dialogically as embodied subjects”
+%
+%\citep{spadaforaDesigningBehaviorInteractive2016}.
+
+%\subsubsection{SCADA}
+%
+%% upravit https://www.dpstele.com/scada/how-systems-work.php
+%Supervisory Control and Data Acquisition (SCADA) is a system that aims to monitor and control field devices at your remote sites. SCADA systems are critical as it helps maintain efficiency by collecting and processing real-time data.
+%
+%SCADA is a centralized system that monitors and controls the entire area. This supervisory system gathers data on the process and sends the commands control to the process.
+%
+%The main goal of this supervisory system is to monitor and control equipment in the industrial processes for companies in the public and private sectors. As a matter of fact, in today's world, there are SCADA systems almost everywhere. This includes industrial plants, manufacturing, transportation, oil and gas, power distribution, water control and etc.
+%
+%Four SCADA Functions:
+%
+%\begin{enumerate}
+%	\item Data acquisition
+%	\item Networked Data Communication
+%	\item Data presentation
+%	\item Control
+%\end{enumerate}
+%
+%In data acquisition, the collection of SCADA data frequently involves some kind of analog to digital conversion. Temperature is converted to degrees Celsius. Transmit signal strength is converted to dBm. Channel quality is measured in errored seconds. 
+%
+%The collected data is transmitted either spontaneously or in response to a request for data to some kind of upstream consolidator or master. The communication channel can be analog (T202, POTS) or digital (RS485, TCP/IP). SCADA network topology typically also includes some kind of transport validation independent of any content validation.
+%
+%
+%The collected data is processed, organized and presented for system operators to make appropriate response and control decisions. The presentation can vary from tabular presentation of logged events to graphical presentation against mapping or image backgrounds.
+%
+%If control decisions are warranted and the system supports output, appropriate commands can be dispatched to affect specific operational or configuration changes. Most control actions are performed by RTUs and PLCs.
+%
+%Four main components of SCADA: inputs, remote telemetry units (RTUs),human-machine interface (HMI) and communication network.
+%
+%% Vysvetlenie preco SCADA nie je dostacujuca pre to co potrebujeme v real-time modsim a preco chceme VR
+%
+%SCADA systems provide an invaluable interface for working with real-time data from various processes. Especially for many in the business of data and natural sciences, SCADA is a rich source of real-world data on demand. It's been successfully coupled with the machine learning to work with high-frequency of large amounts of data \citep{linWindPowerPrediction2020}. 
+%
+%% trosku doplnit/prepisat
+%The problem with visual design approaches in SCADA applications is that the interfaces was mostly limited to simple graphics like plots, simple 2D animations, animated gauges, interactive knobs etc. It can be argued that it's often not needed to have complex visuals in specialized SCADA applications and they are "good enough" for the job at hand.
+%
+%% nejake premostenie?
+%
+%An interesting look into the future of SCADA interfaces was presented in study by \cite{soeteMixedRealitySCADA2015}, in which they managed to implement a Augmented Reality (AR) supporting tool for SCADA application in simulated automated logistic process. It shows potential benefits of using VR and AR technologies in the development of supervisory control and support. AR and VR is fairly new and relatively unknown in the industry, so the integration of such technologies is still in its infancy.
+%
+%% Mozno spomenut este vyuztie computer vision libraries ako OpenCV (C++), ktore je potrebne vyuzit pre implementaciu mixed reality aplikacii v spojeni so SCADA systemami (sledovat co sa deje v realnom svete a dalej pracovat s tymito datami... spojit to s machine learningom a object recognition... 
+%
+%% doplnit/upravit aby to davalo zmysel.. mozno prehodit inde?
+%To really understand the nature of the processes, we have to build a better tools for "seeing" and experimentation on demand. 
+
+% ------------------------------------------------------
 
 \section{Implementation of a Simulation Software} 
 
@@ -947,7 +1064,7 @@ The high-performance visualization library called Forge is bundled with the inst
 
 \subsubsection{Rust as C/C++ Alternative} \label{sec:rust-alt}
 % DONE
- As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world as a language that could one day replace C or C++ as a go-to language for writing performant low-level applications and systems. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing daily. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
+As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world as a language that could one day replace C or C++ as a go-to language for writing performant low-level applications and systems. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing daily. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
 
 The main proposition of Rust language is that it helps you write faster, more reliable software. Traditionally, developers who were looking for the best raw performance as they can get to squeeze out of their programs by aggressively optimizing it, were mostly reaching out for C++ as it's possible to get down to low-level if needed. The object-oriented nature of C++ on the other hand allows for constructing code that is easier to reason about. But still, the high-level ergonomics and low-level control are often at odds in programming language design \citep{steveklabnik2018}. Developers are still responsible for managing the memory in C++ applications. This can lead to problems if application is not well architected or developers not being disciplined about memory cleanup after use.
 
@@ -962,7 +1079,7 @@ The focus of this work was to build a high-performance simulation software with 
 % ---------------------------------------------------------
 
 \subsection{Implementation of Lattice Boltzmann Method for GPUs}
-
+% DONE
 In this section, each step in the program lifecycle is presented, showing how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
 
 \subsubsection{Initialization}
@@ -1000,7 +1117,6 @@ let mut ux = constant::<f32>(initial_ux, dim4!(nx, ny));
 let mut uy = constant::<f32>(0.0, dim4!(nx, ny));
 // ...
 \end{lstlisting}
-
 
 \subsubsection{Boundary Conditions}
 
@@ -1069,7 +1185,7 @@ There is difference between initial conditions in BGK and MRT code.
 
 \subsubsection{Streaming}
 
-Streaming in generally implemented as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed.
+Streaming in general is usually treated as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed.
 
 In current implementation, the streaming is implemented as a shift of indices of neighbouring nodes. In this fashion, the index is pre-computed at the beginning and then used throughout the simulation lifetime to index into the particle distributions of neighbouring nodes.
 
@@ -1102,47 +1218,7 @@ fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
 \end{lstlisting}
 
 
-3D \\
-
-\begin{lstlisting}[language=Rust, caption=Streaming with \texttt{shift} function for three dimensions with 27 discrete speeds (D3Q27)., label=rust-streaming-3d]
-fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
-	let mut pdf = f.clone();
-	// nearest-neighbours
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 1:1:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 1:1:1]), &[ 1, 0, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 2:2:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 2:2:1]), &[ -1, 0, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 3:3:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 3:3:1]), &[ 0, 1, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 4:4:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 4:4:1]), &[ 0, -1, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 5:5:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 5:5:1]), &[ 0, 0, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 6:6:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 6:6:1]), &[ 0, 0, -1, 0]));
-	// next-nearest neighbours
-	// xy plane
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 7:7:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 7:7:1]), &[ 1, 1, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 8:8:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 8:8:1]), &[ -1, 1, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 9:9:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 9:9:1]), &[ 1, -1, 0, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 10:10:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 10:10:1]), &[ -1, -1, 0, 0]));
-	// xz plane
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 11:11:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 11:11:1]), &[ 1, 0, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 12:12:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 12:12:1]), &[ -1, 0, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 13:13:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 13:13:1]), &[ 1, 0, -1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 14:14:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 14:14:1]), &[ -1, 0, -1, 0]));
-	// yz plane
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 15:15:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 15:15:1]), &[ 0, 1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 16:16:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 16:16:1]), &[ 0, -1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 17:17:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 17:17:1]), &[ 0, 1, -1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 18:18:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 18:18:1]), &[ 0, -1, -1, 0]));
-	// next next-nearest neighbours
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 19:19:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 19:19:1]), &[ 1, 1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 20:20:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 20:20:1]), &[ -1, 1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 21:21:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 21:21:1]), &[ 1, -1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 22:22:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 22:22:1]), &[ -1, -1, 1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 23:23:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 23:23:1]), &[ 1, 1, -1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 24:24:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 24:24:1]), &[ -1, 1, -1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 25:25:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 25:25:1]), &[ 1, -1, -1, 0]));
-	eval!(pdf[1:1:0, 1:1:0, 1:1:0, 26:26:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:0, 26:26:1]), &[ -1, -1, -1, 0]));
-	
-	pdf
-}
-\end{lstlisting}
+3D nereba ukazovat, mozno len popisat \\
 
 
 \subsubsection{Collision}
@@ -1175,20 +1251,6 @@ fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
 	}
 \end{lstlisting}
 
-\subsubsection{External Force}
-
-The implementation of external force on the fluid simulation is straightforward - it's a simple addition to the ...
-
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
-\end{lstlisting}
 
 \subsection{GPU Optimizations}
 % DONE
@@ -1226,24 +1288,24 @@ Whereas the former loop serially computes each matrix multiplication, the latter
 
 \subsubsection{Data Organization}
 % DONE
-To ensure the most efficient memory throughput when programming for GPU is to ensure that memory access is coalesced \cite{tranPerformanceOptimization3D2017}. There are two common patterns for data organization: Array of Structures (AoS) and Structure of Arrays (SoA). Therefore if we consider a 1D array, in AoS, 9 distributions of each node occupy 9 consecutive elements of the array, and in SoA, the value of one distribution of all nodes is arranged consecutively in memory, then next distribution in all nodes and so on. In a GPU-based LBM algorithm, we need to store values of distribution functions for each node in the computational domain represented by a grid. Using Structure of Arrays (SoA) is significantly faster than Array of Structures (AoS) \cite{tranPerformanceOptimization3D2017, delboscOptimizedImplementationLattice2014}. In order to represent the 2-dimensional grid of cells, we use the 1-dimensional array which has $N_x*N_y*Q$ elements, where $N_x$, $N_y$, are width and height of the grid and $Q$ is the number of directions of each node \cite{tranPerformanceOptimization3D2017}. This way the cache use is considerably improved \cite{Mawson2014InteractiveFI}. For example, in lid-driven cavity of lattice dimensions $N_x=64$, $N_y=64$, employing 9 velocity distributions (D2Q9), we have the 1D array of $64\times64\times9 = 36864$ elements.
+To ensure the most efficient memory throughput when programming for GPU is to ensure that memory access is coalesced \cite{tranPerformanceOptimization3D2017}. There are two common patterns for data organization: Array of Structures (AoS) and Structure of Arrays (SoA). Therefore if we consider a 1D array, in AoS, all discrete velocities in each node occupy consecutive elements of the array, and in SoA, the value of one discrete velocity direction from all nodes is arranged consecutively in memory, then the next direction in all nodes and so on. In a GPU-based LBM algorithm, it's beneficial to store values of distribution functions for each node in the computational domain represented by a grid in 1-dimensional array. For D2Q9 and D3Q27 stencils, this translates into storing single velocity direction for 2D grid represented by $N_x * N_y$ or 3D grid represented by $N_x * N_y * N_z$ nodes at a time, consecutively 9-times for D2Q9 and 27-times for D3Q27 respectively. Using Structure of Arrays (SoA) is significantly faster than Array of Structures (AoS) \cite{tranPerformanceOptimization3D2017, delboscOptimizedImplementationLattice2014}. This way the cache use is considerably improved \cite{Mawson2014InteractiveFI}.
 
-To create a SoA structure with 1D array to store particle distributions in all directions along whole computational domain, we can set first dimension of Array construct straightforwardly to the $n_x*n_y*Q$ number of elements, but for easier index creation further down the line, it's better to create 3D array initially and flatten it when used for heavy computation of actual simulation:
+To create a SoA structure with 1D array to store particle distributions in all directions along whole computational domain, we can set first dimension of Array construct straightforwardly to the $n_x*n_y*n_z*Q$ number of elements, but for easier index creation further down the line, it's better to create 3D (or 4D in case of D3Q27) array initially and flatten it when used for heavy computation of actual simulation:
 
 \begin{lstlisting}[language=Cpp, caption=Creating SoA structure representation of D2Q9 lattice with ArrayFire in C++.]
 	unsigned nx = 64, ny = 64, dirs = 9;
 	// SoA 1D array
 	array f_1d_soa = constant(0, nx * ny * dirs);
-	// 3D array, flattened to SoA 1D array
-	array f_3d = constant(0, nx, ny, dirs);
-	array f_1d_soa = flat(f_3d)
+	// Array flattened to SoA 1D array
+	array f = constant(0, nx, ny, dirs);
+	array f_1d_soa = flat(f)
 \end{lstlisting}
 
 For streaming operation in LBM, we use ArrayFire's \texttt{shift} function for each direction of particle distributions. Instead of running this function on every iteration, we create two indices for access to ``current" nodes and their neighbouring nodes at the initialization phase of the solver and store them for the whole lifetime of the simulation. Streaming is then as easy as accessing particle distributions in a 1D array with neighbours index. In ArrayFire, indexing is also executed in parallel, but is not a part of a JIT compilation. Instead, it is a handwritten optimized kernel. Any JIT code that is fed to indexing is evaluated in a single kernel if possible.
 
 \begin{lstlisting}[language=Cpp, caption=Creating ``current" (or main) index and neighboring index.]
 	unsigned nx = 64, ny = 64, dirs = 9;
-	unsigned total_nodes = x * ny;
+	unsigned total_nodes = nx * ny;
 	
 	// Index of all directions except center point 0
 	array CI = (range(dim4(1,8),1)+1) * total_nodes;
@@ -1257,13 +1319,13 @@ For streaming operation in LBM, we use ArrayFire's \texttt{shift} function for e
 	array nb_index = flat(stream(main_index));
 \end{lstlisting}
 
-The result of streamed distribution functions is stored temporarily without overwriting the previous ones (Alg. \ref{f-streamed}):
+The result of streamed distribution functions is stored temporarily without overwriting the previous ones (Listing \ref{f-streamed}):
 
 \begin{lstlisting}[language=Cpp, caption=Streaming step., label=f-streamed]
 	array F_streamed = F(nb_index);
 \end{lstlisting}
 
-Targeting any of the 9 direction in 1D array can be done by computing $[node\_position] + [total\_nodes * directions]$. 
+Targeting any of the discrete speeds directions in 1D array can be done by computing $[node\_position] + [total\_nodes * directions]$. 
 
 \subsubsection{Removing Branch Divergence}
 % DONE
@@ -1343,7 +1405,7 @@ The idea behind preferring coalesced writes to GPU device memory is that the req
 \subsubsection{Load Balancing in Multi-GPU Setups}
 \label{sec:load-balancing}
 
-With heterogenous GPU computing constraints (that means, group of GPUS each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
+With heterogenous GPU computing constraints (that means, group of GPUs each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
 
 Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
 
@@ -1843,7 +1905,8 @@ To go back in time, user can use the slider and move the knob backward or forwar
 
 % ----------------------------------------------------------------
 
-\subsection{Performance Analysis}
+\subsection{Performance Analysis}\label{perf-analysis}
+% DONE
 The performance of computers used for scientific applications are commonly measure in floating point operations per second (FLOPS), which represents the time it takes for multiplying two 32 or 64 bit floating-point numbers.
 
 At the time of writing, the fastest supercomputer in the world runs at roughly 440 PetaFLOPS ($440\times10^{15}$). The next milestone in computer engineering is to build a supercomputer capable of running at speeds exceeding 1 ExaFLOPS ($10^{18}$). In contrast to HPC systems, the fastest GPU on consumer market, at the time of writing, is NVIDIA's GeForce RTX 3090 that peaks at 35 TeraFLOPS.
@@ -1919,16 +1982,16 @@ Single floating-point (f32) calculations perform significantly faster than doubl
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_32bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
@@ -1938,16 +2001,16 @@ Single floating-point (f32) calculations perform significantly faster than doubl
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_64bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_64bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_64bit_d2q9_bgk_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
@@ -1993,16 +2056,16 @@ For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{ta
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_32bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_channel_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
@@ -2013,16 +2076,16 @@ For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{ta
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_64bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_64bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_channel_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_64bit_d2q9_bgk_channel_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_channel_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
@@ -2033,7 +2096,7 @@ Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases ar
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{data/max_mlups_2d.pdf}
+	\includegraphics[width=0.8\textwidth]{data/max_mlups_2d.pdf}
 	\caption{Peak performance of single-precision LBM simulations on D2Q9 stencil.}
 	\label{fig:max_mlups}
 \end{figure}
@@ -2066,16 +2129,16 @@ In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectation
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_32bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_32bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_32bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_32bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_32bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d3q27_mrt_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.}
@@ -2085,16 +2148,16 @@ In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectation
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/r9_64bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/gtx1070_64bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx2080ti_64bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d3q27_mrt_lid_mlups.pdf}%
 	}\qquad
 	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_64bit}]{%
-		\includegraphics[width=0.32\textwidth]{data/rtx3090_64bit_d3q27_mrt_lid_mlups.pdf}%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d3q27_mrt_lid_mlups.pdf}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..}
@@ -2105,7 +2168,7 @@ When comparing the 3D performance of LBM solvers, and specifically those using D
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{data/max_mlups_3d.pdf}
+	\includegraphics[width=0.8\textwidth]{data/max_mlups_3d.pdf}
 	\caption{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.}
 	\label{fig:max_mlups_3d}
 \end{figure}

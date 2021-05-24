@@ -13,6 +13,11 @@ A level-1 auxiliary file: appendixa.aux
 A level-1 auxiliary file: appendixb.aux
 Database file #1: refs/mathematics.bib
 Database file #2: refs/modeling.bib
+I was expecting a `,' or a `}'---line 24 of file refs/modeling.bib
+ :  
+ :  note = {[accessed: 2020-04-20]}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Database file #3: refs/cfd.bib
 Database file #4: refs/lbm.bib
 Database file #5: refs/gpu.bib
@@ -27,14 +32,10 @@ Database file #13: refs/simulation.bib
 Database file #14: refs/ar.bib
 Database file #15: refs/vr.bib
 Warning--I didn't find a database entry for "gonda"
-Warning--I didn't find a database entry for "Mawson2014InteractiveFI"
-Warning--I didn't find a database entry for "succi2018lattice"
-Warning--I didn't find a database entry for "lvSimulationFlowFluid"
-Warning--I didn't find a database entry for "forge2016"
 Warning--I didn't find a database entry for "Yalamanchili2015"
 Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
 Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration2012a"
-Warning--I didn't find a database entry for "steveklabnik2018"
+Warning--I didn't find a database entry for "forge2016"
 Warning--I didn't find a database entry for "TAN2017649"
 Warning--I didn't find a database entry for "malcolmArrayFireGPUAcceleration2012"
 Warning--empty author in FULLGPUImplementation2017
@@ -42,45 +43,45 @@ Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 Warning--empty booktitle in rapp2017
 Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
-You've used 45 entries,
+You've used 48 entries,
             2921 wiz_defined-function locations,
-            1009 strings with 17967 characters,
-and the built_in function-call counts, 205934 in all, are:
-= -- 33512
-> -- 2966
+            1019 strings with 18655 characters,
+and the built_in function-call counts, 218422 in all, are:
+= -- 35581
+> -- 3099
 < -- 1
-+ -- 16077
-- -- 909
-* -- 17902
-:= -- 41042
-add.period$ -- 96
-call.type$ -- 45
-change.case$ -- 619
-chr.to.int$ -- 45
-cite$ -- 50
-duplicate$ -- 743
-empty$ -- 1504
-format.name$ -- 1035
-if$ -- 37104
++ -- 17061
+- -- 949
+* -- 18929
+:= -- 43567
+add.period$ -- 105
+call.type$ -- 48
+change.case$ -- 659
+chr.to.int$ -- 48
+cite$ -- 53
+duplicate$ -- 795
+empty$ -- 1586
+format.name$ -- 1085
+if$ -- 39349
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 49
-newline$ -- 224
-num.names$ -- 470
-pop$ -- 174
+missing$ -- 52
+newline$ -- 240
+num.names$ -- 504
+pop$ -- 197
 preamble$ -- 1
-purify$ -- 670
+purify$ -- 715
 quote$ -- 0
-skip$ -- 661
+skip$ -- 700
 stack$ -- 0
-substring$ -- 47367
-swap$ -- 159
-text.length$ -- 621
+substring$ -- 50254
+swap$ -- 167
+text.length$ -- 663
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 170
+type$ -- 180
 warning$ -- 5
-while$ -- 1003
+while$ -- 1069
 width$ -- 0
-write$ -- 705
-(There was 1 error message)
+write$ -- 755
+(There were 2 error messages)
