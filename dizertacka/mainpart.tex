@@ -1,6 +1,93 @@
 \section{Introduction}
 
-... DOPLNIT ...
+
+What your thesis is about
+Why it is important
+How it was conducted
+How it is laid out
+
+The introduction as a whole should outline the significance and relevance of the thesis
+
+% ---------------------
+- Establish your research territory (by situating your research in a broader context) \\
+%
+
+
+% ---------------------
+- Establish and justify your niche (by describing why your research is needed)  \\
+%
+
+
+% ---------------------
+- Explain the significance of your research (by describing how you conducted the research) \\
+%
+
+
+% The reader shouldn’t have to wait long before they understand the contribution, what you are doing and how you are doing it.
+
+Introduction to the introduction: a short version (of only a few paragraphs) of the thesis' aims, research questions, contribution, objectives and findings.
+
+
+1. State the overarching topic and aims of the thesis in more detail
+2. Provide a brief review of the literature related to the topic (this will be very brief if you have a separate literature review chapter)
+3. Define the terms and scope of the topic
+4. Critically evaluate the current state of the literature on that topic and identify your gap
+5. Outline why the research is important and the contribution that it makes
+6. Outline your epistemological and ontological position
+7. Clearly outline the research questions and problem(s) you seek to address
+8. State the hypotheses (if you are using any)
+9. Detail the most important concepts and variables
+10. Briefly describe your methodology
+11. Discuss the main findings
+12. Discuss the layout of the thesis
+
+% -------------------------------------------------------------
+
+1. a 3. Hlavny topic prace je dizajn a implementacia interktivnej simulacie a jej vizualizacie vo virtualnej realite. Tato praca sa venuje moznostiam imerzivity, ktoru spristupnuje virtualna realita. Skumam v nej aplikaciu VR pre scientific visualization
+
+2. a mozno spolu s 5. Review literatury ale velmi stroho
+- k modeling and simulation v prepojeni s CFD
+- k zrychlovaniu simulacii pomocou parallel computingu
+- k progresu simulacii z CPU manycore k multicore a k GPU akceleratorom
+- k LBM ako perfectly suited to parallel computing
+- k dosiahnutiu dostatocne rychlych simulacii na to, aby bolo mozne dosielit real.time a interaktivnu simulaciu a in-situ vizualizaciu
+
+% 6 nic
+
+7. Research questions and problems
+
+- Analysis of the current state of the art of modeling using modern methods.
+- Design of a suitable method for creating mathematical models of processes and their visualization in the VR environment.
+- Creation and implementation of supporting models and environment in VR.
+- Selection of technological process and design of appropriate CFD model.
+- Synthesis of created CFD model with VR environment.
+
+% 8 nic
+% 9 nic
+11. spomenut co sa podarilo navrhnut a implementovat
+- nieco o performance analyze
+- o zachovani rychlosti pri cross-platform implementacii simulacneho sofveru
+- o VR vizualizacii iducej simulacie
+- o steeringu simulacie vo VR prostredi
+- o UI pre steering simulacie
+
+12. ako je rozdelena praca (v podstate opisat ako to je cele poskladane, podla mindmapy?)
+
+
+
+With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that
+
+Existuju uz niektore pokusy o vyuzitie Arrayfire pre tvorbu simulacnych softverov, dokonca aj pre LBM metodu, no tie vyuzivaju custom CUDA kernel. To znamena, ze ich implementacia nie je multi-platformova
+
+
+
+nove je vyuzitie kniznice ArrayFire pre implementaciu LBM solveru pre paralelne architektury typu GPU, vdaka ktorej sa dosahuje vysoka expresivita pri pisani kodu a tym padom vysledny solver je mozne napisat v par riadkoch, co je porovnatelne s implementaciami v Matlabe. Rozdiel je ale v rychlosti - LBM solvre pisane v Matlabe (par ich je dostupnych na tomto linkuv sekcii "Matlab" https://palabos.unige.ch/get-started/lattice-boltzmann/lattice-boltzmann-sample-codes-various-other-programming-languages/) (pridat do bibliografie?), dosahuju rychlosti radovo 0,13-5 MLUPS (= milion prepoctov celej vypoctovej domeny za sekundu) podla hardveru, na ktorom su benchmarkovane. Aby bol solver rychly, vacsinou sa vyuziva C++ s kniznicami pre vypoctove platformy CUDA (pre NVIDIA GPU) a OpenCL (pre rozne typy kariet, je to cross-platform kniznica) a kod sa nasledne optimalizuje rucne pre rozny hardver (rozne typy GPU maju rozne pocty jadier, registrov, velkost pamate, priepustnost pamate atd). Vyuzitim ArrayFire kniznice, ktora sama optimalizuje kod pre rozne typy hardveru, v spojeni s C++ alebo Rust programovacim jazykom som dokazal implementovat LBM solver pod 100 riadkov kodu, bez dodatocnych optimalizacii pre specificky hardver, ale iba doplnil klasicke optimalizacie vyuzivajuce sa pre GPU programovanie, vysledkom coho je cross-platform solver pre velke mnozstvo GPU od roznych vyrobcov, dokonca aj FPGA-cka, spolu so zachovanim vysokej rychlosti v radoch 150-5000 MLUPS podla hardveru na ktorom je solver spustany. 
+
+Obsahuje implementacie v C++ aj Rust-e, pre 2D D2Q9 simulacie na báze BGK a 3D D3Q27 simulacie na baze MRT (s 27 premennymi pre presnejsie nastavenie relaxacie). 
+Tu je implementacia bez komentarov a medzier (ukazka expresivity pri porovnani množstva kódu potrebného na napísanie LBM solveru napr. v Matlabe). Performance analyza simulacneho softveru je rozpisana vo vacsom detaile v sekcii Performance Analysis \ref{perf-analysis}.
+
+
+
 
 %The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an eye on the big picture was, until not so long ago, a human process.
 %
@@ -1032,7 +1119,7 @@ The ArrayFire library is used for high-performance, cross-platform implementatio
 \subsubsection{Cross-platform Development with ArrayFire}
 
 % prepisat (https://arrayfire.org/arrayfire-rust/book/vectorization.html)
-Programmers and Data Scientists want to take advantage of fast and parallel computational devices. Writing vectorized code is necessary to get the best performance out of the current generation parallel hardware and scientific computing software. However, writing vectorized code may not be immediately intuitive. ArrayFire provides many ways to vectorize a given code segment. In this chapter, we present several methods to vectorize code using ArrayFire and discuss the benefits and drawbacks associated with each method.
+%Programmers and Data Scientists want to take advantage of fast and parallel computational devices. Writing vectorized code is necessary to get the best performance out of the current generation parallel hardware and scientific computing software. However, writing vectorized code may not be immediately intuitive. ArrayFire provides many ways to vectorize a given code segment. In this chapter, we present several methods to vectorize code using ArrayFire and discuss the benefits and drawbacks associated with each method.
 
 ArrayFire is a vectorized library. Most functions operate on Arrays as a whole i.e. on all elements in parallel.
 %----
@@ -1184,6 +1271,13 @@ There is difference between initial conditions in BGK and MRT code.
 \end{lstlisting}
 
 \subsubsection{Streaming}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/streaming.jpg}
+	\caption{Illustration of the streaming step.}
+	\label{fig:streaming}
+\end{figure}
 
 Streaming in general is usually treated as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed.
 
@@ -2194,9 +2288,9 @@ Non-newtonian fluids \\
 %https://en.wikipedia.org/wiki/Fluid_mechanics#Newtonian_versus_non-Newtonian_fluids
 
 
-A Newtonian fluid (named after Isaac Newton) is defined to be a fluid whose shear stress is linearly proportional to the velocity gradient in the direction perpendicular to the plane of shear. This definition means regardless of the forces acting on a fluid, it continues to flow. For example, water is a Newtonian fluid, because it continues to display fluid properties no matter how much it is stirred or mixed. A slightly less rigorous definition is that the drag of a small object being moved slowly through the fluid is proportional to the force applied to the object. (Compare friction). Important fluids, like water as well as most gases, behave—to good approximation—as a Newtonian fluid under normal conditions on Earth.
-
-Describe non-Newtonian fluids found in steelmaking processes...
+%A Newtonian fluid (named after Isaac Newton) is defined to be a fluid whose shear stress is linearly proportional to the velocity gradient in the direction perpendicular to the plane of shear. This definition means regardless of the forces acting on a fluid, it continues to flow. For example, water is a Newtonian fluid, because it continues to display fluid properties no matter how much it is stirred or mixed. A slightly less rigorous definition is that the drag of a small object being moved slowly through the fluid is proportional to the force applied to the object. (Compare friction). Important fluids, like water as well as most gases, behave—to good approximation—as a Newtonian fluid under normal conditions on Earth.
+%
+%Describe non-Newtonian fluids found in steelmaking processes...
 
 \subsubsection{Streaming Visualized Pixels Over Network}
 
