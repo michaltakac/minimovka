@@ -1,5 +1,14 @@
 \begin{thebibliography}{xx}
 
+\harvarditem[Ahrens et~al.]{Ahrens, {Li-Ta Lo}, Nouanesengsy, Patchett
+  \harvardand\ McPherson}{2008}{ahrensPetascaleVisualizationApproaches2008}
+Ahrens, J., {Li-Ta Lo}, Nouanesengsy, B., Patchett, J. \harvardand\ McPherson,
+  A.  \harvardyearleft 2008\harvardyearright .
+\newblock Petascale visualization: {Approaches} and initial results, {\em 2008
+  {Workshop} on {Ultrascale} {Visualization}}, IEEE, Austin, TX, USA,
+  pp.~24--28.
+\newline\harvardurl{http://ieeexplore.ieee.org/document/5154060/}
+
 \harvarditem[Ahrens et~al.]{Ahrens, Geveci \harvardand\
   Law}{2005}{paraview2005}
 Ahrens, J.~P., Geveci, B. \harvardand\ Law, C.~C.  \harvardyearleft
@@ -20,6 +29,20 @@ Bhatnagar, P.~L., Gross, E.~P. \harvardand\ Krook, M.  \harvardyearleft
   {Amplitude} {Processes} in {Charged} and {Neutral} {One}-{Component}
   {Systems}, {\em Physical Review} {\bf 94}(3):~511--525.
 \newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRev.94.511}
+
+\harvarditem[Boroni et~al.]{Boroni, Dottori \harvardand\
+  Rinaldi}{2017}{boroniFULLGPUImplementation2017}
+Boroni, G., Dottori, J. \harvardand\ Rinaldi, P.~R.  \harvardyearleft
+  2017\harvardyearright .
+\newblock {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann} {Methods} with
+  {Immersed} {Boundary} {Conditions} for {Fast} {Fluid} {Simulations}, {\em The
+  International Journal of Multiphysics} {\bf 11}(1).
+\newline\harvardurl{http://www.journal.multiphysics.org/index.php/IJM/article/view/11-1-1}
+
+\harvarditem{Bryson}{n.d.}{brysonVirtualRealityScientific}
+Bryson, S.  \harvardyearleft n.d.\harvardyearright .
+\newblock Virtual reality in scientific visualization, {\em COMMUNICATIONS OF
+  THE ACM} {\bf 39}(5):~10.
 
 \harvarditem{Chrzeszczyk}{n.d.}{chrzeszczykMatrixComputationsGPUb}
 Chrzeszczyk, A.  \harvardyearleft n.d.\harvardyearright .
@@ -72,15 +95,6 @@ Frisch, U., Hasslacher, B. \harvardand\ Pomeau, Y.  \harvardyearleft
 \newblock Lattice-{Gas} {Automata} for the {Navier}-{Stokes} {Equation}, {\em
   Physical Review Letters} {\bf 56}(14):~1505--1508.
 \newline\harvardurl{https://link.aps.org/doi/10.1103/PhysRevLett.56.1505}
-
-\harvarditem{{\em {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann}
-  {Methods} with {Immersed} {Boundary} {Conditions} for {Fast} {Fluid}
-  {Simulations}}}{2017}{FULLGPUImplementation2017}
-{\em {FULL} {GPU} {Implementation} of {Lattice}-{Boltzmann} {Methods} with
-  {Immersed} {Boundary} {Conditions} for {Fast} {Fluid} {Simulations}}
-  \harvardyearleft 2017\harvardyearright .
-\newblock {\em The International Journal of Multiphysics} {\bf 11}(1).
-\newline\harvardurl{http://www.journal.multiphysics.org/index.php/IJM/article/view/11-1-1}
 
 \harvarditem{Glessmer \harvardand\
   Janßen}{2017}{glessmerUsingInteractiveLattice2017}
@@ -245,6 +259,15 @@ Malcolm, J., Yalamanchili, P., McClanahan, C., Venugopalakrishnan, V., Patel,
   p.~84030A.
 \newline\harvardurl{http://proceedings.spiedigitallibrary.org/proceeding.aspx?doi=10.1117/12.921122}
 
+\harvarditem[Marion et~al.]{Marion, Kwitt, Davis \harvardand\
+  Gschwandtner}{2012}{marionPCLParaViewConnecting2012}
+Marion, P., Kwitt, R., Davis, B. \harvardand\ Gschwandtner, M.
+  \harvardyearleft 2012\harvardyearright .
+\newblock {PCL} and {ParaView} \&\#x2014; {Connecting} the dots, {\em 2012
+  {IEEE} {Computer} {Society} {Conference} on {Computer} {Vision} and {Pattern}
+  {Recognition} {Workshops}}, IEEE, Providence, RI, USA, pp.~80--85.
+\newline\harvardurl{http://ieeexplore.ieee.org/document/6238918/}
+
 \harvarditem{Mawson}{2014}{Mawson2014InteractiveFI}
 Mawson, M.  \harvardyearleft 2014\harvardyearright .
 \newblock {\em Interactive fluid-structure interaction with many-core
@@ -261,12 +284,25 @@ Neumaier, A.  \harvardyearleft 2004\harvardyearright .
   pp.~37--43.
 \newline\harvardurl{https://doi.org/10.1007/978-1-4613-0215-5}
 
+\harvarditem{Ohno \harvardand\ Kageyama}{n.d.}{ohnoIntroductionVirtualReality}
+Ohno, N. \harvardand\ Kageyama, A.  \harvardyearleft n.d.\harvardyearright .
+\newblock Introduction to {Virtual} {Reality} {Visualization} by the {CAVE}
+  system,  p.~41.
+
 \harvarditem{Pacheco}{2011}{PACHECO20111}
 Pacheco, P.~S.  \harvardyearleft 2011\harvardyearright .
 \newblock Chapter 1 - why parallel computing?, {\em in} P.~S. Pacheco (ed.),
   {\em An introduction to parallel programming}, Morgan Kaufmann, Boston,
   pp.~1--14.
 \newline\harvardurl{https://www.sciencedirect.com/science/article/pii/B9780123742605000014}
+
+\harvarditem[Qian et~al.]{Qian, D'Humières \harvardand\
+  Lallemand}{1992}{qianLatticeBGKModels1992}
+Qian, Y.~H., D'Humières, D. \harvardand\ Lallemand, P.  \harvardyearleft
+  1992\harvardyearright .
+\newblock Lattice {BGK} {Models} for {Navier}-{Stokes} {Equation}, {\em
+  Europhysics Letters (EPL)} {\bf 17}(6):~479--484.
+\newline\harvardurl{https://iopscience.iop.org/article/10.1209/0295-5075/17/6/001}
 
 \harvarditem{Rago}{2015}{rago2015numerical}
 Rago, G.  \harvardyearleft 2015\harvardyearright .
@@ -277,6 +313,20 @@ Rago, G.  \harvardyearleft 2015\harvardyearright .
 \harvarditem{Rapp}{2017}{rapp2017}
 Rapp, B.  \harvardyearleft 2017\harvardyearright .
 \newblock Computational fluid dynamics, pp.~609--622.
+
+\harvarditem{SciVista}{2021}{summitvr}
+SciVista  \harvardyearleft 2021\harvardyearright .
+\newblock {SummitVR}.
+\newline\harvardurl{https://www.scivista.com/summitvr}
+
+\harvarditem[Shetty et~al.]{Shetty, Chaudhary, Coming, Sherman, O'Leary,
+  Whiting \harvardand\ Su}{2011}{shettyImmersiveParaViewCommunitybased2011}
+Shetty, N., Chaudhary, A., Coming, D., Sherman, W.~R., O'Leary, P., Whiting,
+  E.~T. \harvardand\ Su, S.  \harvardyearleft 2011\harvardyearright .
+\newblock Immersive {ParaView}: {A} community-based, immersive, universal
+  scientific visualization application, {\em 2011 {IEEE} {Virtual} {Reality}
+  {Conference}}, IEEE, Singapore, Singapore, pp.~239--240.
+\newline\harvardurl{http://ieeexplore.ieee.org/document/5759487/}
 
 \harvarditem[Spadafora et~al.]{Spadafora, Chahuneau, Martelaro, Sirkin
   \harvardand\ Ju}{2016}{spadaforaDesigningBehaviorInteractive2016}
@@ -293,6 +343,15 @@ Spadafora, M., Chahuneau, V., Martelaro, N., Sirkin, D. \harvardand\ Ju, W.
 Storti, D. \harvardand\ Yurtoglu, M.  \harvardyearleft 2016\harvardyearright .
 \newblock {\em {CUDA} for engineers: an introduction to high-performance
   parallel computing}, Addison-Wesley, New York.
+
+\harvarditem[Su et~al.]{Su, Perry, Bravo, Kase, Roy, Cox \harvardand\
+  R.~Dasari}{2020}{suVirtualAugmentedReality2020}
+Su, S., Perry, V., Bravo, L., Kase, S., Roy, H., Cox, K. \harvardand\
+  R.~Dasari, V.  \harvardyearleft 2020\harvardyearright .
+\newblock Virtual and {Augmented} {Reality} {Applications} to {Support} {Data}
+  {Analysis} and {Assessment} of {Science} and {Engineering}, {\em Computing in
+  Science \& Engineering} {\bf 22}(3):~27--39.
+\newline\harvardurl{https://ieeexplore.ieee.org/document/8978600/}
 
 \harvarditem{Succi}{2001}{succi2001lattice}
 Succi, S.  \harvardyearleft 2001\harvardyearright .
@@ -326,6 +385,13 @@ Szőke, M., Józsa, T.~I., Koleszár, A., Moulitsas, I. \harvardand\ Könözsy,
   44}(1):~1--22.
 \newline\harvardurl{https://dl.acm.org/doi/10.1145/3085590}
 
+\harvarditem[Thürey et~al.]{Thürey, Rüde \harvardand\
+  Körner}{n.d.}{thureyInteractiveFreeSurface}
+Thürey, N., Rüde, U. \harvardand\ Körner, C.  \harvardyearleft
+  n.d.\harvardyearright .
+\newblock Interactive {Free} {Surface} {Fluids} with the {Lattice} {Boltzmann}
+  {Method}, {\em Technical Report} p.~9.
+
 \harvarditem[Tran et~al.]{Tran, Lee \harvardand\
   Hong}{2017}{tranPerformanceOptimization3D2017}
 Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
@@ -337,7 +403,7 @@ Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
 \harvarditem{Victor}{2018}{victorInventingOnPrinciple2018}
 Victor, B.  \harvardyearleft 2018\harvardyearright .
 \newblock Inventing on principle.
-\newline\harvardurl{https://www.youtube.com/watch?v=8QiPFmIMxFc\\&t=834s}
+\newline\harvardurl{https://www.youtube.com/watch?v=8QiPFmIMxFc}
 
 \harvarditem[Wang et~al.]{Wang, Ferey, Bourdot \harvardand\
   Magoules}{2019}{wangInteractive3DFluid2019}

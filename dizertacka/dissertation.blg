@@ -11,26 +11,34 @@ I'm skipping whatever remains of this command
 A level-1 auxiliary file: appendices.aux
 A level-1 auxiliary file: appendixa.aux
 A level-1 auxiliary file: appendixb.aux
-Database file #1: refs/mathematics.bib
-Database file #2: refs/modeling.bib
+Database file #1: refs/control.bib
+Database file #2: refs/mathematics.bib
+Database file #3: refs/modeling.bib
 I was expecting a `,' or a `}'---line 24 of file refs/modeling.bib
  :  
  :  note = {[accessed: 2020-04-20]}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Database file #3: refs/cfd.bib
-Database file #4: refs/lbm.bib
-Database file #5: refs/gpu.bib
-Database file #6: refs/interaction.bib
-Database file #7: refs/interfaces.bib
-Database file #8: refs/hci.bib
-Database file #9: refs/design.bib
-Database file #10: refs/ml.bib
-Database file #11: refs/visualization.bib
-Database file #12: refs/programming.bib
-Database file #13: refs/simulation.bib
-Database file #14: refs/ar.bib
-Database file #15: refs/vr.bib
+Database file #4: refs/cfd.bib
+Database file #5: refs/lbm.bib
+Database file #6: refs/gpu.bib
+Database file #7: refs/interaction.bib
+Database file #8: refs/interfaces.bib
+Database file #9: refs/hci.bib
+Database file #10: refs/design.bib
+Database file #11: refs/ml.bib
+Database file #12: refs/visualization.bib
+Database file #13: refs/programming.bib
+Database file #14: refs/simulation.bib
+Database file #15: refs/ar.bib
+Database file #16: refs/vr.bib
+Database file #17: refs/online.bib
+Warning--entry type for "summitvr" isn't style-file defined
+--line 1 of file refs/online.bib
+Repeated entry---line 8 of file refs/online.bib
+ : @article{paraview2005
+ :                      ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "gonda"
 Warning--I didn't find a database entry for "Yalamanchili2015"
 Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
@@ -38,50 +46,49 @@ Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration201
 Warning--I didn't find a database entry for "forge2016"
 Warning--I didn't find a database entry for "TAN2017649"
 Warning--I didn't find a database entry for "malcolmArrayFireGPUAcceleration2012"
-Warning--empty author in FULLGPUImplementation2017
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 Warning--empty booktitle in rapp2017
 Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
-You've used 48 entries,
+You've used 57 entries,
             2921 wiz_defined-function locations,
-            1019 strings with 18655 characters,
-and the built_in function-call counts, 218422 in all, are:
-= -- 35581
-> -- 3099
+            1085 strings with 21074 characters,
+and the built_in function-call counts, 265845 in all, are:
+= -- 43227
+> -- 3915
 < -- 1
-+ -- 17061
-- -- 949
-* -- 18929
-:= -- 43567
-add.period$ -- 105
-call.type$ -- 48
-change.case$ -- 659
-chr.to.int$ -- 48
-cite$ -- 53
-duplicate$ -- 795
-empty$ -- 1586
-format.name$ -- 1085
-if$ -- 39349
++ -- 20807
+- -- 1201
+* -- 23082
+:= -- 53032
+add.period$ -- 123
+call.type$ -- 57
+change.case$ -- 791
+chr.to.int$ -- 57
+cite$ -- 61
+duplicate$ -- 945
+empty$ -- 1892
+format.name$ -- 1368
+if$ -- 47878
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 52
-newline$ -- 240
-num.names$ -- 504
-pop$ -- 197
+missing$ -- 60
+newline$ -- 282
+num.names$ -- 611
+pop$ -- 241
 preamble$ -- 1
-purify$ -- 715
+purify$ -- 855
 quote$ -- 0
-skip$ -- 700
+skip$ -- 841
 stack$ -- 0
-substring$ -- 50254
-swap$ -- 167
-text.length$ -- 663
+substring$ -- 61105
+swap$ -- 196
+text.length$ -- 799
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 180
-warning$ -- 5
-while$ -- 1069
+type$ -- 216
+warning$ -- 4
+while$ -- 1291
 width$ -- 0
-write$ -- 755
-(There were 2 error messages)
+write$ -- 901
+(There were 3 error messages)

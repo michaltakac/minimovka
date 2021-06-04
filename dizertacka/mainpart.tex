@@ -1,112 +1,39 @@
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
+
+In this day and age, we humans live in a world where things which were unimaginable just few decades ago are becoming reality, thanks to the huge progress made possible by computers. The increase in computational power and ubiquity of wide range of computing devices has opened the doors to practically implement new methods that were previously discussed only on a theoretical level and intractable in analytical forms. Computer-based techniques like numerical simulations allows us to, at least approximately, evaluate challenging and complex phenomena occurring in nature. In this thesis, I will be mostly dealing with the one of such complex phenomena, namely fluid flows. 
+
+We encounter flowing fluids everywhere on our known human scale, but when the world around us is investigated very closely under a microscope, or when we zoom out and look far beyond our Earth, much more complex fluid flows can be encountered. Again, computers allowed us to find out about the world too small or parts of the universe too far away to see with the naked eye. Understanding such physical phenomena across different scales then opens the door for developing novel technologies.
+
+What drives the hardware computing tools is the software. It's what we use to instruct information to flow in a way that provides value and drives us towards aforementioned goal of deep understanding. 
+
+Scientific and engineering software is different from the one that is used by ordinary people who want to consume arbitrary information, read articles, order meals, watch videos, or connect with their social circle through social media applications. In a scientific software, user is typically presented with large amounts of data resulting from complex physical experiments or numerical simulations. This puts importance on an interface for proper visualization of that data, in a way that the user is able to assess and analyze it. This type of software is a medium for \emph{visual communication} and has to provide means to effectively \emph{communicate}.
+
+The primary design challenge for scientific software is to provide affordances that make these visualizations correct, understandable, and reduce the complexity into the simpler, more approachable form. In this thesis, I will be exploring modern methods and approaches for visualizing fluid simulations and how to seamlessly interact with the running simulation from virtual reality application.
+
+The usage of emerging technologies like virtual or augmented reality, thanks to their highest exposure in gaming industry, was mostly just an afterthought within scientific computing. These technologies have remained absent from science and engineering workflows due to the custom-built nature of the hardware and software \citep{suVirtualAugmentedReality2020}. But as we approach the exascale computing capabilities, the volume and complexity of data from high-energy physics experiments, modeling of complex engineering designs and large-scale multi-phase simulations, is growing dramatically. VR and AR can provide advanced visualization approaches to perform data assessment in data-intensive scientific and engineering
+applications. Many software solutions that focus on data analysis of large-scale scientific simulations have integrated support for some of the consumer-grade VR headsets, available off-the-shelf, but also CAVE (Cave Automatic Virtual Environment) systems. CAVE system is a room-sized cube with virtual environment projected to its walls \citep{ohnoIntroductionVirtualReality}. These systems typically require big investments in tens of thousands of euros. On the other hand, VR headsets, or head-mounted displays (HMDs) are much cheaper (their price is usually in low hundreds of euros). In this thesis I've focused on leveraging the HMDs with their appropriate hand controllers or built-in hand tracking, as the target audience should not be limited to the enterprises and institutions with big budgets, but anybody who can get their hands on the average VR-ready hardware, starting with individual researchers. Therefore to evaluate other software solutions for scientific visualization and data analysis, I'm targeting those that support commonly used HMDs made by HTC, Oculus (HTC Vive, Oculus Rift), or various Windows Mixed Reality headsets, usually through a higher-level API like OpenVR. 
+
+One of such software is ParaView \citep{paraview2005}. It's a open-source, multi-platform data analysis and visualization application extensively used within scientific community \citep{marionPCLParaViewConnecting2012,ahrensPetascaleVisualizationApproaches2008}. I'ts built as a graphical interface on top of Visualization Toolkit (VTK), another open-source software that sits at the hearth of not just ParaView, but many more software applications for scientific data analysis and visualization. VTK plays central role in VR support in these types of software, because it provides the basic building blocks for talking to HMD hardware APIs through higher-level interface such as OpenVR. Rendering of the datasets to be analyzed to the HMD is handled very easily. More complex interactions with the data and 3D imagery has to be implemented additionally. In ParaView, basic interactions are already implemented into the software, but it doesn't provide any user interface (UI) specifically for immersive exploration of the data in VR. \cite{shettyImmersiveParaViewCommunitybased2011} extended the ParaView to add physical interaction through external touch display while preserving the data streaming and data parallel mechanisms for large data visualization. Their approach could be labeled as mixed, but the way of working with the software through indirect interaction outside of HMD makes it very hard to operate it towards the task of effectively exploring the large-scale datasets. 
+
+As the work with complex datasets from scientific or engineering applications is very challenging, tools for working with their visualization have to be designed appropriately. If we want VR to serve its purpose in science and engineering, then it must add value instead of slowing us down or complicating things even more than they already are. The company SciVista that is behind their SummitVR application addresses these concerns with their approach to extending VR capabilities of ParaView beyond just a fancy 3D viewer for of the scientific data. Their VR software provides an intuitive, 3D UI built purposely for handling datasets that extend to petabytes of data per day coming in from the largest fusion experiment(ITER). Ability to work inside the immersive virtual environment with data assessment tools seamlessly accessible through hand-controller-driven UI, choosing from data filtering options and ability to move 3D data representations around the user is very effective strategy towards bringing value for researchers \citep{summitvr}.
+
+Aforementioned cases where visualization of scientific data for further analysis is important aspect of research work, are just some of the examples how data from experiments or post-simulation can be analysed. This is the classic type of data visualization and it's called ``post hoc".
+
+In field of fluid dynamics, we are interested in different properties of how fluid flows and behaves under various circumstances. With advent of powerful computers, fluid flows can be studied much more effectively with computational fluid dynamics (CFD) methods and tools. Visualization of different aspects of fluid flows is very important part of CFD analysis workflow. Classic approach to data analysis in such cases through post hoc visualization, although very helpful, is insufficient and not effective enough. With current power of consumer-grade PC workstations and tremendous power of supercomputers gearing towards exascale computational power, we can do much better.
+
+During the last two decades, we can see the move from sequential computing and specialized programming of many-core systems towards parallel computing. This was mainly pushed by the fact that power consumption of many-core CPUs with hundreds of cores and resulting heat generation was reaching the physical limit after which the chip could become unstable and potentially melt. CPU manufacturers transferred to the multi-core architectures with single-digit number of cores and parallel computing has become the dominant paradigm.
+
+Alongside the multi-core and many-core CPUs, graphical processing units (GPUs) started gaining traction in computer science community for accelerating scientific applications after they became increasingly programmable throughout the years of 1999-2000. GPU consists of hundreds or thousands of smaller cores. This massively parallel architecture is what gives the GPU its high compute performance. Back then it was extremely hard to write programs for GPUs, but nowadays various computing platforms and frameworks exist to ease the development. This democratized the use of GPU for larger scientific community and and spearheaded the movement called GPGPU, or General Purpose GPU computing.
+
+Since then, GPU computing has been intensively used for CFD simulations and data visualization. Thanks to the GPUs' high performance computation, a parallel algorithms of modern methods for CFD simulations like Lattice Boltzmann Method (LBM) developed for simulating complex fluid flows outperform classic ones in speed by more than hundred times or more \citep{qianLatticeBGKModels1992,wittmannLatticeBoltzmannBenchmark2018,boroniFULLGPUImplementation2017,harwoodLUMAManycoreFluid2018,szokePerformanceEvaluationTwoDimensional2017,tranPerformanceOptimization3D2017,januszewskiSailfishFlexibleMultiGPU2014}. Such speed-ups opened the door to real-time simulation and interactive visualization \citep{kressSituVisualizationTechniques,kolihaOnlineVisualizationInteractive2015,wangInteractive3DFluid2019,Mawson2014InteractiveFI,thureyInteractiveFreeSurface,linxweilerHighlyInteractiveComputational2010,delboscRealTimeSimulationIndoor}. Beside the great parallelizability, LBM is relatively easy to implement and it's also possible to additionally implement needed physics as the problem at hand requires.
+LBM is therefore perfectly suited as an underlying method for developing CFD simulation software that will be integrated with the interactive virtual reality visualization software.
+
+The important aspect of such software that will be presented in this thesis is not crunching numbers in the shortest time possible, but instead, it's the synthesis of VR application design with simulation software fast enough that it is possible to amplify human reasoning through data visualization and automated analysis. The CFD researcher who would potentially use this application must see the effects of any manipulation of input data or change of any option immediately. Thanks to this ability to steer the running simulation, the exploration phase should be an order of magnitude quicker than with conventional CFD simulation and visualization methods.
+
+This thesis is structured as follows. Chapter \ref{sec:modsim} lays forward an introduction to and an explanation why mathematical modeling and simulation are important in modern approach to science and engineering; how they fit into the framework of computational fluid dynamics (CFD); and finally why combining them together is important. In chapter \ref{sec:meso}, the basic theory of fluid flows will be presented; this will be expanded to mesoscopic approach to fluid dynamics based on Lattice Boltzmann Method (LBM); different aspects of LBM will be discussed, including boundary conditions, multiphase flows, adaptive mesh refinement, and finally this chapter will conclude with the look ahead beyond Newtonian fluids. Chapter \ref{gpu-computing} will deal with the technical aspects of GPU computing; how parallel programming is different from sequential programming; how CPUs and GPUs can work alongside each other in symbiosis, often called heterogeneous computing; what GPU computing platforms and frameworks exist; how they can be targeted from single codebase; and in the end this chapter will connect with the previous one, showing how LBM simulations can be accelerated through GPU computing. In chapter \ref{sec:vizmethods}, various visualization methods will be briefly discussed. Chapter \ref{sec:implementation} deals with the implementation of integrated simulation software based on LBM and interactive virtual reality visualization software. In closing, chapter \ref{sec:conclusion} is meant to serve as a review of the work done within the context of thesis theme and it ends with the discussion of potential next steps and future work that can be done in chapter \ref{sec:discussion}.
 
 
-What your thesis is about
-Why it is important
-How it was conducted
-How it is laid out
-
-The introduction as a whole should outline the significance and relevance of the thesis
-
-% ---------------------
-- Establish your research territory (by situating your research in a broader context) \\
-%
-
-
-% ---------------------
-- Establish and justify your niche (by describing why your research is needed)  \\
-%
-
-
-% ---------------------
-- Explain the significance of your research (by describing how you conducted the research) \\
-%
-
-
-% The reader shouldn’t have to wait long before they understand the contribution, what you are doing and how you are doing it.
-
-Introduction to the introduction: a short version (of only a few paragraphs) of the thesis' aims, research questions, contribution, objectives and findings.
-
-
-1. State the overarching topic and aims of the thesis in more detail
-2. Provide a brief review of the literature related to the topic (this will be very brief if you have a separate literature review chapter)
-3. Define the terms and scope of the topic
-4. Critically evaluate the current state of the literature on that topic and identify your gap
-5. Outline why the research is important and the contribution that it makes
-6. Outline your epistemological and ontological position
-7. Clearly outline the research questions and problem(s) you seek to address
-8. State the hypotheses (if you are using any)
-9. Detail the most important concepts and variables
-10. Briefly describe your methodology
-11. Discuss the main findings
-12. Discuss the layout of the thesis
-
-% -------------------------------------------------------------
-
-1. a 3. Hlavny topic prace je dizajn a implementacia interktivnej simulacie a jej vizualizacie vo virtualnej realite. Tato praca sa venuje moznostiam imerzivity, ktoru spristupnuje virtualna realita. Skumam v nej aplikaciu VR pre scientific visualization
-
-2. a mozno spolu s 5. Review literatury ale velmi stroho
-- k modeling and simulation v prepojeni s CFD
-- k zrychlovaniu simulacii pomocou parallel computingu
-- k progresu simulacii z CPU manycore k multicore a k GPU akceleratorom
-- k LBM ako perfectly suited to parallel computing
-- k dosiahnutiu dostatocne rychlych simulacii na to, aby bolo mozne dosielit real.time a interaktivnu simulaciu a in-situ vizualizaciu
-
-% 6 nic
-
-7. Research questions and problems
-
-- Analysis of the current state of the art of modeling using modern methods.
-- Design of a suitable method for creating mathematical models of processes and their visualization in the VR environment.
-- Creation and implementation of supporting models and environment in VR.
-- Selection of technological process and design of appropriate CFD model.
-- Synthesis of created CFD model with VR environment.
-
-% 8 nic
-% 9 nic
-11. spomenut co sa podarilo navrhnut a implementovat
-- nieco o performance analyze
-- o zachovani rychlosti pri cross-platform implementacii simulacneho sofveru
-- o VR vizualizacii iducej simulacie
-- o steeringu simulacie vo VR prostredi
-- o UI pre steering simulacie
-
-12. ako je rozdelena praca (v podstate opisat ako to je cele poskladane, podla mindmapy?)
-
-
-
-With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that
-
-Existuju uz niektore pokusy o vyuzitie Arrayfire pre tvorbu simulacnych softverov, dokonca aj pre LBM metodu, no tie vyuzivaju custom CUDA kernel. To znamena, ze ich implementacia nie je multi-platformova
-
-
-
-nove je vyuzitie kniznice ArrayFire pre implementaciu LBM solveru pre paralelne architektury typu GPU, vdaka ktorej sa dosahuje vysoka expresivita pri pisani kodu a tym padom vysledny solver je mozne napisat v par riadkoch, co je porovnatelne s implementaciami v Matlabe. Rozdiel je ale v rychlosti - LBM solvre pisane v Matlabe (par ich je dostupnych na tomto linkuv sekcii "Matlab" https://palabos.unige.ch/get-started/lattice-boltzmann/lattice-boltzmann-sample-codes-various-other-programming-languages/) (pridat do bibliografie?), dosahuju rychlosti radovo 0,13-5 MLUPS (= milion prepoctov celej vypoctovej domeny za sekundu) podla hardveru, na ktorom su benchmarkovane. Aby bol solver rychly, vacsinou sa vyuziva C++ s kniznicami pre vypoctove platformy CUDA (pre NVIDIA GPU) a OpenCL (pre rozne typy kariet, je to cross-platform kniznica) a kod sa nasledne optimalizuje rucne pre rozny hardver (rozne typy GPU maju rozne pocty jadier, registrov, velkost pamate, priepustnost pamate atd). Vyuzitim ArrayFire kniznice, ktora sama optimalizuje kod pre rozne typy hardveru, v spojeni s C++ alebo Rust programovacim jazykom som dokazal implementovat LBM solver pod 100 riadkov kodu, bez dodatocnych optimalizacii pre specificky hardver, ale iba doplnil klasicke optimalizacie vyuzivajuce sa pre GPU programovanie, vysledkom coho je cross-platform solver pre velke mnozstvo GPU od roznych vyrobcov, dokonca aj FPGA-cka, spolu so zachovanim vysokej rychlosti v radoch 150-5000 MLUPS podla hardveru na ktorom je solver spustany. 
-
-Obsahuje implementacie v C++ aj Rust-e, pre 2D D2Q9 simulacie na báze BGK a 3D D3Q27 simulacie na baze MRT (s 27 premennymi pre presnejsie nastavenie relaxacie). 
-Tu je implementacia bez komentarov a medzier (ukazka expresivity pri porovnani množstva kódu potrebného na napísanie LBM solveru napr. v Matlabe). Performance analyza simulacneho softveru je rozpisana vo vacsom detaile v sekcii Performance Analysis \ref{perf-analysis}.
-
-
-
-
-%The objective of process control is to keep key process-operating parameters within narrow bounds of the reference value or setpoint. Controllers are used to automate a human function in an effort to control a variable. A basic controller can keep an individual loop on an even point, so long as there is not too much disruption. Complex processes like ones in metallurgy might employ dozens or even hundreds of such controllers, but keeping an eye on the big picture was, until not so long ago, a human process.
-%
-%Although a device was used to automate a human function in an effort to control a variable, there was no sense of what the process was doing overall. A basic controller could keep an individual loop on an even keel, more or less, so long as there was not too much disruption. Complex processes might employ dozens or even hundreds of such controllers, each with its performance displayed on a panel board, but keeping an eye on the big picture was still a human process.
-%
-%When distributed control system (DCS) platforms were introduced in the 1970s, they simplified the mechanics of the panel board, but did not do much to improve its capabilities. Big-picture analysis was still largely a human responsibility. Sure, getting beyond the technical constraints of pneumatic field devices with their troublesome compressed air tubing made it easier to install more instruments and actuators, but the basic control concepts did not really change. Any movement to advanced process control (APC) and other forms of control optimization were still in their infancy. Process automation capable of supporting APC had to encompass many technologies and techniques. It was characterized by incorporating many more input data points into algorithms and orchestrating more complex sequences.
-%
-%The transition to process automation and advanced process control (APC) was empowered by being able to create an all-encompassing platform capable of coordinating more than single loops or small cascade groups. One major advantage of newer platforms is the ability to optimize a process to suit the owner’s specific economic goals based on any number of desired outcomes. The process automation system can operate the plant to minimize energy consumption, maximize output, and deliver specific product quality attributes.
-%
-%Implementing such systems is challenging. During the initial design phase of a control system upgrade or a new installation, it is far too easy to focus just on process fundamentals, and never get beyond considering desired steady-state conditions. Automation system upgrades and new installations can therefore miss opportunities to engage with process and automation technology experts capable of uncovering better ways of doing things. Many capabilities of modern process automation systems are still underutilized in most process plants. Far fewer companies use APC as effectively as they could, even though basic APC technologies have been around for decades.
-
-
-
-%With the continuation of expanding computational power available for engineers that can tap into it for their simulations, the time for simulation to converge decreases accordingly. it becomes clear enough that ...
-%
-%We'll discuss the path towards interactive simulation in section \ref{interactive-simulation}.
-
-
-\section{Modeling and Simulation}
+\section{Modeling and Simulation}\label{sec:modsim}
 %DONE
 \begin{chapquote}{R. W. Hamming, \textit{The Art of Doing Science and Engineering}}
 ``The purpose of computing is insight, not numbers"
@@ -176,7 +103,7 @@ In terms of fluid dynamics and specifically CFD, conventional modeling intent wa
 
 % -------------------------------
 
-\section{Mesoscopic Approach to Fluid Dynamics}
+\section{Mesoscopic Approach to Fluid Dynamics}\label{sec:meso}
 % DONE
 In the search for fast solver for simulating fluid flows while allowing for complex representation of underlying dynamics, one doesn't have to wait for computers to become powerful enough to just compute direct numerical simulation. Fast enough in a sense that the resulting simulation would allow for interactivity and real-time visualization. For this become feasible, still large progress in computing power and new efficient algorithms has to come.
 
@@ -682,8 +609,7 @@ It doesn't stay there. Lattice-Boltzmann formalism doesn't restrict itself only 
 
 % -------------------------------------------------------------------------------
 
-\section{GPU Computing}
-\label{gpu-computing}
+\section{GPU Computing}\label{gpu-computing}
 % DONE
 Innovations in GPUs over the last decades was driven mainly by video games. They advanced from merely displaying pixels to being capable of doing mathematical computations. After the introduction of programmable shaders and floating-point support on graphics processors, the dynamics has changed though. At first it opened the door for using GPUs in complex physics calculations like wind blowing, fluid flows, cloth movement, etc. in games but also for scientific simulation. This movement to leveraging GPU capabilities in serious engineering work became dubbed as general-purpose computing on GPUs (GPGPU), a term coined by NVIDIA's Distinguished Engineer Mark Harris.
 
@@ -879,7 +805,7 @@ There has been an increase in studies focused on optimizing the execution speed 
 
 In this space, the most used APIs for programming GPUs are CUDA and OpenCL. CUDA (Compute Unified Device Architecture) is a proprietary API used to program NVIDIA GPUs \cite{stortiCUDAEngineersIntroduction2016}. OpenCL (Open Computing Language) is an open standard that supports different hardware from various vendors on the market \cite{karimiPerformanceComparisonCUDA}.
 
-Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \cite{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, FULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \cite{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \cite{amalcolmArrayFireGPUAcceleration2012a}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
+Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \cite{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, boroniFULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \cite{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \cite{amalcolmArrayFireGPUAcceleration2012a}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
 
 ArrayFire library can help by automatically leveraging the best hardware features available on multiple architectures, hiding the hardware-specific optimizations. Developers can write code in a high-level language like C++, Rust, or Python (for which the ArrayFire library wrapper exists) and have it compiled for CPU, GPU, or other accelerators like FPGA.
 
@@ -887,7 +813,7 @@ ArrayFire library can help by automatically leveraging the best hardware feature
 % Application
 %% ---------------------------------------------------------------------------------------
 
-\section{Visualization Methods}
+\section{Visualization Methods}\label{sec:vizmethods}
 %DONE
 \begin{chapquote}{J. Joyce, \textit{Ulysses}}
 	``Errors are the portals to discovery."
@@ -1109,7 +1035,7 @@ One can say that virtual reality established itself in many disciplines of human
 
 % ------------------------------------------------------
 
-\section{Implementation of a Simulation Software} 
+\section{Implementation of a Simulation Software} \label{sec:implementation}
 
 \subsection{Technology Stack} \label{sec:tech-stack}
 
@@ -2186,7 +2112,7 @@ For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{ta
 	\label{fig:d2q9_channel_mlups_f64}
 \end{figure}
 
-Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases are slightly higher than the study reported by Boroni et. al \cite{FULLGPUImplementation2017}, in which they reported 80 MLUPS at peak performance achieved on NVIDIA GeForce GTX 580 GPU. The AMD Radeon R9 M370X GPU used in our work can be seen as similarly performing card. 
+Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases are slightly higher than the study reported by Boroni et. al \cite{boroniFULLGPUImplementation2017}, in which they reported 80 MLUPS at peak performance achieved on NVIDIA GeForce GTX 580 GPU. The AMD Radeon R9 M370X GPU used in our work can be seen as similarly performing card. 
 
 \begin{figure}[!ht]
 	\centering
@@ -2267,13 +2193,13 @@ When comparing the 3D performance of LBM solvers, and specifically those using D
 	\label{fig:max_mlups_3d}
 \end{figure}
 
-\section{Conclusions}
+\section{Conclusions}\label{sec:conclusion}
 
 For this thesis, the cross-platform LBM solver that can be used on variety of parallel accelerators (e.g. GPUs, CPUs or FPGAs) was implemented. It uses ArrayFire, a high-performance parallel computing library (version 3.8.0 was used for this work). We created reference implementation in C++ and ported the same code to Rust. We chose Rust because it has modern capabilities, is memory safe and its performance is comparable to C/C++. We were able to produce sufficient LBM solver in under 150 lines of code, including real-time visualization code. Benchmarks were concluded for both C++ and Rust versions, resulting in identical performance. Data reported in this study are taken from the Rust version. 
 
 For the benchmarks, we analyzed two classical, academic test cases, the lid-driven cavity and Kármán vortex street (flow around the obstacle in pipe). We employed commonly used metric for measuring speed of LBM implementations, the MLUPS. We benchmarked our LBM implementation on 5 different GPUs and one CPU. Between CPU and GPU, we saw from 4 to more than 300 times speedup on various GPUs.
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 
 \subsection{Future Work}
 
