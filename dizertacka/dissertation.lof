@@ -13,49 +13,49 @@
 \contentsline {figure}{\numberline {5\,--\,4}{\ignorespaces Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times $300 resolution after 5000 iterations.\relax }}{53}{figure.caption.13}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Visualization of Kármán vortex street simulation.}}}{53}{subfigure.4.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Velocity vector field (filtered for better presentation).}}}{53}{subfigure.4.2}%
-\contentsline {figure}{\numberline {5\,--\,5}{\ignorespaces \citep {victorInventingOnPrinciple2018}.\relax }}{55}{figure.caption.14}%
-\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Illustration of the streaming step.\relax }}{65}{figure.caption.15}%
-\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Setting up VR support in Unity.\relax }}{75}{figure.caption.16}%
-\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces .\relax }}{76}{figure.caption.17}%
-\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Native VR development with pre-packaged Unity scene.\relax }}{77}{figure.caption.18}%
-\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Oculus support.\relax }}{78}{figure.caption.19}%
-\contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Oculus setup\relax }}{79}{figure.caption.20}%
-\contentsline {figure}{\numberline {6\,--\,7}{\ignorespaces Information about the physical variables shown after user points to the specific part of the visualization.\relax }}{81}{figure.caption.21}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pointer interaction with hand controllers.}}}{81}{subfigure.7.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Pointer interaction with virtual hands.}}}{81}{subfigure.7.2}%
-\contentsline {figure}{\numberline {6\,--\,8}{\ignorespaces Grab interaction.\relax }}{82}{figure.caption.22}%
-\contentsline {figure}{\numberline {6\,--\,9}{\ignorespaces Unity Editor with script interface.\relax }}{89}{figure.caption.23}%
-\contentsline {figure}{\numberline {6\,--\,10}{\ignorespaces Interface for controlling the state of simulation.\relax }}{91}{figure.caption.24}%
-\contentsline {figure}{\numberline {6\,--\,11}{\ignorespaces Interface for controlling the state of simulation.\relax }}{92}{figure.caption.25}%
-\contentsline {figure}{\numberline {6\,--\,12}{\ignorespaces Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{95}{figure.caption.28}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{95}{subfigure.12.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{95}{subfigure.12.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{95}{subfigure.12.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{95}{subfigure.12.4}%
-\contentsline {figure}{\numberline {6\,--\,13}{\ignorespaces Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{96}{figure.caption.29}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{96}{subfigure.13.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{96}{subfigure.13.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{96}{subfigure.13.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{96}{subfigure.13.4}%
-\contentsline {figure}{\numberline {6\,--\,14}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{98}{figure.caption.31}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{98}{subfigure.14.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{98}{subfigure.14.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{98}{subfigure.14.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{98}{subfigure.14.4}%
-\contentsline {figure}{\numberline {6\,--\,15}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{99}{figure.caption.32}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{99}{subfigure.15.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{99}{subfigure.15.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{99}{subfigure.15.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{99}{subfigure.15.4}%
-\contentsline {figure}{\numberline {6\,--\,16}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{99}{figure.caption.33}%
-\contentsline {figure}{\numberline {6\,--\,17}{\ignorespaces Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }}{100}{figure.caption.35}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{100}{subfigure.17.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{100}{subfigure.17.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{100}{subfigure.17.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{100}{subfigure.17.4}%
-\contentsline {figure}{\numberline {6\,--\,18}{\ignorespaces Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }}{101}{figure.caption.36}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{101}{subfigure.18.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{101}{subfigure.18.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{101}{subfigure.18.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{101}{subfigure.18.4}%
-\contentsline {figure}{\numberline {6\,--\,19}{\ignorespaces Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }}{101}{figure.caption.37}%
+\contentsline {figure}{\numberline {5\,--\,5}{\ignorespaces Screenshot from Bret Victor's presentation ``Inventing on Principle" \citep {victorInventingOnPrinciple2018}.\relax }}{56}{figure.caption.14}%
+\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Illustration of the streaming step.\relax }}{66}{figure.caption.15}%
+\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Setting up VR support in Unity.\relax }}{76}{figure.caption.16}%
+\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces .\relax }}{77}{figure.caption.17}%
+\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Native VR development with pre-packaged Unity scene.\relax }}{78}{figure.caption.18}%
+\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Oculus support.\relax }}{79}{figure.caption.19}%
+\contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Oculus setup\relax }}{80}{figure.caption.20}%
+\contentsline {figure}{\numberline {6\,--\,7}{\ignorespaces Information about the physical variables shown after user points to the specific part of the visualization.\relax }}{82}{figure.caption.21}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pointer interaction with hand controllers.}}}{82}{subfigure.7.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Pointer interaction with virtual hands.}}}{82}{subfigure.7.2}%
+\contentsline {figure}{\numberline {6\,--\,8}{\ignorespaces Grab interaction.\relax }}{83}{figure.caption.22}%
+\contentsline {figure}{\numberline {6\,--\,9}{\ignorespaces Unity Editor with script interface.\relax }}{90}{figure.caption.23}%
+\contentsline {figure}{\numberline {6\,--\,10}{\ignorespaces Interface for controlling the state of simulation.\relax }}{92}{figure.caption.24}%
+\contentsline {figure}{\numberline {6\,--\,11}{\ignorespaces Interface for controlling the state of simulation.\relax }}{93}{figure.caption.25}%
+\contentsline {figure}{\numberline {6\,--\,12}{\ignorespaces Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{96}{figure.caption.28}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{96}{subfigure.12.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{96}{subfigure.12.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{96}{subfigure.12.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{96}{subfigure.12.4}%
+\contentsline {figure}{\numberline {6\,--\,13}{\ignorespaces Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{97}{figure.caption.29}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{97}{subfigure.13.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{97}{subfigure.13.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{97}{subfigure.13.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{97}{subfigure.13.4}%
+\contentsline {figure}{\numberline {6\,--\,14}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{99}{figure.caption.31}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{99}{subfigure.14.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{99}{subfigure.14.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{99}{subfigure.14.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{99}{subfigure.14.4}%
+\contentsline {figure}{\numberline {6\,--\,15}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{100}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{100}{subfigure.15.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{100}{subfigure.15.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{100}{subfigure.15.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{100}{subfigure.15.4}%
+\contentsline {figure}{\numberline {6\,--\,16}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{100}{figure.caption.33}%
+\contentsline {figure}{\numberline {6\,--\,17}{\ignorespaces Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }}{101}{figure.caption.35}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{101}{subfigure.17.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{101}{subfigure.17.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{101}{subfigure.17.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{101}{subfigure.17.4}%
+\contentsline {figure}{\numberline {6\,--\,18}{\ignorespaces Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }}{102}{figure.caption.36}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{102}{subfigure.18.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{102}{subfigure.18.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{102}{subfigure.18.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{102}{subfigure.18.4}%
+\contentsline {figure}{\numberline {6\,--\,19}{\ignorespaces Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }}{102}{figure.caption.37}%

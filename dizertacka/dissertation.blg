@@ -39,6 +39,8 @@ Repeated entry---line 8 of file refs/online.bib
  : @article{paraview2005
  :                      ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "victorMagicInk2006" isn't style-file defined
+--line 16 of file refs/online.bib
 Warning--I didn't find a database entry for "gonda"
 Warning--I didn't find a database entry for "Yalamanchili2015"
 Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
@@ -50,45 +52,45 @@ Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 Warning--empty booktitle in rapp2017
 Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
-You've used 57 entries,
+You've used 59 entries,
             2921 wiz_defined-function locations,
-            1085 strings with 21074 characters,
-and the built_in function-call counts, 265845 in all, are:
-= -- 43227
-> -- 3915
+            1098 strings with 21549 characters,
+and the built_in function-call counts, 273837 in all, are:
+= -- 44523
+> -- 4030
 < -- 1
-+ -- 20807
-- -- 1201
-* -- 23082
-:= -- 53032
-add.period$ -- 123
-call.type$ -- 57
-change.case$ -- 791
-chr.to.int$ -- 57
-cite$ -- 61
-duplicate$ -- 945
-empty$ -- 1892
-format.name$ -- 1368
-if$ -- 47878
++ -- 21424
+- -- 1236
+* -- 23769
+:= -- 54652
+add.period$ -- 128
+call.type$ -- 59
+change.case$ -- 819
+chr.to.int$ -- 59
+cite$ -- 63
+duplicate$ -- 968
+empty$ -- 1950
+format.name$ -- 1408
+if$ -- 49307
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 60
-newline$ -- 282
-num.names$ -- 611
-pop$ -- 241
+missing$ -- 61
+newline$ -- 293
+num.names$ -- 632
+pop$ -- 249
 preamble$ -- 1
-purify$ -- 855
+purify$ -- 885
 quote$ -- 0
-skip$ -- 841
+skip$ -- 864
 stack$ -- 0
-substring$ -- 61105
-swap$ -- 196
-text.length$ -- 799
+substring$ -- 62931
+swap$ -- 198
+text.length$ -- 827
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 216
+type$ -- 224
 warning$ -- 4
-while$ -- 1291
+while$ -- 1335
 width$ -- 0
-write$ -- 901
+write$ -- 932
 (There were 3 error messages)

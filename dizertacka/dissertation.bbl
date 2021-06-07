@@ -277,6 +277,16 @@ Mawson, M.  \harvardyearleft 2014\harvardyearright .
   15 Aug 2016 18:48:06 +0200.
 \newline\harvardurl{http://www.manchester.ac.uk/escholar/uk-ac-man-scw:219513}
 
+\harvarditem[McNamara et~al.]{McNamara, Treuille, Popović \harvardand\
+  Stam}{2004}{mcnamaraFluidControl2004}
+McNamara, A., Treuille, A., Popović, Z. \harvardand\ Stam, J.
+  \harvardyearleft 2004\harvardyearright .
+\newblock Fluid control using the adjoint method, {\em ACM Trans. Graph.} {\bf
+  23}(3):~449--456.
+\newblock Number of pages: 8 Publisher: Association for Computing Machinery
+  tex.address: New York, NY, USA tex.issue\_date: August 2004.
+\newline\harvardurl{https://doi.org/10.1145/1015706.1015744}
+
 \harvarditem{Neumaier}{2004}{Neumaier2004}
 Neumaier, A.  \harvardyearleft 2004\harvardyearright .
 \newblock Mathematical model building, {\em in} J.~Kallrath (ed.), {\em
@@ -399,6 +409,11 @@ Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
 \newblock Performance {Optimization} of {3D} {Lattice} {Boltzmann} {Flow}
   {Solver} on a {GPU}, {\em Scientific Programming} {\bf 2017}:~1--16.
 \newline\harvardurl{https://www.hindawi.com/journals/sp/2017/1205892/}
+
+\harvarditem{Victor}{2006}{victorMagicInk2006}
+Victor, B.  \harvardyearleft 2006\harvardyearright .
+\newblock Magic ink: Information software and the graphical interface.
+\newline\harvardurl{http://worrydream.com/MagicInk/}
 
 \harvarditem{Victor}{2018}{victorInventingOnPrinciple2018}
 Victor, B.  \harvardyearleft 2018\harvardyearright .

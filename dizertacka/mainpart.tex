@@ -924,34 +924,26 @@ Interpreting simulation results is often a laborious process. Already few decade
 
 Recently, the increase of computational power and advances in general-purpose computing on GPUs (GPGPU) made this possible  \citep{delboscRealTimeSimulationIndoor, harwoodParallelisationInteractiveLatticeBoltzmann2017, kolihaOnlineVisualizationInteractive2015, glessmerUsingInteractiveLattice2017}. Together with the performance and speed of the LBM method, it's now possible to compute several hundreds of iterations per second which makes an interaction with the simulation in progress possible \citep{wangInteractive3DFluid2019}. Getting instant feedback according to the change of various parameters in simulation gives researchers the ability to iterate faster toward the creation of accurate model, better understanding of underlying phenomena, or employing simulation within the control of industrial systems. It is therefore desirable to push the limits of execution speed of LBM simulations.
 
-Main goal to implement LBM algorithms for our simulation software is the ability to perform high performance computation and still keep the CPU free to do the additional work. The reason for it is that the visualization part is performed in virtual reality, which needs most of the CPU resources for processing the user tracking. Thanks to the fact that ArrayFire library was used, many hardware-specific optimizations were done for us behind-the-scenes. Although, there is growing body of work on optimizing LBM simulations \citep{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. We used some of the methods described in these articles. They are described in section \ref{optimizations-for-gpu}.
+Main goal to implement LBM algorithms for our simulation software is the ability to perform high performance computation and still keep the CPU free to do the additional work. The reason for it is that the visualization part is performed in virtual reality, which needs most of the CPU resources for processing the user tracking. Thanks to the fact that ArrayFire library was used, many hardware-specific optimizations were done behind-the-scenes. Although, there is growing body of work on optimizing LBM simulations \citep{wangInteractive3DFluid2019, wittmannLatticeBoltzmannBenchmark2018, tranPerformanceOptimization3D2017, kornerParallelLatticeBoltzmann2006, harwoodParallelisationInteractiveLatticeBoltzmann2017, harwoodREALTIMEMODELLINGSIMULATION}. In the simulation software implementation described in this thesis, I've used some of the methods described in these articles. They are described in more detail in section \ref{optimizations-for-gpu}.
 
 \subsubsection{Steering the Running Simulation}
+%DONE
+When the simulation together with visualization are fast enough to stream live data to the screen while the simulation is running, it's convenient to send signals to the simulation to change itself with updated parameters in real-time. Thanks to this ability, the process of optimizing the physical model employed in the CFD analysis, or experimentation phase towards end result specified by the researcher who is using it, can happen much faster, thus becoming an order of magnitude more efficient \citep{kreylos2002}. 
 
-When the simulation together with visualization are fast enough to stream live data to the screen, it's convenient to send signals to the simulation to change itself with updated parameters. This way, the model optimization can be sped up as the finding if result of the simulation is incorrect can happen much faster. Detecting a simulation that will  \citep{kreylos2002}
+In some applications where the flowing fluid has to deform into certain shape, steering the running simulation can be made fully autonomous by applying the concepts from control theory. Such application is usually employed in visual effects or gaming industry. Fluid shape is difficult to control manually by hand. For controlling the shape as a whole, the forward gradient computation method is usually applied. Recently, a more efficient method, called adjoint method, has been applied to this problem, which improved the efficiency by an order of magnitude, allowing for fully controlled 3D simulations in the fraction of a time \citep{mcnamaraFluidControl2004}.
 
-
-%Because of the difficulty of editing simulations by hand, computer graphics researchers have also considered how to control physics-based simulations. However, instead of the inefficient forward gradient computation, we use a technique, the adjoint method, that is orders of magnitude more efficient. This allows us to fully control 3D simulations in a fraction of the time
-%\citep{mcnamaraFluidControl2004}
-
-% upravit a povyberat co treba
-Designing the behavior of an interactive object requires understanding and handling a large number of variables linked to: the function of the object (what-level), the way the function is accomplished (how-level) and the way a user experiences that function (why-level). Traditionally HCI uses a paradigm based on ``efficiency" to drive the design process, but recently integrated an aesthetics approach as a way to design the behavior from an experiential, rather than a functional, point of view ...  \citep{spadaforaDesigningBehaviorInteractive2016}
-
-When dealing with interactive objects, we deal with Pragmatist Aesthetics. This kind of aesthetics underlines “how people experience the world dialogically as embodied subjects”
-
-\citep{spadaforaDesigningBehaviorInteractive2016}.
+However, the current focus of this work is on design and implementation of the environment where humans can interact with running computer simulations and interfere with them towards deeper understanding or constructing better models. During the design process, I was inspired by following an approach from gaming industry, where designing an interactivity and proper instant feedback is of paramount importance - without it the game would not make sense, would be easy for the player to get stuck or the game itself would become boring very quickly \citep{victorMagicInk2006}. Rather than following a traditional paradigm in human-computer interface (HCI) design, in which the focus is based on efficiency, I've chosen to design towards helping user with experimentation phase within the UI \citep{spadaforaDesigningBehaviorInteractive2016}. 
 
 \subsubsection{Time Manipulation}
+%DONE
+The process of modeling in the context where simulation is integrated into tighter loop to help with creating better model, the typical approach of iterating towards this better model is slow and tedious. It involves trying to come up with parameters as close to hypothesised correct model as possible at the initial phase and then working towards more accurate model by changing the parameters and re-running the simulation again and again. With speedups provided by GPU computing and efficiently parallel implementations of methods like LBM, the process of working towards model's accuracy and robustness can be significantly improved. The novel approach that could help is ability to ``see" through time and manipulate it within the recorded history of many simulation checkpoints.
 
-To really understand the nature of the processes, we have to build a better tools for "seeing" and experimentation on demand. 
-
-The computer is a medium of dynamic pictures -- visualizations driven by parameters and data.
-\citep{victorInventingOnPrinciple2018}
+One of the best example that illustrates the benefit of time manipulation is from a software tool prototype created by Bret Victor. In his presentation ``Inventing on Principle", he highlights the time manipulation approach through player's recorded history of jump across obstacle, with his shadow following a trajectory specified by physics parameters (gravity, velocity). Those parameters can be changed on-thy-fly during the interactive game development process, thereby inciting a quick and efficient experimentation instead of classic and tedious update-and-compile approach which takes number of blind attempts to hit the correct value. Screenshot highlighting the time manipulation interface is shown in Figure \ref{fig:victor-time-manip}.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/victor-time-manip.jpg}
-	\caption{ \citep{victorInventingOnPrinciple2018}.}
+	\caption{Screenshot from Bret Victor's presentation ``Inventing on Principle" \citep{victorInventingOnPrinciple2018}.}
 	\label{fig:victor-time-manip}
 \end{figure}
 
