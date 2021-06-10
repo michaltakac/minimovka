@@ -49,16 +49,15 @@ Mathematical modeling is an indispensable tool in science and engineering. The m
 
 Every model consists of a set of variable parameters, relations between them and rules for their evolution. By applying those rules to the model's parameters, it's possible to get important insight into the modeled phenomenon, based on which we can then make informed decision or make an optimal choice \citep{Neumaier2004}. Most of the decision-making and choice-picking is done by computers in the way of control algorithms acting upon results from numerical simulation. 
 
-Simulations can provide answers about the phenomena very quickly - in matter of seconds or minutes - removing the need for costly real-life experiments. More importantly, the results of a numerical simulation can be stored to computer memory for further post-processing and represented graphically to screen.
-
 In field of engineering, especially in the branch of fluid dynamics, mathematical modeling in conjunction with numerical simulation is a powerful duo, playing important role in studying phenomena like turbulence, chemical reactions, etc. The efficiency of modern computing allows for simulating better and more complex models of phenomena seen around us in our everyday lives, including blood circulation, weather and climate prediction, and many more.
+
+As a matter of fact, the process of mathematical modeling alone was and still is the domain of mathematicians and physicians, trained for years, expanding their skillset of mathematical methods for constructing and refining mathematical models. Generally speaking, success in this process requires experience, skill, and familiarity with the relevant literature. There is lack of software tools to equip people that didn't devote years into mathematical training to actually develop models and refine them themselves. By pulling this process into tighter loop with simulation that is fast enough to speed up the numerical analysis, there's an opportunity to design software applications that allows engineers and researchers to work in a different and more efficient way by constructing and refining mathematical within the graphical user interface. Thanks to this combination of modeling and simulation, together with an application interface design that brings mathematical tools coupled with visual experimentation and interactive analysis together into a cohesive platform, I hypothesise that productivity of individual researchers and research teams of all sizes could increase by an order of magnitude. Additional details about the approach of integrating the modeling and simulation together are provided in section \ref{sec:integratedmodsim}.
 
 \subsection{Numerical Simulation}
 %DONE
-A numerical simulation is a computer calculation of a mathematical model for a physical system. Together with mathematical modeling, they are important parts of engineering. Integrating them into engineer's toolbelt yields many benefits. The motivation for using computer simulations to investigate complex physical phenomena is two-fold: (1) it enables design changes to be tested before building a prototype, saving precious financial resources, and (2) it allows for investigation of complex phenomena unmeasurable by classic measurement tools, often involving extremely small sizes of the investigated environment in which the process evolves \citep{rago2015numerical}.
+A numerical simulation is a computer calculation of a mathematical model for a physical system. It can provide answers about the studied phenomena in matter of seconds or minutes up to hours or days, depending on the model complexity, its algorithmic representation in computer code, and hardware infrastructure they are performed on. The final results of a numerical simulation can be stored to computer memory for further post-processing and represented graphically to screen. Its notable advantage is removing the need for costly real-life experiments. Together with mathematical modeling, they are important parts of engineering. Integrating them into engineer's toolbelt yields many benefits. The motivation for using computer simulations to investigate complex physical phenomena is two-fold: (1) it enables design changes to be tested before building a prototype, saving precious financial resources, and (2) it allows for investigation of complex phenomena unmeasurable by classic measurement tools, often involving extremely small sizes of the investigated environment in which the process evolves \citep{rago2015numerical}.
 
 The mathematical models for which numerical simulation is employed usually consists of ordinary differential equations (ODEs) and partial differential equations (PDEs) \citep{yangEngineeringMathematicsExamples2017}. Coming up and refining actual model to needed accuracy is often very laborious and time consuming. Also, the actual simulation part can take hours or days to complete. Thanks to modern computing capabilities, the effectiveness of various accelerators like GPUs, FPGAs, etc. and recently developed optimizations techniques allowed the simulation times to dramatically shorten - nowadays towards minutes, seconds or even to the point of interactive and real-time simulations \citep{harwoodREALTIMEMODELLINGSIMULATION}.
-
 
 \subsection{Computational Fluid Dynamics}\label{sec:cfd}
 % DONE
@@ -95,9 +94,9 @@ CFD simulations allows huge improvements on the type of phenomena that can be ex
 %the knowledge embedded in the CFD solvers is still unfamiliar to many users other than experts. Benefits of automated cycles of MODSIM environments have not been fully explored, because not many classic CFD solvers provide computational state-of-the-art algorithms like the ones based on Lattice-Boltzmann method.
 
 
-\subsection{Integrated Modeling and Simulation}
+\subsection{Integrated Modeling and Simulation}\label{sec:integratedmodsim}
 %DONE
-Combination of mathematical modeling and numerical simulation into single package, usually in a form of single, monolithic application with graphical user interface, poises an interesting benefit for shortening of the discovery and optimization of the correct and accurate mathematical or physical model of investigated phenomena. Integration of the two has been dubbed "MODSIM" by the engineering industry. Computer-aided Design (CAD) and Computer-aided Engineering (CAE) technology evolved separately over decades and because of legacy processes, they been usually employed separately, often sequentially one after another. Together, they provide essential means to guide the design of complex engineering systems and to study dynamics of internal or external forces on those systems \citep{mahmoodIntegratedModelingSimulation2019}. One of significant proponents of this combined approach is Dassault Systems. They are leading the transformation of MODSIM research into practial application in their 3DEXPERIENCE platform \citep{systemsExperienceYourDesign2019}. 
+Combination of mathematical modeling and the visualization of numerical simulation into single package, usually in a form of monolithic application with graphical user interface, poises an interesting benefit for shortening of the discovery and optimization of the correct and accurate mathematical or physical model of investigated phenomena. Integration of the two has been dubbed ``MODSIM" by the engineering industry. Computer-aided Design (CAD) and Computer-aided Engineering (CAE) technology evolved separately over decades and because of legacy processes, they been usually employed separately, often sequentially one after another. Together, they provide essential means to guide the design of complex engineering systems and to study dynamics of internal or external forces on those systems \citep{mahmoodIntegratedModelingSimulation2019}. One of significant proponents of this combined approach is Dassault Systems. They are leading the transformation of MODSIM research into practial application in their 3DEXPERIENCE platform \citep{systemsExperienceYourDesign2019}. 
 
 In terms of fluid dynamics and specifically CFD, conventional modeling intent was focused on geometric and functional aspects. Simulation results were used for checking and guiding the process from initial design towards optimized one  \citep{liAssociationDesignSimulation2016}. For complex, non-linear fluid flows like microfluidics or flows with chemical reactions, the MODSIM intent in CFD is different \citep{zhangLatticeBoltzmannMethod2011}. The goal is to optimize the mathematical model to be as accurate as possible, but in discretized to be algorithmically feasible to implement on computers and simulated as efficiently as possible, catering to accuracy requirements and driving towards fast convergence speeds. In this regard, numerical simulations based on Lattice-Boltzmann method for CFD, especially algorithms implementing the single-relaxation time collision operator, are great candidates for MODSIM implementations. 
 
@@ -683,7 +682,7 @@ The GPU-based approach to massively parallel computing used by CUDA is also the 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/cuda-device-memory.jpg}
+	\includegraphics[width=0.7\textwidth]{figures/cuda-device-memory.jpg}
 	\caption{CUDA memory model}
 	\label{fig:cuda-memory-model}
 \end{figure}
@@ -893,10 +892,10 @@ While developing the C++ and Rust implementations of LBM simulation backend, we 
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Visualization of lid-driven cavity simulation.\label{fig:d2q9_lid_5000_viz}]{%
-		\includegraphics[width=0.3\textwidth]{figures/d2q9_lid_5000_viz.jpg}%
+		\includegraphics[width=0.34\textwidth]{figures/d2q9_lid_5000_viz.jpg}%
 	}\qquad
 	\subfloat[Velocity vector field.\label{fig:d2q9_lid_5000_u_field}]{%
-		\includegraphics[width=0.335\textwidth]{figures/d2q9_lid_5000_u_field.jpg}%
+		\includegraphics[width=0.395\textwidth]{figures/d2q9_lid_5000_u_field.jpg}%
 	}
 	\captionsetup{justification=centering}
 	\caption{Lid-driven cavity test case at 128$\times$128 resolution after 5000 iterations.}
@@ -906,10 +905,10 @@ While developing the C++ and Rust implementations of LBM simulation backend, we 
 \begin{figure}[!ht]
 	\centering
 	\subfloat[Visualization of Kármán vortex street simulation.\label{fig:d2q9_channel_5000_viz}]{%
-		\includegraphics[width=0.63\textwidth]{figures/d2q9_channel_5000_viz.jpg}%
+		\includegraphics[width=0.9\textwidth]{figures/d2q9_channel_5000_viz.jpg}%
 	} \par
 	\subfloat[Velocity vector field (filtered for better presentation).\label{fig:d2q9_channel_5000_u_field}]{%
-		\includegraphics[width=0.65\textwidth]{figures/d2q9_channel_5000_u_field.jpg}%
+		\includegraphics[width=0.91\textwidth]{figures/d2q9_channel_5000_u_field.jpg}%
 	}
 	\caption{Kármán vortex street (channel flow past circle-shaped obstacle) test case at 1000$\times$300 resolution after 5000 iterations.}
 	\label{fig:d2q9_channel}
@@ -936,28 +935,26 @@ However, the current focus of this work is on design and implementation of the e
 
 \subsubsection{Time Manipulation}
 %DONE
-The process of modeling in the context where simulation is integrated into tighter loop to help with creating better model, the typical approach of iterating towards this better model is slow and tedious. It involves trying to come up with parameters as close to hypothesised correct model as possible at the initial phase and then working towards more accurate model by changing the parameters and re-running the simulation again and again. With speedups provided by GPU computing and efficiently parallel implementations of methods like LBM, the process of working towards model's accuracy and robustness can be significantly improved. The novel approach that could help is ability to ``see" through time and manipulate it within the recorded history of many simulation checkpoints.
+The process of modeling in the context where simulation is integrated into tighter loop to help with creating a better model, the typical approach of iterating towards the model improvement is still slow and tedious. It involves trying to come up with a mathematical representation as close to the real world phenomenon as possible at the initial phase, solving it numerically with a simulation, analyzing the outcome, then afterwards going back to the ``drawing board" and work towards more accurate model by changing the parameters of a model and re-running the simulation again and again. With speedups provided by GPU computing and efficiently parallel implementations of methods like LBM, the experimental phase of the model's optimization process, based on numerical analysis by simulation, can be significantly improved. The novel approach that could help is ability to ``see" through time and manipulate it within the recorded history of many simulation checkpoints.
 
 One of the best example that illustrates the benefit of time manipulation is from a software tool prototype created by Bret Victor. In his presentation ``Inventing on Principle", he highlights the time manipulation approach through player's recorded history of jump across obstacle, with his shadow following a trajectory specified by physics parameters (gravity, velocity). Those parameters can be changed on-thy-fly during the interactive game development process, thereby inciting a quick and efficient experimentation instead of classic and tedious update-and-compile approach which takes number of blind attempts to hit the correct value. Screenshot highlighting the time manipulation interface is shown in Figure \ref{fig:victor-time-manip}.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/victor-time-manip.jpg}
-	\caption{Screenshot from Bret Victor's presentation ``Inventing on Principle" \citep{victorInventingOnPrinciple2018}.}
+	\caption{Screenshot from Bret Victor's presentation ``Inventing on Principle" showcasing time manipulation interface. It allows developer to see the game object's trajectory through history of recorded states along specified time range and step through them. Changing the objects' physical parameters triggers the re-computation of history of states, resulting in immediate feedback of trajectory change \citep{victorInventingOnPrinciple2018}.}
 	\label{fig:victor-time-manip}
 \end{figure}
 
-\subsection{Virtual and Augmented Reality}\label{sec:vrar}
+\subsection{Virtual Reality}\label{sec:vrar}
+% DONE
+Typical non-immersive visualization systems implemented for the conventional desktop PCs with mouse are effective for moderately complex problems. Immersive virtual environments, by comparison, lie at the other end of the spectrum and permit looking around an object by moving user's head position.
 
-Non-immersive interactive visualization systems implemented for the conventional desktop and mouse are effective for moderately complex problems. Immersive virtual environments, by comparison, lie at the other end of the spectrum and permit looking around an object by moving user's head position.
-
-Therefore, a fundamental difference between desktop-and-mouse virtual realia and immersive VR is that the latter is a true 3D representation that may be either viewer or object-centered while the first is exclusively viewer-centered. In other words, changes in the relative positions of a 2D object’s components result from shifts in the viewer’s perspective. The same may be true for objects viewed in a three dimensional environment, whether real or virtual. However, in such an environment, an object may also appear to change shape (e.g., through foreshortening), not due to an altered position of the viewer, but because the ob- ject itself has moved to a different position. Immersive virtual reality displays aid in the unambiguous display of these structures by providing a rich set of spatial and depth cues. Virtual reality interface concepts allow the rapid and intuitive exploration of the volume containing the data, enabling the phenomena at various places in the volume to be ex- plored, as well as provide simple control of the visualization environment through inter- faces integrated into the environment \citep{brysonVirtualRealityScientific}.
+A fundamental difference between three-dimensional (3D) virtual environments accessible through 2D PC monitor and immersive VR is that the latter is a true 3D representation that may be either viewer or object-centered while the first is exclusively viewer-centered. In other words, changes in the relative positions of a 2D object's components result from shifts in the viewer's perspective. The same may be true for objects viewed in a three dimensional environment, whether real or virtual. However, in such an environment, an object may also appear to change shape not due to an altered position of the viewer, but because the object itself has moved to a different position. Immersive virtual reality displays aid in the unambiguous display of these structures by providing a rich set of spatial and depth cues. Virtual reality interface concepts allow the rapid and intuitive exploration of the volume containing the data, enabling the phenomena at various places in the volume to be explored, as well as provide simple control of the visualization environment through interfaces integrated into the environment \citep{brysonVirtualRealityScientific}.
 
 Desktop-and-mouse interfaces for 3D visualizations make it difficult to specify positions in three dimensions and do not provide unambiguous display of 3D structure. Virtual reality interfaces attempt to provide the most anthropomorphic interfaces possible - that means they must be human-conforming and should be designed to allow the most natural, unambiguous way of scientific exploration. They must include two components: display and user control. Scientific visualization makes particular demands on virtual reality displays. The phenomena to be displayed in a scientific visualization application often involve delicate and detailed structure, requiring high-quality, high-resolution full-color displays. A wide field of view is often desirable, because it allows the researcher to view how detailed structures are related to larger, more global phenomena.
 
-Historically, the early attempts at using head-mounted virtual reality technologies started with CRT-based Binocular Omni-Oriented Monitor (BOOM) created by Fakespace Systems Inc. BOOM was a stereoscopic display device with screens and optical system housed in a box that is attached to a multi-link arm. Head tracking was accomplished via sensors in the links of the arm that holds the box.
-
-Advent of commodity-level VR hardware like HTC Vive or Oculus Touch has made this technology accessible for meaningful applications. These headset utilize lasers and photosensitive sensors (HTC Vive) or cameras (Oculus Touch) for head and hands tracking and provide six degrees of freedom (6DoF) for movement in virtual environment. By immersing the user into the simulation itself, virtual reality reveals the spatially complex structures in computational science in a way that makes them easy to understand and study. But beyond adding a 3D interface, virtual reality also means greater computational complexity \citep{brysonVirtualRealityScientific}. The ability to provide real-time interaction can provide strong depth cues, either through allowing interactive rotations or through the use of head-tracked rendering. Applications and techniques are being developed to discern how immersive technology benefits visualization. The medical field provides an especially promising context for this development, as medical practitioners require a thorough understanding of specific 3D structures: human anatomy. Users may interact simultaneously with high resolution computed tomography (CT) scans and their corresponding, 3D anatomical structures.
+Advent of commodity-level VR hardware like HTC Vive or Oculus Touch has made this technology accessible for meaningful applications. These headset utilize lasers and photosensitive sensors (HTC Vive) or cameras (Oculus Touch) for head and hands tracking and provide six degrees of freedom (6DoF) for movement in virtual environment. By immersing the user into the simulation itself, virtual reality reveals the spatially complex structures in computational science in a way that makes them easy to understand and study. But beyond adding a 3D interface, virtual reality also means greater computational complexity \citep{brysonVirtualRealityScientific}. The ability to provide real-time interaction can provide strong depth cues, either through allowing interactive rotations or through the use of head-tracked rendering. 
 
 With the addition of inside-out tracking in VR headsets like Widows Mixed Reality and Oculus Quest, it brought the hand tracking support into the software development kits for each platform. More and more VR developers started to leverage the hand tracking in the interfaces of their applications. Thanks to the growth of gestures usage in virtual reality and embodied cognition, there have been various new technologies developed to either improve the modelling efficiency, or to provide more nature intuitive experience to the users \citep{dangetiComparingBarehandinairGesture2016}.
 
@@ -965,9 +962,7 @@ Another frequently used type of immersive, interactive display technology nowada
 
 Many universities and engineering companies own and use CAVE systems. Researchers can use these systems to conduct their research topic in a more effective and accessible method. Engineers have found them useful in enhancing of a product development through prototyping and testing phases.
 
-Substantial amount of work in applying 3D visualizations and virtual reality for solving technological issues and bringing new trends into steelmaking industry is currently happening at Center for Innovation through Visualization and Simulation (CIVS) at Purdue University Northwest (located in Indiana, USA). CIVS has been globally recognized for its integrated and application-driven approaches through state-of-the-art simulation and virtual reality visualization technologies for providing innovative solutions to solve various university research problems, industry issues, as well as education. More than 350 projects that have been completed at the center from its inception in 2014 until today provided substantial educational and economic impact, resulting in more than 40 million US dollars in savings for companies.
 
-One can say that virtual reality established itself in many disciplines of human activities, as a medium that allows easier perception of data or natural phenomena appearance.
 
 % ----------------------------------------------------------------
 
@@ -1032,40 +1027,31 @@ One can say that virtual reality established itself in many disciplines of human
 \subsection{Technology Stack} \label{sec:tech-stack}
 
 
-The ArrayFire library is used for high-performance, cross-platform implementation of Lattice Boltzmann algorithm.
-
-\subsubsection{Cross-platform Development with ArrayFire}
-
 % prepisat (https://arrayfire.org/arrayfire-rust/book/vectorization.html)
 %Programmers and Data Scientists want to take advantage of fast and parallel computational devices. Writing vectorized code is necessary to get the best performance out of the current generation parallel hardware and scientific computing software. However, writing vectorized code may not be immediately intuitive. ArrayFire provides many ways to vectorize a given code segment. In this chapter, we present several methods to vectorize code using ArrayFire and discuss the benefits and drawbacks associated with each method.
 
-ArrayFire is a vectorized library. Most functions operate on Arrays as a whole i.e. on all elements in parallel.
-%----
+The ArrayFire library is used for high-performance, cross-platform implementation of Lattice Boltzmann algorithm. It helped with simplifying the overall implementation and reducing lines of code (LoC). The thought process of why this library was picked is described in section \ref{sec:cross-platform-af}.
 
-ArrayFire provides several different methods for manipulating arrays and matrices. The functionality includes:
+\subsubsection{Cross-platform Development with ArrayFire}\label{sec:cross-platform-af}
+% DONE 
+The simulation part of the software solution presented in this thesis was built using ArrayFire, a cross-platform library for developing parallel algorithms. I picked it after considering other approaches like using bunch of different helper libraries together for vectorization and cross-compilation of C++ code for different GPU platforms. C++ is battle-tested language with plethora of available libraries and has been extensively used in CFD simulation software development. However, I would have to optimize the code for specific GPUs and their distinctive features myself, writing extensive amount of code in the process. This is where the ArrayFire library shines the most: it provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more. It abstracts away much of the details of programming parallel architectures by providing a high-level container object, the \texttt{Array}, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures \citep{Yalamanchili2015}. Developers can use several different methods for manipulating arrays and matrices implemented as a \texttt{Array} container object. The functionality includes:
 
 \begin{itemize}
-\item \texttt{moddims()} - change the dimensions of an array without changing the data
-\item \texttt{flat()}  - flatten an array to one dimension
-\item \texttt{flip()}  - flip an array along a dimension
-\item \texttt{join()}  - join up to 4 arrays
-\item \texttt{reorder()}  - changes the dimension order within the array
-\item \texttt{shift()}  - shifts data along a dimension
-\item \texttt{tile()}  - repeats an array along a dimension
-\item \texttt{transpose()}  - performs a matrix transpose
+	\item \texttt{moddims()} - lazily change the dimensions of an array without changing the data
+	\item \texttt{flat()}  - flatten an array to one dimension
+	\item \texttt{flip()}  - flip an array along a dimension
+	\item \texttt{join()}  - join up to 4 arrays
+	\item \texttt{reorder()}  - changes the dimension order within the array
+	\item \texttt{shift()}  - shifts data along a dimension
+	\item \texttt{tile()}  - repeats an array along a dimension
+	\item \texttt{transpose()}  - performs a matrix transpose
 \end{itemize}
 
-The simulation part of the software solution presented in this thesis was built using ArrayFire, a cross-platform library for developing parallel algorithms. I picked it after considering other approaches like using bunch of different helper libraries together for vectorization and cross-compilation of C++ code for different GPU platforms. C++ is battle-tested language with plethora of available libraries and has been extensively used in CFD simulation software development. Although, I would have to optimize the code for specific GPUs and their distinctive features myself, writing extensive amount of code in the process. This is where the ArrayFire library shines the most: it provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more. Writing complex algorithms that are automatically optimized for all kinds of hardware accelerators (GPUs, CPUs, FPGAs etc.) can be done in few lines of code instead of writing hundreds or thousands of lines of kernel code.
+Writing complex algorithms that are automatically optimized for all kinds of hardware accelerators (GPUs, CPUs, FPGAs etc.) can be done in few lines of code instead of writing hundreds or thousands of lines of kernel code. 
 
-ArrayFire main API is written in C with additional wrappers for other languages like C++, Python, Rust and JavaScript. It provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more.
+ArrayFire main API is written in C with additional wrappers for other languages like C++, Python, Rust and JavaScript. It provides hundreds of hand-tuned, low-level optimized functions.  Most of them operate on \texttt{Array}s as a whole i.e. on all elements in parallel, as the library is mostly vectorized.
 
-It helped with simplifying the overall implementation and reducing lines of code (LoC).
-
-To start developing cross-platform software with ArrayFire, first it has to be installed on a development machine. It can be installed by either using binary installer for Windows, Linux or OSX, or built from source.
-
-The high-performance visualization library called Forge is bundled with the installer. It can be disabled in the installation process if user doesn't want to install it. I used it in throughout the development process to test early protypes, check if the output is visually correct and also benchmark the simulation software for what computational domain the visualization stays fast enough to show real-time output as the simulation is running.
-
-
+To start developing cross-platform software with ArrayFire, first it has to be installed on a development machine. It can be installed by either using binary installer for Windows, Linux or OSX, or built from source. The high-performance visualization library called Forge is bundled with the installer. It can be disabled in the installation process if user doesn't want to install it. I used it in throughout the development process to test early prototypes, check if the output is visually correct and also benchmark the simulation software for what computational domain the visualization stays fast enough to show real-time output as the simulation is running.
 
 \subsubsection{Rust as C/C++ Alternative} \label{sec:rust-alt}
 % DONE
@@ -1270,34 +1256,6 @@ fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
 
 In the following section, we describe simple optimizations employed in our LBM-based solver. To achieve high throughput on different parallel architectures, a large portion of time-consuming, hardware-specific, low-level optimizations are done automatically by ArrayFire. The underlying JIT compilation engine converts expressions into the smallest number of CUDA or OpenCL kernels, but to decrease the number of kernel calls and unnecessary global memory operations, it tries to merge cooperating expressions into a single kernel. However, not everything can be optimized automatically. There are some specifics between LBM algorithms where some optimizations have a large impact on the performance of the simulation, namely coalesced memory writes resulting from better data organization scheme, removing branch divergence, improvement of cache locality, and thread parallelism.
 
-%%% -------------- vyhodit? 
-ArrayFire is a high performance software library for parallel computing with an easy-to-use API. ArrayFire abstracts away much of the details of programming parallel architectures by providing a high-level container object, the Array, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures.
-
-\citep{Yalamanchili2015}
-
-Going on from ArrayFire's version 3.2., the Unified backend was introduced. It allows developers to change between different backends CUDA, OpenCL and CPU
-
-%% tu spomenut, ze GFOR nie je dobre pouzivat
-ArrayFire provides the only GPU-enabled data-parallel loop: $gfor$. Use $gfor$ in your code in place of standard for-loops to batch process data parallel operations \citep{malcolmArrayFireGPUAcceleration2012a}. 
-You can think of gfor as performing auto-vectorization of your code, e.g. you write a gfor-loop that increments every element of a vector but behind the scenes ArrayFire rewrites it to operate on the entire vector in parallel \citep{Yalamanchili2015}. For example, the following for-loop calculates several matrix multiplications serially:
-
-\begin{lstlisting}[language=Rust, caption=Pseudo-code with imerative for loop]
-	for (int i = 0; i < n; ++i) {
-		A(i) = A(i) + 1;
-	}
-\end{lstlisting}
-
-The same three matrix multiplications can be carried out in one pass instead of three by utilizing a gfor-loop,
-
-\begin{lstlisting}[language=Rust, caption=Pseudo-code with if-statement removed]
-	A = constant(1,n,n);
-	gfor (seq i, n) {
-		A(i) = A(i) + 1;
-	}
-\end{lstlisting}
-
-Whereas the former loop serially computes each matrix multiplication, the latter loop computes all matrix multiplications in one pass. Similarly, gfor can be used for other such embarrassingly parallel codes in a straightforward fashion. A good way of thinking about gfor is to consider it as syntactic sugar: gfor serves as an iterative style of writing otherwise vectorized algorithms \citep{malcolmArrayFireGPUAcceleration2012a}.
-
 \subsubsection{Data Organization}
 % DONE
 To ensure the most efficient memory throughput when programming for GPU is to ensure that memory access is coalesced \cite{tranPerformanceOptimization3D2017}. There are two common patterns for data organization: Array of Structures (AoS) and Structure of Arrays (SoA). Therefore if we consider a 1D array, in AoS, all discrete velocities in each node occupy consecutive elements of the array, and in SoA, the value of one discrete velocity direction from all nodes is arranged consecutively in memory, then the next direction in all nodes and so on. In a GPU-based LBM algorithm, it's beneficial to store values of distribution functions for each node in the computational domain represented by a grid in 1-dimensional array. For D2Q9 and D3Q27 stencils, this translates into storing single velocity direction for 2D grid represented by $N_x * N_y$ or 3D grid represented by $N_x * N_y * N_z$ nodes at a time, consecutively 9-times for D2Q9 and 27-times for D3Q27 respectively. Using Structure of Arrays (SoA) is significantly faster than Array of Structures (AoS) \cite{tranPerformanceOptimization3D2017, delboscOptimizedImplementationLattice2014}. This way the cache use is considerably improved \cite{Mawson2014InteractiveFI}.
@@ -1407,21 +1365,12 @@ With the solid indices, it's very easy to set the boundary conditions at solid n
 	DENSITY(solids) = 0;
 \end{lstlisting}
 
-\subsubsection{Pull vs Push Scheme}
-% dopisat par viet k porovnaniu
+\subsubsection{Pull Scheme}
+%DONE, alebo dopisat par viet k porovnaniu Pull vs Push?
 
 Most common algorithms for the streaming phase in LBM solvers use push and pull scheme \cite{tranPerformanceOptimization3D2017, herschlagGPUDataAccess2018}. In the push scheme, the streaming step occurs after the collision step, at which point the particle distribution values are written to neighbouring nodes. This presents a misalignment of the memory locations, resulting in an uncoalesced writes, degrading the performance significantly. On the other hand, in pull scheme, streaming step occurs before collision step, at which point the neighbouring particle distribution values are gathered to the current nodes and then used for computations ending with collision step, after which the results are written directly to the current nodes. This way, the writes are coalesced in memory.
 
 The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \cite{tranPerformanceOptimization3D2017}.
-
-\subsubsection{Load Balancing in Multi-GPU Setups}
-\label{sec:load-balancing}
-
-With heterogenous GPU computing constraints (that means, group of GPUs each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
-
-Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
-
-% -------------------------------
 
 \subsection{Virtual Reality User Interface}
 
@@ -1456,7 +1405,24 @@ Doplnit:\\
 - ze spojenie VR a AR je XR (extended reality, mixed reality?)
 - Khronos group najprv vydali OpenVR pre VR \\
 - nasledovnikom tohto api je OpenXR, ktory taktiez vydali \\
+
+OpenXR is a royalty-free, open standard that provides high-performance access to Augmented Reality (AR) and Virtual Reality (VR) - collectively known as XR - platforms and devices.
+The OpenXR 1.0 specification was released on July 29th 2019.
+
+Without a cross-platform standard, VR and AR applications and engines must use each platform’s proprietary APIs. New input devices need customized driver integration.
+
+OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platforms. OpenXR enables applications and engines, including WebXR, to run on any system that exposes the OpenXR APIs. Figure \ref{fig:openxr-solves-fragmentation}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/openxr-solves-fragmentation.png}
+	\caption{OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platform.}
+	\label{fig:openxr-solves-fragmentation}
+\end{figure}
+
 - Popisat OpenXR
+
+OpenXR seeks to simplify AR/VR software development, enabling applications to reach a wider array of hardware platforms without having to port or re-write their code and subsequently allowing platform vendors supporting OpenXR access to more applications. With the release of the OpenXR 1.0 specification, AR/VR developers can now create true cross-platform XR experiences.
 
 \begin{figure}[!ht]
 	\centering
@@ -1803,7 +1769,7 @@ All of these has to be completed before any ArrayFire computations are carried o
 
 Implementing OpenGL-OpenCL interoperability with ArrayFire and Unity isn't straightforward and involves additional help from the ArrayFire developers. Although it is documented for simple windowing platforms that use OpenGL textures for drawing to the screen, it's much more complex within the setting of this work, such as implementing interoperability with Unity game engine. On the other note, OpenGL support in virtual reality headsets that use cable connection to PC workstations (setting currently needed for having access to powerful GPUs) is very limited. Therefore it was not successfully implemented in current work. 
 
-Still, it is of very high importance to implement GPU-bound visualization techniques into the future versions of LBM solver, though. When dealing with complex 3D simulation, multiple-relaxation time algorithm and more directions of particle distribution function within the lattice node, CPU-bound visualization could easily become a bottle neck.
+Still, it is of very high importance to implement GPU-bound visualization techniques into the future versions of LBM solver, though. When dealing with complex 3D simulation, multiple-relaxation time algorithm and more directions of particle distribution function within the lattice node, CPU-bound visualization could easily become a bottleneck.
 
 \subsubsection{Setting Initial Conditions}
 
@@ -2196,6 +2162,15 @@ For the benchmarks, we analyzed two classical, academic test cases, the lid-driv
 \subsection{Future Work}
 
 As with work such as these
+
+\subsubsection{Load Balancing in Multi-GPU Setups}
+\label{sec:load-balancing}
+
+With heterogenous GPU computing constraints (that means, group of GPUs each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
+
+Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
+
+% -------------------------------
 
 \subsubsection{Application to Real World}
 
