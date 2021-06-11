@@ -1387,6 +1387,13 @@ TODO: how to enable VR support in Unity
 	\label{fig:unity-vr-support}
 \end{figure}
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/unity-vr-ui.jpeg}
+	\caption{Immersive interface in virtual reality.}
+	\label{fig:unity-vr-ui}
+\end{figure}
+
 \subsubsection{Cross-Platform Development}
 
 Unity can build apps for multiple platforms:
@@ -1477,6 +1484,15 @@ Setting up HTC Vive support
 	\label{fig:unity-htc-support}
 \end{figure}
 
+Adding main XR objects that are needed to add support for VR into Unity scene are XR Rig and XR Interaction Manager. They can be accessed from Unity menu show in Figure \ref{fig:unity-xr-objects}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/unity-add-xr-objects.jpg}
+	\caption{Fundamental parts of the VR scene in Unity is XR Rig (VR camera) and XR Interaction Manager (for user interactions).}
+	\label{fig:unity-xr-objects}
+\end{figure}
+
 \subsubsection{Interactivity}\label{sec:interactivity}
 
 % dorobit + mozno premiestnit na spodok sekcie???
@@ -1493,6 +1509,50 @@ Depending on your app’s input logic, you can use hands and controllers interch
 
 We support the use of hand tracking on Windows through the Unity editor, when using Oculus Quest + Oculus Link. 
 % ------
+
+
+The simulation script awaits the selection of interactive Slider components for each of the editable variable ... Figure \ref{fig:sim-script}. Clicking on buttons that red arrows point to will open a pop-up window, presenting the available \texttt{Slider} components in current Unity scene.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/sim-script.png}
+	\caption{Initial state of \texttt{Sim.cs} script attached to the simulation panel with \texttt{Texture2D}.}
+	\label{fig:sim-script}
+\end{figure}
+
+Within the VR environment, an interface for interaction with running simulation is designed as a table-like 3D shape that can be grabbed with any hand controller or left floating as-is. It provides list of sliders for changing simulation parameters and button for starting or stopping the simulation. Its hierarchy is presented in Figure \ref{fig:unity-scene-hierarchy}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/tablet-ui-hierarchy.png}
+	\caption{Unity scene hierarchy.}
+	\label{fig:unity-scene-hierarchy}
+\end{figure}
+
+To connect the simulation with tablet UI, each \texttt{Slider} component from this hierarchy has to be connected to the correct slider input and simulation playback button to the button input in \texttt{Sim.cs} script options from Figure \ref{fig:sim-script}. Correctly initialized \texttt{Sim.cs} script is shown in Figure \ref{fig:sim-script-filled}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/sim-script-filled.png}
+	\caption{Correctly initialized \texttt{Sim.cs} script with appropriate components connected.}
+	\label{fig:sim-script-filled}
+\end{figure}
+
+The tablet UI also with the simulation texture can be made grabbable which adds to the immersivity and allows user to better control the virtual environment. First, to not interfere with any other additional objects in scene that can be possibly added later, the ``grabbable" layer has to be created (Figure \ref{fig:grabbable-layer}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/edit-layers.png}
+	\caption{Add grabbable layer.}
+	\label{fig:grabbable-layer}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/xr-grab-interactable-script.png}
+	\caption{Enabling XR Interaction Manager.}
+	\label{fig:enable-xr-interaction-manager}
+\end{figure}
 
 %%%
 % Native VR alebo VRTK Tilia??? Alebo Oculus Integration Package???
