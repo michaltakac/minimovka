@@ -1515,7 +1515,7 @@ The simulation script awaits the selection of interactive Slider components for 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/sim-script.png}
+	\includegraphics[width=0.55\textwidth]{figures/sim-script.png}
 	\caption{Initial state of \texttt{Sim.cs} script attached to the simulation panel with \texttt{Texture2D}.}
 	\label{fig:sim-script}
 \end{figure}
@@ -1524,7 +1524,7 @@ Within the VR environment, an interface for interaction with running simulation 
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/tablet-ui-hierarchy.png}
+	\includegraphics[width=0.45\textwidth]{figures/tablet-ui-hierarchy.png}
 	\caption{Unity scene hierarchy.}
 	\label{fig:unity-scene-hierarchy}
 \end{figure}
@@ -1533,25 +1533,38 @@ To connect the simulation with tablet UI, each \texttt{Slider} component from th
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/sim-script-filled.png}
+	\includegraphics[width=0.56\textwidth]{figures/sim-script-filled.png}
 	\caption{Correctly initialized \texttt{Sim.cs} script with appropriate components connected.}
 	\label{fig:sim-script-filled}
 \end{figure}
 
-The tablet UI also with the simulation texture can be made grabbable which adds to the immersivity and allows user to better control the virtual environment. First, to not interfere with any other additional objects in scene that can be possibly added later, the ``grabbable" layer has to be created (Figure \ref{fig:grabbable-layer}).
+All of the Unity UI elements like \texttt{Slider}s, \texttt{Button}s etc. are accessible with mouse by default. However, for VR application, the interaction device is hand controller, or possibly a hand itself (if VR hardware supports hand tracking), instead of a mouse. Unity provides easy-to-use interface called XR Interaction Manager that handles interaction support for multiple kinds of VR hardware devices. Through XR Interaction Manager, all kinds of interaction types can be channelled. It has to be connected to all scripts that specify how certain object within VR environment, to which this script is attached, should be interacted with.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/edit-layers.png}
-	\caption{Add grabbable layer.}
-	\label{fig:grabbable-layer}
-\end{figure}
+For example, the tablet UI also with the simulation texture can be made grabbable which adds to the immersivity and allows user to better control the virtual environment. The \texttt{XR Grab Interactable} script is attached to the tablet object and XR Interaction Manager is then connected to the Interaction Manager input (Figure \ref{fig:enable-xr-interaction-manager}).
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/xr-grab-interactable-script.png}
 	\caption{Enabling XR Interaction Manager.}
 	\label{fig:enable-xr-interaction-manager}
+\end{figure}
+
+To not interfere with any other additional objects in scene that can be possibly added later, the ``grabbable" layer has to be created (Figure \ref{fig:grabbable-layer}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/edit-layers.png}
+	\caption{Add grabbable layer.}
+	\label{fig:grabbable-layer}
+\end{figure}
+
+All objects that will benefit from grabbing interaction within Unity scene should be added to this grabbable layer (Figure \ref{fig:grabbable-layer-selection}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/grabbable-layer.png}
+	\caption{Selecting the ``grabbable" layer.}
+	\label{fig:grabbable-layer-selection}
 \end{figure}
 
 %%%
@@ -1569,7 +1582,7 @@ It's often useful get the information about the physical variable !!!(nechat var
 % dopisat
 Application has to know where exactly the ray casted from the hand controller collided with the surface of the visualization object.  ... \ref{unity-pointer-interaction-code}.
 
-\begin{lstlisting}[language=Rust, caption="Grab interaction code.", label=unity-pointer-interaction-code]
+\begin{lstlisting}[language=Csharp, caption="Grab interaction code.", label=unity-pointer-interaction-code]
 	public class Sim : MonoBehaviour
 	{
 		void Start()

@@ -45,21 +45,21 @@
 \contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{74}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}Interactivity}{81}{subsubsection.6.4.2}%
 \contentsline {subsection}{\numberline {6.5}Interactive Simulation}{87}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interop}{87}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{89}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interop}{88}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{90}{subsubsection.6.5.2}%
 \contentsline {subsubsection}{\numberline {6.5.3}Setting Initial Conditions}{93}{subsubsection.6.5.3}%
-\contentsline {subsubsection}{\numberline {6.5.4}Updating Boundary Conditions}{93}{subsubsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.4}Updating Boundary Conditions}{94}{subsubsection.6.5.4}%
 \contentsline {subsubsection}{\numberline {6.5.5}Time Manipulation}{95}{subsubsection.6.5.5}%
 \contentsline {subsection}{\numberline {6.6}Performance Analysis}{96}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Hardware}{97}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Results}{98}{subsubsection.6.6.2}%
-\contentsline {section}{\numberline {7}Conclusions}{102}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{105}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Future Work}{105}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Results}{99}{subsubsection.6.6.2}%
+\contentsline {section}{\numberline {7}Conclusions}{105}{section.7}%
+\contentsline {section}{\numberline {8}Discussion}{107}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Future Work}{107}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}Load Balancing in Multi-GPU Setups}{107}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Application to Real World}{107}{subsubsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{107}{subsubsection.8.1.3}%
-\contentsline {subsubsection}{\numberline {8.1.4}Simulation as an Educational Tool}{107}{subsubsection.8.1.4}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendices}{116}{section*.47}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix A}{117}{section*.48}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix B}{119}{section*.54}%
+\contentsline {subsubsection}{\numberline {8.1.2}Application to Real World}{108}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{108}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.4}Simulation as an Educational Tool}{108}{subsubsection.8.1.4}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendices}{117}{section*.48}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix A}{118}{section*.49}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix B}{120}{section*.55}%
