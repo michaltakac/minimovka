@@ -35,7 +35,7 @@ This thesis is structured as follows. Chapter \ref{sec:modsim} lays forward an i
 
 \section{Modeling and Simulation}\label{sec:modsim}
 %DONE
-\begin{chapquote}{R. W. Hamming, \textit{The Art of Doing Science and Engineering}}
+\begin{chapquote}{Richard. W. Hamming, \textit{The Art of Doing Science and Engineering}}
 ``The purpose of computing is insight, not numbers"
 \end{chapquote}
 
@@ -76,7 +76,7 @@ Fluid dynamics is the branch of fluid mechanics, that is concerned with the stud
 	\item biomedical engineering.
 \end{itemize}
 
-Modern fluid mechanics problems would be impossible to solve without use of CFD, since the analytical solutions to fundamental equations of fluid mechanics is very limited. CFD encompasses a wide spectrum of numerical methods used for solving complex three-dimensional (3D) and time-dependent flow problems \citep{rapp2017}. 
+Modern fluid mechanics problems would be impossible to solve without use of CFD, since the analytical solutions to fundamental equations of fluid mechanics is very limited. CFD encompasses a wide spectrum of numerical methods used for solving complex three-dimensional (3D) and time-dependent flow problems \cite{rapp2017}. 
 
 CFD simulations allows huge improvements on the type of phenomena that can be explored. This trend will continue accelerating thanks to improvements in both the available processing power and active research in algorithms for CFD simulations. The cost of performing computer simulations has decreased over the last few decades, while the available processing power has increased. Most of the processors and processing units that are currently developed and produced have several cores that can execute instructions in parallel. Thus, the processing power available to a CFD software also depends on the capability of the software to execute in parallel.
 
@@ -98,12 +98,16 @@ CFD simulations allows huge improvements on the type of phenomena that can be ex
 %DONE
 Combination of mathematical modeling and the visualization of numerical simulation into single package, usually in a form of monolithic application with graphical user interface, poises an interesting benefit for shortening of the discovery and optimization of the correct and accurate mathematical or physical model of investigated phenomena. Integration of the two has been dubbed ``MODSIM" by the engineering industry. Computer-aided Design (CAD) and Computer-aided Engineering (CAE) technology evolved separately over decades and because of legacy processes, they been usually employed separately, often sequentially one after another. Together, they provide essential means to guide the design of complex engineering systems and to study dynamics of internal or external forces on those systems \citep{mahmoodIntegratedModelingSimulation2019}. One of significant proponents of this combined approach is Dassault Systems. They are leading the transformation of MODSIM research into practial application in their 3DEXPERIENCE platform \citep{systemsExperienceYourDesign2019}. 
 
-In terms of fluid dynamics and specifically CFD, conventional modeling intent was focused on geometric and functional aspects. Simulation results were used for checking and guiding the process from initial design towards optimized one  \citep{liAssociationDesignSimulation2016}. For complex, non-linear fluid flows like microfluidics or flows with chemical reactions, the MODSIM intent in CFD is different \citep{zhangLatticeBoltzmannMethod2011}. The goal is to optimize the mathematical model to be as accurate as possible, but in discretized to be algorithmically feasible to implement on computers and simulated as efficiently as possible, catering to accuracy requirements and driving towards fast convergence speeds. In this regard, numerical simulations based on Lattice-Boltzmann method for CFD, especially algorithms implementing the single-relaxation time collision operator, are great candidates for MODSIM implementations. 
+In terms of fluid dynamics and specifically CFD, conventional modeling intent was focused on geometric and functional aspects. Simulation results were used for checking and guiding the process from initial design towards optimized one  \citep{liAssociationDesignSimulation2016}. For complex, non-linear fluid flows like microfluidics or flows with chemical reactions, the MODSIM intent in CFD is different \citep{zhangLatticeBoltzmannMethod2011}. The goal is to optimize the mathematical model to be as accurate as possible, but in discretized to be algorithmically feasible to implement on computers and simulated as efficiently as possible, catering to accuracy requirements and driving towards fast convergence speeds. In this regard, numerical simulations based on Lattice-Boltzmann method for CFD, especially algorithms implementing the single-relaxation time collision operator, are great candidates for MODSIM implementations. The method originates from a molecular description of a fluid, which means the physical terms that arise from a knowledge of the interaction between molecules can be directly incorporated. Thanks to this, it can be used as a tool in fundamental research, as it keeps the cycle between the elaboration of a theory and the formulation of a corresponding numerical model short.
 
 % -------------------------------
 
 \section{Mesoscopic Approach to Fluid Dynamics}\label{sec:meso}
 % DONE
+\begin{chapquote}{Ludwig Boltzmann}
+	``Available energy is the main object at stake in the struggle for existence and the evolution of the world."
+\end{chapquote}
+
 In the search for fast solver for simulating fluid flows while allowing for complex representation of underlying dynamics, one doesn't have to wait for computers to become powerful enough to just compute direct numerical simulation. Fast enough in a sense that the resulting simulation would allow for interactivity and real-time visualization. For this become feasible, still large progress in computing power and new efficient algorithms has to come.
 
 Although, there is an intermediate solution until those days. In fact, quite literally, an intermediate solution: the Lattice-Boltzmann method (LBM). It is a method for solving equations of continuum fluid mechanics in the realm between macroscopic and microscopic scales - the mesoscopic scale. It's simplicity and great locality of the algorithm presents interesting possibilities for achieving very high simulation speeds. Executing the parallel LBM algorithms on graphic processing units (GPUs) allows for real-time and interactive CFD simulations. That is the reason why this method was picked for the development of simulation backend in this work.
@@ -231,7 +235,7 @@ and thus the number of degrees of freedom in a turbulent flow of size $L$ is
 
 In realistic flows with Reynolds number in millions, or $Re \approx 10^6$, this results in about $N_{dof} \approx 10^{14}$ degrees of freedom. Current state-of-the-art CFD solvers that simulate turbulent fluid flows of such scale can handle orders of tens of billions of degrees of freedom on conventional supercomputers. Adding to this, the fluids of practical interest usually move in complex geometries. Because of this combined difficulty, simulating close to real physics with N-S equations in classical CFD solvers is extremely difficult \citep{succi2018}.
 
-\subsection{Lattice Boltzmann Method}
+\subsection{Lattice Boltzmann Method}\label{sec:lbm}
 % DONE
 Majority of traditional CFD methods focus on various discretization of N-S equations, as a set of non-linear partial differential equations, starting with their continuum form and transforming them for the use on discrete grid (Eulerian form) or moving along the with the fluid (Lagrangian form). For simulation to be spatially resolved, the grid spacing must be smaller than the Kolmogorov scale ($\delta x < l_d$). According to this, the number of grid points must exceed the number of physical degrees of freedom dictated by physics of turbulence, hence they do not depend on the specific discretization procedure \citep{succi2018}.
 
@@ -610,6 +614,10 @@ It doesn't stay there. Lattice-Boltzmann formalism doesn't restrict itself only 
 
 \section{GPU Computing}\label{gpu-computing}
 % DONE
+\begin{chapquote}{Craig Bruce}
+	``It’s hardware that makes a machine fast.  It’s software that makes a fast machine slow."
+\end{chapquote}
+
 Innovations in GPUs over the last decades was driven mainly by video games. They advanced from merely displaying pixels to being capable of doing mathematical computations. After the introduction of programmable shaders and floating-point support on graphics processors, the dynamics has changed though. At first it opened the door for using GPUs in complex physics calculations like wind blowing, fluid flows, cloth movement, etc. in games but also for scientific simulation. This movement to leveraging GPU capabilities in serious engineering work became dubbed as general-purpose computing on GPUs (GPGPU), a term coined by NVIDIA's Distinguished Engineer Mark Harris.
 
 GPU-based parallel computing reduces the time for heavy computation tasks like training a machine learning system on large data set, climate modeling, protein folding, drug discovery, or data analysis, by orders of magnitude \citep{stortiCUDAEngineersIntroduction2016, PACHECO20111}. The massive parallelism achievable with GPUs pushed the developers to invest more time in creating programs that could use it for their advantage. These gains can be achieved at very reasonable costs in terms of both developer effort and the hardware required. It's now possible to speed-up scientific computations in a way that what took minutes or hours can now be done in seconds or even milliseconds. Although, more computationally intensive tasks like Monte Carlo simulations of molecular dynamics are still hard to speed up to an order of real-time simulation.
@@ -814,7 +822,7 @@ ArrayFire library can help by automatically leveraging the best hardware feature
 
 \section{Visualization Methods}\label{sec:vizmethods}
 %DONE
-\begin{chapquote}{J. Joyce, \textit{Ulysses}}
+\begin{chapquote}{James Joyce, \textit{Ulysses}}
 	``Errors are the portals to discovery."
 \end{chapquote}
 
@@ -1022,19 +1030,32 @@ Many universities and engineering companies own and use CAVE systems. Researcher
 
 % ------------------------------------------------------
 
-\section{Implementation of a Simulation Software} \label{sec:implementation}
+\section{Implementation of a Simulation and Visualization Software} \label{sec:implementation}
+% DONE
+As the previous chapters laid the theoretic framework regarding the methods employed in modeling, simulation and visualization of fluid dynamics, together with approaches to writing efficient software for multicore hardware accelerators, from now on the focus of this work will change to description of an actual  implementation of simulation and visualization software integrated into a virtual reality platform.
+
+The following chapter, section \ref{sec:tech-stack} will deal with the description of technology stack; in section \ref{sec:impl-lbm-gpu}, each part of the Lattice Boltzmann algorithm implementation will be discussed; section \ref{optimizations-for-gpu} describes various optimization techniques employed  in the implementation of LBM simulation software that runs on GPUs; section \ref{sec:vrui} will show how the virtual reality user interface (VRUI) was built; in section \ref{sec:interactive-simulation}, the simulation and visualization software interconnection will be described; and, in closing,  section \ref{perf-analysis} will provide a performance analysis of the simulation software implementation.
 
 \subsection{Technology Stack} \label{sec:tech-stack}
+%DONE
+From a high-level perspective, presented software application consists of three parts, namely: (1) the LBM solver for CFD simulation, (2) the interactive visualization part, and (3) the virtual reality user interface for immersive human-computer interaction.
 
+The first part, a LBM solver, is written as separate program in Rust programming language leveraging a high-performance, parallel computation library, ArrayFire. It exposes a Foreign Function Interface (FFI) for external programs to work with the solver by calling functions for simulation initializations, performing the computation, and getting the output from it.
+
+Both second and third parts are handled within Unity game engine.
+
+The second part, an interactive visualization, is implemented as two separate C\# scripts called \texttt{LBM.cs} and \texttt{Sim.cs}. The \texttt{LBM.cs} represents the interconnection between Unity and external Rust program, the LBM solver, as a Native Plugin. The \texttt{Sim.cs} scripts implements an interaction and control interface for simulation lifecycle and a 2D texture to visualize simulation results.
+
+The third part, a virtual reality user interface (VRUI), is implemented with Unity's XR Interaction Toolkit, which drastically simplifies cross-platform development of VR experiences and provides many useful elements for quick UI prototyping.
 
 % prepisat (https://arrayfire.org/arrayfire-rust/book/vectorization.html)
 %Programmers and Data Scientists want to take advantage of fast and parallel computational devices. Writing vectorized code is necessary to get the best performance out of the current generation parallel hardware and scientific computing software. However, writing vectorized code may not be immediately intuitive. ArrayFire provides many ways to vectorize a given code segment. In this chapter, we present several methods to vectorize code using ArrayFire and discuss the benefits and drawbacks associated with each method.
 
-The ArrayFire library is used for high-performance, cross-platform implementation of Lattice Boltzmann algorithm. It helped with simplifying the overall implementation and reducing lines of code (LoC). The thought process of why this library was picked is described in section \ref{sec:cross-platform-af}.
+%The ArrayFire library is used for high-performance, cross-platform implementation of Lattice Boltzmann algorithm. It helped with simplifying the overall implementation and reducing lines of code (LoC). The thought process of why this library was picked is described in section \ref{sec:cross-platform-af}.
 
 \subsubsection{Cross-platform Development with ArrayFire}\label{sec:cross-platform-af}
 % DONE 
-The simulation part of the software solution presented in this thesis was built using ArrayFire, a cross-platform library for developing parallel algorithms. I picked it after considering other approaches like using bunch of different helper libraries together for vectorization and cross-compilation of C++ code for different GPU platforms. C++ is battle-tested language with plethora of available libraries and has been extensively used in CFD simulation software development. However, I would have to optimize the code for specific GPUs and their distinctive features myself, writing extensive amount of code in the process. This is where the ArrayFire library shines the most: it provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more. It abstracts away much of the details of programming parallel architectures by providing a high-level container object, the \texttt{Array}, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures \citep{Yalamanchili2015}. Developers can use several different methods for manipulating arrays and matrices implemented as a \texttt{Array} container object. The functionality includes:
+The simulation part of the application presented in this thesis was built using ArrayFire, a cross-platform library for developing parallel algorithms. I picked it after considering other approaches like using bunch of different helper libraries together for vectorization and cross-compilation of C++ code for different GPU platforms. C++ is battle-tested language with plethora of available libraries and has been extensively used in CFD simulation software development. However, I would have to optimize the code for specific GPUs and their distinctive features myself, writing extensive amount of code in the process. This is where the ArrayFire library shines the most: it provides hundreds of hand-tuned, low-level optimized functions for various domains including vector algorithms, image processing, computer vision, signal processing, linear algebra, statistics, and more. It abstracts away much of the details of programming parallel architectures by providing a high-level container object, the \texttt{Array}, that represents data stored on a CPU, GPU, FPGA, or other type of accelerator. This abstraction permits developers to write massively parallel applications in a high-level language where they need not be concerned about low-level optimizations that are frequently required to achieve high throughput on most parallel architectures \citep{Yalamanchili2015}. Developers can use several different methods for manipulating arrays and matrices implemented as a \texttt{Array} container object. The functionality includes:
 
 \begin{itemize}
 	\item \texttt{moddims()} - lazily change the dimensions of an array without changing the data
@@ -1053,7 +1074,7 @@ ArrayFire main API is written in C with additional wrappers for other languages 
 
 To start developing cross-platform software with ArrayFire, first it has to be installed on a development machine. It can be installed by either using binary installer for Windows, Linux or OSX, or built from source. The high-performance visualization library called Forge is bundled with the installer. It can be disabled in the installation process if user doesn't want to install it. I used it in throughout the development process to test early prototypes, check if the output is visually correct and also benchmark the simulation software for what computational domain the visualization stays fast enough to show real-time output as the simulation is running.
 
-\subsubsection{Rust as C/C++ Alternative} \label{sec:rust-alt}
+\subsubsection{Rust as C/C++ Alternative}\label{sec:rust-alt}
 % DONE
 As an alternative to C++ programming language, I considered Rust. It has been chanted around the programming world as a language that could one day replace C or C++ as a go-to language for writing performant low-level applications and systems. The problem with going down the road of using Rust is that it's still considered a new language with developing ecosystem of libraries, often lacking the ones that are readily available in C/C++ ecosystem. Good thing is that it's growing daily. After reading through tens of articles about pros and cons of the language, I had to test it first and try developing some prototypes to find out for myself if it's worth developing such a complex application.
 
@@ -1069,13 +1090,17 @@ The focus of this work was to build a high-performance simulation software with 
 
 % ---------------------------------------------------------
 
-\subsection{Implementation of Lattice Boltzmann Method for GPUs}
+\subsection{Implementation of Lattice Boltzmann Method for GPUs}\label{sec:impl-lbm-gpu}
 % DONE
-In this section, each step in the program lifecycle is presented, showing how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
+The simulation part of the virtual reality software was implemented in both C++ and Rust to assess performance of ArrayFire library when used for developing GPU-based solver for LBM. Resulting speeds for both lid-driven cavity and Kármán vortex street problems were nearly identical across multiple grid densities (performance analysis is discussed in more detail in section \ref{perf-analysis}). Therefore, as discussed before in section \ref{sec:rust-alt}, Rust programming language was chosen for implementing the simulation part of the software platform, as it adds some interesting properties to the software development process, making up for the current lack of libraries.
+
+In this section, each step in the simulation program lifecycle is presented, showing how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
 
 \subsubsection{Initialization}
+%DONE
+In Rust, the common data structure for composing various types of data under one roof is \texttt{struct}. In the simulation implementation, \texttt{struct Sim \{...\}} stores the all parameters and other data structures that are needed during the program lifecycle. 
 
-In Rust, the common data structure for composing various types of data under one roof is \texttt{struct}. In our simulation implementation, \texttt{struct Sim \{...\}} stores the all parameters and other data structures that are needed during the program lifecycle. Structs can be instantiated in different ways. Most common way is via the constructor method \texttt{new()}. For proper constructing of \texttt{Sim} and its properties, the struct implementation has to be defined with \texttt{impl Sim \{...\}} (Listing~\ref{sim-struct}). Additional directive \texttt{\#[repr(C)]} is added on top of \texttt{Sim} struct to specify alternative data layout, specifically to represent it as how it would be done with C or C++ language. That means the order, size, and alignment of fields is exactly what would be expect from C or C++.
+Structs can be initialized in different ways. Most common way is via the constructor method \texttt{new()}. For proper constructing of \texttt{Sim} and its properties, the struct implementation has to be defined with \texttt{impl Sim \{...\}} (Listing~\ref{sim-struct}). Additional directive \texttt{\#[repr(C)]} is added on top of \texttt{Sim} struct to specify alternative data layout, specifically to represent it as how it would be done with C or C++ language. That means the order, size, and alignment of fields is exactly what would be expect from C or C++.
 
 \begin{lstlisting}[language=Rust, caption=Implementation of Sim struct with constructor method., label=sim-struct]
 #[repr(C)]
@@ -1091,7 +1116,7 @@ impl Sim {
 }
 \end{lstlisting}
 
-The simulation program needs to be initialized at the start with correct parameters. These are passed into the \texttt{new()} constructor method as its arguments and then used for initialization in ArrayFire Arrays. There are number of independent Arrays being initialized in this method, such as discrete velocities, weights for computing particle distributions in equilibrium, etc. (Listing~\ref{independent-initial-params}).
+The simulation program needs to be initialized at the start with correct parameters. These are passed into the \texttt{new()} constructor method as its arguments and then used for initialization in ArrayFire Arrays. There are number of independent Arrays being initialized in this method, such as discrete velocities, weights for computing particle distributions in equilibrium, etc. (Listing~\ref{independent-initial-params}). During this phase, initial (physical) conditions and boundary (geometrical) conditions has to be set so the simulation can be correctly started. All of the conditions are also stored in \texttt{Sim} struct. The actual construction of \texttt{Sim} is done at the end of \texttt{new()} method.
 
 \begin{lstlisting}[language=Rust, caption=Setting initial parameters that are independent from constructor method's input arguments., label=independent-initial-params]
 let t1: f32 = 4. / 9.;
@@ -1106,14 +1131,70 @@ let w = Array::new(&[t1, t2, t2, t2, t2, t3, t3, t3, t3], dim4!(9));
 let mut density = constant::<f32>(initial_density, dim4!(nx, ny));
 let mut ux = constant::<f32>(initial_ux, dim4!(nx, ny));
 let mut uy = constant::<f32>(0.0, dim4!(nx, ny));
+
 // ...
+// At the end of new(), construct the Sim and return itself
+Sim { ex, ey, w, density, ux, uy, /* rest of the params...*/ }
+\end{lstlisting}
+
+However, the simulation program has to communicate with foreign interface of Unity game engine. Unity applications and games are programmed in C\#, therefore these two won't understand each other. For this we have to go with the strategy of implementing Foreign Function Interface (FFI) between Rust and Unity's C\# environment. 
+
+On Rust side, the simulation program will have functions prepared to be called from Unity, which will control the simulation lifecycle. First, to actually use the \texttt{Sim} struct this way, the pointer to the place in memory where it is stored has to be passed to Unity, where it will be stored in a local variable for further use. Note: working with pointers in Rust is marked as unsafe and has to be specifically tagged with \texttt{unsafe} keyword before a function, or the part of the code that deals with unsafe behavior should be wrapped in \texttt{unsafe \{...\}} block (Listing \ref{sim-pointer-external}, some additional error-checking has been removed from code listing to enhance readability). In the same way, pointer to the memory where output of a simulation will be stored has to be sent to Unity, where it will be stored in another local variable.
+
+\begin{lstlisting}[language=Rust, caption=The ``external" function \texttt{init\_sim} for instantiating \texttt{Sim} struct by calling the function from external program through FFI., label=sim-pointer-external]
+#[no_mangle]
+pub extern "C" fn init_sim(
+	ptr: *mut *mut Sim, // pointer to Sim struct
+	data_ptr: *mut *mut u8, // pointer to simulation results
+	width: u32,
+	height: u32,
+	initial_density: f32,
+	initial_ux: f32,
+	omega: f32,
+	// ... rest of the parameters ...
+) {
+	let sim = Sim::new(
+		width.into(),
+		height.into(),
+		initial_density,
+		initial_ux,
+		omega,
+		// ... rest of the parameters ...
+	);
+
+	unsafe {
+		*ptr = sim.to_ptr();
+		*data_ptr = Sim::from_ptr(*ptr).results_ptr();
+	}
+}
+\end{lstlisting}
+
+To read from correct memory location, two additional methods are added to \texttt{Sim} to transfer itself into pointer to memory on the heap and to get the actual \texttt{Sim} struct back from memory back if the pointer to it is passed to the method (Listing \ref{sim-ptr}).
+
+\begin{lstlisting}[language=Rust, caption=Storing and restoring \texttt{Sim} struct with pointers., label=sim-ptr]
+impl<'a> Sim {
+	pub fn to_ptr(self) -> *mut Sim {
+		let sim_boxed = Box::new(self);
+		Box::into_raw(sim_boxed)
+	}
+	
+	pub fn from_ptr(ptr: *mut Sim) -> &'a mut Sim {
+		unsafe { &mut *ptr }
+	}
+
+	// ... rest of the methods
+}
 \end{lstlisting}
 
 \subsubsection{Boundary Conditions}
+% DONE
+The position of solid boundary conditions, also referred to as physical boundary conditions, are implemented with ArrayFire Arrays as a mask on 2D or 3D grids. Instead of using boolean mask of true and false values, this implementation works with  numerical constants - 1 representing a ``bound", or solid node (true), and 0 a fluid node (false).
 
-Two types of boundary conditions, namely geometrical and physical, are implemented with ArrayFire Arrays as a mask on 2D or 3D grids. 
+For example, in Kármán vortex street problem, we have to specify where a solid geometry\textemdash a~circle, around which the fluid flows\textemdash resides. Additionally, simulation have to know which walls of the computational domain (in context of Euclidean space) are solid and which are open. The mask describing solid nodes along whole Euclidean domain is stored in \texttt{bound} variable.
 
-\begin{lstlisting}[language=Rust, caption=Setting the geometrical boundary conditions of circle in a pipe flow (2D Karmán vortex)., label=init-circle]
+The circle geometry implementation is done by mathematically describing a relation of each point within the circle radius (Listing \ref{init-circle}).
+
+\begin{lstlisting}[language=Rust, caption=Setting the boundary conditions of a solid circle geometry in 2D Karmán vortex street., label=init-circle]
 let mut bound = constant::<f32>(1.0, dim4!(nx, ny));
 // circle
 let r = constant::<f32>(obstacle_r as f32, dim4!(nx, ny));
@@ -1133,6 +1214,11 @@ let circle = moddims(
 	dim4!(nx, ny),
 );
 bound = selectr(&bound, &circle, 0.0 as f64);
+\end{lstlisting}
+
+For the top and bottom solid walls, the implementation is very simple and is done by calling \texttt{set\_col} function to mutate \texttt{bound} Array and set whole column to constant 1.0 (Listing \ref{init-walls}).
+
+\begin{lstlisting}[language=Rust, caption=Setting the boundary conditions of a solid walls., label=init-walls]
 // top
 set_col(&mut bound, &constant::<f32>(1.0, dim4!(nx)), 0);
 // bottom
@@ -1143,65 +1229,87 @@ set_col(
 );
 \end{lstlisting}
 
+For each solid boundary node, a physical boundary conditions have to be specified. In this work, we use no-slip boundary condition, which is easy to implement. With no-slip boundaries, fluid adheres to the stationary wall and maintains zero velocity relative to the solid wall. Implementation of this boundary condition is shown in Listing \ref{no-slip}).
 
-Physical and lattice parameters that are supplied to the simulation at the start so it can begin with something.
+\begin{lstlisting}[language=Rust, caption=No-slip boundary conditions., label=no-slip]
+// matrix offset of each solid node
+let on = locate(&bound);
 
-There is difference between initial conditions in BGK and MRT code.
+let zeroed_on = constant::<f32>(0.0, on.dims());
 
-- BGK \\
-
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
+eval!(ux[on] = zeroed_on);
+eval!(uy[on] = zeroed_on);
+eval!(density[on] = zeroed_on);
 \end{lstlisting}
 
-- MRT \\
+\subsubsection{Collision}
+% DONE
+In collision phase of the LBM algorithm, after fictitious particles collide, the particle distribution functions relax towards the equilibrium state in each node. A collision operator $\Omega$ (implemented as a variable \texttt{omega}) states the rate of this change. As described in section \ref{sec:lbm}, it's often called BGK operator.
 
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
+Setting the omega initially can be based on findings of other researchers in the field of LBM, or can be computed from physical description of the modeled fluid according to the Equation \ref{eq:bgk-operator}. This is translated into pseudocode (Listing \ref{omega-computing}) to show the essence of how it's done within the \texttt{Sim.cs} script in Unity. To experiment with the different behaviours of fluid flows based on different Reynolds number, the interactive slider in VR user interface is hooked to this value and user can experiment with it. 
+
+\begin{lstlisting}[language=Csharp, caption=Pseudocode for computing the BGK collision operator\, omega\, on Unity's side., label=omega-computing]
+// get the Reynolds number from the user input through VR interface
+re = reynoldsNumberSlider.value;
+// kinematic viscosity
+nu = inflow_speed * 2.0f * obstacle_radius / re;
+// relaxation time
+tau = 3.0f * nu + 0.5f;
+// BGK collision operator
+omega = 1.0f / tau;
 \end{lstlisting}
+
+Actual collision phase implementation consists of two steps, namely computing the equilibrium particle distribution function (Equation \ref{eq:feq}) across whole domain (each node at once thanks to the GPUs parallel architecture) and then relaxing towards them according to the Equation \ref{eq:collision} (Listing \ref{bgk-collision}).
+
+\begin{lstlisting}[language=Rust, caption=BGK collision phase., label=bgk-collision]
+let u_sq = flat(
+	&(pow(&ux, &(2.0 as f32), false)
+	+ pow(&uy, &(2.0 as f32), false))
+);
+
+let eu = flat(
+	&(&mul(&transpose(&self.ex, false), &flat(&ux), true)
+	+ &mul(&transpose(&self.ey, false), &flat(&uy), true)),
+);
+
+let feq = flat(
+	&mul(
+		&transpose(&self.w, false), &flat(&density), true))
+		* ((1.0 as f32)
+		+ (3.0 as f32) * &eu
+		+ (4.5 as f32)
+		* (&pow(&eu, &(2.0 as f32), false))
+		- (1.5 as f32)
+		* (&tile(&flat(&u_sq), dim4!(9))
+	)
+);
+
+// Relaxation with pre-computed BGK operator (omega)
+f = omega * &feq + (1.0 - omega) * &f_streamed;
+\end{lstlisting}
+
+
+%- MRT \\
+%
+%\begin{lstlisting}[language=Rust, caption=Collision phase with multiple-relaxation time (MRT)., label=mrt-collision]
+%...
+%\end{lstlisting}
 
 \subsubsection{Streaming}
 
+In streaming phase, collided particles from each lattice node are advected to the neighboring nodes for each direction (in D2Q9 stencil, this means advecting them in 9 directions, from which ones in the center stays at the same place). This process is illustrated in Figure \ref{fig:streaming}. 
+
 \begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/streaming.jpg}
-	\caption{Illustration of the streaming step.}
-	\label{fig:streaming}
+\centering
+\includegraphics[width=0.35\textwidth]{figures/streaming.jpg}
+\caption{Illustration of the streaming step.}
+\label{fig:streaming}
 \end{figure}
 
-Streaming in general is usually treated as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed.
+Streaming is implemented as a \texttt{shift} function acting upon an Array that represents a particle distributions across each node in computational domain (Listing \ref{streaming-2d}). This way the indices of the Array are shifted in a direction represented by $4 \times 1$ vector consisting of a combination of $0$, $1$ and $-1$ values, describing the direction and a dimension along which they move.
 
-In current implementation, the streaming is implemented as a shift of indices of neighbouring nodes. In this fashion, the index is pre-computed at the beginning and then used throughout the simulation lifetime to index into the particle distributions of neighbouring nodes.
-
-\begin{lstlisting}[language=Rust, caption=Pre-computed streaming step in the way of shifting indices during the program intialization phase., label=rust-nb-index]
-	let ci: Array<u64> = (range::<u64>(dim4!(1, 8), 1) + 1) * total_nodes;
-	// Indices ordered to reflect a direction to the neighbouring nodes
-	let nbidx = Array::new(&[2, 3, 0, 1, 6, 7, 4, 5], dim4!(8));
-	let span = seq!();
-	let nbi: Array<u64> = view!(ci[span, nbidx]);
-	
-	let main_index = moddims(&range(dim4!(total_nodes * 9), 0), dim4!(nx, ny, 9));
-	let nb_index = flat(&stream(&main_index));
-\end{lstlisting}
-
-2D \\
-
-\begin{lstlisting}[language=Rust, caption=Streaming with \texttt{shift} function for two dimensions with 9 discrete speeds (D2Q9)., label=rust-streaming-2d]
-fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
+\begin{lstlisting}[language=Rust, caption=Streaming with \texttt{shift} function for two dimensions with 9 discrete speeds (D2Q9)., label=streaming-2d]
+fn stream(f: &Array<f32>) -> Array<f32> {
 	let mut pdf = f.clone();
 	eval!(pdf[1:1:0, 1:1:0, 1:1:1] = shift(&view!(f[1:1:0, 1:1:0, 1:1:1]), &[1, 0, 0, 0]));
 	eval!(pdf[1:1:0, 1:1:0, 2:2:1] = shift(&view!(f[1:1:0, 1:1:0, 2:2:1]), &[0, 1, 0, 0]));
@@ -1215,38 +1323,47 @@ fn stream(f: &Array<FloatNum>) -> Array<FloatNum> {
 }
 \end{lstlisting}
 
+In general, streaming is usually treated as a separate step, implemented as a individual kernel, but also can be bundled together with the collision kernel to save memory, therefore boost speed. Another way to speed things up, which is used in the current implementation, is to save the computation time by streaming the indices of neighboring nodes instead of streaming particle distribution functions on every iteration. In this fashion, the index is pre-computed once when the simulation is instantiated and then used throughout the simulation lifetime to index into the particle distributions of neighboring nodes (Listing \ref{nb-index}).
 
-3D nereba ukazovat, mozno len popisat \\
-
-
-\subsubsection{Collision}
-
-
-
-- BGK \\
-
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
+\begin{lstlisting}[language=Rust, caption=Pre-computed streaming step in the way of shifting indices during the program intialization phase., label=nb-index]
+	let ci: Array<u64> = (range::<u64>(dim4!(1, 8), 1) + 1) * total_nodes;
+	// Indices ordered to reflect a direction to the neighbouring nodes
+	let nbidx = Array::new(&[2, 3, 0, 1, 6, 7, 4, 5], dim4!(8));
+	let span = seq!();
+	let nbi: Array<u64> = view!(ci[span, nbidx]);
+	
+	let main_index = moddims(&range(dim4!(total_nodes * 9), 0), dim4!(nx, ny, 9));
+	
+	// Streaming of the neighboring indices is pre-computed here
+	let nb_index = flat(&stream(&main_index));
 \end{lstlisting}
 
-- MRT \\
+This has an additional benefit when dealing with the nodes near the solid walls at the boundaries. From these streamed neighboring indices, simple ``reflective" boundary conditions treatment (also called bounce-back) can be handled very easily by constructing two additional indices at the simulation initialization phase: (1) \texttt{to\_reflect}, and (2) \texttt{relfected} (Listing \ref{bounceback-indices}). 
 
-\begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
-	#include <arrayfire.h>
-	int main()
-	{
-		af::setBackend(AF_BACKEND_CUDA);
-		// af::setBackend(AF_BACKEND_OPENCL);
-		// af::setBackend(AF_BACKEND_CPU);
-		return 0;
-	}
+\begin{lstlisting}[language=Rust, caption=Bounce-back indices., label=bounceback-indices]
+let to_reflect = flat(&tile(&on, dim4!(ci.elements() as u64)))
++ flat(&tile(&ci, dim4!(on.elements() as u64)));
+
+let reflected = flat(&tile(&on, dim4!(nbi.elements() as u64)))
++ flat(&tile(&nbi, dim4!(on.elements() as u64)));
+\end{lstlisting}
+
+To tie things together\textemdash the value of all particle distributions $f_i$ are streamed over to the neighboring lattice nodes along the discrete velocity directions by simply indexing to the pre-computed neighboring nodes index; then, the nodes from which particle distributions should be reflected are flagged and stored in \texttt{bounceback} variable; at the end of LBM algorithm, after the collision phase, relaxed particle distributions are updated with the bounced-back values (Listing \ref{using-bounceback-indices}).
+
+\begin{lstlisting}[language=Rust, caption=Streaming and boundaries treatment by relfection using the bounce-back indices., label=using-bounceback-indices]
+// Streaming step
+let f_streamed = view!(f[self.nb_index]);
+
+// Storing the streamed PDFs bouncing back at next timestep
+let bouncedback = view!(f_streamed[self.to_reflect]);
+
+// ... rest of the LBM algorithm ...
+
+// After the collision phase, PDFs relax towards equilibrium
+f = omega * &feq + (1.0 - omega) * &f_streamed;
+
+// Relaxed PDFs are updated with the bounced-back values 
+eval!(f[self.reflected] = bouncedback);
 \end{lstlisting}
 
 
@@ -1372,7 +1489,7 @@ Most common algorithms for the streaming phase in LBM solvers use push and pull 
 
 The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \cite{tranPerformanceOptimization3D2017}.
 
-\subsection{Virtual Reality User Interface}
+\subsection{Virtual Reality User Interface}\label{sec:vrui}
 
 VR interface includes: \\ 
 
@@ -1678,7 +1795,7 @@ General zooming functionality ... \ref{unity-zoom-interaction-code}.
 
 % --------------------------------------------------------------------
 
-\subsection{Interactive Simulation}
+\subsection{Interactive Simulation}\label{sec:interactive-simulation}
 % DONE
 In this section, the implementation of interactive virtual reality visualization is presented. Unity game engine was picked as it provides an easy-to-use visual development environment with great support for VR baked-in. Their XR Plugin not only helped with VR development in current version of presented software, but offers a clear transition step towards supporting augmented reality in future.
 
@@ -1763,10 +1880,10 @@ public class LBMAF
 First, on the Rust side, the data output from the LBM simulation has to be normalized to the range within minimum and maximum values (Listing \ref{rust-normalize}). 
 
 \begin{lstlisting}[language=Rust, caption=Normalization of the simulation output., label=rust-normalize]
-fn normalize(a: &Array<FloatNum>) -> Array<FloatNum> {
+fn normalize(a: &Array<f32>) -> Array<f32> {
 	let min = min_all(a).0;
 	let max = max_all(a).0;
-	(a - min) / (max - min) as FloatNum
+	(a - min) / (max - min) as f32
 }
 \end{lstlisting}
 
@@ -1775,7 +1892,7 @@ fn normalize(a: &Array<FloatNum>) -> Array<FloatNum> {
 This range is then color-coded to the rainbow colormap. Blue-ish colors denote slower velocities and red-ish colors faster velocities (Listing \ref{rust-colors-array}). Data representing information about color and opacity (alpha) of each pixel is ordered in $r$, $g$, $b$ and $a$ sub-arrays, then joined together and shuffled around to be correctly represented as Unity's Texture2D RGBA32 texture format.
 
 \begin{lstlisting}[language=Rust, caption=Preparing the data output from Rust side of LBM simulation., label=rust-colors-array]
-pub fn simulate(&mut self, inflow_density: FloatNum, inflow_ux: FloatNum, omega: FloatNum) {
+pub fn simulate(&mut self, inflow_density: f32, inflow_ux: f32, omega: f32) {
 	// ... code for actual computation
 	
 	results = normalize(&results);
@@ -1783,7 +1900,7 @@ pub fn simulate(&mut self, inflow_density: FloatNum, inflow_ux: FloatNum, omega:
 	let r = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.5f32)))) * 255));
 	let g = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.25f32)))) * 255));
 	let b = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * &results))) * 255));
-	let a = flat(&constant::<f32>(1.0 as FloatNum, self.dims));
+	let a = flat(&constant::<f32>(1.0 as f32, self.dims));
 	self.colors = flat(&transpose(&join_many(1, vec![&r, &g, &b, &a]), false)).cast::<u8>();
 	
 	// ... rest of the code
@@ -1887,9 +2004,9 @@ When looking into the Unity Editor, the script interface now has two numerical i
 #[no_mangle]
 pub extern "C" fn simulate(
 	ptr: *mut Sim,
-	inflow_density: FloatNum,
-	inflow_ux: FloatNum,
-	omega: FloatNum
+	inflow_density: f32,
+	inflow_ux: f32,
+	omega: f32
 ) {
 	if !ptr.is_null() {
 		Sim::from_ptr(ptr).simulate(inflow_density, inflow_ux, omega);
@@ -1901,9 +2018,9 @@ pub extern "C" fn simulate(
 	#[no_mangle]
 	pub extern "C" fn simulate(
 	ptr: *mut Sim,
-	inflow_density: FloatNum,
-	inflow_ux: FloatNum,
-	omega: FloatNum
+	inflow_density: f32,
+	inflow_ux: f32,
+	omega: f32
 	) {
 		if !ptr.is_null() {
 			Sim::from_ptr(ptr).simulate(inflow_density, inflow_ux, omega);
@@ -1911,7 +2028,7 @@ pub extern "C" fn simulate(
 	}
 \end{lstlisting}
 
-\subsubsection{Time Manipulation}
+\subsubsection{Simulation Playback}
 
 Visualization is running continuously throughout the simulation in parallel to the actual computations. It's sometimes good to pause the running simulation when there's something interesting to investigate or explore in more detail.
 

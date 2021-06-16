@@ -6,7 +6,7 @@ A level-1 auxiliary file: mainpart.aux
 A level-1 auxiliary file: bibliography.aux
 Illegal, another \bibstyle command---line 3 of file bibliography.aux
  : \bibstyle
- :          {spbasic}
+ :          {ksfh\unhbox \voidb@x \protect \penalty \@M \hskip \z@skip \unhbox \voidb@x \kern .06em\vbox {\hrule width.3em}\protect \discretionary {\char \hyphenchar \font }{}{}\protect \penalty \@M \hskip \z@skip nat}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: appendices.aux
 A level-1 auxiliary file: appendixa.aux
