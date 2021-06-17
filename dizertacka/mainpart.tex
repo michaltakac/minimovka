@@ -1815,7 +1815,7 @@ Still, it is of very high importance to implement GPU-bound visualization techni
 % DONE
 Manipulating various parts of the simulation is done by sending the updated parameters to the \texttt{simulate(...)} function from Rust code (Listing \ref{rust-simulate}).
 
-\begin{lstlisting}[language=Rust, caption=".", label=rust-simulate]
+\begin{lstlisting}[language=Rust, caption=\texttt{simulate} function that computes one iteration of a simulation., label=rust-simulate]
 #[no_mangle]
 pub extern "C" fn simulate(
 	ptr: *mut Sim,
@@ -1860,30 +1860,29 @@ public IEnumerator GetData()
 }
 \end{lstlisting}
 
-After the change in slider input, re-computation happens immediately and updated simulation output is visualized in real-time to the screen. Thanks to the speed of the LBM simulation, by changing for example inflow speed variable, a wave is introduced which propagates through the computational domain. Its propagation can be seen in real-time as it happens (Figure \ref{fig:wave-propagation}).
+After the change in slider input, re-computation happens immediately and updated simulation output is visualized in real-time on the screen. Thanks to the speed of LBM simulation, by changing for example inflow speed variable, a wave is introduced which propagates through the computational domain. Its propagation can be seen in real-time as it happens (Figure \ref{fig:wave-propagation}).
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/inflow-speed-change.jpeg}
-	\caption{Propagating wave that resulted from a changing the inflow speed.}
+	\caption{Propagating wave that resulted from changing the inflow speed.}
 	\label{fig:wave-propagation}
 \end{figure}
 
 \subsubsection{Simulation Playback}\label{sec:sim-playback}
 
-Visualization is running continuously throughout the simulation in parallel to the actual computations. It's sometimes good to pause the running simulation when there's something interesting to investigate or explore in more detail.
+Visualization is running continuously throughout the simulation in parallel to the actual computations since it's implemented as co-routine in Unity. However, it's a good idea to at some point pause the running simulation when there's something interesting to investigate or explore in more detail.
 
-% editovat aby to znelo lepsie
-For simple pausing and continuing the simulation, the VR interface contains a GUI for that (Figure~ \ref{fig:unity-pause-play}).
+For simple simulation playback control, the VRUI contains a button for that (Figure~ \ref{fig:unity-pause-play}).
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Interface for controlling the state of simulation.}
+	\includegraphics[width=0.6\textwidth]{figures/playback-button.jpeg}
+	\caption{Simulation can be paused or resumed with push of a button.}
 	\label{fig:unity-pause-play}
 \end{figure}
 
-Implementation of the co-routine starting, pausing and stopping is implemented in Listing \ref{unity-start-stop-coroutine}.
+Implementation of the co-routine for starting and pausing is implemented in Listing \ref{unity-start-stop-coroutine}.
 
 \begin{lstlisting}[language=Rust, caption="Starting\, pausing and stopping the co-routines in Unity.", label=unity-start-stop-coroutine]
 void Start()
@@ -1905,17 +1904,6 @@ void ToggleSimPlayback() {
 }
 \end{lstlisting}
 
-% editovat aby to znelo lepsie
-To manipulate time and go back in history, the simulation data has to be stored to the disk. Each second, XY GB of data is stored. 
-
-To go back in time, user can use the slider and move the knob backward or forward (Figure~ \ref{fig:unity-time-manipulation}).
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Interface for controlling the state of simulation.}
-	\label{fig:unity-time-manipulation}
-\end{figure}
 
 % ----------------------------------------------------------------
 

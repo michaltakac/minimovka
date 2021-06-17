@@ -36,30 +36,30 @@
 \contentsline {subsubsection}{\numberline {6.2.1}Initialization}{65}{subsubsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.2}Boundary Conditions}{67}{subsubsection.6.2.2}%
 \contentsline {subsubsection}{\numberline {6.2.3}Collision}{68}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}Streaming}{69}{subsubsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.4}Streaming}{70}{subsubsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.3}GPU Optimizations}{72}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{72}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{73}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{74}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.3}Pull Scheme}{76}{subsubsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.4}Virtual Reality User Interface}{76}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{78}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}User Interactions in VR}{81}{subsubsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.5}Interactive Simulation}{84}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interoperability}{85}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{87}{subsubsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.4}Virtual Reality User Interface}{77}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{77}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}User Interactions in VR}{82}{subsubsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.5}Interactive Simulation}{85}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interoperability}{86}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{88}{subsubsection.6.5.2}%
 \contentsline {subsubsection}{\numberline {6.5.3}Updating Boundary Conditions and Simulation Parameters}{91}{subsubsection.6.5.3}%
-\contentsline {subsubsection}{\numberline {6.5.4}Simulation Playback}{92}{subsubsection.6.5.4}%
-\contentsline {subsection}{\numberline {6.6}Performance Analysis}{94}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.5.4}Simulation Playback}{94}{subsubsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.6}Performance Analysis}{95}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Hardware}{95}{subsubsection.6.6.1}%
 \contentsline {subsubsection}{\numberline {6.6.2}Results}{96}{subsubsection.6.6.2}%
 \contentsline {section}{\numberline {7}Conclusions}{101}{section.7}%
-\contentsline {section}{\numberline {8}Discussion}{105}{section.8}%
+\contentsline {section}{\numberline {8}Discussion}{103}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Future Work}{105}{subsection.8.1}%
 \contentsline {subsubsection}{\numberline {8.1.1}Load Balancing in Multi-GPU Setups}{105}{subsubsection.8.1.1}%
 \contentsline {subsubsection}{\numberline {8.1.2}Application to Real World}{105}{subsubsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{106}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{105}{subsubsection.8.1.3}%
 \contentsline {subsubsection}{\numberline {8.1.4}Augmented Reality}{106}{subsubsection.8.1.4}%
 \contentsline {subsubsection}{\numberline {8.1.5}Simulation as an Educational Tool}{106}{subsubsection.8.1.5}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendices}{115}{section*.44}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix A}{116}{section*.45}%
-\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix B}{118}{section*.51}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendices}{115}{section*.43}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix A}{116}{section*.44}%
+\contentsline {section}{\hbox to\@tempdima {\hfil }Appendix B}{118}{section*.50}%
