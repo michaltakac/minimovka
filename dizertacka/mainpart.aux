@@ -228,256 +228,241 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Implementation of Lattice Boltzmann Method for GPUs}{65}{subsection.6.2}\protected@file@percent }
 \newlabel{sec:impl-lbm-gpu}{{6.2}{65}{Implementation of Lattice Boltzmann Method for GPUs}{subsection.6.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Initialization}{65}{subsubsection.6.2.1}\protected@file@percent }
-\newlabel{sim-struct}{{5}{65}{Implementation of Sim struct with constructor method}{lstlisting.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}Implementation of Sim struct with constructor method.}{65}{lstlisting.5}\protected@file@percent }
+\newlabel{sec:lbm-initialization}{{6.2.1}{65}{Initialization}{subsubsection.6.2.1}{}}
+\newlabel{sim-struct}{{5}{66}{Implementation of Sim struct with constructor method}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}Implementation of Sim struct with constructor method.}{66}{lstlisting.5}\protected@file@percent }
 \newlabel{independent-initial-params}{{6}{66}{Setting initial parameters that are independent from constructor method's input arguments}{lstlisting.6}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Setting initial parameters that are independent from constructor method's input arguments.}{66}{lstlisting.6}\protected@file@percent }
-\newlabel{sim-pointer-external}{{7}{67}{The ``external" function \texttt {init\_sim} for instantiating \texttt {Sim} struct by calling the function from external program through FFI}{lstlisting.7}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}The ``external" function \texttt  {init\_sim} for instantiating \texttt  {Sim} struct by calling the function from external program through FFI.}{67}{lstlisting.7}\protected@file@percent }
-\newlabel{sim-ptr}{{8}{67}{Storing and restoring \texttt {Sim} struct with pointers}{lstlisting.8}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}Storing and restoring \texttt  {Sim} struct with pointers.}{67}{lstlisting.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Boundary Conditions}{68}{subsubsection.6.2.2}\protected@file@percent }
-\newlabel{init-circle}{{9}{68}{Setting the boundary conditions of a solid circle geometry in 2D Karmán vortex street}{lstlisting.9}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}Setting the boundary conditions of a solid circle geometry in 2D Karmán vortex street.}{68}{lstlisting.9}\protected@file@percent }
-\newlabel{init-walls}{{10}{69}{Setting the boundary conditions of a solid walls}{lstlisting.10}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}Setting the boundary conditions of a solid walls.}{69}{lstlisting.10}\protected@file@percent }
-\newlabel{no-slip}{{11}{69}{No-slip boundary conditions}{lstlisting.11}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}No-slip boundary conditions.}{69}{lstlisting.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Collision}{69}{subsubsection.6.2.3}\protected@file@percent }
-\newlabel{omega-computing}{{12}{70}{Pseudocode for computing the BGK collision operator\, omega\, on Unity's side}{lstlisting.12}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}Pseudocode for computing the BGK collision operator\, omega\, on Unity's side.}{70}{lstlisting.12}\protected@file@percent }
-\newlabel{bgk-collision}{{13}{70}{BGK collision phase}{lstlisting.13}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}BGK collision phase.}{70}{lstlisting.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.4}Streaming}{71}{subsubsection.6.2.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Illustration of the streaming step.\relax }}{71}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:streaming}{{6\,--\,1}{71}{Illustration of the streaming step.\relax }{figure.caption.15}{}}
-\newlabel{streaming-2d}{{14}{71}{Streaming with \texttt {shift} function for two dimensions with 9 discrete speeds (D2Q9)}{lstlisting.14}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}Streaming with \texttt  {shift} function for two dimensions with 9 discrete speeds (D2Q9).}{71}{lstlisting.14}\protected@file@percent }
-\newlabel{nb-index}{{15}{72}{Pre-computed streaming step in the way of shifting indices during the program intialization phase}{lstlisting.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}Pre-computed streaming step in the way of shifting indices during the program intialization phase.}{72}{lstlisting.15}\protected@file@percent }
-\newlabel{bounceback-indices}{{16}{72}{Bounce-back indices}{lstlisting.16}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}Bounce-back indices.}{72}{lstlisting.16}\protected@file@percent }
-\newlabel{using-bounceback-indices}{{17}{73}{Streaming and boundaries treatment by relfection using the bounce-back indices}{lstlisting.17}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {17}Streaming and boundaries treatment by relfection using the bounce-back indices.}{73}{lstlisting.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}GPU Optimizations}{73}{subsection.6.3}\protected@file@percent }
-\newlabel{optimizations-for-gpu}{{6.3}{73}{GPU Optimizations}{subsection.6.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Boundary Conditions}{67}{subsubsection.6.2.2}\protected@file@percent }
+\newlabel{init-circle}{{7}{67}{Setting the boundary conditions of a solid circle geometry in 2D Karmán vortex street}{lstlisting.7}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Setting the boundary conditions of a solid circle geometry in 2D Karmán vortex street.}{67}{lstlisting.7}\protected@file@percent }
+\newlabel{init-walls}{{8}{67}{Setting the boundary conditions of a solid walls}{lstlisting.8}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}Setting the boundary conditions of a solid walls.}{67}{lstlisting.8}\protected@file@percent }
+\newlabel{no-slip}{{9}{68}{No-slip boundary conditions}{lstlisting.9}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}No-slip boundary conditions.}{68}{lstlisting.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Collision}{68}{subsubsection.6.2.3}\protected@file@percent }
+\newlabel{omega-computing}{{10}{68}{Pseudocode for computing the BGK collision operator\, omega\, on Unity's side}{lstlisting.10}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}Pseudocode for computing the BGK collision operator\, omega\, on Unity's side.}{68}{lstlisting.10}\protected@file@percent }
+\newlabel{bgk-collision}{{11}{69}{BGK collision phase}{lstlisting.11}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}BGK collision phase.}{69}{lstlisting.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.4}Streaming}{69}{subsubsection.6.2.4}\protected@file@percent }
+\newlabel{sec:streaming}{{6.2.4}{69}{Streaming}{subsubsection.6.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,1}{\ignorespaces Illustration of the streaming step.\relax }}{70}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:streaming}{{6\,--\,1}{70}{Illustration of the streaming step.\relax }{figure.caption.15}{}}
+\newlabel{streaming-2d}{{12}{70}{Streaming with \texttt {shift} function for two dimensions with 9 discrete speeds (D2Q9)}{lstlisting.12}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}Streaming with \texttt  {shift} function for two dimensions with 9 discrete speeds (D2Q9).}{70}{lstlisting.12}\protected@file@percent }
+\newlabel{nb-index}{{13}{71}{Pre-computed streaming step in the way of shifting indices during the program intialization phase}{lstlisting.13}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}Pre-computed streaming step in the way of shifting indices during the program intialization phase.}{71}{lstlisting.13}\protected@file@percent }
+\newlabel{bounceback-indices}{{14}{71}{Bounce-back indices}{lstlisting.14}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}Bounce-back indices.}{71}{lstlisting.14}\protected@file@percent }
 \citation{tranPerformanceOptimization3D2017}
 \citation{delboscOptimizedImplementationLattice2014}
 \citation{tranPerformanceOptimization3D2017}
 \citation{Mawson2014InteractiveFI}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{74}{subsubsection.6.3.1}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {18}Creating SoA structure representation of D2Q9 lattice with ArrayFire in C++.}{74}{lstlisting.18}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {19}Creating ``current" (or main) index and neighboring index.}{75}{lstlisting.19}\protected@file@percent }
-\newlabel{f-streamed}{{20}{75}{Streaming step}{lstlisting.20}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {20}Streaming step.}{75}{lstlisting.20}\protected@file@percent }
+\newlabel{using-bounceback-indices}{{15}{72}{Streaming and boundaries treatment by relfection using the bounce-back indices}{lstlisting.15}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}Streaming and boundaries treatment by relfection using the bounce-back indices.}{72}{lstlisting.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}GPU Optimizations}{72}{subsection.6.3}\protected@file@percent }
+\newlabel{optimizations-for-gpu}{{6.3}{72}{GPU Optimizations}{subsection.6.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Data Organization}{72}{subsubsection.6.3.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}Creating SoA structure representation of D2Q9 lattice with ArrayFire in Rust.}{73}{lstlisting.16}\protected@file@percent }
 \citation{delboscOptimizedImplementationLattice2014}
 \citation{TAN2017649}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{76}{subsubsection.6.3.2}\protected@file@percent }
-\newlabel{alg:branch-pseudo}{{21}{76}{Pseudo-code showcasing the removal of branch divergence by removing if statement}{lstlisting.21}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {21}Pseudo-code showcasing the removal of branch divergence by removing if statement.}{76}{lstlisting.21}\protected@file@percent }
-\newlabel{alg:branch-cpp}{{22}{76}{Example C++ code of removing branch divergence using ArrayFire}{lstlisting.22}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {22}Example C++ code of removing branch divergence using ArrayFire.}{76}{lstlisting.22}\protected@file@percent }
-\newlabel{alg:branch-rust}{{23}{77}{Example Rust code of removing branch divergence using ArrayFire}{lstlisting.23}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {23}Example Rust code of removing branch divergence using ArrayFire.}{77}{lstlisting.23}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {24}C++ code for constructiong the index of all solid cells using ArrayFire.}{77}{lstlisting.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}Removing Branch Divergence}{74}{subsubsection.6.3.2}\protected@file@percent }
+\newlabel{alg:branch-pseudo}{{17}{74}{Pseudo-code showcasing the removal of branch divergence by removing if statement}{lstlisting.17}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {17}Pseudo-code showcasing the removal of branch divergence by removing if statement.}{74}{lstlisting.17}\protected@file@percent }
+\newlabel{alg:branch-cpp}{{18}{74}{Pseudocode of removing branch divergence using ArrayFire}{lstlisting.18}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {18}Pseudocode of removing branch divergence using ArrayFire.}{74}{lstlisting.18}\protected@file@percent }
+\newlabel{alg:branch-rust}{{19}{75}{Example Rust code of removing branch divergence using ArrayFire}{lstlisting.19}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {19}Example Rust code of removing branch divergence using ArrayFire.}{75}{lstlisting.19}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {20}Pseudocode for constructiong the index of all solid cells using ArrayFire.}{75}{lstlisting.20}\protected@file@percent }
 \citation{herschlagGPUDataAccess2018}
 \citation{tranPerformanceOptimization3D2017}
 \citation{tranPerformanceOptimization3D2017}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {25}Boundary conditions at solid nodes.}{78}{lstlisting.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.3}Pull Scheme}{78}{subsubsection.6.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Virtual Reality User Interface}{79}{subsection.6.4}\protected@file@percent }
-\newlabel{sec:vrui}{{6.4}{79}{Virtual Reality User Interface}{subsection.6.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Setting up VR support in Unity.\relax }}{79}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:unity-vr-support}{{6\,--\,2}{79}{Setting up VR support in Unity.\relax }{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{79}{subsubsection.6.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces Immersive interface in virtual reality.\relax }}{80}{figure.caption.17}\protected@file@percent }
-\newlabel{fig:unity-vr-ui}{{6\,--\,3}{80}{Immersive interface in virtual reality.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platform.\relax }}{81}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:openxr-solves-fragmentation}{{6\,--\,4}{81}{OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platform.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces .\relax }}{82}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:unity-xr-tech-stack}{{6\,--\,5}{82}{.\relax }{figure.caption.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}Interactivity}{83}{subsubsection.6.4.2}\protected@file@percent }
-\newlabel{sec:interactivity}{{6.4.2}{83}{Interactivity}{subsubsection.6.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Native VR development with pre-packaged Unity scene.\relax }}{84}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:unity-native-vr-dev}{{6\,--\,6}{84}{Native VR development with pre-packaged Unity scene.\relax }{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,7}{\ignorespaces Oculus support.\relax }}{84}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:unity-oculus-support}{{6\,--\,7}{84}{Oculus support.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,8}{\ignorespaces Oculus setup\relax }}{85}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:unity-htc-support}{{6\,--\,8}{85}{Oculus setup\relax }{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,9}{\ignorespaces Fundamental parts of the VR scene in Unity is XR Rig (VR camera) and XR Interaction Manager (for user interactions).\relax }}{85}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:unity-xr-objects}{{6\,--\,9}{85}{Fundamental parts of the VR scene in Unity is XR Rig (VR camera) and XR Interaction Manager (for user interactions).\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,10}{\ignorespaces Initial state of \texttt  {Sim.cs} script attached to the simulation panel with \texttt  {Texture2D}.\relax }}{87}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:sim-script}{{6\,--\,10}{87}{Initial state of \texttt {Sim.cs} script attached to the simulation panel with \texttt {Texture2D}.\relax }{figure.caption.24}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,11}{\ignorespaces Unity scene hierarchy.\relax }}{87}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:unity-scene-hierarchy}{{6\,--\,11}{87}{Unity scene hierarchy.\relax }{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,12}{\ignorespaces Correctly initialized \texttt  {Sim.cs} script with appropriate components connected.\relax }}{88}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:sim-script-filled}{{6\,--\,12}{88}{Correctly initialized \texttt {Sim.cs} script with appropriate components connected.\relax }{figure.caption.26}{}}
-\newlabel{unity-pointer-interaction-code}{{26}{88}{"Grab interaction code."}{lstlisting.26}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {26}"Grab interaction code."}{88}{lstlisting.26}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,13}{\ignorespaces Enabling XR Interaction Manager.\relax }}{89}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:enable-xr-interaction-manager}{{6\,--\,13}{89}{Enabling XR Interaction Manager.\relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,14}{\ignorespaces Add grabbable layer.\relax }}{89}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:grabbable-layer}{{6\,--\,14}{89}{Add grabbable layer.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,15}{\ignorespaces Selecting the ``grabbable" layer.\relax }}{90}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:grabbable-layer-selection}{{6\,--\,15}{90}{Selecting the ``grabbable" layer.\relax }{figure.caption.29}{}}
-\newlabel{unity-grab-interaction-code}{{27}{90}{"Grab interaction code."}{lstlisting.27}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {27}"Grab interaction code."}{90}{lstlisting.27}\protected@file@percent }
-\newlabel{fig:pointer-interaction-hand-controllers}{{6\,--\,16a}{91}{Subfigure 6\protect \,--\protect \,16a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 16.1}{}}
-\newlabel{sub@fig:pointer-interaction-hand-controllers}{{(a)}{a}{Subfigure 6\,--\,16a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 16.1}{}}
-\newlabel{fig:pointer-interaction-hands}{{6\,--\,16b}{91}{Subfigure 6\protect \,--\protect \,16b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 16.2}{}}
-\newlabel{sub@fig:pointer-interaction-hands}{{(b)}{b}{Subfigure 6\,--\,16b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 16.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,16}{\ignorespaces Information about the physical variables shown after user points to the specific part of the visualization.\relax }}{91}{figure.caption.30}\protected@file@percent }
-\newlabel{fig:pointer-interaction}{{6\,--\,16}{91}{Information about the physical variables shown after user points to the specific part of the visualization.\relax }{figure.caption.30}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Pointer interaction with hand controllers.}}}{91}{subfigure.16.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Pointer interaction with virtual hands.}}}{91}{subfigure.16.2}\protected@file@percent }
-\newlabel{unity-zoom-interaction-code}{{28}{91}{"Zooming interaction code."}{lstlisting.28}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {28}"Zooming interaction code."}{91}{lstlisting.28}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,17}{\ignorespaces Grab interaction.\relax }}{92}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:grab-interaction}{{6\,--\,17}{92}{Grab interaction.\relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Interactive Simulation}{92}{subsection.6.5}\protected@file@percent }
-\newlabel{sec:interactive-simulation}{{6.5}{92}{Interactive Simulation}{subsection.6.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interop}{93}{subsubsection.6.5.1}\protected@file@percent }
-\newlabel{unity-rust-ffi-init-sim}{{29}{94}{}{lstlisting.29}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {29}.}{94}{lstlisting.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{95}{subsubsection.6.5.2}\protected@file@percent }
-\newlabel{rust-normalize}{{30}{95}{Normalization of the simulation output}{lstlisting.30}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {30}Normalization of the simulation output.}{95}{lstlisting.30}\protected@file@percent }
-\newlabel{rust-colors-array}{{31}{95}{Preparing the data output from Rust side of LBM simulation}{lstlisting.31}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {31}Preparing the data output from Rust side of LBM simulation.}{95}{lstlisting.31}\protected@file@percent }
-\citation{malcolmArrayFireGPUAcceleration2012}
-\newlabel{unity-marshal-copy}{{32}{96}{The CPU-bound copying of the simulation results}{lstlisting.32}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {32}The CPU-bound copying of the simulation results.}{96}{lstlisting.32}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.3}Setting Initial Conditions}{98}{subsubsection.6.5.3}\protected@file@percent }
-\newlabel{unity-public-variables-editor}{{33}{98}{Boundary conditions at solid nodes}{lstlisting.33}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {33}Boundary conditions at solid nodes.}{98}{lstlisting.33}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,18}{\ignorespaces Unity Editor with script interface.\relax }}{99}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:unity-script-interface-public-vars}{{6\,--\,18}{99}{Unity Editor with script interface.\relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.4}Updating Boundary Conditions}{99}{subsubsection.6.5.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {34}"."}{99}{lstlisting.34}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {35}"."}{100}{lstlisting.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.5}Simulation Playback}{100}{subsubsection.6.5.5}\protected@file@percent }
-\newlabel{unity-start-stop-coroutine}{{36}{100}{"Starting\, pausing and stopping the co-routines in Unity."}{lstlisting.36}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {36}"Starting\, pausing and stopping the co-routines in Unity."}{100}{lstlisting.36}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,19}{\ignorespaces Interface for controlling the state of simulation.\relax }}{101}{figure.caption.33}\protected@file@percent }
-\newlabel{fig:unity-pause-play}{{6\,--\,19}{101}{Interface for controlling the state of simulation.\relax }{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Performance Analysis}{101}{subsection.6.6}\protected@file@percent }
-\newlabel{perf-analysis}{{6.6}{101}{Performance Analysis}{subsection.6.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,20}{\ignorespaces Interface for controlling the state of simulation.\relax }}{102}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:unity-time-manipulation}{{6\,--\,20}{102}{Interface for controlling the state of simulation.\relax }{figure.caption.34}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.1}Hardware}{102}{subsubsection.6.6.1}\protected@file@percent }
-\newlabel{sec:hardware-gpus}{{6.6.1}{102}{Hardware}{subsubsection.6.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,1}{\ignorespaces GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url  {https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.\relax }}{103}{table.caption.35}\protected@file@percent }
-\newlabel{tab:gpus}{{6\,--\,1}{103}{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url {https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.\relax }{table.caption.35}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.2}Results}{104}{subsubsection.6.6.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,2}{\ignorespaces Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{104}{table.caption.36}\protected@file@percent }
-\newlabel{tab:lid-mlups-all-2d}{{6\,--\,2}{104}{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.36}{}}
-\citation{boroniFULLGPUImplementation2017}
-\newlabel{fig:d2q9_lid_mlup_r9_32bit}{{6\,--\,21a}{105}{Subfigure 6\protect \,--\protect \,21a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.1}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,21a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.1}{}}
-\newlabel{fig:d2q9_lid_mlup_gtx1070_32bit}{{6\,--\,21b}{105}{Subfigure 6\protect \,--\protect \,21b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.2}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,21b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.2}{}}
-\newlabel{fig:d2q9_lid_mlups_rtx2080ti_32bit}{{6\,--\,21c}{105}{Subfigure 6\protect \,--\protect \,21c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.3}{}}
-\newlabel{sub@fig:d2q9_lid_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,21c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.3}{}}
-\newlabel{fig:d2q9_lid_mlup_rtx3090_32bit}{{6\,--\,21d}{105}{Subfigure 6\protect \,--\protect \,21d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.4}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,21d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 21.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,21}{\ignorespaces Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{105}{figure.caption.37}\protected@file@percent }
-\newlabel{fig:d2q9_lid_mlups_f32}{{6\,--\,21}{105}{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{105}{subfigure.21.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{105}{subfigure.21.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{105}{subfigure.21.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{105}{subfigure.21.4}\protected@file@percent }
-\newlabel{fig:d2q9_lid_mlup_r9_64bit}{{6\,--\,22a}{106}{Subfigure 6\protect \,--\protect \,22a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.1}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,22a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.1}{}}
-\newlabel{fig:d2q9_lid_mlup_gtx1070_64bit}{{6\,--\,22b}{106}{Subfigure 6\protect \,--\protect \,22b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.2}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,22b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.2}{}}
-\newlabel{fig:d2q9_lid_mlups_rtx2080ti_64bit}{{6\,--\,22c}{106}{Subfigure 6\protect \,--\protect \,22c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.3}{}}
-\newlabel{sub@fig:d2q9_lid_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,22c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.3}{}}
-\newlabel{fig:d2q9_lid_mlup_rtx3090_64bit}{{6\,--\,22d}{106}{Subfigure 6\protect \,--\protect \,22d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.4}{}}
-\newlabel{sub@fig:d2q9_lid_mlup_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,22d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,22}{\ignorespaces Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{106}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:d2q9_lid_mlups_f64}{{6\,--\,22}{106}{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{106}{subfigure.22.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{106}{subfigure.22.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{106}{subfigure.22.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{106}{subfigure.22.4}\protected@file@percent }
-\citation{januszewskiSailfishFlexibleMultiGPU2014}
-\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,3}{\ignorespaces Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{107}{table.caption.39}\protected@file@percent }
-\newlabel{tab:channel-mlups}{{6\,--\,3}{107}{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.39}{}}
-\newlabel{fig:d2q9_channel_mlup_r9_32bit}{{6\,--\,23a}{108}{Subfigure 6\protect \,--\protect \,23a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.1}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,23a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.1}{}}
-\newlabel{fig:d2q9_channel_mlup_gtx1070_32bit}{{6\,--\,23b}{108}{Subfigure 6\protect \,--\protect \,23b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.2}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,23b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.2}{}}
-\newlabel{fig:d2q9_channel_mlups_rtx2080ti_32bit}{{6\,--\,23c}{108}{Subfigure 6\protect \,--\protect \,23c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.3}{}}
-\newlabel{sub@fig:d2q9_channel_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,23c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.3}{}}
-\newlabel{fig:d2q9_channel_mlup_rtx3090_32bit}{{6\,--\,23d}{108}{Subfigure 6\protect \,--\protect \,23d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.4}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,23d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,23}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{108}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:d2q9_channel_mlups_f32}{{6\,--\,23}{108}{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{108}{subfigure.23.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{108}{subfigure.23.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{108}{subfigure.23.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{108}{subfigure.23.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,4}{\ignorespaces Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{108}{table.caption.43}\protected@file@percent }
-\newlabel{tab:lid-mlups-all-3d}{{6\,--\,4}{108}{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.43}{}}
-\newlabel{fig:d2q9_channel_mlup_r9_64bit}{{6\,--\,24a}{109}{Subfigure 6\protect \,--\protect \,24a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.1}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,24a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.1}{}}
-\newlabel{fig:d2q9_channel_mlup_gtx1070_64bit}{{6\,--\,24b}{109}{Subfigure 6\protect \,--\protect \,24b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.2}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,24b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.2}{}}
-\newlabel{fig:d2q9_channel_mlups_rtx2080ti_64bit}{{6\,--\,24c}{109}{Subfigure 6\protect \,--\protect \,24c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.3}{}}
-\newlabel{sub@fig:d2q9_channel_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,24c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.3}{}}
-\newlabel{fig:d2q9_channel_mlup_rtx3090_64bit}{{6\,--\,24d}{109}{Subfigure 6\protect \,--\protect \,24d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.4}{}}
-\newlabel{sub@fig:d2q9_channel_mlup_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,24d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 24.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,24}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{109}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:d2q9_channel_mlups_f64}{{6\,--\,24}{109}{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{109}{subfigure.24.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{109}{subfigure.24.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{109}{subfigure.24.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{109}{subfigure.24.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,25}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{109}{figure.caption.42}\protected@file@percent }
-\newlabel{fig:max_mlups}{{6\,--\,25}{109}{Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }{figure.caption.42}{}}
-\newlabel{fig:d3q27_lid_mlups_r9_32bit}{{6\,--\,26a}{110}{Subfigure 6\protect \,--\protect \,26a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.1}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,26a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.1}{}}
-\newlabel{fig:d3q27_lid_mlups_gtx1070_32bit}{{6\,--\,26b}{110}{Subfigure 6\protect \,--\protect \,26b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.2}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,26b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.2}{}}
-\newlabel{fig:d3q27_lid_mlups_rtx2080ti_32bit}{{6\,--\,26c}{110}{Subfigure 6\protect \,--\protect \,26c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.3}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,26c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.3}{}}
-\newlabel{fig:d3q27_lid_mlups_rtx3090_32bit}{{6\,--\,26d}{110}{Subfigure 6\protect \,--\protect \,26d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.4}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,26d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 26.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,26}{\ignorespaces Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }}{110}{figure.caption.44}\protected@file@percent }
-\newlabel{fig:d3q27_lid_mlups_f32}{{6\,--\,26}{110}{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }{figure.caption.44}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{110}{subfigure.26.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{110}{subfigure.26.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{110}{subfigure.26.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{110}{subfigure.26.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{110}{section.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{110}{Conclusions}{section.7}{}}
-\newlabel{fig:d3q27_lid_mlups_r9_64bit}{{6\,--\,27a}{111}{Subfigure 6\protect \,--\protect \,27a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.1}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,27a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.1}{}}
-\newlabel{fig:d3q27_lid_mlups_gtx1070_64bit}{{6\,--\,27b}{111}{Subfigure 6\protect \,--\protect \,27b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.2}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,27b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.2}{}}
-\newlabel{fig:d3q27_lid_mlups_rtx2080ti_64bit}{{6\,--\,27c}{111}{Subfigure 6\protect \,--\protect \,27c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.3}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,27c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.3}{}}
-\newlabel{fig:d3q27_lid_mlups_rtx3090_64bit}{{6\,--\,27d}{111}{Subfigure 6\protect \,--\protect \,27d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.4}{}}
-\newlabel{sub@fig:d3q27_lid_mlups_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,27d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 27.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,27}{\ignorespaces Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }}{111}{figure.caption.45}\protected@file@percent }
-\newlabel{fig:d3q27_lid_mlups_f64}{{6\,--\,27}{111}{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }{figure.caption.45}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{111}{subfigure.27.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{111}{subfigure.27.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{111}{subfigure.27.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{111}{subfigure.27.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,28}{\ignorespaces Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }}{111}{figure.caption.46}\protected@file@percent }
-\newlabel{fig:max_mlups_3d}{{6\,--\,28}{111}{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }{figure.caption.46}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {21}Pseudocode for boundary conditions at solid nodes.}{76}{lstlisting.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.3}Pull Scheme}{76}{subsubsection.6.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Virtual Reality User Interface}{76}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:vrui}{{6.4}{76}{Virtual Reality User Interface}{subsection.6.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,2}{\ignorespaces Immersive interface in virtual reality.\relax }}{77}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:unity-vr-ui}{{6\,--\,2}{77}{Immersive interface in virtual reality.\relax }{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Cross-Platform Development}{78}{subsubsection.6.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,3}{\ignorespaces OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platform.\relax }}{79}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:openxr-solves-fragmentation}{{6\,--\,3}{79}{OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platform.\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,4}{\ignorespaces Unity's software development kit (SDK) for XR (allowing to target both VR and AR devices).\relax }}{80}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:unity-xr-tech-stack}{{6\,--\,4}{80}{Unity's software development kit (SDK) for XR (allowing to target both VR and AR devices).\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,5}{\ignorespaces Setting up VR support in Unity.\relax }}{80}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:unity-vr-support}{{6\,--\,5}{80}{Setting up VR support in Unity.\relax }{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,6}{\ignorespaces Fundamental parts of the VR scene in Unity is XR Rig (VR camera) and XR Interaction Manager (for user interactions).\relax }}{81}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:unity-xr-objects}{{6\,--\,6}{81}{Fundamental parts of the VR scene in Unity is XR Rig (VR camera) and XR Interaction Manager (for user interactions).\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}User Interactions in VR}{81}{subsubsection.6.4.2}\protected@file@percent }
+\newlabel{sec:interactivity}{{6.4.2}{81}{User Interactions in VR}{subsubsection.6.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,7}{\ignorespaces Initial state of \texttt  {Sim.cs} script attached to the simulation panel with \texttt  {Texture2D}.\relax }}{82}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:sim-script}{{6\,--\,7}{82}{Initial state of \texttt {Sim.cs} script attached to the simulation panel with \texttt {Texture2D}.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,8}{\ignorespaces Unity scene hierarchy.\relax }}{82}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:unity-scene-hierarchy}{{6\,--\,8}{82}{Unity scene hierarchy.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,9}{\ignorespaces Initialized \texttt  {Sim.cs} script with appropriate components connected.\relax }}{82}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:sim-script-filled}{{6\,--\,9}{82}{Initialized \texttt {Sim.cs} script with appropriate components connected.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,10}{\ignorespaces Enabling XR Interaction Manager.\relax }}{83}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:enable-xr-interaction-manager}{{6\,--\,10}{83}{Enabling XR Interaction Manager.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,11}{\ignorespaces Creating new layer with the name \texttt  {Grabbable}.\relax }}{84}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:grabbable-layer}{{6\,--\,11}{84}{Creating new layer with the name \texttt {Grabbable}.\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,12}{\ignorespaces Selecting the ``grabbable" layer.\relax }}{84}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:grabbable-layer-selection}{{6\,--\,12}{84}{Selecting the ``grabbable" layer.\relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Interactive Simulation}{84}{subsection.6.5}\protected@file@percent }
+\newlabel{sec:interactive-simulation}{{6.5}{84}{Interactive Simulation}{subsection.6.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}Unity and Rust Interoperability}{85}{subsubsection.6.5.1}\protected@file@percent }
+\newlabel{sim-pointer-external}{{22}{85}{The ``external" function \texttt {init\_sim} for instantiating \texttt {Sim} struct by calling the function from external program through FFI}{lstlisting.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {22}The ``external" function \texttt  {init\_sim} for instantiating \texttt  {Sim} struct by calling the function from external program through FFI.}{85}{lstlisting.22}\protected@file@percent }
+\newlabel{sim-ptr}{{23}{86}{Storing and restoring \texttt {Sim} struct with pointers}{lstlisting.23}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {23}Storing and restoring \texttt  {Sim} struct with pointers.}{86}{lstlisting.23}\protected@file@percent }
+\newlabel{unity-rust-interop}{{24}{87}{Creating a C\# interface for the Rust functions from simulation plugin and storing the pointers to Rust \texttt {Sim} struct and results data}{lstlisting.24}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {24}Creating a C\# interface for the Rust functions from simulation plugin and storing the pointers to Rust \texttt  {Sim} struct and results data.}{87}{lstlisting.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}Visualizing Simulation Output in Real-Time}{87}{subsubsection.6.5.2}\protected@file@percent }
+\newlabel{rust-normalize}{{25}{87}{Normalization of the simulation output}{lstlisting.25}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {25}Normalization of the simulation output.}{87}{lstlisting.25}\protected@file@percent }
+\newlabel{rust-colors-array}{{26}{87}{Preparing the data output from Rust side of LBM simulation}{lstlisting.26}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {26}Preparing the data output from Rust side of LBM simulation.}{87}{lstlisting.26}\protected@file@percent }
+\newlabel{unity-pointer-to-sim-data}{{27}{88}{Method for getting the pointer to the memory where simulation output is stored}{lstlisting.27}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {27}Method for getting the pointer to the memory where simulation output is stored.}{88}{lstlisting.27}\protected@file@percent }
+\newlabel{unity-marshal-copy-method}{{28}{88}{Method for copying simulation output to Unity buffer}{lstlisting.28}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {28}Method for copying simulation output to Unity buffer.}{88}{lstlisting.28}\protected@file@percent }
 \citation{malcolmArrayFireGPUAcceleration2012a}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{112}{section.8}\protected@file@percent }
-\newlabel{sec:discussion}{{8}{112}{Discussion}{section.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Future Work}{112}{subsection.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}Load Balancing in Multi-GPU Setups}{112}{subsubsection.8.1.1}\protected@file@percent }
-\newlabel{sec:load-balancing}{{8.1.1}{112}{Load Balancing in Multi-GPU Setups}{subsubsection.8.1.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}Application to Real World}{113}{subsubsection.8.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{113}{subsubsection.8.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.4}Simulation as an Educational Tool}{113}{subsubsection.8.1.4}\protected@file@percent }
+\newlabel{unity-render-by-copying}{{29}{89}{Rendering the simulation output to 2D texture by additionally copying the data}{lstlisting.29}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {29}Rendering the simulation output to 2D texture by additionally copying the data.}{89}{lstlisting.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.3}Updating Boundary Conditions and Simulation Parameters}{91}{subsubsection.6.5.3}\protected@file@percent }
+\newlabel{rust-simulate}{{30}{91}{"."}{lstlisting.30}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {30}"."}{91}{lstlisting.30}\protected@file@percent }
+\newlabel{unity-change-parameters}{{31}{91}{Implementation of the re-computing of the simulation each frame based on values from user input through VRUI (sliders)}{lstlisting.31}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {31}Implementation of the re-computing of the simulation each frame based on values from user input through VRUI (sliders).}{91}{lstlisting.31}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,13}{\ignorespaces VRUI in the form of a grabbable digital tablet.\relax }}{92}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:vrui}{{6\,--\,13}{92}{VRUI in the form of a grabbable digital tablet.\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.4}Simulation Playback}{92}{subsubsection.6.5.4}\protected@file@percent }
+\newlabel{sec:sim-playback}{{6.5.4}{92}{Simulation Playback}{subsubsection.6.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,14}{\ignorespaces Propagating wave that resulted from a changing the inflow speed.\relax }}{93}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:wave-propagation}{{6\,--\,14}{93}{Propagating wave that resulted from a changing the inflow speed.\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,15}{\ignorespaces Interface for controlling the state of simulation.\relax }}{93}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:unity-pause-play}{{6\,--\,15}{93}{Interface for controlling the state of simulation.\relax }{figure.caption.29}{}}
+\newlabel{unity-start-stop-coroutine}{{32}{94}{"Starting\, pausing and stopping the co-routines in Unity."}{lstlisting.32}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {32}"Starting\, pausing and stopping the co-routines in Unity."}{94}{lstlisting.32}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Performance Analysis}{94}{subsection.6.6}\protected@file@percent }
+\newlabel{perf-analysis}{{6.6}{94}{Performance Analysis}{subsection.6.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,16}{\ignorespaces Interface for controlling the state of simulation.\relax }}{95}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:unity-time-manipulation}{{6\,--\,16}{95}{Interface for controlling the state of simulation.\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.1}Hardware}{95}{subsubsection.6.6.1}\protected@file@percent }
+\newlabel{sec:hardware-gpus}{{6.6.1}{95}{Hardware}{subsubsection.6.6.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,1}{\ignorespaces GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url  {https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.\relax }}{96}{table.caption.31}\protected@file@percent }
+\newlabel{tab:gpus}{{6\,--\,1}{96}{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url {https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.\relax }{table.caption.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.2}Results}{96}{subsubsection.6.6.2}\protected@file@percent }
+\citation{boroniFULLGPUImplementation2017}
+\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,2}{\ignorespaces Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{97}{table.caption.32}\protected@file@percent }
+\newlabel{tab:lid-mlups-all-2d}{{6\,--\,2}{97}{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.32}{}}
+\newlabel{fig:d2q9_lid_mlup_r9_32bit}{{6\,--\,17a}{98}{Subfigure 6\protect \,--\protect \,17a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.1}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,17a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.1}{}}
+\newlabel{fig:d2q9_lid_mlup_gtx1070_32bit}{{6\,--\,17b}{98}{Subfigure 6\protect \,--\protect \,17b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.2}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,17b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.2}{}}
+\newlabel{fig:d2q9_lid_mlups_rtx2080ti_32bit}{{6\,--\,17c}{98}{Subfigure 6\protect \,--\protect \,17c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.3}{}}
+\newlabel{sub@fig:d2q9_lid_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,17c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.3}{}}
+\newlabel{fig:d2q9_lid_mlup_rtx3090_32bit}{{6\,--\,17d}{98}{Subfigure 6\protect \,--\protect \,17d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.4}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,17d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 17.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,17}{\ignorespaces Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{98}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:d2q9_lid_mlups_f32}{{6\,--\,17}{98}{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }{figure.caption.33}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{98}{subfigure.17.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{98}{subfigure.17.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{98}{subfigure.17.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{98}{subfigure.17.4}\protected@file@percent }
+\citation{januszewskiSailfishFlexibleMultiGPU2014}
+\newlabel{fig:d2q9_lid_mlup_r9_64bit}{{6\,--\,18a}{99}{Subfigure 6\protect \,--\protect \,18a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.1}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,18a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.1}{}}
+\newlabel{fig:d2q9_lid_mlup_gtx1070_64bit}{{6\,--\,18b}{99}{Subfigure 6\protect \,--\protect \,18b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.2}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,18b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.2}{}}
+\newlabel{fig:d2q9_lid_mlups_rtx2080ti_64bit}{{6\,--\,18c}{99}{Subfigure 6\protect \,--\protect \,18c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.3}{}}
+\newlabel{sub@fig:d2q9_lid_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,18c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.3}{}}
+\newlabel{fig:d2q9_lid_mlup_rtx3090_64bit}{{6\,--\,18d}{99}{Subfigure 6\protect \,--\protect \,18d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.4}{}}
+\newlabel{sub@fig:d2q9_lid_mlup_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,18d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 18.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,18}{\ignorespaces Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }}{99}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:d2q9_lid_mlups_f64}{{6\,--\,18}{99}{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{99}{subfigure.18.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{99}{subfigure.18.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{99}{subfigure.18.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{99}{subfigure.18.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,3}{\ignorespaces Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{100}{table.caption.35}\protected@file@percent }
+\newlabel{tab:channel-mlups}{{6\,--\,3}{100}{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.35}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6\,--\,4}{\ignorespaces Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }}{100}{table.caption.39}\protected@file@percent }
+\newlabel{tab:lid-mlups-all-3d}{{6\,--\,4}{100}{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).\relax }{table.caption.39}{}}
+\newlabel{fig:d2q9_channel_mlup_r9_32bit}{{6\,--\,19a}{101}{Subfigure 6\protect \,--\protect \,19a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.1}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,19a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.1}{}}
+\newlabel{fig:d2q9_channel_mlup_gtx1070_32bit}{{6\,--\,19b}{101}{Subfigure 6\protect \,--\protect \,19b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.2}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,19b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.2}{}}
+\newlabel{fig:d2q9_channel_mlups_rtx2080ti_32bit}{{6\,--\,19c}{101}{Subfigure 6\protect \,--\protect \,19c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.3}{}}
+\newlabel{sub@fig:d2q9_channel_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,19c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.3}{}}
+\newlabel{fig:d2q9_channel_mlup_rtx3090_32bit}{{6\,--\,19d}{101}{Subfigure 6\protect \,--\protect \,19d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.4}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,19d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 19.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,19}{\ignorespaces Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{101}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:d2q9_channel_mlups_f32}{{6\,--\,19}{101}{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{101}{subfigure.19.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{101}{subfigure.19.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{101}{subfigure.19.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{101}{subfigure.19.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusions}{101}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{101}{Conclusions}{section.7}{}}
+\newlabel{fig:d2q9_channel_mlup_r9_64bit}{{6\,--\,20a}{102}{Subfigure 6\protect \,--\protect \,20a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.1}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,20a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.1}{}}
+\newlabel{fig:d2q9_channel_mlup_gtx1070_64bit}{{6\,--\,20b}{102}{Subfigure 6\protect \,--\protect \,20b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.2}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,20b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.2}{}}
+\newlabel{fig:d2q9_channel_mlups_rtx2080ti_64bit}{{6\,--\,20c}{102}{Subfigure 6\protect \,--\protect \,20c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.3}{}}
+\newlabel{sub@fig:d2q9_channel_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,20c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.3}{}}
+\newlabel{fig:d2q9_channel_mlup_rtx3090_64bit}{{6\,--\,20d}{102}{Subfigure 6\protect \,--\protect \,20d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.4}{}}
+\newlabel{sub@fig:d2q9_channel_mlup_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,20d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 20.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,20}{\ignorespaces Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }}{102}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:d2q9_channel_mlups_f64}{{6\,--\,20}{102}{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{102}{subfigure.20.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{102}{subfigure.20.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{102}{subfigure.20.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{102}{subfigure.20.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,21}{\ignorespaces Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }}{102}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:max_mlups}{{6\,--\,21}{102}{Peak performance of single-precision LBM simulations on D2Q9 stencil.\relax }{figure.caption.38}{}}
+\newlabel{fig:d3q27_lid_mlups_r9_32bit}{{6\,--\,22a}{103}{Subfigure 6\protect \,--\protect \,22a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.1}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_r9_32bit}{{(a)}{a}{Subfigure 6\,--\,22a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.1}{}}
+\newlabel{fig:d3q27_lid_mlups_gtx1070_32bit}{{6\,--\,22b}{103}{Subfigure 6\protect \,--\protect \,22b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.2}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_gtx1070_32bit}{{(b)}{b}{Subfigure 6\,--\,22b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.2}{}}
+\newlabel{fig:d3q27_lid_mlups_rtx2080ti_32bit}{{6\,--\,22c}{103}{Subfigure 6\protect \,--\protect \,22c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.3}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_rtx2080ti_32bit}{{(c)}{c}{Subfigure 6\,--\,22c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.3}{}}
+\newlabel{fig:d3q27_lid_mlups_rtx3090_32bit}{{6\,--\,22d}{103}{Subfigure 6\protect \,--\protect \,22d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.4}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_rtx3090_32bit}{{(d)}{d}{Subfigure 6\,--\,22d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 22.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,22}{\ignorespaces Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }}{103}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:d3q27_lid_mlups_f32}{{6\,--\,22}{103}{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.\relax }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{103}{subfigure.22.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{103}{subfigure.22.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{103}{subfigure.22.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{103}{subfigure.22.4}\protected@file@percent }
+\newlabel{fig:d3q27_lid_mlups_r9_64bit}{{6\,--\,23a}{104}{Subfigure 6\protect \,--\protect \,23a}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.1}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_r9_64bit}{{(a)}{a}{Subfigure 6\,--\,23a\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.1}{}}
+\newlabel{fig:d3q27_lid_mlups_gtx1070_64bit}{{6\,--\,23b}{104}{Subfigure 6\protect \,--\protect \,23b}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.2}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_gtx1070_64bit}{{(b)}{b}{Subfigure 6\,--\,23b\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.2}{}}
+\newlabel{fig:d3q27_lid_mlups_rtx2080ti_64bit}{{6\,--\,23c}{104}{Subfigure 6\protect \,--\protect \,23c}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.3}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_rtx2080ti_64bit}{{(c)}{c}{Subfigure 6\,--\,23c\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.3}{}}
+\newlabel{fig:d3q27_lid_mlups_rtx3090_64bit}{{6\,--\,23d}{104}{Subfigure 6\protect \,--\protect \,23d}{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.4}{}}
+\newlabel{sub@fig:d3q27_lid_mlups_rtx3090_64bit}{{(d)}{d}{Subfigure 6\,--\,23d\relax }{subfigure.6\protect \protect \leavevmode@ifvmode \kern +.1667em\relax --\protect \protect \leavevmode@ifvmode \kern +.1667em\relax 23.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,23}{\ignorespaces Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }}{104}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:d3q27_lid_mlups_f64}{{6\,--\,23}{104}{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..\relax }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Performance on Radeon R9 M370X GPU.}}}{104}{subfigure.23.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Performance on GTX 1070 GPU.}}}{104}{subfigure.23.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Performance on RTX 2080 Ti GPU.}}}{104}{subfigure.23.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Performance on RTX 3090 GPU.}}}{104}{subfigure.23.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6\,--\,24}{\ignorespaces Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }}{104}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:max_mlups_3d}{{6\,--\,24}{104}{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.\relax }{figure.caption.42}{}}
+\citation{malcolmArrayFireGPUAcceleration2012a}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{105}{section.8}\protected@file@percent }
+\newlabel{sec:discussion}{{8}{105}{Discussion}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Future Work}{105}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}Load Balancing in Multi-GPU Setups}{105}{subsubsection.8.1.1}\protected@file@percent }
+\newlabel{sec:load-balancing}{{8.1.1}{105}{Load Balancing in Multi-GPU Setups}{subsubsection.8.1.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}Application to Real World}{105}{subsubsection.8.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.3}Streaming Visualized Pixels Over Network}{106}{subsubsection.8.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.4}Augmented Reality}{106}{subsubsection.8.1.4}\protected@file@percent }
+\newlabel{sec:future-ar}{{8.1.4}{106}{Augmented Reality}{subsubsection.8.1.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.5}Simulation as an Educational Tool}{106}{subsubsection.8.1.5}\protected@file@percent }
 \@setckpt{mainpart}{
-\setcounter{page}{114}
+\setcounter{page}{107}
 \setcounter{equation}{0}
 \setcounter{enumi}{5}
 \setcounter{enumii}{0}
@@ -488,7 +473,7 @@
 \setcounter{part}{0}
 \setcounter{section}{8}
 \setcounter{subsection}{1}
-\setcounter{subsubsection}{4}
+\setcounter{subsubsection}{5}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
 \setcounter{figure}{0}
@@ -503,11 +488,11 @@
 \setcounter{subtable}{0}
 \setcounter{subtable@save}{0}
 \setcounter{lotdepth}{1}
-\setcounter{lstnumber}{13}
+\setcounter{lstnumber}{18}
 \setcounter{NAT@ctr}{0}
 \setcounter{Item}{22}
 \setcounter{Hfootnote}{0}
 \setcounter{bookmark@seq@number}{61}
-\setcounter{lstlisting}{36}
+\setcounter{lstlisting}{32}
 \setcounter{section@level}{3}
 }

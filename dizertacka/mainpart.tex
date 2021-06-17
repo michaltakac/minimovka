@@ -1096,11 +1096,11 @@ The simulation part of the virtual reality software was implemented in both C++ 
 
 In this section, each step in the simulation program lifecycle is presented, showing how different parts are constructed so they can be called from the Unity game engine (as a Native Plugin).
 
-\subsubsection{Initialization}
+\subsubsection{Initialization}\label{sec:lbm-initialization}
 %DONE
 In Rust, the common data structure for composing various types of data under one roof is \texttt{struct}. In the simulation implementation, \texttt{struct Sim \{...\}} stores the all parameters and other data structures that are needed during the program lifecycle. 
 
-Structs can be initialized in different ways. Most common way is via the constructor method \texttt{new()}. For proper constructing of \texttt{Sim} and its properties, the struct implementation has to be defined with \texttt{impl Sim \{...\}} (Listing~\ref{sim-struct}). Additional directive \texttt{\#[repr(C)]} is added on top of \texttt{Sim} struct to specify alternative data layout, specifically to represent it as how it would be done with C or C++ language. That means the order, size, and alignment of fields is exactly what would be expect from C or C++.
+Structs can be initialized in different ways. Most common way is via the constructor method \texttt{new()}. For proper constructing of \texttt{Sim} and its properties, the struct implementation has to be defined with \texttt{impl Sim \{...\}} (Listing~\ref{sim-struct}). Additional directive \texttt{\#[repr(C)]} is added on top of \texttt{Sim} struct to specify fairly simple intent: do what C does. That means the order, size, and alignment of fields is exactly what would be expected from C or C++. Any type that is expected to be passed through an FFI boundary should have \texttt{\#[repr(C)]}, as C is the lingua-franca of the programming world. This is necessary to do more elaborate manipulation with data layout such as reinterpreting values as a different type.
 
 \begin{lstlisting}[language=Rust, caption=Implementation of Sim struct with constructor method., label=sim-struct]
 #[repr(C)]
@@ -1135,55 +1135,6 @@ let mut uy = constant::<f32>(0.0, dim4!(nx, ny));
 // ...
 // At the end of new(), construct the Sim and return itself
 Sim { ex, ey, w, density, ux, uy, /* rest of the params...*/ }
-\end{lstlisting}
-
-However, the simulation program has to communicate with foreign interface of Unity game engine. Unity applications and games are programmed in C\#, therefore these two won't understand each other. For this we have to go with the strategy of implementing Foreign Function Interface (FFI) between Rust and Unity's C\# environment. 
-
-On Rust side, the simulation program will have functions prepared to be called from Unity, which will control the simulation lifecycle. First, to actually use the \texttt{Sim} struct this way, the pointer to the place in memory where it is stored has to be passed to Unity, where it will be stored in a local variable for further use. Note: working with pointers in Rust is marked as unsafe and has to be specifically tagged with \texttt{unsafe} keyword before a function, or the part of the code that deals with unsafe behavior should be wrapped in \texttt{unsafe \{...\}} block (Listing \ref{sim-pointer-external}, some additional error-checking has been removed from code listing to enhance readability). In the same way, pointer to the memory where output of a simulation will be stored has to be sent to Unity, where it will be stored in another local variable.
-
-\begin{lstlisting}[language=Rust, caption=The ``external" function \texttt{init\_sim} for instantiating \texttt{Sim} struct by calling the function from external program through FFI., label=sim-pointer-external]
-#[no_mangle]
-pub extern "C" fn init_sim(
-	ptr: *mut *mut Sim, // pointer to Sim struct
-	data_ptr: *mut *mut u8, // pointer to simulation results
-	width: u32,
-	height: u32,
-	initial_density: f32,
-	initial_ux: f32,
-	omega: f32,
-	// ... rest of the parameters ...
-) {
-	let sim = Sim::new(
-		width.into(),
-		height.into(),
-		initial_density,
-		initial_ux,
-		omega,
-		// ... rest of the parameters ...
-	);
-
-	unsafe {
-		*ptr = sim.to_ptr();
-		*data_ptr = Sim::from_ptr(*ptr).results_ptr();
-	}
-}
-\end{lstlisting}
-
-To read from correct memory location, two additional methods are added to \texttt{Sim} to transfer itself into pointer to memory on the heap and to get the actual \texttt{Sim} struct back from memory back if the pointer to it is passed to the method (Listing \ref{sim-ptr}).
-
-\begin{lstlisting}[language=Rust, caption=Storing and restoring \texttt{Sim} struct with pointers., label=sim-ptr]
-impl<'a> Sim {
-	pub fn to_ptr(self) -> *mut Sim {
-		let sim_boxed = Box::new(self);
-		Box::into_raw(sim_boxed)
-	}
-	
-	pub fn from_ptr(ptr: *mut Sim) -> &'a mut Sim {
-		unsafe { &mut *ptr }
-	}
-
-	// ... rest of the methods
-}
 \end{lstlisting}
 
 \subsubsection{Boundary Conditions}
@@ -1295,8 +1246,8 @@ f = omega * &feq + (1.0 - omega) * &f_streamed;
 %...
 %\end{lstlisting}
 
-\subsubsection{Streaming}
-
+\subsubsection{Streaming}\label{sec:streaming}
+% DONE
 In streaming phase, collided particles from each lattice node are advected to the neighboring nodes for each direction (in D2Q9 stencil, this means advecting them in 9 directions, from which ones in the center stays at the same place). This process is illustrated in Figure \ref{fig:streaming}. 
 
 \begin{figure}[!ht]
@@ -1379,40 +1330,18 @@ To ensure the most efficient memory throughput when programming for GPU is to en
 
 To create a SoA structure with 1D array to store particle distributions in all directions along whole computational domain, we can set first dimension of Array construct straightforwardly to the $n_x*n_y*n_z*Q$ number of elements, but for easier index creation further down the line, it's better to create 3D (or 4D in case of D3Q27) array initially and flatten it when used for heavy computation of actual simulation:
 
-\begin{lstlisting}[language=Cpp, caption=Creating SoA structure representation of D2Q9 lattice with ArrayFire in C++.]
-	unsigned nx = 64, ny = 64, dirs = 9;
+\begin{lstlisting}[language=Rust, caption=Creating SoA structure representation of D2Q9 lattice with ArrayFire in Rust.]
+	let nx = 64;
+	let ny = 64;
+	let dirs = 9;
 	// SoA 1D array
-	array f_1d_soa = constant(0, nx * ny * dirs);
+	let f_1d_soa = constant::<f32>(0.0, nx * ny * dirs);
 	// Array flattened to SoA 1D array
-	array f = constant(0, nx, ny, dirs);
-	array f_1d_soa = flat(f)
+	let f = constant::<f32>(0.0, nx, ny, dirs);
+	let f_1d_soa = flat(f);
 \end{lstlisting}
 
-For streaming operation in LBM, we use ArrayFire's \texttt{shift} function for each direction of particle distributions. Instead of running this function on every iteration, we create two indices for access to ``current" nodes and their neighbouring nodes at the initialization phase of the solver and store them for the whole lifetime of the simulation. Streaming is then as easy as accessing particle distributions in a 1D array with neighbours index. In ArrayFire, indexing is also executed in parallel, but is not a part of a JIT compilation. Instead, it is a handwritten optimized kernel. Any JIT code that is fed to indexing is evaluated in a single kernel if possible.
-
-\begin{lstlisting}[language=Cpp, caption=Creating ``current" (or main) index and neighboring index.]
-	unsigned nx = 64, ny = 64, dirs = 9;
-	unsigned total_nodes = nx * ny;
-	
-	// Index of all directions except center point 0
-	array CI = (range(dim4(1,8),1)+1) * total_nodes;
-	// Neighboring nodes index
-	unsigned int nb_index_arr[8] = {2,3,0,1,6,7,4,5};
-	array nbidx(8, nb_index_arr);
-	array NBI = CI(span,nbidx);
-	
-	dim4 dims = dim4(total_nodes*dirs);
-	array main_index = moddims(range(dims),nx,ny,dirs);
-	array nb_index = flat(stream(main_index));
-\end{lstlisting}
-
-The result of streamed distribution functions is stored temporarily without overwriting the previous ones (Listing \ref{f-streamed}):
-
-\begin{lstlisting}[language=Cpp, caption=Streaming step., label=f-streamed]
-	array F_streamed = F(nb_index);
-\end{lstlisting}
-
-Targeting any of the discrete speeds directions in 1D array can be done by computing $[node\_position] + [total\_nodes * directions]$. 
+For streaming operation in LBM, we use ArrayFire's \texttt{shift} function for each direction of particle distributions. Instead of running this function on every iteration, we create two indices for access to ``current" nodes and their neighboring nodes at the initialization phase of the solver and store them for the whole lifetime of the simulation. Streaming is then as easy as accessing particle distributions in a 1D array with neighbours index. Implementation of the streaming phase is described in more detail in section \ref{sec:streaming}. In ArrayFire, indexing is also executed in parallel, but is not a part of a JIT compilation. Instead, it is a handwritten optimized kernel. Any JIT code that is fed to indexing is evaluated in a single kernel if possible. If needed, targeting any of the discrete speeds directions in 1D array can be done by computing $[node\_position] + [total\_nodes * directions]$. 
 
 \subsubsection{Removing Branch Divergence}
 % DONE
@@ -1432,7 +1361,7 @@ When writing classical, imperative code, handling control flow is usually done b
 
 In practical LBM application, branch divergence occurs when doing different computations on different types of the nodes in computational domain, e.g. ``\texttt{if fluid node, do computation, else do nothing}". Branch removal in the C++ version of ArrayFire applications is shown in Alg. \ref{alg:branch-cpp}.
 
-\begin{lstlisting}[language=Cpp, caption=Example C++ code of removing branch divergence using ArrayFire., label=alg:branch-cpp]
+\begin{lstlisting}[language=Cpp, caption=Pseudocode of removing branch divergence using ArrayFire., label=alg:branch-cpp]
 	// Node types (0 = solid, 1 = fluid)
 	unsigned types[] = {0,0,0,1,1,1};
 	array T(3, 3, types);
@@ -1456,27 +1385,23 @@ In Rust version, the branching removal is achieved in the same manner, but at th
 
 In LBM simulations, we're also concerned with setting up boundary conditions. It's necessary to tell the solver which cells are solid (e.g. for doing bounce-back in some step down the line) and which are other types of fluids. For the simplest case, let's consider only two types of cells - solid and fluid. Boolean mask, in this case represented as integers (fluid as 0 and solid as 1), is instantiated in \texttt{mask} variable. Indexes of the solid nodes within computational domain can be easily found with \texttt{where} function:
 
-\begin{lstlisting}[language=Cpp, caption=C++ code for constructiong the index of all solid cells using ArrayFire.]
-	#include <stdio.h>
-	#include <arrayfire.h>
-	using namespace af;
+\begin{lstlisting}[language=Cpp, caption=Pseudocode for constructiong the index of all solid cells using ArrayFire.]
 	int main(){
 		int nx = 400, ny = 100;
 		array mask = constant(0,nx,ny);
 		// Rectangle obstacle of size 2x20 cells
-		mask(seq(100,102),seq(40,60))) = 1;
+		mask(seq(100,102), seq(40,60))) = 1;
 		mask(span,0) = 1; // Top wall
 		mask(span,end) = 1; // Bottom wall
 		// Get the indices of each solid cell
 		array solids = where(mask);
 		// ... rest of the code ...
-		return 0;
 	}
 \end{lstlisting}
 
 With the solid indices, it's very easy to set the boundary conditions at solid nodes back to zero after the streaming step:
 
-\begin{lstlisting}[language=Cpp, caption=Boundary conditions at solid nodes.]
+\begin{lstlisting}[language=Cpp, caption=Pseudocode for boundary conditions at solid nodes.]
 	UX(solids) = 0; // velocity in X-direction
 	UY(solids) = 0; // velocity in Y-direction
 	DENSITY(solids) = 0;
@@ -1487,55 +1412,39 @@ With the solid indices, it's very easy to set the boundary conditions at solid n
 
 Most common algorithms for the streaming phase in LBM solvers use push and pull scheme \cite{tranPerformanceOptimization3D2017, herschlagGPUDataAccess2018}. In the push scheme, the streaming step occurs after the collision step, at which point the particle distribution values are written to neighbouring nodes. This presents a misalignment of the memory locations, resulting in an uncoalesced writes, degrading the performance significantly. On the other hand, in pull scheme, streaming step occurs before collision step, at which point the neighbouring particle distribution values are gathered to the current nodes and then used for computations ending with collision step, after which the results are written directly to the current nodes. This way, the writes are coalesced in memory.
 
-The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \cite{tranPerformanceOptimization3D2017}.
+The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one single write operation, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \cite{tranPerformanceOptimization3D2017}.
 
 \subsection{Virtual Reality User Interface}\label{sec:vrui}
-
-VR interface includes: \\ 
-
-...
-
-TODO: how to enable VR support in Unity
+% DONE
+The immersive virtual reality user interface (VRUI) is designed to accommodate an experimentation phase when testing different physical parameters or flow regimes (Figure \ref{fig:unity-vr-ui}). Current VR prototype is constrained to 2D simulations. On the side of simulation software, additional support for simulating fluid flows in 3D on D3Q27 lattice with multiple-relaxation time was developed, but not incorporated into the VR environment. It should be straightforward to implement a 3D volume rendering with 3D textures in Unity, but this will be addressed in future work beyond this dissertation.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Setting up VR support in Unity.}
-	\label{fig:unity-vr-support}
-\end{figure}
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/unity-vr-ui.jpeg}
+	\includegraphics[width=0.8\textwidth]{figures/unity-vr-ui.jpeg}
 	\caption{Immersive interface in virtual reality.}
 	\label{fig:unity-vr-ui}
 \end{figure}
 
-\subsubsection{Cross-Platform Development}
+VRUI provides a way of interacting with the running simulation through interactive sliders, which are hooked to the simulation parameters. This interaction interface sits on the grabbable 3D rectangle that is reminiscent of digital ``tablet". User interacts with sliders through hand controllers or with their own hands that are tracked with VR hardware like Oculus Quest headset. Changing the slider value updates simulation, which results in immediate feedback displayed through real-time visualization.
 
-Unity can build apps for multiple platforms:
+Following sections will describe how the individual parts were implemented with help of Unity game engine.
+
+\subsubsection{Cross-Platform Development}
+% DONE
+The goal for the usability of VRUI was to provide the same experience across multiple VR hardware and their means for interaction with a VR environment. A great way to create cross-platform VR applications is to use a game engine. One of such engine, Unity, provides many useful tools for creating VR applications efficiently.
+
+Unity engine can build apps for multiple VR hardware platforms:
 
 \begin{itemize}
 	\item Oculus Quest
 	\item Oculus Rift
 	\item HTC Vive
 	\item Windows Mixed Reality
-	\item PlayStation VR
-	\item HoloLens
+	\item Microsoft HoloLens
 	\item Magic Leap
 \end{itemize}
 
-Doplnit:\\
-- ze spojenie VR a AR je XR (extended reality, mixed reality?)
-- Khronos group najprv vydali OpenVR pre VR \\
-- nasledovnikom tohto api je OpenXR, ktory taktiez vydali \\
-
-OpenXR is a royalty-free, open standard that provides high-performance access to Augmented Reality (AR) and Virtual Reality (VR) - collectively known as XR - platforms and devices.
-The OpenXR 1.0 specification was released on July 29th 2019.
-
-Without a cross-platform standard, VR and AR applications and engines must use each platform’s proprietary APIs. New input devices need customized driver integration.
-
-OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platforms. OpenXR enables applications and engines, including WebXR, to run on any system that exposes the OpenXR APIs. Figure \ref{fig:openxr-solves-fragmentation}.
+Until recently, a cross-platform VR support in Unity was achieved by building on top of OpenVR standard. However, with an increasing interest in augmented reality (AR) applications and better AR hardware, new standard called OpenXR was developed by Khronos group. It is a royalty-free, open standard that provides high-performance access to both VR and AR hardware. XR denotes a term ``extended reality", which was coined to better describe this new paradigm in application development. Without a cross-platform standard, VR and AR applications and engines must use each platform’s proprietary APIs. New input devices need customized driver integration. OpenXR provides cross-platform, high-performance access directly into diverse XR device runtimes across multiple platforms. OpenXR enables applications and engines, including WebXR, to run on any system that exposes the OpenXR APIs (Figure \ref{fig:openxr-solves-fragmentation}).
 
 \begin{figure}[!ht]
 	\centering
@@ -1544,64 +1453,29 @@ OpenXR provides cross-platform, high-performance access directly into diverse XR
 	\label{fig:openxr-solves-fragmentation}
 \end{figure}
 
-- Popisat OpenXR
-
-OpenXR seeks to simplify AR/VR software development, enabling applications to reach a wider array of hardware platforms without having to port or re-write their code and subsequently allowing platform vendors supporting OpenXR access to more applications. With the release of the OpenXR 1.0 specification, AR/VR developers can now create true cross-platform XR experiences.
+Unity engine provides a streamlined software development kit (SDK) on top of OpenXR (Figure \ref{fig:unity-xr-tech-stack})
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/unity-xr-tech-stack.png}
-	\caption{.}
+	\caption{Unity's software development kit (SDK) for XR (allowing to target both VR and AR devices).}
 	\label{fig:unity-xr-tech-stack}
 \end{figure}
 
-Oculus Quest as a standalone VR is great device for games and applications that need only baseline VR performance... When used for scientific visualization in standalone mode, the communication would have to be wireless and implemented with client-server architecture, which means the speed of sending data would deteriorate the usefulness of such application. It's still possible to use Oculus Quest for scientific visualization in VR, but it has to be connected to the powerful PC by special wire called Oculus Link, which is not part of the standard package. It has to be bought separately.
+As a result of Unity's decision to build a future-proof SDK on top of OpenXR, this opens the door for supporting not just VR hardware, but also powerful AR devices like Microsoft HoloLens or Magic Leap. Since we don't possess the AR hardware for testing, current work is focused solely on creating VR experience for CFD simulation. The issue of extending current prototype to the realm of AR is further discussed in chapter Discussion under section Augmented Reality \ref{sec:future-ar}.
 
-VR hardware like Oculus Rift, HTC Vive, PlayStationVR, and all Windows Mixed Reality headsets can be used for the high-performance visualization software, as the heavy computation is done by GPU on dedicated PC workstation.
-
-% dopisat
-Current software implementation was tested on Oculus Rift, HTC Vive and Oculus Quest with Link cable.
-
-% upravit
-Also, the augmented reality (AR) apps can be build from single codebase with Unity. Developers need to plan ahead and decide whether they want to target VR users, AR users or have the app be used by both device types (VR and AR). Usually, the term Mixed Reality is used to describe apps that target both types of devices. In this work, the focus was only on VR. Although in future, the AR looks as promising technology for specific usecases across scientific visualization, simulation and modeling industry. By leveraging Unity engine for the development of the visualization software for  this thesis, extending the software to support AR will be straightforward process.
-
-Unity High Definition Render Pipeline (better for games, for simulation software not needed). \\
-
-XR Interaction Toolkit - add interactivity to VR apps by dropping components into the scene. No need for coding the interaction scripts from scratch, developers can edit them for their own liking.
-
-% trochu editovat (ne je to uplne odslova-doslova z Unity webu (https://docs.unity3d.com/Manual/SinglePassInstancing.html)
-Single Pass Instanced rendering also known as Stereo Instancing, the GPU performs a single render pass, replacing each draw call with an instanced draw call. Thanks to this, the CPU usage is decreased heavily. Also the GPU usage is decreased thanks to the cache coherency between the two draw calls - significantly reduces power consumption of the VR application.
-
-Windows and Linux (MacOS not supported) \\
-
-Oculus Rift, Oculus Quest with Link cable, HTC Vive and Windows Mixed Reality headsets \\
+To enable the VR support, developers have to select all of the platforms they want their application to be built for. Figure \ref{fig:unity-vr-support} shows the menu where they can select them, which is accessible in Unity from \emph{Edit $>$ Project Settings $>$ XR Plug-in Management}.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Native VR development with pre-packaged Unity scene.}
-	\label{fig:unity-native-vr-dev}
+	\includegraphics[width=0.6\textwidth]{figures/enable-xr-oculus.png}
+	\caption{Setting up VR support in Unity.}
+	\label{fig:unity-vr-support}
 \end{figure}
 
-Setting up Oculus support in Unity
+VR hardware like Oculus Rift, HTC Vive, and all Windows Mixed Reality headsets can be used for the high-performance visualization software, as the heavy computation is done by GPU on dedicated PC workstation. Current implementation was tested on Oculus Rift, HTC Vive and Oculus Quest with Oculus Link cable.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Oculus support.}
-	\label{fig:unity-oculus-support}
-\end{figure}
-
-Setting up HTC Vive support
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Oculus setup}
-	\label{fig:unity-htc-support}
-\end{figure}
-
-Adding main XR objects that are needed to add support for VR into Unity scene are XR Rig and XR Interaction Manager. They can be accessed from Unity menu show in Figure \ref{fig:unity-xr-objects}.
+At the start of the development process, main objects that are needed to add support for VR into Unity scene are XR Rig and XR Interaction Manager. They can be accessed from Unity menu shown in Figure \ref{fig:unity-xr-objects}. Subsequent section will describe how the interactivity is implemented.
 
 \begin{figure}[!ht]
 	\centering
@@ -1610,25 +1484,33 @@ Adding main XR objects that are needed to add support for VR into Unity scene ar
 	\label{fig:unity-xr-objects}
 \end{figure}
 
-\subsubsection{Interactivity}\label{sec:interactivity}
+% trochu editovat (ne je to uplne odslova-doslova z Unity webu (https://docs.unity3d.com/Manual/SinglePassInstancing.html)
+%Single Pass Instanced rendering also known as Stereo Instancing, the GPU performs a single render pass, replacing each draw call with an instanced draw call. Thanks to this, the CPU usage is decreased heavily. Also the GPU usage is decreased thanks to the cache coherency between the two draw calls - significantly reduces power consumption of the VR application.
+
+\subsubsection{User Interactions in VR}\label{sec:interactivity}
+%DONE
 
 % dorobit + mozno premiestnit na spodok sekcie???
-Natural way of interacting with the software has been for the long time through graphical user interfaces. Many programmers would still say that using terminal and learning the hotkeys for quicker work with the text and terminal window is much more effective than moving through the application interface with mouse. In fact, we could argue that GUIs helped to spread the software usage to more people and help them ... 
-
-The conceptual move from 2D plane of our screens towards working immersed within 3D virtual world brings new challenges to the table. 
+%Natural way of interacting with the software has been for the long time through graphical user interfaces. Many programmers would still say that using terminal and learning the hotkeys for quicker work with the text and terminal window is much more effective than moving through the application interface with mouse. In fact, we could argue that GUIs helped to spread the software usage to more people and help them ... 
+%
+%The conceptual move from 2D plane of our screens towards working immersed within 3D virtual world brings new challenges to the table. 
 %-------------------------------------------
 
-With the current technology, it's possible to not only use dedicated devices like hand controllers for using hands within virtual environments, but also hand tracking... %doplnit vetu?
+%With the current technology, it's possible to not only use dedicated devices like hand controllers for using hands within virtual environments, but also hand tracking...
+
+ %doplnit vetu?
 %prepisat (copy-paste https://developer.oculus.com/documentation/unity/unity-handtracking/)
-Hand tracking analyzes discrete hand poses and tracks the position of certain key points on your hands, such as knuckles or fingertips, in real time as your hands are moving. When you use hands as input, the hand’s pose drives a laser cursor-pointer that behaves like the standard controller cursor. You can use the cursor-pointer to highlight, select, click, or write your own app-level event logic. Integrated hands can perform object interactions by using simple hand gestures such as point, pinch, unpinch, scroll, and palm pinch.
-
-Depending on your app’s input logic, you can use hands and controllers interchangeably. Hand tracking complements the Touch controllers and is not intended to replace controllers in all scenarios, especially with games or creative tools that require a high degree of precision. By opting-in to hand support, your app also needs to satisfy additional technical requirements specific to hand tracking for the Oculus store to accept it. To submit an app to Oculus Store, the app must support controllers along with hand tracking.
-
-We support the use of hand tracking on Windows through the Unity editor, when using Oculus Quest + Oculus Link. 
+%Hand tracking analyzes discrete hand poses and tracks the position of certain key points on your hands, such as knuckles or fingertips, in real time as your hands are moving. When you use hands as input, the hand’s pose drives a laser cursor-pointer that behaves like the standard controller cursor. You can use the cursor-pointer to highlight, select, click, or write your own app-level event logic. Integrated hands can perform object interactions by using simple hand gestures such as point, pinch, unpinch, scroll, and palm pinch.
+%
+%Depending on your app's input logic, you can use hands and controllers interchangeably. Hand tracking complements the Touch controllers and is not intended to replace controllers in all scenarios, especially with games or creative tools that require a high degree of precision. By opting-in to hand support, your app also needs to satisfy additional technical requirements specific to hand tracking for the Oculus store to accept it. To submit an app to Oculus Store, the app must support controllers along with hand tracking.
+%
+%We support the use of hand tracking on Windows through the Unity editor, when using Oculus Quest + Oculus Link. 
 % ------
 
+%XR Interaction Toolkit - add interactivity to VR apps by dropping components into the scene. No need for coding the interaction scripts from scratch, developers can edit them for their own liking.
 
-The simulation script awaits the selection of interactive Slider components for each of the editable variable ... Figure \ref{fig:sim-script}. Clicking on buttons that red arrows point to will open a pop-up window, presenting the available \texttt{Slider} components in current Unity scene.
+
+The simulation script that is hooked to the 2D rectangle object floating in 3D space awaits the selection of interactive Slider components for each of the editable variables (Figure \ref{fig:sim-script}). Clicking on buttons that red arrows point to will open a pop-up window, presenting the available \texttt{Slider} components in current Unity scene.
 
 \begin{figure}[!ht]
 	\centering
@@ -1651,17 +1533,17 @@ To connect the simulation with tablet UI, each \texttt{Slider} component from th
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.56\textwidth]{figures/sim-script-filled.png}
-	\caption{Correctly initialized \texttt{Sim.cs} script with appropriate components connected.}
+	\caption{Initialized \texttt{Sim.cs} script with appropriate components connected.}
 	\label{fig:sim-script-filled}
 \end{figure}
 
-All of the Unity UI elements like \texttt{Slider}s, \texttt{Button}s etc. are accessible with mouse by default. However, for VR application, the interaction device is hand controller, or possibly a hand itself (if VR hardware supports hand tracking), instead of a mouse. Unity provides easy-to-use interface called XR Interaction Manager that handles interaction support for multiple kinds of VR hardware devices. Through XR Interaction Manager, all kinds of interaction types can be channelled. It has to be connected to all scripts that specify how certain object within VR environment, to which this script is attached, should be interacted with.
+All of the Unity UI elements like \texttt{Slider}s, \texttt{Button}s etc. are accessible with mouse by default. However, for VR application, the interaction device is hand controller, or possibly a hand itself (if VR hardware supports hand tracking), instead of a mouse. Unity provides easy-to-use interface called XR Interaction Manager that handles interaction support for multiple kinds of VR hardware devices. Through XR Interaction Manager, all kinds of interaction types can be channeled. It has to be connected to all scripts that specify how certain object within VR environment, to which this script is attached, should be interacted with.
 
 For example, the tablet UI also with the simulation texture can be made grabbable which adds to the immersivity and allows user to better control the virtual environment. The \texttt{XR Grab Interactable} script is attached to the tablet object and XR Interaction Manager is then connected to the Interaction Manager input (Figure \ref{fig:enable-xr-interaction-manager}).
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/xr-grab-interactable-script.png}
+	\includegraphics[width=0.6\textwidth]{figures/xr-grab-interactable-script.png}
 	\caption{Enabling XR Interaction Manager.}
 	\label{fig:enable-xr-interaction-manager}
 \end{figure}
@@ -1671,7 +1553,7 @@ To not interfere with any other additional objects in scene that can be possibly
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/edit-layers.png}
-	\caption{Add grabbable layer.}
+	\caption{Creating new layer with the name \texttt{Grabbable}.}
 	\label{fig:grabbable-layer}
 \end{figure}
 
@@ -1684,190 +1566,138 @@ All objects that will benefit from grabbing interaction within Unity scene shoul
 	\label{fig:grabbable-layer-selection}
 \end{figure}
 
-%%%
-% Native VR alebo VRTK Tilia??? Alebo Oculus Integration Package???
-%%%
-
-%To set up the interaction support across VR hardware, the appropriate scripts for each platform needs to be added and called in the application initialization part. For Oculus devices, the Oculus Integration Unity plugin provides \texttt{OVRInput.cs} script.
-%
-%For the controller haptics, Oculus provides \texttt{OVRHaptics.cs} script.
-
-
-% upravit
-It's often useful get the information about the physical variable !!!(nechat variable?)!!! in arbitrary part of the simulation. The most natural way to do that in VR is to point the finger, or in the case of hand controllers, pointing the hand interaction device to the part of running visualization. 
-
-% dopisat
-Application has to know where exactly the ray casted from the hand controller collided with the surface of the visualization object.  ... \ref{unity-pointer-interaction-code}.
-
-\begin{lstlisting}[language=Csharp, caption="Grab interaction code.", label=unity-pointer-interaction-code]
-	public class Sim : MonoBehaviour
-	{
-		void Start()
-		{
-			// ...
-			// ....
-		}
-		
-		void PointerInteraction() {
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-		}
-	}
-\end{lstlisting}
-
-% dopisat zrozumitelnejsie a rozsirit
-After user points the hand controller or virtual hand to the visualization surface, information about the physical variables are shown within the VR environment (Figure~ \ref{fig:pointer-interaction}).
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Pointer interaction with hand controllers.\label{fig:pointer-interaction-hand-controllers}]{%
-		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
-	}\qquad
-	\subfloat[Pointer interaction with virtual hands.\label{fig:pointer-interaction-hands}]{%
-		\includegraphics[width=0.45\textwidth]{figures/empty.jpg}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Information about the physical variables shown after user points to the specific part of the visualization.}
-	\label{fig:pointer-interaction}
-\end{figure}
-
-% dopisat
-Moving the objects in VR environment is done by hand controllers or with hands if the VR hardware supports it. 
-
-General grabbing functionality ... \ref{unity-grab-interaction-code}.
-
-\begin{lstlisting}[language=Rust, caption="Grab interaction code.", label=unity-grab-interaction-code]
-	public class Sim : MonoBehaviour
-	{
-		void Start()
-		{
-			// ...
-			// ....
-		}
-		
-		void Interaction() {
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-		}
-	}
-\end{lstlisting}
-
-The grabbing than can be performed by moving the hand controllers or virtual hands into the visualization object and clicking the appropriate buttons (or grabbing gesture) (Figure~ \ref{fig:grab-interaction}).
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Grab interaction.}
-	\label{fig:grab-interaction}
-\end{figure}
-
-% dopisat
-General zooming functionality ... \ref{unity-zoom-interaction-code}.
-
-\begin{lstlisting}[language=Rust, caption="Zooming interaction code.", label=unity-zoom-interaction-code]
-	public class Sim : MonoBehaviour
-	{
-		void Start()
-		{
-			// ...
-			// ....
-		}
-		
-		void Zooming() {
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-			// ... rest of the code
-		}
-	}
-\end{lstlisting}
-
-
 
 % --------------------------------------------------------------------
 
 \subsection{Interactive Simulation}\label{sec:interactive-simulation}
 % DONE
-In this section, the implementation of interactive virtual reality visualization is presented. Unity game engine was picked as it provides an easy-to-use visual development environment with great support for VR baked-in. Their XR Plugin not only helped with VR development in current version of presented software, but offers a clear transition step towards supporting augmented reality in future.
 
-VR user interface is also presented, showcasing different ways of how to interact with the running simulation. 
+In previous sections, individual parts of the software application was presented and their implementation described. However, these parts cannot function in vacuum. An interconnecting layer has to be provided between them, through which simulation, visualization and interaction parts can properly ``talk" to each other by sending data and calling particular functions. 
+
+Each part has been created with different tools and different programming languages. Simulation part is written from scratch in Rust programming language, while visualization and interaction parts are implemented with the help of Unity engine, where C\# language is used.
+
+Therefore, most of the following chapters would jump back-and-forth between Rust and C\# code samples. But first, let's set the ground for Unity and Rust interoperability.
+
+\subsubsection{Unity and Rust Interoperability}
+% DONE
+The simulation program has to communicate with foreign interface of Unity game engine. Unity applications and games are programmed in C\#, therefore these two won't understand each other. For this we have to go with the strategy of implementing Foreign Function Interface (FFI) between Rust and Unity's C\# environment. 
+
+On Rust side, the simulation program will have functions prepared to be called from Unity, which will control the simulation lifecycle. First, to actually use the \texttt{Sim} struct this way, the pointer to the place in memory where it is stored has to be passed to Unity, where it will be stored in a local variable for further use. Note: working with pointers in Rust is marked as unsafe and has to be specifically tagged with \texttt{unsafe} keyword before a function, or the part of the code that deals with unsafe behavior should be wrapped in \texttt{unsafe \{...\}} block (Listing \ref{sim-pointer-external}, some additional error-checking has been removed from code listing to enhance readability). In the same way, pointer to the memory where output of a simulation will be stored has to be sent to Unity, where it will be stored in another local variable. 
+
+\begin{lstlisting}[language=Rust, caption=The ``external" function \texttt{init\_sim} for instantiating \texttt{Sim} struct by calling the function from external program through FFI., label=sim-pointer-external]
+	#[no_mangle]
+	pub extern "C" fn init_sim(
+	ptr: *mut *mut Sim, // pointer to Sim struct
+	data_ptr: *mut *mut u8, // pointer to simulation results
+	width: u32,
+	height: u32,
+	initial_density: f32,
+	initial_ux: f32,
+	omega: f32,
+	// ... rest of the parameters ...
+	) {
+		let sim = Sim::new(
+		width.into(),
+		height.into(),
+		initial_density,
+		initial_ux,
+		omega,
+		// ... rest of the parameters ...
+		);
+		
+		unsafe {
+			*ptr = sim.to_ptr();
+			*data_ptr = Sim::from_ptr(*ptr).results_ptr();
+		}
+	}
+\end{lstlisting}
+
+To read from correct memory location, two additional methods are added to \texttt{Sim} to transfer itself into pointer to memory on the heap and to get the actual \texttt{Sim} struct back from memory back if the pointer to it is passed to the method (Listing \ref{sim-ptr}).
+
+\begin{lstlisting}[language=Rust, caption=Storing and restoring \texttt{Sim} struct with pointers., label=sim-ptr]
+	impl<'a> Sim {
+		pub fn to_ptr(self) -> *mut Sim {
+			let sim_boxed = Box::new(self);
+			Box::into_raw(sim_boxed)
+		}
+		
+		pub fn from_ptr(ptr: *mut Sim) -> &'a mut Sim {
+			unsafe { &mut *ptr }
+		}
+		
+		// ... rest of the methods
+	}
+\end{lstlisting}
 
 
-\subsubsection{Unity and Rust Interop}
+On Unity side, external functions from Rust FFI are loaded from compiled dynamic library through \texttt{DllImport(...)} directive. The external simulation program is regarded as a Native Plugin. For convenience, additional C\# interface is created for cleaner API when working with exposed Rust functions and for passing in correct arguments with correct types (Listing \ref{unity-rust-interop}).
 
-
+\begin{lstlisting}[language=Csharp, caption=Creating a C\# interface for the Rust functions from simulation plugin and storing the pointers to Rust \texttt{Sim} struct and results data., label=unity-rust-interop]
+	public class LBMAF
+	{
+		private static IntPtr _sim_handle;
+		private static IntPtr _data_handle;
+		
+		[DllImport("lbmaf")]
+		private static extern bool init_sim(
+		out IntPtr sim_handle,
+		out IntPtr data_handle,
+		/* ...rest of the arguments... */
+		);
+		
+		// C#/Unity interface with the Rust FFI
+		public static bool InitSimulation(/* ...rest of the arguments... */)
+		{
+			return init_sim(out _sim_handle, out _data_handle, /* ... */);
+		}
+		// ... rest of the methods
+	}
+\end{lstlisting}
 
 % prepisat, zo stackoverflow (https://stackoverflow.com/questions/62232753/differences-between-a-pointer-and-a-reference-in-rust), niektore veci mozno prehodit do sekcie "Technology Stack" ----------
-Use references when you can, use pointers when you must. If you're not doing FFI or memory management beyond what the compiler can validate, you don't need to use pointers.
-
-Both references and pointers exist in two variants. There are shared references \& and mutable references \&mut. There are const pointers *const and mut pointers *mut (which map to const and non-const pointers in C). However, the semantics of references is completely different from the semantics of pointers.
-
-References are generic over a type and over a lifetime. Shared references are written \&'a T in long form (where 'a and T are parameters). The lifetime parameter can be omitted in many situations. The lifetime parameter is used by the compiler to ensure that a reference doesn't live longer than the borrow is valid for.
-
-Pointers have no lifetime parameter. Therefore, the compiler cannot check that a particular pointer is valid to use. That's why dereferencing a pointer is considered unsafe.
-
-When you create a shared reference to an object, that freezes the object (i.e. the object becomes immutable while the shared reference exists), unless the object uses some form of interior mutability (e.g. using Cell, RefCell, Mutex or RwLock). However, when you have a const pointer to an object, that object may still change while the pointer is alive.
-
-When you have a mutable reference to an object, you are guaranteed to have exclusive access to that object through this reference. Any other way to access the object is either disabled temporarily or impossible to achieve. For example:
-
-\begin{lstlisting}
-let mut x = 0;
-{
-	let y = &mut x;
-	let z = &mut x; // ERROR: x is already borrowed mutably
-	*y = 1; // OK
-	x = 2; // ERROR: x is borrowed
-}
-x = 3; // OK, y went out of scope
-\end{lstlisting}
-
-Mut pointers have no such guarantee.
-
-A reference cannot be null (much like C++ references). A pointer can be null.
-
-Pointers may contain any numerical value that could fit in a usize. Initializing a pointer is not unsafe; only dereferencing it is.
-
-If you have a *const T, you can freely cast it to a *const U or to a *mut T using as. You can't do that with references. However, you can cast a reference to a pointer using as, and you can "upgrade" a pointer to a reference by dereferencing the pointer (which, again, is unsafe) and then borrowing the place using \& or \&mut. For example:
-
-\begin{lstlisting}
-use std::ffi::OsStr;
-use std::path::Path;
-
-pub fn os_str_to_path(s: &OsStr) -> &Path {
-	unsafe { &*(s as *const OsStr as *const Path) }
-}
-\end{lstlisting}
-
-n C++, references are "automatically dereferenced pointers". In Rust, you often still need to dereference references explicitly. The exception is when you use the . operator: if the left side is a reference, the compiler will automatically dereference it (recursively if necessary!). Pointers, however, are not automatically dereferenced. This means that if you want to dereference and access a field or a method, you need to write (*pointer).field or (*pointer).method(). There is no -> operator in Rust.
+%Use references when you can, use pointers when you must. If you're not doing FFI or memory management beyond what the compiler can validate, you don't need to use pointers.
+%
+%Both references and pointers exist in two variants. There are shared references \& and mutable references \&mut. There are const pointers *const and mut pointers *mut (which map to const and non-const pointers in C). However, the semantics of references is completely different from the semantics of pointers.
+%
+%References are generic over a type and over a lifetime. Shared references are written \&'a T in long form (where 'a and T are parameters). The lifetime parameter can be omitted in many situations. The lifetime parameter is used by the compiler to ensure that a reference doesn't live longer than the borrow is valid for.
+%
+%Pointers have no lifetime parameter. Therefore, the compiler cannot check that a particular pointer is valid to use. That's why dereferencing a pointer is considered unsafe.
+%
+%When you create a shared reference to an object, that freezes the object (i.e. the object becomes immutable while the shared reference exists), unless the object uses some form of interior mutability (e.g. using Cell, RefCell, Mutex or RwLock). However, when you have a const pointer to an object, that object may still change while the pointer is alive.
+%
+%When you have a mutable reference to an object, you are guaranteed to have exclusive access to that object through this reference. Any other way to access the object is either disabled temporarily or impossible to achieve. For example:
+%
+%\begin{lstlisting}[language=Rust, caption=Pseudocode for boundary conditions at solid nodes., label=]
+%let mut x = 0;
+%{
+%	let y = &mut x;
+%	let z = &mut x; // ERROR: x is already borrowed mutably
+%	*y = 1; // OK
+%	x = 2; // ERROR: x is borrowed
+%}
+%x = 3; // OK, y went out of scope
+%\end{lstlisting}
+%
+%Mut pointers have no such guarantee.
+%
+%A reference cannot be null (much like C++ references). A pointer can be null.
+%
+%Pointers may contain any numerical value that could fit in a usize. Initializing a pointer is not unsafe; only dereferencing it is.
+%
+%If you have a *const T, you can freely cast it to a *const U or to a *mut T using as. You can't do that with references. However, you can cast a reference to a pointer using as, and you can "upgrade" a pointer to a reference by dereferencing the pointer (which, again, is unsafe) and then borrowing the place using \& or \&mut. For example:
+%
+%\begin{lstlisting}
+%use std::ffi::OsStr;
+%use std::path::Path;
+%
+%pub fn os_str_to_path(s: &OsStr) -> &Path {
+%	unsafe { &*(s as *const OsStr as *const Path) }
+%}
+%\end{lstlisting}
+%
+%n C++, references are "automatically dereferenced pointers". In Rust, you often still need to dereference references explicitly. The exception is when you use the . operator: if the left side is a reference, the compiler will automatically dereference it (recursively if necessary!). Pointers, however, are not automatically dereferenced. This means that if you want to dereference and access a field or a method, you need to write (*pointer).field or (*pointer).method(). There is no -> operator in Rust.
 
 % ------------------------
-
-\begin{lstlisting}[language=Csharp, caption=., label=unity-rust-ffi-init-sim]
-public class LBMAF
-{
-	private static IntPtr _sim_handle;
-	private static IntPtr _data_handle;
-	
-	[DllImport("lbmaf")]
-	private static extern bool init_sim(out IntPtr sim_handle, out IntPtr data_handle, UInt32 width, UInt32 height, float inflow_density, float inflow_ux, float omega, UInt32 obstacle_x, UInt32 obstacle_y, UInt32 obstacle_r);
-	
-	// C#/Unity interface with the Rust FFI
-	public static bool InitSimulation(UInt32 w, UInt32 h, float rho0, float in_ux, float om, UInt32 obs_x, UInt32 obs_y, UInt32 obs_r)
-	{
-		return init_sim(out _sim_handle, out _data_handle, w, h, rho0, in_ux, om, obs_x, obs_y, obs_r);
-	}
-	// ... rest of the methods
-}
-\end{lstlisting}
 
 % Multithreading
 % - moving Array to thread,
@@ -1876,7 +1706,7 @@ public class LBMAF
 % - write to single Array using Channel
 
 \subsubsection{Visualizing Simulation Output in Real-Time}
-
+%DONE
 First, on the Rust side, the data output from the LBM simulation has to be normalized to the range within minimum and maximum values (Listing \ref{rust-normalize}). 
 
 \begin{lstlisting}[language=Rust, caption=Normalization of the simulation output., label=rust-normalize]
@@ -1894,55 +1724,75 @@ This range is then color-coded to the rainbow colormap. Blue-ish colors denote s
 \begin{lstlisting}[language=Rust, caption=Preparing the data output from Rust side of LBM simulation., label=rust-colors-array]
 pub fn simulate(&mut self, inflow_density: f32, inflow_ux: f32, omega: f32) {
 	// ... code for actual computation
-	
 	results = normalize(&results);
 	// Colormap for Unity's Texture2D (RGBA32)
 	let r = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.5f32)))) * 255));
 	let g = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * (&results - 0.25f32)))) * 255));
 	let b = flat(&((1.5f32 - abs(&(1.0f32 - 4.0f32 * &results))) * 255));
 	let a = flat(&constant::<f32>(1.0 as f32, self.dims));
+	// Joining Arrays together to follow Unity's Texture2D RGBA32 format
 	self.colors = flat(&transpose(&join_many(1, vec![&r, &g, &b, &a]), false)).cast::<u8>();
-	
 	// ... rest of the code
 }
 
-// Function for copying ArrayFire data to Rust's Vec
+// Method for copying ArrayFire data to Rust's Vec
 pub fn copy_colors_host(&mut self) {
 	self.colors.host(self.results.as_mut_slice());
 }
 \end{lstlisting}
 
-Second, on the Unity side
+Second, on the Unity side, a simple C\# interface is created for getting the pointer to simulation output data (Listing \ref{unity-pointer-to-sim-data}).
 
-\begin{lstlisting}[language=Csharp, caption=The CPU-bound copying of the simulation results., label=unity-marshal-copy]
-	public class LBMAF
+\begin{lstlisting}[language=Csharp, caption=Method for getting the pointer to the memory where simulation output is stored., label=unity-pointer-to-sim-data]
+[DllImport("lbmaf")]
+private static extern void get_sim_data(IntPtr handle);
+public static void GetSimData()
+{
+	get_sim_data(_sim_handle);
+}
+\end{lstlisting}
+
+Next, additional method is implemented for copying the simulation output data from Rust side to a buffer created in Unity (Listing \ref{unity-marshal-copy-method}). 
+
+\begin{lstlisting}[language=Csharp, caption=Method for copying simulation output to Unity buffer., label=unity-marshal-copy-method]
+public static void CopyResultsToBuffer(byte[] buffer, Int32 size) {
+	Marshal.Copy((IntPtr)_data_handle, buffer, 0, size);
+}
+\end{lstlisting}
+
+Finally, to render a simulation output data to 2D texture initialized in \texttt{Start} method, a co-routine \texttt{GetData()} is called by pressing the ``Start simulation" button through the VRUI (Listing \ref{unity-render-by-copying}). It calls the methods for getting the output data, copying them from Rust to Unity buffer, loading them to 2D texture as raw data and rendering them to screen. Additional functionality regarding the starting and stopping the running simulation is described in section \ref{sec:sim-playback}.
+
+\begin{lstlisting}[language=Csharp, caption=Rendering the simulation output to 2D texture by additionally copying the data., label=unity-render-by-copying]
+void Start()
+{
+	// .. rest of the code ...
+	size = domain_width * domain_height * 4;
+	buffer = new byte[size];
+	image = new Texture2D(domain_width, domain_height, TextureFormat.RGBA32, false);
+	GetComponent<Renderer>().material.mainTexture = image;
+	// ... rest of the code ...
+}
+
+public IEnumerator GetData()
+{
+	while (true)
 	{
-		private static IntPtr _sim_handle;
-		private static IntPtr _data_handle;
-		
-		[DllImport("lbmaf")]
-		private static extern bool init_sim(out IntPtr sim_handle, out IntPtr data_handle, UInt32 width, UInt32 height, float inflow_density, float inflow_ux, float omega, UInt32 obstacle_x, UInt32 obstacle_y, UInt32 obstacle_r);
-		
-		// C#/Unity interface with the Rust FFI
-		public static bool InitSimulation(UInt32 w, UInt32 h, float rho0, float in_ux, float om, UInt32 obs_x, UInt32 obs_y, UInt32 obs_r)
-		{
-			return init_sim(out _sim_handle, out _data_handle, w, h, rho0, in_ux, om, obs_x, obs_y, obs_r);
-		}
-		// ... rest of the methods
+		// .. rest of the code ...
+		LBMAF.GetSimData();
+		LBMAF.CopyResultsToBuffer(buffer, size);
+		image.LoadRawTextureData(buffer);
+		image.Apply();
+		yield return null;
 	}
+}
 \end{lstlisting}
 
 % GPU-bound (OpenGL and OpenCL interop)
-The faster alternative to CPU-bound data copying is to work only within context of the GPU, since we already have the data residing there after doing computations for LBM simulation. The easiest way to do this is to leverage OpenCL and OpenGL interoperability. \citep{malcolmArrayFireGPUAcceleration2012}
+The faster alternative to CPU-bound data copying is to work only within context of the GPU, since we already have the data residing there after doing computations for LBM simulation. The easiest way to do this is to leverage OpenCL and OpenGL interoperability \citep{malcolmArrayFireGPUAcceleration2012a}.
  
 OpenCL-OpenGL sharing works in a very particular way. The OpenCL context that needs to be shared with an OpenGL context has to be created using an OS specific OpenGL context handle as one of it's context properties. The OpenGL context used by ArrayFire's OpenCL-OpenGL shared context is completely different from the OpenGL context that Unity uses.
 
-As for such attempts trying to use ArrayFire's OpenGL context for copying data from OpenCL Arrays to Unity's OpenGL texture, common error usually pops up:
-
-\begin{lstlisting}
-Error executing function: clCreateFromGLTexture2D  
-Status error code: CL_INVALID_CONTEXT (-34)  
-\end{lstlisting}
+As for such attempts trying to use ArrayFire's OpenGL context for copying data from OpenCL Arrays to Unity's OpenGL texture, these can fail due to the common error that usually pops up: \texttt{CL\_INVALID\_CONTEXT}. 
 
 First, a workaround has to be implemented prior to doing any work with external OpenGL context. Simply put, ArrayFire has to switch to this context and use it. Workaround procedure consists of the following:
 
@@ -1957,50 +1807,15 @@ First, a workaround has to be implemented prior to doing any work with external 
 All of these has to be completed before any ArrayFire computations are carried out so that you don't have buffers that are created on a different OpenCL context. Only after this initial procedure, the creation of a shared OpenCL-OpenGL buffer that is then used for direct memory copying to the Unity's OpenGL texture is then possible. ArrayFire shall assume control of shared OpenCL-OpenGL buffer to take care of ownership, only this way it can operate on shared OpenCL memory. For such case ArrayFire provides 
 \texttt{Array.lock()} and \texttt{Array.unlock()} functions.
 
-Implementing OpenGL-OpenCL interoperability with ArrayFire and Unity isn't straightforward and involves additional help from the ArrayFire developers. Although it is documented for simple windowing platforms that use OpenGL textures for drawing to the screen, it's much more complex within the setting of this work, such as implementing interoperability with Unity game engine. On the other note, OpenGL support in virtual reality headsets that use cable connection to PC workstations (setting currently needed for having access to powerful GPUs) is very limited. Therefore it was not successfully implemented in current work. 
+Implementing OpenGL-OpenCL interoperability with ArrayFire and Unity isn't straightforward and involves additional help from the ArrayFire developers. Although it is documented for simple windowing platforms that use OpenGL textures for drawing to the screen, it's much more complex within the setting of this work, such as implementing interoperability with Unity engine. On the other note, OpenGL support in virtual reality headsets that use cable connection to PC workstations (which is currently needed for having access to powerful GPUs) is very limited. Therefore, it was not successfully implemented into the current work. 
 
 Still, it is of very high importance to implement GPU-bound visualization techniques into the future versions of LBM solver, though. When dealing with complex 3D simulation, multiple-relaxation time algorithm and more directions of particle distribution function within the lattice node, CPU-bound visualization could easily become a bottleneck.
 
-\subsubsection{Setting Initial Conditions}
+\subsubsection{Updating Boundary Conditions and Simulation Parameters}
+% DONE
+Manipulating various parts of the simulation is done by sending the updated parameters to the \texttt{simulate(...)} function from Rust code (Listing \ref{rust-simulate}).
 
-Before starting a simulation, user is encouraged to configure the initial parameters that are then sent to the simulation software which uses them for setting the simulation's initial boundary conditions and underlying physics for specified model. Default parameters are provided for the user, so if nothing is changed, D2Q9-LBM simulation of Kármán vortex street on 300x100 grid is initialized, with initial conditions of inflow density $\rho = 1.0$, inflow speed $\bm{u}_x = 0.1$ and Reynolds number $Re = 220$.
-
-The physics and lattice parameters can be set in Unity Editor and also inside the virtual reality environment.
-
-In development phase, these parameters are available as a part of the simulation script interface. The inputs are generated automatically for each public variable in script's class (Listing \ref{unity-public-variables-editor}).
-
-\begin{lstlisting}[language=Rust, caption=Boundary conditions at solid nodes., label=unity-public-variables-editor]
-	public class Sim : MonoBehaviour
-	{
-		public UInt32 width = 0;
-		public UInt32 height = 0;
-		private Texture2D image;
-		
-		void Start()
-		{
-			image = new Texture2D(width, height, TextureFormat.RGBA32, false);
-			GetComponent<Renderer>().material.mainTexture = image;
-		}
-		
-		// ... rest of the code
-	}
-\end{lstlisting}
-
-When looking into the Unity Editor, the script interface now has two numerical inputs, \texttt{width} and \texttt{height} (Figure~ \ref{fig:unity-script-interface-public-vars}).
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/empty.jpg}
-	\caption{Unity Editor with script interface.}
-	\label{fig:unity-script-interface-public-vars}
-\end{figure}
-
-
-
-
-\subsubsection{Updating Boundary Conditions}
-
-\begin{lstlisting}[language=Rust, caption=".", label=]
+\begin{lstlisting}[language=Rust, caption=".", label=rust-simulate]
 #[no_mangle]
 pub extern "C" fn simulate(
 	ptr: *mut Sim,
@@ -2014,21 +1829,47 @@ pub extern "C" fn simulate(
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=Csharp, caption=".", label=]
-	#[no_mangle]
-	pub extern "C" fn simulate(
-	ptr: *mut Sim,
-	inflow_density: f32,
-	inflow_ux: f32,
-	omega: f32
-	) {
-		if !ptr.is_null() {
-			Sim::from_ptr(ptr).simulate(inflow_density, inflow_ux, omega);
-		}
+An actual change to the various parameters is done by user input by means of interacting with \texttt{Slider} components in VRUI (Figure \ref{fig:vrui}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/vrui.jpeg}
+	\caption{VRUI in the form of a grabbable digital tablet.}
+	\label{fig:vrui}
+\end{figure}
+
+Sliding the movable button inside a slider changes the value, which is then propagated to the \texttt{GetData()} co-routine and subsequently used as an updated parameter of  (Listing \ref{unity-change-parameters}).
+
+\begin{lstlisting}[language=Csharp, caption=Implementation of the re-computing of the simulation each frame based on values from user input through VRUI (sliders)., label=unity-change-parameters]
+public IEnumerator GetData()
+{
+	while (true)
+	{
+		inflow_speed = inflowSpeedSlider.value;
+		inflow_density = inflowDensitySlider.value;
+		re = reynoldsNumberSlider.value;
+		nu = inflow_speed * 2.0f * obstacle_r / re;
+		tau = 3.0f * nu + 0.5f;
+		omega = 1.0f / tau;
+		
+		LBMAF.SimulateNextIteration(inflow_density, inflow_speed, omega);
+		
+		// ... rest of the code for getting the data and rendering them ...
+		yield return null;
 	}
+}
 \end{lstlisting}
 
-\subsubsection{Simulation Playback}
+After the change in slider input, re-computation happens immediately and updated simulation output is visualized in real-time to the screen. Thanks to the speed of the LBM simulation, by changing for example inflow speed variable, a wave is introduced which propagates through the computational domain. Its propagation can be seen in real-time as it happens (Figure \ref{fig:wave-propagation}).
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/inflow-speed-change.jpeg}
+	\caption{Propagating wave that resulted from a changing the inflow speed.}
+	\label{fig:wave-propagation}
+\end{figure}
+
+\subsubsection{Simulation Playback}\label{sec:sim-playback}
 
 Visualization is running continuously throughout the simulation in parallel to the actual computations. It's sometimes good to pause the running simulation when there's something interesting to investigate or explore in more detail.
 
@@ -2045,18 +1886,23 @@ For simple pausing and continuing the simulation, the VR interface contains a GU
 Implementation of the co-routine starting, pausing and stopping is implemented in Listing \ref{unity-start-stop-coroutine}.
 
 \begin{lstlisting}[language=Rust, caption="Starting\, pausing and stopping the co-routines in Unity.", label=unity-start-stop-coroutine]
-	public class Sim : MonoBehaviour
-	{
-		void Start()
-		{
-			// ...
-			StartCoroutine("StartSimulation")
-		}
-		
-		IEnumerate StartSimulation() {
-			// ... rest of the code
-		}
+void Start()
+{
+	// ... rest of the code ...
+	Button btn = playbackButton.GetComponent<Button>();
+	btn.onClick.AddListener(ToggleSimPlayback);
+}
+
+void ToggleSimPlayback() {
+	paused = !paused;
+	if (paused) {
+		StopCoroutine("GetData");
+		playbackButton.GetComponentInChildren<Text>().text = "Resume simulation";
+	} else {
+		StartCoroutine("GetData");
+		playbackButton.GetComponentInChildren<Text>().text = "Pause simulation";
 	}
+}
 \end{lstlisting}
 
 % editovat aby to znelo lepsie
@@ -2376,6 +2222,12 @@ Non-newtonian fluids \\
 %Describe non-Newtonian fluids found in steelmaking processes...
 
 \subsubsection{Streaming Visualized Pixels Over Network}
+
+Oculus Quest as a standalone VR is great device for games and applications that need only baseline VR performance... When used for scientific visualization in standalone mode, the communication would have to be wireless and implemented with client-server architecture, which means the speed of sending data would deteriorate the usefulness of such application. It's still possible to use Oculus Quest for scientific visualization in VR, but it has to be connected to the PC workstation by USB-C or an equivalent proprietary cable called Oculus Link, which is not part of the standard package. It has to be bought separately.
+
+\subsubsection{Augmented Reality}\label{sec:future-ar}
+
+Also, the augmented reality (AR) apps can be build from single codebase with Unity. Developers need to plan ahead and decide whether they want to target VR users, AR users or have the app be used by both device types (VR and AR). Usually, the term Mixed Reality is used to describe apps that target both types of devices. In this work, the focus was only on VR. Although in future, the AR looks as promising technology for specific usecases across scientific visualization, simulation and modeling industry. By leveraging Unity engine for the development of the visualization software for  this thesis, extending the software to support AR will be straightforward process.
 
 \subsubsection{Simulation as an Educational Tool}
 %

@@ -47,14 +47,13 @@ Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
 Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration2012a"
 Warning--I didn't find a database entry for "forge2016"
 Warning--I didn't find a database entry for "TAN2017649"
-Warning--I didn't find a database entry for "malcolmArrayFireGPUAcceleration2012"
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 Warning--empty booktitle in rapp2017
 Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
 You've used 59 entries,
             2921 wiz_defined-function locations,
-            1098 strings with 21549 characters,
+            1096 strings with 21479 characters,
 and the built_in function-call counts, 273837 in all, are:
 = -- 44523
 > -- 4030
