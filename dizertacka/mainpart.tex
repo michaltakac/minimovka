@@ -10,10 +10,9 @@ Scientific and engineering software is different from the one that is used by or
 
 The primary design challenge for scientific software is to provide affordances that make these visualizations correct, understandable, and reduce the complexity into the simpler, more approachable form. In this thesis, I will be exploring modern methods and approaches for visualizing fluid simulations and how to seamlessly interact with the running simulation from virtual reality application.
 
-The usage of emerging technologies like virtual or augmented reality, thanks to their highest exposure in gaming industry, was mostly just an afterthought within scientific computing. These technologies have remained absent from science and engineering workflows due to the custom-built nature of the hardware and software \citep{suVirtualAugmentedReality2020}. But as we approach the exascale computing capabilities, the volume and complexity of data from high-energy physics experiments, modeling of complex engineering designs and large-scale multi-phase simulations, is growing dramatically. VR and AR can provide advanced visualization approaches to perform data assessment in data-intensive scientific and engineering
-applications. Many software solutions that focus on data analysis of large-scale scientific simulations have integrated support for some of the consumer-grade VR headsets, available off-the-shelf, but also CAVE (Cave Automatic Virtual Environment) systems. CAVE system is a room-sized cube with virtual environment projected to its walls \citep{ohnoIntroductionVirtualReality}. These systems typically require big investments in tens of thousands of euros. On the other hand, VR headsets, or head-mounted displays (HMDs) are much cheaper (their price is usually in low hundreds of euros). In this thesis I've focused on leveraging the HMDs with their appropriate hand controllers or built-in hand tracking, as the target audience should not be limited to the enterprises and institutions with big budgets, but anybody who can get their hands on the average VR-ready hardware, starting with individual researchers. Therefore to evaluate other software solutions for scientific visualization and data analysis, I'm targeting those that support commonly used HMDs made by HTC, Oculus (HTC Vive, Oculus Rift), or various Windows Mixed Reality headsets, usually through a higher-level API like OpenVR. 
+The usage of emerging technologies like virtual or augmented reality, thanks to their highest exposure in gaming industry, was mostly just an afterthought within scientific computing. These technologies have remained absent from science and engineering workflows due to the custom-built nature of the hardware and software \citep{suVirtualAugmentedReality2020}. But as we approach the exascale computing capabilities, the volume and complexity of data from high-energy physics experiments, modeling of complex engineering designs and large-scale multi-phase simulations, is growing dramatically. VR and AR can provide advanced visualization approaches to perform data assessment in data-intensive scientific and engineering applications. Many software solutions that focus on data analysis of large-scale scientific simulations have integrated support for some of the consumer-grade VR headsets, available off-the-shelf, but also CAVE (Cave Automatic Virtual Environment) systems. CAVE system is a room-sized cube with virtual environment projected to its walls \citep{ohnoIntroductionVirtualReality}. These systems typically require big investments in tens of thousands of euros. On the other hand, VR headsets, or head-mounted displays (HMDs) are much cheaper (their price is usually in low hundreds of euros). In this thesis I've focused on leveraging the HMDs with their appropriate hand controllers or built-in hand tracking, as the target audience should not be limited to the enterprises and institutions with big budgets, but anybody who can get their hands on the average VR-ready hardware, starting with individual researchers. Therefore to evaluate other software solutions for scientific visualization and data analysis, I'm targeting those that support commonly used HMDs made by HTC, Oculus (HTC Vive, Oculus Rift), or various Windows Mixed Reality headsets, usually through a higher-level API like OpenVR. 
 
-One of such software is ParaView \citep{paraview2005}. It's a open-source, multi-platform data analysis and visualization application extensively used within scientific community \citep{marionPCLParaViewConnecting2012,ahrensPetascaleVisualizationApproaches2008}. I'ts built as a graphical interface on top of Visualization Toolkit (VTK), another open-source software that sits at the hearth of not just ParaView, but many more software applications for scientific data analysis and visualization. VTK plays central role in VR support in these types of software, because it provides the basic building blocks for talking to HMD hardware APIs through higher-level interface such as OpenVR. Rendering of the datasets to be analyzed to the HMD is handled very easily. More complex interactions with the data and 3D imagery has to be implemented additionally. In ParaView, basic interactions are already implemented into the software, but it doesn't provide any user interface (UI) specifically for immersive exploration of the data in VR. \cite{shettyImmersiveParaViewCommunitybased2011} extended the ParaView to add physical interaction through external touch display while preserving the data streaming and data parallel mechanisms for large data visualization. Their approach could be labeled as mixed, but the way of working with the software through indirect interaction outside of HMD makes it very hard to operate it towards the task of effectively exploring the large-scale datasets. 
+One of such software is ParaView \citep{paraview2005}. It's a open-source, multi-platform data analysis and visualization application extensively used within scientific community \citep{marionPCLParaViewConnecting2012,ahrensPetascaleVisualizationApproaches2008}. I'ts built as a graphical interface on top of Visualization Toolkit (VTK), another open-source software that sits at the hearth of not just ParaView, but many more software applications for scientific data analysis and visualization. VTK plays central role in VR support in these types of software, because it provides the basic building blocks for talking to HMD hardware APIs through higher-level interface such as OpenVR. Rendering of the datasets to be analyzed to the HMD is handled very easily. More complex interactions with the data and 3D imagery has to be implemented additionally. In ParaView, basic interactions are already implemented into the software, but it doesn't provide any user interface (UI) specifically for immersive exploration of the data in VR. \citep{shettyImmersiveParaViewCommunitybased2011} extended the ParaView to add physical interaction through external touch display while preserving the data streaming and data parallel mechanisms for large data visualization. Their approach could be labeled as mixed, but the way of working with the software through indirect interaction outside of HMD makes it very hard to operate it towards the task of effectively exploring the large-scale datasets. 
 
 As the work with complex datasets from scientific or engineering applications is very challenging, tools for working with their visualization have to be designed appropriately. If we want VR to serve its purpose in science and engineering, then it must add value instead of slowing us down or complicating things even more than they already are. The company SciVista that is behind their SummitVR application addresses these concerns with their approach to extending VR capabilities of ParaView beyond just a fancy 3D viewer for of the scientific data. Their VR software provides an intuitive, 3D UI built purposely for handling datasets that extend to petabytes of data per day coming in from the largest fusion experiment(ITER). Ability to work inside the immersive virtual environment with data assessment tools seamlessly accessible through hand-controller-driven UI, choosing from data filtering options and ability to move 3D data representations around the user is very effective strategy towards bringing value for researchers \citep{summitvr}.
 
@@ -76,7 +75,7 @@ Fluid dynamics is the branch of fluid mechanics, that is concerned with the stud
 	\item biomedical engineering.
 \end{itemize}
 
-Modern fluid mechanics problems would be impossible to solve without use of CFD, since the analytical solutions to fundamental equations of fluid mechanics is very limited. CFD encompasses a wide spectrum of numerical methods used for solving complex three-dimensional (3D) and time-dependent flow problems \cite{rapp2017}. 
+Modern fluid mechanics problems would be impossible to solve without use of CFD, since the analytical solutions to fundamental equations of fluid mechanics is very limited. CFD encompasses a wide spectrum of numerical methods used for solving complex three-dimensional (3D) and time-dependent flow problems \citep{rapp2017}. 
 
 CFD simulations allows huge improvements on the type of phenomena that can be explored. This trend will continue accelerating thanks to improvements in both the available processing power and active research in algorithms for CFD simulations. The cost of performing computer simulations has decreased over the last few decades, while the available processing power has increased. Most of the processors and processing units that are currently developed and produced have several cores that can execute instructions in parallel. Thus, the processing power available to a CFD software also depends on the capability of the software to execute in parallel.
 
@@ -363,7 +362,7 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 	f_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) = f^{*}_i (\bm{x},t+\Delta t).
 \end{equation}
 
-%For the boundary condition, we implemented a simple no-slip boundary known as bounce-back, which effectively reverses the direction of $f_i$ \cite{Mawson2014InteractiveFI}. In places like input and output of simulated pipe for Kármán vortex test case, we implemented periodic boundary conditions \cite{succi2018lattice}.
+%For the boundary condition, we implemented a simple no-slip boundary known as bounce-back, which effectively reverses the direction of $f_i$ \citep{Mawson2014InteractiveFI}. In places like input and output of simulated pipe for Kármán vortex test case, we implemented periodic boundary conditions \citep{succi2018lattice}.
 
 
 %\subsection{Kinetic Theory}
@@ -399,7 +398,7 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 %\end{figure}
 %
 %
-%Caution have to be taken when working within lattice's discrete world. For simulating the interface of blown oxygen with melted fluid slag, we're working with higher Mach speeds. The basic notion is that the lattice can only support signals with a finite propagation speed. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \cite{succi2001lattice}.
+%Caution have to be taken when working within lattice's discrete world. For simulating the interface of blown oxygen with melted fluid slag, we're working with higher Mach speeds. The basic notion is that the lattice can only support signals with a finite propagation speed. Necessary criterion for stability is that physical information should not travel faster than fastest speed supported by the lattice \citep{succi2001lattice}.
 %
 %We can calculate the error to $\varepsilon(Ma^3)$ in space and proportional to $\varepsilon (Ma \cdot dt)$ in time, where $Ma = \frac{u}{c_s}$ is the Mach number of the system.
 %
@@ -411,7 +410,7 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 %
 %- TODO: napisat aj o klasickom BGK modeli \citep{bhatnagarModelCollisionProcesses1954}
 %
-%The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \cite{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
+%The collision operator $\Omega$ is difficult to solve. It's been simplified by the work of Bhatnagar, Gross and Crook \citep{bhatnagarModelCollisionProcesses1954}, that introduced the BGK operator
 %
 %\begin{equation}
 %	\label{eq:std-bgk}
@@ -419,7 +418,7 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 %\end{equation}
 %
 %In the presence of a body force density $\bm{F} = \rho \bm{g}$, where $\bm{g}$ is
-%the acceleration due to $\bm{F}$, the LBE must be modified to account for the force \cite{guoDiscreteLatticeEffects2002}.
+%the acceleration due to $\bm{F}$, the LBE must be modified to account for the force \citep{guoDiscreteLatticeEffects2002}.
 %
 %\begin{equation}
 %	\label{eq:feq}
@@ -438,18 +437,17 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 %
 %\subsection{Multiple Relaxation Time}
 %
-%% --- Prepisat -------------------
-%To overcome difficulties of numerical instability in applying the LBM method, the multiple-relaxation-time (MRT) scheme is useful to stabilize the solution and to obtain satisfactory results because the MRT model allows the usage of an independently optimized relaxation-time for each physical process \cite{sugaD3Q27MultiplerelaxationtimeLattice2015}.
+
 %% -----------------------------------------------
 %
-%A general collision step in MRT can be written as \cite{feiModelingRealisticMultiphase2019}
+%A general collision step in MRT can be written as \citep{feiModelingRealisticMultiphase2019}
 %
 %\begin{equation}
 %	\label{eq:mrt-collision}
 %	f_i^{*} (\bm{x},t) = f_i (\bm{x},t)-\Lambda_{i,k}\big[f_k - f_k^{eq}\big]_{(\bm{x},t)} +\frac{\Delta t}{2} \big[ F_i (\bm{x},t) +  F_i (\bm{x}+\bm{e}_i\Delta t,t+\Delta t) \big]
 %\end{equation}
 %
-%where $\bm{x}$ is the spatial position in the 3D grid, $t$ is time, $F_i$ are the forcing terms in discrete velocity space, and collision operator $\Lambda_{i,k}$ computed as \cite{feiModelingRealisticMultiphase2019}
+%where $\bm{x}$ is the spatial position in the 3D grid, $t$ is time, $F_i$ are the forcing terms in discrete velocity space, and collision operator $\Lambda_{i,k}$ computed as \citep{feiModelingRealisticMultiphase2019}
 %
 %Although many schemes to discretize the velocity space have been proposed, for three-dimensional (3-D) flows, the present study focuses on so called the three- dimensional twenty-seven (D3Q27) discrete velocity model which is illustrated in Figure~ 1. Table 1 lists the sound speed $c_S$ , the discrete velocity $e_\alpha$ and the weight parameter $w_\alpha$ in the model with $c = \delta x / \delta t$ where $\delta x$ and $\delta t$ are the lattice spacing and the time step, respectively. The MRT LBM transforms the distribution function in the velocity space to the moment space by the transformation matrix $M$ . Transformation matrix $\bm{M}$ can be obtained from Eqs. \ref{eq:moments}.
 %
@@ -496,7 +494,7 @@ where $m = Mf$ and $m^{eq} = Mf^{eq}$. After the collision step, the distributio
 %	\bm{m} = [m_0, m_1,...,m_{26}]^T
 %\end{equation}
 %
-%For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. It allows for more degrees of freedom and better tunability of relaxation parameters. Stability is a key property in any numerical scheme \cite{succi2001lattice}. It helps to protect against cumulative error build-up or other sources of inaccuracies.
+%For better numerical stability, Multiple Relaxation Time (MRT) scheme is used. It allows for more degrees of freedom and better tunability of relaxation parameters. Stability is a key property in any numerical scheme \citep{succi2001lattice}. It helps to protect against cumulative error build-up or other sources of inaccuracies.
 
 
 \subsection{Boundary Conditions}
@@ -572,7 +570,7 @@ All of aforementioned methods were successfully applied to dynamic multiphase fl
 Although multiphase flows are interesting use-case for LBM simulation, their support was not implemented in current solver implementation described in this thesis. But at the same time, some parts of the research that is being done at the Institute of Control and Informatization of Production Processes at Technical University of Košice, where I currently work, focuses on steelmaking and underground gasification of coal. Simulating involved processes with LBM and multiphase methods can pave a new way towards better understanding of the phenomena in those areas.
 
 %% --- Prepisat -------------------
-%Interfaces between different phases and/or components are ubiquitous in multiphase flows and energy applications, such as rain dynamics, plant spraying, water boiling, and gas turbine blade cooling, to name but a few. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. The dynamics of the interfaces is difficult to investigate because typical interfaces are extremely thin, complex in shape, and deforming at short time scales. In addition, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved. Therefore, development of robust and accurate computational methods to capture the complex interfacial phenomena is crucial in the study of multiphase flows \cite{feiModelingRealisticMultiphase2019}.
+%Interfaces between different phases and/or components are ubiquitous in multiphase flows and energy applications, such as rain dynamics, plant spraying, water boiling, and gas turbine blade cooling, to name but a few. A deeper understanding of the fundamental physics of such complex interfaces is of great importance in many natural and industrial processes. The dynamics of the interfaces is difficult to investigate because typical interfaces are extremely thin, complex in shape, and deforming at short time scales. In addition, the density ratio and Weber and Reynolds numbers involved in many practical multiphase flows, such as binary droplet collisions and melt-jet breakup, are usually very high, which further increases the complexity of the phenomena involved. Therefore, development of robust and accurate computational methods to capture the complex interfacial phenomena is crucial in the study of multiphase flows \citep{feiModelingRealisticMultiphase2019}.
 %% -----------------------------------
 %
 %% prepisat
@@ -655,7 +653,7 @@ We can write a program that executes on the GPU, which computes the matrix multi
 
 Considering the small size of this toy problem, the difference between CPU and GPU version in computation speed won't be noticeable. But with larger problems in terms of bigger and complex physics simulations, amount of operations can grow to extreme numbers. At that stage, speed differences between slower CPU and faster GPU computation can reach orders of hundreds.
 
-In this work we compared benchmarks of simulation software, developed with parallel algorithms, on CPU and different GPUs. Performance analysis is described in section \ref{perf-analysis}, showing noticeable differences.
+In this dissertation, I've compared benchmarks of simulation software, developed with parallel algorithms, on CPU and different GPUs. Performance analysis is described in section \ref{perf-analysis}, showing noticeable differences.
 
 %When we talk about parallel programming, we have to distinguish between CPU and GPU parallel programming.
 %
@@ -680,35 +678,28 @@ In this work we compared benchmarks of simulation software, developed with paral
 % DONE
 Scaling of the computational power in high-performance accelerators and supercomputers was historically done by adding more and more CPUs together to a multi-processor distributed system, also known as many-core system. When single CPU started to have multiple cores, scaling the power of those systems was done by switching older CPUs to multi-core ones. But adding more and more cores is not infinite process. With increasing number of transistors stuffed into the same size of the chip, the power and heat starts to rise again. Physical limitations were starting to manifest themselves.
 
-More than a decade ago, the GPUs were starting to supplement CPUs for computational work. The general processor (the CPU) with one type of architecture was being helped by the other processor with different architecture type (the GPU). This was the start of moving from homogenous computing towards heterogeneous computing, for which the coordination of two or more different processors is needed. 
+More than a decade ago, the GPUs were starting to supplement CPUs for computational work. The general processor (the CPU) with one type of architecture was being helped by the other processor with different architecture type (the GPU). This was the start of moving from homogeneous computing towards heterogeneous computing, for which the coordination of two or more different processors is needed. 
+
+\subsection{OpenCL}
+% DONE
+OpenCL (Open Computing Language) is a free and open-source standard for cross-platform, parallel programming of diverse accelerators like CPUs, GPUs, FPGAs, TPUs, etc. found in devices like personal computers or smartphones, embedded platforms, but also high-performance computing systems and supercomputers. In contrast to proprietary nature of CUDA, OpenCL is not tied to any specific hardware manufacturer, which makes its application good for plethora of different hardware.
 
 \subsection{CUDA}
 %DONE
-CUDA is a proprietary hardware and software platform for parallel computing on GPUs created by NVIDIA. It provides access to hardware-specific capabilities of graphics cards equipped with CUDA-enabled graphics processing units \cite{stortiCUDAEngineersIntroduction2016}. The software platform provides a development kit (SDK) and application programming interface (API), build as a superset of C programming language. Since its launch it became a dominant proprietary framework for programming NVIDIA GPUs.
+CUDA is a proprietary hardware and software platform for parallel computing on GPUs created by NVIDIA. It provides access to hardware-specific capabilities of graphics cards equipped with CUDA-enabled graphics processing units \citep{stortiCUDAEngineersIntroduction2016}. The software platform provides a development kit (SDK) and application programming interface (API), build as a superset of C programming language. Since its launch it became a dominant proprietary framework for programming NVIDIA GPUs.
 
 The GPU-based approach to massively parallel computing used by CUDA is also the core technology used in many of the world’s fastest and most energy-efficient supercomputers. The key criterion has evolved from FLOPS (floating point operations per second) to FLOPS/watt (i.e., the ratio of computing productivity to energy consumption), and GPU-based parallelism competes well in terms of FLOPS/watt \citep{stortiCUDAEngineersIntroduction2016}.
 
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/cuda-device-memory.jpg}
-	\caption{CUDA memory model}
-	\label{fig:cuda-memory-model}
-\end{figure}
+When main goal of an application that is programmed for GPUs is to achieve as high performance as possible and it is also possible to use NVIDIA GPU hardware to run it, CUDA seems to be a better choice than OpenCL \citep{karimiPerformanceComparisonCUDAa}.
 
-\subsection{OpenCL}
-% mozno staci
-OpenCL (Open Computing Language) is a free and open-source standard for cross-platform, parallel programming of diverse accelerators like CPUs, GPUs, FPGAs, TPUs, etc. found in devices like personal computers or smartphones, embedded platforms, but also high-performance computing systems and supercomputers. In contrast to proprietary nature of CUDA, OpenCL is not tied to any specific hardware manufacturer, which makes its application good for plethora of different hardware.
-
-\subsection{Cross-platform GPU Programming}
-\label{sec:computer-simulations-using-gpus}
+\subsection{Cross-platform GPU Programming} \label{sec:computer-simulations-using-gpus}
+%DONE 
 
 Despite the growing list of success stories, GPU software development adoption has had a slow rise. The slowness of the rise is attributable to the difficulty in programming GPUs \citep{malcolmArrayFireGPUAcceleration2012a}.
 
-\citep{karimiPerformanceComparisonCUDAa}
-
 CUDA and OpenCL APIs differ from each other. They can be considered as extensions of the C/C++ language and require significant experience in low-level C/C++ programming. To write optimized, parallel software, developers need to employ different techniques, specific to the API they choose, which adds substantial overhead when trying to port one to another in case of a need. In heterogeneous computing systems, trying to write optimized cross-platform code for different GPUs means writing multiple hardware-specific kernels in CUDA and OpenCL.
 
-In this work, a high-performance, parallel computing library ArrayFire has been used to significantly simplify programming for GPUs. Its easy-to-use API provides high-level abstractions in the form of hundreds of functions. They are automatically converted to optimized, fast GPU kernels, utilizing just-in-time (JIT) compilation and lazy evaluation \cite{chrzeszczykMatrixComputationsGPUb}. ArrayFire's high-level object construct called Array is a data structure that acts as a container that represents memory stored on the device. On top of it, ArrayFire provides abstractions in the form of Unified Backend for working with different computational backends. This way it is possible to switch to CPU, GPU, FPGA, or another type of accelerator at runtime \cite{Yalamanchili2015} (Alg. \ref{cpp-backends}), and permits programmers to write massively parallel applications in a high-level language with a much lower number of lines of code (LoC). Arrays (or matrices) of up to 4 dimensions can be created. 
+To implement a solver based on LBM, a high-performance, parallel computing library ArrayFire has been used to significantly simplify programming for GPUs. Its easy-to-use API provides high-level abstractions in the form of hundreds of functions. They are automatically converted to optimized, fast GPU kernels, utilizing just-in-time (JIT) compilation and lazy evaluation \citep{chrzeszczykMatrixComputationsGPUb}. ArrayFire's high-level object construct called Array is a data structure that acts as a container that represents memory stored on the device. On top of it, ArrayFire provides abstractions in the form of Unified Backend for working with different computational backends. This way it is possible to switch to CPU, GPU, FPGA, or another type of accelerator at runtime \citep{Yalamanchili2015} (Alg. \ref{cpp-backends}), and permits programmers to write massively parallel applications in a high-level language with a much lower number of lines of code (LoC). Arrays (or matrices) of up to 4 dimensions can be created. 
 
 \begin{lstlisting}[language=Cpp, caption=C++ code for setting different computing backends., label=cpp-backends]
 	#include <arrayfire.h>
@@ -722,97 +713,92 @@ In this work, a high-performance, parallel computing library ArrayFire has been 
 \end{lstlisting}
 
 % prepisat (z https://arrayfire.org/arrayfire-rust/book/opencl-interop.html a https://arrayfire.org/arrayfire-rust/book/cuda-interop.html)
-Although ArrayFire is quite extensive, there remain many cases in which you may want to write custom kernels in CUDA or OpenCL. For example, you may wish to add ArrayFire to an existing code base to increase your productivity, or you may need to supplement ArrayFire's functionality with your own custom implementation of specific algorithms.
-
-Since I'm targeting different types of GPUs in current work, I'll add examples of how to do the interoperability with OpenCL only. Working with CUDA looks similar in principle, but differs in API implementation (different naming conventions, slightly different semantics when launching kernels).
-% zaclenit do textu hore
-ArrayFire manages its own context, queue, memory, and creates custom IDs for devices. As such, most of the interoperability functions focus on reducing potential synchronization conflicts between ArrayFire and OpenCL. There is some bookkeeping that needs to be done to integrate custom OpenCL kernel. If your kernels can share operate in the same queue as ArrayFire, you should:
-
-\begin{enumerate}
-\item obtain the OpenCL context, device, and queue used by ArrayFire,
-\item obtain \texttt{cl_mem} references to Array objects,
-\item load, build, and use your kernels,
-\item return control of Array memory to ArrayFire.
-\end{enumerate}
-
-Note, ArrayFire uses an in-order queue, thus when ArrayFire and your kernels are operating in the same queue, there is no need to perform any synchronization operations.
-
-If your kernels needs to operate in their own OpenCL queue, the process is essentially identical, except you need to instruct ArrayFire to complete its computations using the sync function prior to launching your own kernel and ensure your kernels are complete using clFinish (or similar) commands prior to returning control of the memory to ArrayFire:
-
-\begin{enumerate}
-\item obtain the OpenCL context, device, and queue used by ArrayFire,
-\item obtain cl_mem references to Array objects,
-\item instruct ArrayFire to finish operations using sync,
-\item load, build, and use your kernels,
-\item instruct OpenCL to finish operations using \texttt{clFinish()} or similar commands,
-\item return control of Array memory to ArrayFire.
-\end{enumerate}
-
-Adding ArrayFire to an existing application is slightly more involved and can be somewhat tricky due to several optimizations we implement. The most important are as follows:
-
-\begin{itemize}
-\item ArrayFire assumes control of all memory provided to it.
-\item ArrayFire does not (in general) support in-place memory transactions.
-\end{itemize}
-
-To add ArrayFire to existing code you need to:
-
-\begin{enumerate}
-\item instruct OpenCL to complete its operations using clFinish (or similar),
-\item instruct ArrayFire to use the user-created OpenCL Context,
-\item create ArrayFire arrays from OpenCL memory objects,
-\item perform ArrayFire operations on the Arrays,
-\item instruct ArrayFire to finish operations using sync,
-\item obtain \texttt{cl_mem} references for important memory,
-\item continue your OpenCL application.
-\end{enumerate}
-	
-ArrayFire's memory manager automatically assumes responsibility for any memory provided to it. If you are creating an array from another RAII style object, you should retain it to ensure your memory is not deallocated if your RAII object were to go out of scope.
-
-If you do not wish for ArrayFire to manage your memory, you may call the \texttt{Array::unlock()} function and manage the memory yourself; however, if you do so, please be cautious not to call \texttt{clReleaseMemObj} on a \texttt{cl_mem} when ArrayFire might be using it!
-
-It is fairly straightforward to interface ArrayFire with your own custom code. ArrayFire provides several functions to ease this process. The pointer returned by \texttt{Array::device_ptr()} should be cast to \texttt{cl_mem} before using it with OpenCL opaque types. The pointer is a \texttt{cl_mem} internally that is force casted to pointer type by ArrayFire before returning the value to caller.
-
-Additionally, the OpenCL backend permits the programmer to add and remove custom devices from the ArrayFire device manager (Table \ref{table:afcl}). These permit you to attach ArrayFire directly to the OpenCL queue used by other portions of your application.
-
-\begin{table}[h!]
-	\centering\small
-	{\renewcommand{\arraystretch}{1.1}%
-		{\setlength{\tabcolsep}{0.4em}
-	\begin{tabular}{|c|c|} 
-		\hline
-		Function & Purpose \\
-		\hline
-		\texttt{add_device_context} & Add a new device to ArrayFire's device manager \\ 
-		\hline
-		\texttt{set_device_context} & Set ArrayFire's device from \texttt{cl_device_id} \& \texttt{cl_context} \\
-		\hline
-		\texttt{delete_device_context} & Remove a device from ArrayFire's device manager \\
-		\hline
-	\end{tabular}}}
-	\caption{Functions for working with OpenCL context in ArrayFire-OpenCL interoperability scenario.}
-	\label{table:afcl}
-\end{table}
+%Although ArrayFire is quite extensive, there remain many cases in which you may want to write custom kernels in CUDA or OpenCL. For example, you may wish to add ArrayFire to an existing code base to increase your productivity, or you may need to supplement ArrayFire's functionality with your own custom implementation of specific algorithms.
+%
+%Since I'm targeting different types of GPUs in current work, I'll add examples of how to do the interoperability with OpenCL only. Working with CUDA looks similar in principle, but differs in API implementation (different naming conventions, slightly different semantics when launching kernels).
+%% zaclenit do textu hore
+%ArrayFire manages its own context, queue, memory, and creates custom IDs for devices. As such, most of the interoperability functions focus on reducing potential synchronization conflicts between ArrayFire and OpenCL. There is some bookkeeping that needs to be done to integrate custom OpenCL kernel. If your kernels can share operate in the same queue as ArrayFire, you should:
+%
+%\begin{enumerate}
+%\item obtain the OpenCL context, device, and queue used by ArrayFire,
+%\item obtain \texttt{cl_mem} references to Array objects,
+%\item load, build, and use your kernels,
+%\item return control of Array memory to ArrayFire.
+%\end{enumerate}
+%
+%Note, ArrayFire uses an in-order queue, thus when ArrayFire and your kernels are operating in the same queue, there is no need to perform any synchronization operations.
+%
+%If your kernels needs to operate in their own OpenCL queue, the process is essentially identical, except you need to instruct ArrayFire to complete its computations using the sync function prior to launching your own kernel and ensure your kernels are complete using clFinish (or similar) commands prior to returning control of the memory to ArrayFire:
+%
+%\begin{enumerate}
+%\item obtain the OpenCL context, device, and queue used by ArrayFire,
+%\item obtain cl_mem references to Array objects,
+%\item instruct ArrayFire to finish operations using sync,
+%\item load, build, and use your kernels,
+%\item instruct OpenCL to finish operations using \texttt{clFinish()} or similar commands,
+%\item return control of Array memory to ArrayFire.
+%\end{enumerate}
+%
+%Adding ArrayFire to an existing application is slightly more involved and can be somewhat tricky due to several optimizations we implement. The most important are as follows:
+%
+%\begin{itemize}
+%\item ArrayFire assumes control of all memory provided to it.
+%\item ArrayFire does not (in general) support in-place memory transactions.
+%\end{itemize}
+%
+%To add ArrayFire to existing code you need to:
+%
+%\begin{enumerate}
+%\item instruct OpenCL to complete its operations using clFinish (or similar),
+%\item instruct ArrayFire to use the user-created OpenCL Context,
+%\item create ArrayFire arrays from OpenCL memory objects,
+%\item perform ArrayFire operations on the Arrays,
+%\item instruct ArrayFire to finish operations using sync,
+%\item obtain \texttt{cl_mem} references for important memory,
+%\item continue your OpenCL application.
+%\end{enumerate}
+%	
+%ArrayFire's memory manager automatically assumes responsibility for any memory provided to it. If you are creating an array from another RAII style object, you should retain it to ensure your memory is not deallocated if your RAII object were to go out of scope.
+%
+%If you do not wish for ArrayFire to manage your memory, you may call the \texttt{Array::unlock()} function and manage the memory yourself; however, if you do so, please be cautious not to call \texttt{clReleaseMemObj} on a \texttt{cl_mem} when ArrayFire might be using it!
+%
+%It is fairly straightforward to interface ArrayFire with your own custom code. ArrayFire provides several functions to ease this process. The pointer returned by \texttt{Array::device_ptr()} should be cast to \texttt{cl_mem} before using it with OpenCL opaque types. The pointer is a \texttt{cl_mem} internally that is force casted to pointer type by ArrayFire before returning the value to caller.
+%
+%Additionally, the OpenCL backend permits the programmer to add and remove custom devices from the ArrayFire device manager (Table \ref{table:afcl}). These permit you to attach ArrayFire directly to the OpenCL queue used by other portions of your application.
+%
+%\begin{table}[h!]
+%	\centering\small
+%	{\renewcommand{\arraystretch}{1.1}%
+%		{\setlength{\tabcolsep}{0.4em}
+%	\begin{tabular}{|c|c|} 
+%		\hline
+%		Function & Purpose \\
+%		\hline
+%		\texttt{add_device_context} & Add a new device to ArrayFire's device manager \\ 
+%		\hline
+%		\texttt{set_device_context} & Set ArrayFire's device from \texttt{cl_device_id} \& \texttt{cl_context} \\
+%		\hline
+%		\texttt{delete_device_context} & Remove a device from ArrayFire's device manager \\
+%		\hline
+%	\end{tabular}}}
+%	\caption{Functions for working with OpenCL context in ArrayFire-OpenCL interoperability scenario.}
+%	\label{table:afcl}
+%\end{table}
 
 \subsection{Accelerating Lattice Boltzmann Simulations with GPUs}
+% DONE
 
-% done
-Nowadays, the limiting factor is the cost of accessing data. It must be watched carefully in LBM applications, because it's going to be more and more demanding as the size of the problems to be simulated increases. A common LBM simulation program needs roughly 200 FLOPS per node and requires about 20 arrays. The amount of Bytes to be accessed in memory for one floating-point operation is in the order of 0.5 Bytes/FLOP. 
+The limiting factor in performance of LBM simulations is usually the cost of accessing data. It must be watched carefully, because it's going to be more and more demanding as the size of the problems to be simulated increases. A common LBM simulation program needs roughly 200 FLOPS per node and requires about 20 arrays. The amount of Bytes to be accessed in memory for one floating-point operation is in the order of 0.5 Bytes/FLOP. 
 
-% done
 To reduce the amount of GPU memory accesses, the data is loaded into extremely fast memory called \emph{cache} that is designed to keep up with the CPU. Useful simulations need large amounts of data to be processed, but loading all of them into cache is impossible as they tend to be limited to few Megabytes. Lattice's computational domain is usually represented by 2D or 3D grid of nodes, each carrying multiple data. Computer memory is one dimensional, which means that the element of 3D array of size $N^3$ lies $4 \times N^2$ bytes away from physically contiguous element. If we consider $x$, $y$ and $z$ axis of 3D domain, it is fine when searching for neighboring nodes in $x$ direction, which, as an innermost index, runs first. But searching for neighbors in $z$ direction for element $f(x,y,z+1)$ means that the distance in 1D memory (called \emph{stride}) would be large. To be able to quickly load such neighbor in $z$ direction, we would need to have whole stride loaded in cache, which would require tens of Megabytes for large simulations of $N \sim 1000$. Optimizing memory access is one of the most critical issues in accelerating large-scale LBM simulations.
 
-Developers have to be careful with the memory limitations, even though GPUs provide high memory bandwidth, as LBM algorithms tend to consume large amounts of memory for storing the data. GPU architecture is designed for high data throughput thanks to the combination of Single Instruction, Multiple Data (SIMD) execution model and multithreading, called Single Instruction, Multiple Threads (SIMT). With the parallel nature of the LBM algorithm, CFD simulations that use it can achieve high speeds not just on HPC systems but also PC workstations with a single GPU. For applications of real-time or online interactive visualization of the running simulation, getting to high frame rates is easier to achieve on such workstation PCs because of the high bandwidth of the PCIe slot. On networked HPC systems, the transfer speeds are limited by network throughput and higher latency. Therefore, transferring data from GPU on the HPC system back to the PC client for visualization is much slower \cite{linxweilerHighlyInteractiveComputational2010}. In this study, we use GPUs that have between 70 and 900 GB/s theoretical maximum memory bandwidth.
+Developers have to be careful with the memory limitations, even though GPUs provide high memory bandwidth, as LBM algorithms tend to consume large amounts of memory for storing the data. GPU architecture is designed for high data throughput thanks to the combination of Single Instruction, Multiple Data (SIMD) execution model and multithreading, called Single Instruction, Multiple Threads (SIMT). With the parallel nature of the LBM algorithm, CFD simulations that use it can achieve high speeds not just on HPC systems but also PC workstations with a single GPU. For applications of real-time or online interactive visualization of the running simulation, getting to high frame rates is easier to achieve on such workstation PCs because of the high bandwidth of the PCIe slot. On networked HPC systems, the transfer speeds are limited by network throughput and higher latency. Therefore, transferring data from GPU on the HPC system back to the PC client for visualization is much slower \citep{linxweilerHighlyInteractiveComputational2010}. In this study, we use GPUs that have between 70 and 900 GB/s theoretical maximum memory bandwidth.
 
-
-
-To get more computational power from GPUs, algorithm optimization techniques for parallel computing need to be considered. Compiled code needs to be vectorized and multithreaded to leverage parallel capabilities in massively parallel architectures \cite{delboscOptimizedImplementationLattice2014}. This is typically done by using specific compilation commands to automatically vectorize code (NVC++ compiler from NVIDIA with \texttt{stdpar}), writing GPU-specific code (compute kernels) with frameworks like CUDA and OpenCL, or compiling both CUDA and OpenCL from the same code without specialized compiler directives using cross-platform library like ArrayFire. In multi-GPU setups, Message Passing Interface (e.g. MPI, OpenMP) is usually employed.
+To get more computational power from GPUs, algorithm optimization techniques for parallel computing need to be considered. Compiled code needs to be vectorized and multithreaded to leverage parallel capabilities in massively parallel architectures \citep{delboscOptimizedImplementationLattice2014}. This is typically done by using specific compilation commands to automatically vectorize code (NVC++ compiler from NVIDIA with \texttt{stdpar}), writing GPU-specific code (compute kernels) with frameworks like CUDA and OpenCL, or compiling both CUDA and OpenCL from the same code without specialized compiler directives using cross-platform library like ArrayFire. In multi-GPU setups, Message Passing Interface (e.g. MPI, OpenMP) is usually employed.
 
 There has been an increase in studies focused on optimizing the execution speed of LBM algorithms, after the idea of using GPGPUs for CFD simulations started gaining traction more than a decade ago. It's been bolstered by the LBM's advantage in the locality of computations since only the values from neighbouring nodes are needed. 
 
-In this space, the most used APIs for programming GPUs are CUDA and OpenCL. CUDA (Compute Unified Device Architecture) is a proprietary API used to program NVIDIA GPUs \cite{stortiCUDAEngineersIntroduction2016}. OpenCL (Open Computing Language) is an open standard that supports different hardware from various vendors on the market \cite{karimiPerformanceComparisonCUDA}.
-
-Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \cite{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, boroniFULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \cite{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \cite{amalcolmArrayFireGPUAcceleration2012a}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
+Recently, multiple projects regarding 2D and 3D LBM simulations used CUDA or OpenCL for their parallel implementation targeting GPUs \citep{delboscRealTimeSimulationIndoor, delboscOptimizedImplementationLattice2014,  januszewskiSailfishFlexibleMultiGPU2014, boroniFULLGPUImplementation2017, kotsalosDigitalBloodMassively2019, kolihaOnlineVisualizationInteractive2015, szokePerformanceEvaluationTwoDimensional2017, harwoodLUMAManycoreFluid2018, harwoodParallelisationInteractiveLatticeBoltzmann2017}. There is increasing amount of studies on memory access efficiency and optimization techniques \citep{herschlagGPUDataAccess2018, tranPerformanceOptimization3D2017}. However, to accomplish near-optimal performance, it's extraordinary amount of work. Programming software for GPGPU is still very difficult \citep{malcolmArrayFireGPUAcceleration2012a}. Developers need to optimize for specific hardware and therefore have to know each architecture thoroughly. For this reason, such hardware-specific implementations in cross-platform code tend to get very complex.
 
 ArrayFire library can help by automatically leveraging the best hardware features available on multiple architectures, hiding the hardware-specific optimizations. Developers can write code in a high-level language like C++, Rust, or Python (for which the ArrayFire library wrapper exists) and have it compiled for CPU, GPU, or other accelerators like FPGA.
 
@@ -1021,7 +1007,7 @@ Many universities and engineering companies own and use CAVE systems. Researcher
 %
 %% nejake premostenie?
 %
-%An interesting look into the future of SCADA interfaces was presented in study by \cite{soeteMixedRealitySCADA2015}, in which they managed to implement a Augmented Reality (AR) supporting tool for SCADA application in simulated automated logistic process. It shows potential benefits of using VR and AR technologies in the development of supervisory control and support. AR and VR is fairly new and relatively unknown in the industry, so the integration of such technologies is still in its infancy.
+%An interesting look into the future of SCADA interfaces was presented in study by \citep{soeteMixedRealitySCADA2015}, in which they managed to implement a Augmented Reality (AR) supporting tool for SCADA application in simulated automated logistic process. It shows potential benefits of using VR and AR technologies in the development of supervisory control and support. AR and VR is fairly new and relatively unknown in the industry, so the integration of such technologies is still in its infancy.
 %
 %% Mozno spomenut este vyuztie computer vision libraries ako OpenCV (C++), ktore je potrebne vyuzit pre implementaciu mixed reality aplikacii v spojeni so SCADA systemami (sledovat co sa deje v realnom svete a dalej pracovat s tymito datami... spojit to s machine learningom a object recognition... 
 %
@@ -1326,7 +1312,7 @@ In the following section, we describe simple optimizations employed in our LBM-b
 
 \subsubsection{Data Organization}
 % DONE
-To ensure the most efficient memory throughput when programming for GPU is to ensure that memory access is coalesced \cite{tranPerformanceOptimization3D2017}. There are two common patterns for data organization: Array of Structures (AoS) and Structure of Arrays (SoA). Therefore if we consider a 1D array, in AoS, all discrete velocities in each node occupy consecutive elements of the array, and in SoA, the value of one discrete velocity direction from all nodes is arranged consecutively in memory, then the next direction in all nodes and so on. In a GPU-based LBM algorithm, it's beneficial to store values of distribution functions for each node in the computational domain represented by a grid in 1-dimensional array. For D2Q9 and D3Q27 stencils, this translates into storing single velocity direction for 2D grid represented by $N_x * N_y$ or 3D grid represented by $N_x * N_y * N_z$ nodes at a time, consecutively 9-times for D2Q9 and 27-times for D3Q27 respectively. Using Structure of Arrays (SoA) is significantly faster than Array of Structures (AoS) \cite{tranPerformanceOptimization3D2017, delboscOptimizedImplementationLattice2014}. This way the cache use is considerably improved \cite{Mawson2014InteractiveFI}.
+To ensure the most efficient memory throughput when programming for GPU is to ensure that memory access is coalesced \citep{tranPerformanceOptimization3D2017}. There are two common patterns for data organization: Array of Structures (AoS) and Structure of Arrays (SoA). Therefore if we consider a 1D array, in AoS, all discrete velocities in each node occupy consecutive elements of the array, and in SoA, the value of one discrete velocity direction from all nodes is arranged consecutively in memory, then the next direction in all nodes and so on. In a GPU-based LBM algorithm, it's beneficial to store values of distribution functions for each node in the computational domain represented by a grid in 1-dimensional array. For D2Q9 and D3Q27 stencils, this translates into storing single velocity direction for 2D grid represented by $N_x * N_y$ or 3D grid represented by $N_x * N_y * N_z$ nodes at a time, consecutively 9-times for D2Q9 and 27-times for D3Q27 respectively. Using Structure of Arrays (SoA) is significantly faster than Array of Structures (AoS) \citep{tranPerformanceOptimization3D2017, delboscOptimizedImplementationLattice2014}. This way the cache use is considerably improved \citep{Mawson2014InteractiveFI}.
 
 To create a SoA structure with 1D array to store particle distributions in all directions along whole computational domain, we can set first dimension of Array construct straightforwardly to the $n_x*n_y*n_z*Q$ number of elements, but for easier index creation further down the line, it's better to create 3D (or 4D in case of D3Q27) array initially and flatten it when used for heavy computation of actual simulation:
 
@@ -1345,7 +1331,7 @@ For streaming operation in LBM, we use ArrayFire's \texttt{shift} function for e
 
 \subsubsection{Removing Branch Divergence}
 % DONE
-When writing classical, imperative code, handling control flow is usually done by using \texttt{if-else} blocks, creating different possible branches. In multithreaded execution model like SIMT used in GPUs, the processor's threads execute different paths of the control flow, leading to poor utilisation due to thread-specific control flow using masking \cite{delboscOptimizedImplementationLattice2014}. Branch divergence is a major cause for performance degradation in GPGPU applications \cite{TAN2017649}. To keep the flow coherent for the processing threads, it's recommended to remove \texttt{if-else} blocks from the code (Alg. \ref{alg:branch-cpp}).
+When writing classical, imperative code, handling control flow is usually done by using \texttt{if-else} blocks, creating different possible branches. In multithreaded execution model like SIMT used in GPUs, the processor's threads execute different paths of the control flow, leading to poor utilisation due to thread-specific control flow using masking \citep{delboscOptimizedImplementationLattice2014}. Branch divergence is a major cause for performance degradation in GPGPU applications \citep{TAN2017649}. To keep the flow coherent for the processing threads, it's recommended to remove \texttt{if-else} blocks from the code (Alg. \ref{alg:branch-cpp}).
 
 \begin{lstlisting}[language=Cpp, caption=Pseudo-code showcasing the removal of branch divergence by removing if statement., label=alg:branch-pseudo]
 	// With branch divergence
@@ -1410,9 +1396,281 @@ With the solid indices, it's very easy to set the boundary conditions at solid n
 \subsubsection{Pull Scheme}
 %DONE, alebo dopisat par viet k porovnaniu Pull vs Push?
 
-Most common algorithms for the streaming phase in LBM solvers use push and pull scheme \cite{tranPerformanceOptimization3D2017, herschlagGPUDataAccess2018}. In the push scheme, the streaming step occurs after the collision step, at which point the particle distribution values are written to neighbouring nodes. This presents a misalignment of the memory locations, resulting in an uncoalesced writes, degrading the performance significantly. On the other hand, in pull scheme, streaming step occurs before collision step, at which point the neighbouring particle distribution values are gathered to the current nodes and then used for computations ending with collision step, after which the results are written directly to the current nodes. This way, the writes are coalesced in memory.
+Most common algorithms for the streaming phase in LBM solvers use push and pull scheme \citep{tranPerformanceOptimization3D2017, herschlagGPUDataAccess2018}. In the push scheme, the streaming step occurs after the collision step, at which point the particle distribution values are written to neighbouring nodes. This presents a misalignment of the memory locations, resulting in an uncoalesced writes, degrading the performance significantly. On the other hand, in pull scheme, streaming step occurs before collision step, at which point the neighbouring particle distribution values are gathered to the current nodes and then used for computations ending with collision step, after which the results are written directly to the current nodes. This way, the writes are coalesced in memory.
 
-The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one single write operation, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \cite{tranPerformanceOptimization3D2017}.
+The idea behind preferring coalesced writes to GPU device memory is that the requests for values that are stored at memory addresses within 128-byte range are combined into one single write operation, which saves memory bandwidth. It's generally accepted that the cost of the uncoalesced reading is smaller than the cost of the uncoalesced writing \citep{tranPerformanceOptimization3D2017}.
+
+% -----------------------------------------------------
+
+\subsection{Performance Analysis}\label{perf-analysis}
+% DONE
+The performance of computers used for scientific applications are commonly measure in floating point operations per second (FLOPS), which represents the time it takes for multiplying two 32 or 64 bit floating-point numbers.
+
+At the time of writing, the fastest supercomputer in the world runs at roughly 440 PetaFLOPS ($440\times10^{15}$). The next milestone in computer engineering is to build a supercomputer capable of running at speeds exceeding 1 ExaFLOPS ($10^{18}$). In contrast to HPC systems, the fastest GPU on consumer market, at the time of writing, is NVIDIA's GeForce RTX 3090 that peaks at 35 TeraFLOPS.
+
+Performance of LBM simulations is measured in ``Million Lattice Updates Per Second" (MLUPS), which is a standard unit of measurement within the LBM research community. It states that the simulation code updates a computational domain of million cells in lattice during one CPU second. The same metric is used for both single and double-precision floating-point operations in benchmarked simulations. 
+
+\subsubsection{Hardware}\label{sec:hardware-gpus}
+% DONE
+Since ArrayFire allows for using not only GPU backends but also CPU, we added a CPU benchmarks executed on Intel Core i7 6800K running at 3.40GHz. Performance peaked at around 19 MLUPS and stayed the same between various domain sizes across both academic test cases.
+
+Most of the GPU benchmarks were done using both CUDA and OpenCL backends, although differences between them were minimal. Therefore in following tables and graphical representations of the data, we show MLUPS numbers solely from OpenCL benchmarks, since testing on this platform allowed us to perform benchmarks not only on NVIDIA hardware, but also on AMD GPU.
+
+We tested the solver performance on 4 different GPUs. The AMD Radeon R9 M370X is of mobile GPU type installed in laptops. In the current study, the AMD GPU was tested on the higher-end Macbook Pro 2015. The NVIDIA GTX 1070 is the average desktop GPU and its price at the time of writing this article is \$443.78 USD according to PassMark G3D Mark (a GPU benchmarking website). The NVIDIA RTX 3090 is a top-of-the-line, consumer-grade, enthusiast-level GPU with the price of \$2139.99 USD according to PassMark G3D Mark at the time of writing. Also, to test the performance across multiple architectures of NVIDIA GPU cards, we added a NVIDIA GeForce RTX 2080 Ti to the suite of benchmarks.
+
+\begin{table*}[!ht]
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.4em}
+			\begin{tabular}{ |p{4.3cm}||p{2.1cm}|p{2.2cm}|p{2.2cm}|p{2.5cm}| }
+				\hline
+				& R9 M370X \newline(AMD) & GTX 1070 \newline(NVIDIA) & RTX 2080 Ti \newline(NVIDIA) & RTX 3090 \newline(NVIDIA) \\
+				\hline
+				Architecture   & GCN 1.0 & Pascal  & Turing &  Ampere  \\
+				\hline
+				Number of cores (CU/SM)   & 640 (10 CU) & 1920~(15~SM)   &  4352 (68 SM) &  10496 (82 SM) \\
+				\hline
+				Peak f32 perf. (TFLOPS)   & 1.024  & 6.463  & 13.45 &  35.58 \\
+				\hline
+				Memory clock (MHz)   & 1125  & 2002   & 1750 &   1219 \\
+				\hline
+				Memory bandwidth (GB/s)   & 72.00  & 256.3   & 616.0 &   936.2 \\
+				\hline
+				L1 cache size (KB)   & 16  & 48   & 64 &   128 \\
+				\hline
+	\end{tabular}}}
+	\caption{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url{https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.}
+	\label{tab:gpus}
+\end{table*}
+
+\subsubsection{Results}
+
+In 2D lid-driven cavity test, benchmarks showed great results with significant speedup compared to CPU backend (Table \ref{tab:lid-mlups-all-2d}).
+
+\begin{table}[!ht]
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+			\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.1cm}|  }
+				\hline
+				Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+				\hline
+				64$\times$64   & 23 & 40  & 11  & 55  \\
+				\hline
+				128$\times$128   & 59 & 226  & 50   & 225  \\
+				\hline
+				256$\times$256   & 97 & 675  & 186   & 868  \\
+				\hline
+				512$\times$512   & 120 & 1006  & 600   & 2890  \\
+				\hline
+				1024$\times$1024   & 111 & 1143   & 1401   & 4620  \\
+				\hline
+				2048$\times$2048   & - & 1200  & 2195  & 5465  \\
+				\hline
+				4096$\times$4096   & - & -  & 2394  & 5730  \\
+				\hline
+	\end{tabular}}}
+	\caption{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\label{tab:lid-mlups-all-2d}
+\end{table}
+
+Single floating-point (f32) calculations perform significantly faster than double-precision (f64). The difference between f32 and f64 computation is the doubling of the problem data size. ArrayFire's Array objects are typed, i.e. syntactic construction of a f32 type array looks different from f64 array. It's not hidden in any fashion. In fact, the programmer needs to know what type they are using as performance on accelerators (GPUs) is not the same for all types, scalar or vector types. Type dictates the size of memory on the GPU that will be used, and hence the amount of bandwidth that can be utilized during data transfers. Usually similar sized types have similar data transfer characteristics. Doubles are theoretically expected to have half the performance given by Floats. This difference can be seen in D2Q9 lid-driven cavity and Kármán vortex test cases (Figure~\ref{fig:d2q9_lid_mlups_f32} ,\ref{fig:d2q9_lid_mlups_f64}, \ref{fig:d2q9_channel_mlups_f32}, \ref{fig:d2q9_channel_mlups_f64}, but it's manifesting much better in D3Q27-MRT lid-driven cavity benchmarks (Figure~\ref{fig:d3q27_lid_mlups_f32} ,\ref{fig:d3q27_lid_mlups_f64}).
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
+	\label{fig:d2q9_lid_mlups_f32}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
+	\label{fig:d2q9_lid_mlups_f64}
+\end{figure}
+
+For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{tab:channel-mlups}). The performance spikes in so-called "warm-up" phase at the start of simulation were less significant in double-precision benchmarks than in lid-driven cavity test. 
+
+\begin{table}[!ht]
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+			\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.21cm}|  }
+				\hline
+				Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+				\hline
+				300$\times$100   & 73 & 340 & 361    & 361  \\
+				\hline
+				420$\times$150   & 93 & 627 & 122    & 740  \\
+				\hline
+				600$\times$200   & 107 & 810 & 180    & 1343  \\
+				\hline
+				1000$\times$300   & 123 & 1007 & 325    & 3000  \\
+				\hline
+				1500$\times$400   & 117 & 1100 & 731    & 4055  \\
+				\hline
+				2000$\times$500   & 130 & 1140 & 1010    & 4510  \\
+				\hline
+				3000$\times$1000   & 113 & 1175 & 1311    & 5313  \\
+				\hline
+				4200$\times$1500   & - & 1194 & 2016    & 5557  \\
+				\hline
+				6000$\times$2000   & - & - & 2522  & 5670  \\
+				\hline
+				10000$\times$3000   & - & - & -   & 5720  \\
+				\hline
+	\end{tabular}}}
+	\caption{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\label{tab:channel-mlups}
+\end{table}
+
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_channel_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
+	\label{fig:d2q9_channel_mlups_f32}
+\end{figure}
+
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_channel_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_channel_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
+	\label{fig:d2q9_channel_mlups_f64}
+\end{figure}
+
+Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases are slightly higher than the study reported by Boroni et. al \citep{boroniFULLGPUImplementation2017}, in which they reported 80 MLUPS at peak performance achieved on NVIDIA GeForce GTX 580 GPU. The AMD Radeon R9 M370X GPU used in our work can be seen as similarly performing card. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{data/max_mlups_2d.pdf}
+	\caption{Peak performance of single-precision LBM simulations on D2Q9 stencil.}
+	\label{fig:max_mlups}
+\end{figure}
+
+For the 3D LBM simulation with D3Q27 stencil and multiple-relaxation time (MRT), results showed the computation speeds reaching up to 1500 MLUPS in single-precision (Figure~\ref{fig:d3q27_lid_mlups_f32}) and up to 490 MLUPS in double-precision benchmarks Figure~\ref{fig:d3q27_lid_mlups_f64}. The MRT is much more computationally intensive than BGK and with the 27 particle distributions to track, the difference between D2Q9 and D3Q27 is significant. The memory bandwidth for D3Q27 lid-driven cavity tests is much higher, therefore we were limited to grids under $128^3$ in current implementation.
+
+In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectations and actual results (Table \ref{tab:lid-mlups-all-3d}). The performance is lower in coarse grids ($16^3$ and $32^3$) with more powerful RTX 2080 Ti conversely to higher performance reported with weaker GTX 1070 (Figure~\ref{fig:d3q27_lid_mlups_gtx1070_32bit} and Figure~\ref{fig:d3q27_lid_mlups_rtx2080ti_32bit}). This points to the well-known problem of representing multi-dimensional data in the most optimal way stop GPU from cache misses. It means the data organization of 27 individual distribution functions in D3Q27 lattice nodes along 3D grid has to be rethought and reimplemented to address this issue.  
+
+\begin{table}[!ht]
+	\centering\small
+	{\renewcommand{\arraystretch}{1.1}%
+		{\setlength{\tabcolsep}{0.5em}
+			\begin{tabular}{ |p{3.2cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
+				\hline
+				Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
+				\hline
+				16$\times$16$\times$16   & 7 & 25  & 28  & 40  \\
+				\hline
+				32$\times$32$\times$32   & 18 & 155  & 70   & 225  \\
+				\hline
+				64$\times$64$\times$64   & 97 & 675  & 186   & 868  \\
+				\hline
+				128$\times$128$\times$128   & 120 & 1006  & 600   & 2890  \\
+				\hline
+	\end{tabular}}}
+	\caption{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
+	\label{tab:lid-mlups-all-3d}
+\end{table}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_32bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d3q27_mrt_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.}
+	\label{fig:d3q27_lid_mlups_f32}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}\qquad
+	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_64bit}]{%
+		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d3q27_mrt_lid_mlups.pdf}%
+	}
+	\captionsetup{justification=centering}
+	\caption{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..}
+	\label{fig:d3q27_lid_mlups_f64}
+\end{figure}
+
+When comparing the 3D performance of LBM solvers, and specifically those using D3Q27 stencil with multiple-relaxation times, our LBM-MRT solver has still lot of room for improvement. One of the fastest solvers on the market for such 3D LBM smulation is Sailfish \citep{januszewskiSailfishFlexibleMultiGPU2014}. They take advantage of multi-GPU and many-core CPU support in their software, but even for single-GPU, our solver doesn't reach the satisfactory speeds comparable to Sailfish. In D3Q27 solver described in this work, maximum MLUPS achieved for single-precision calculations in 3D test cases on similar hardware is shown in Figure~\ref{fig:max_mlups_3d}. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{data/max_mlups_3d.pdf}
+	\caption{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.}
+	\label{fig:max_mlups_3d}
+\end{figure}
+
+% ----------------------------------------------------
 
 \subsection{Virtual Reality User Interface}\label{sec:vrui}
 % DONE
@@ -1907,292 +2165,49 @@ void ToggleSimPlayback() {
 
 % ----------------------------------------------------------------
 
-\subsection{Performance Analysis}\label{perf-analysis}
-% DONE
-The performance of computers used for scientific applications are commonly measure in floating point operations per second (FLOPS), which represents the time it takes for multiplying two 32 or 64 bit floating-point numbers.
-
-At the time of writing, the fastest supercomputer in the world runs at roughly 440 PetaFLOPS ($440\times10^{15}$). The next milestone in computer engineering is to build a supercomputer capable of running at speeds exceeding 1 ExaFLOPS ($10^{18}$). In contrast to HPC systems, the fastest GPU on consumer market, at the time of writing, is NVIDIA's GeForce RTX 3090 that peaks at 35 TeraFLOPS.
-
-Performance of LBM simulations is measured in ``Million Lattice Updates Per Second" (MLUPS), which is a standard unit of measurement within the LBM research community. It states that the simulation code updates a computational domain of million cells in lattice during one CPU second. The same metric is used for both single and double-precision floating-point operations in benchmarked simulations. 
-
-\subsubsection{Hardware}\label{sec:hardware-gpus}
-% DONE
-Since ArrayFire allows for using not only GPU backends but also CPU, we added a CPU benchmarks executed on Intel Core i7 6800K running at 3.40GHz. Performance peaked at around 19 MLUPS and stayed the same between various domain sizes across both academic test cases.
-
-Most of the GPU benchmarks were done using both CUDA and OpenCL backends, although differences between them were minimal. Therefore in following tables and graphical representations of the data, we show MLUPS numbers solely from OpenCL benchmarks, since testing on this platform allowed us to perform benchmarks not only on NVIDIA hardware, but also on AMD GPU.
-
-We tested the solver performance on 4 different GPUs. The AMD Radeon R9 M370X is of mobile GPU type installed in laptops. In the current study, the AMD GPU was tested on the higher-end Macbook Pro 2015. The NVIDIA GTX 1070 is the average desktop GPU and its price at the time of writing this article is \$443.78 USD according to PassMark G3D Mark (a GPU benchmarking website). The NVIDIA RTX 3090 is a top-of-the-line, consumer-grade, enthusiast-level GPU with the price of \$2139.99 USD according to PassMark G3D Mark at the time of writing. Also, to test the performance across multiple architectures of NVIDIA GPU cards, we added a NVIDIA GeForce RTX 2080 Ti to the suite of benchmarks.
-
-\begin{table*}[!ht]
-	\centering\small
-	{\renewcommand{\arraystretch}{1.1}%
-		{\setlength{\tabcolsep}{0.4em}
-	\begin{tabular}{ |p{4.3cm}||p{2.1cm}|p{2.2cm}|p{2.2cm}|p{2.5cm}| }
-		\hline
-		& R9 M370X \newline(AMD) & GTX 1070 \newline(NVIDIA) & RTX 2080 Ti \newline(NVIDIA) & RTX 3090 \newline(NVIDIA) \\
-		\hline
-		Architecture   & GCN 1.0 & Pascal  & Turing &  Ampere  \\
-		\hline
-		Number of cores (CU/SM)   & 640 (10 CU) & 1920~(15~SM)   &  4352 (68 SM) &  10496 (82 SM) \\
-		\hline
-		Peak f32 perf. (TFLOPS)   & 1.024  & 6.463  & 13.45 &  35.58 \\
-		\hline
-		Memory clock (MHz)   & 1125  & 2002   & 1750 &   1219 \\
-		\hline
-		Memory bandwidth (GB/s)   & 72.00  & 256.3   & 616.0 &   936.2 \\
-		\hline
-		L1 cache size (KB)   & 16  & 48   & 64 &   128 \\
-		\hline
-	\end{tabular}}}
-	\caption{GPU hardware specifications. These were used for benchmarking the LBM simulation software described in this work (taken from \url{https://www.techpowerup.com/gpu-specs/}). SM - streaming multiprocessor, CU - computing units.}
-	\label{tab:gpus}
-\end{table*}
-
-\subsubsection{Results}
-
-In 2D lid-driven cavity test, benchmarks showed great results with significant speedup compared to CPU backend (Table \ref{tab:lid-mlups-all-2d}).
-
-\begin{table}[!ht]
-	\centering\small
-	{\renewcommand{\arraystretch}{1.1}%
-		{\setlength{\tabcolsep}{0.5em}
-	\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.1cm}|  }
-		\hline
-		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
-		\hline
-		64$\times$64   & 23 & 40  & 11  & 55  \\
-		\hline
-		128$\times$128   & 59 & 226  & 50   & 225  \\
-		\hline
-		256$\times$256   & 97 & 675  & 186   & 868  \\
-		\hline
-		512$\times$512   & 120 & 1006  & 600   & 2890  \\
-		\hline
-		1024$\times$1024   & 111 & 1143   & 1401   & 4620  \\
-		\hline
-		2048$\times$2048   & - & 1200  & 2195  & 5465  \\
-		\hline
-		4096$\times$4096   & - & -  & 2394  & 5730  \\
-		\hline
-	\end{tabular}}}
-	\caption{Peak MLUPS of lid-driven cavity test case in 2D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
-	\label{tab:lid-mlups-all-2d}
-\end{table}
-
-Single floating-point (f32) calculations perform significantly faster than double-precision (f64). The difference between f32 and f64 computation is the doubling of the problem data size. ArrayFire's Array objects are typed, i.e. syntactic construction of a f32 type array looks different from f64 array. It's not hidden in any fashion. In fact, the programmer needs to know what type they are using as performance on accelerators (GPUs) is not the same for all types, scalar or vector types. Type dictates the size of memory on the GPU that will be used, and hence the amount of bandwidth that can be utilized during data transfers. Usually similar sized types have similar data transfer characteristics. Doubles are theoretically expected to have half the performance given by Floats. This difference can be seen in D2Q9 lid-driven cavity and Kármán vortex test cases (Figure~\ref{fig:d2q9_lid_mlups_f32} ,\ref{fig:d2q9_lid_mlups_f64}, \ref{fig:d2q9_channel_mlups_f32}, \ref{fig:d2q9_channel_mlups_f64}, but it's manifesting much better in D3Q27-MRT lid-driven cavity benchmarks (Figure~\ref{fig:d3q27_lid_mlups_f32} ,\ref{fig:d3q27_lid_mlups_f64}).
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_lid_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Single-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
-	\label{fig:d2q9_lid_mlups_f32}
-\end{figure}
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_lid_mlup_r9_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_lid_mlup_gtx1070_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_lid_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_lid_mlup_rtx3090_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_lid_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Double-precision performance analysis of 2D lid-driven cavity on D2Q9 stencil.}
-	\label{fig:d2q9_lid_mlups_f64}
-\end{figure}
-
-For the 2D Kármán vortex test case, benchmarks showed similar results (\ref{tab:channel-mlups}). The performance spikes in so-called "warm-up" phase at the start of simulation were less significant in double-precision benchmarks than in lid-driven cavity test. 
-
-\begin{table}[!ht]
-	\centering\small
-	{\renewcommand{\arraystretch}{1.1}%
-		{\setlength{\tabcolsep}{0.5em}
-	\begin{tabular}{ |p{2.7cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.21cm}|  }
-		\hline
-		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
-		\hline
-		300$\times$100   & 73 & 340 & 361    & 361  \\
-		\hline
-		420$\times$150   & 93 & 627 & 122    & 740  \\
-		\hline
-		600$\times$200   & 107 & 810 & 180    & 1343  \\
-		\hline
-		1000$\times$300   & 123 & 1007 & 325    & 3000  \\
-		\hline
-		1500$\times$400   & 117 & 1100 & 731    & 4055  \\
-		\hline
-		2000$\times$500   & 130 & 1140 & 1010    & 4510  \\
-		\hline
-		3000$\times$1000   & 113 & 1175 & 1311    & 5313  \\
-		\hline
-		4200$\times$1500   & - & 1194 & 2016    & 5557  \\
-		\hline
-		6000$\times$2000   & - & - & 2522  & 5670  \\
-		\hline
-		10000$\times$3000   & - & - & -   & 5720  \\
-		\hline
-	\end{tabular}}}
-	\caption{Peak MLUPS of 2D Kármán vortex street test case with BGK collision operator. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
-	\label{tab:channel-mlups}
-\end{table}
-
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d2q9_bgk_channel_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Single-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
-	\label{fig:d2q9_channel_mlups_f32}
-\end{figure}
-
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d2q9_channel_mlup_r9_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d2q9_channel_mlup_gtx1070_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d2q9_channel_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d2q9_bgk_channel_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d2q9_channel_mlup_rtx3090_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d2q9_bgk_channel_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Double-precision performance analysis of 2D Kármán vortex on D2Q9 stencil.}
-	\label{fig:d2q9_channel_mlups_f64}
-\end{figure}
-
-Maximum MLUPS of the GPUs for single-precision calculations for 2D test cases are slightly higher than the study reported by Boroni et. al \cite{boroniFULLGPUImplementation2017}, in which they reported 80 MLUPS at peak performance achieved on NVIDIA GeForce GTX 580 GPU. The AMD Radeon R9 M370X GPU used in our work can be seen as similarly performing card. 
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{data/max_mlups_2d.pdf}
-	\caption{Peak performance of single-precision LBM simulations on D2Q9 stencil.}
-	\label{fig:max_mlups}
-\end{figure}
-
-For the 3D LBM simulation with D3Q27 stencil and multiple-relaxation time (MRT), results showed the computation speeds reaching up to 1500 MLUPS in single-precision (Figure~\ref{fig:d3q27_lid_mlups_f32}) and up to 490 MLUPS in double-precision benchmarks Figure~\ref{fig:d3q27_lid_mlups_f64}. The MRT is much more computationally intensive than BGK and with the 27 particle distributions to track, the difference between D2Q9 and D3Q27 is significant. The memory bandwidth for D3Q27 lid-driven cavity tests is much higher, therefore we were limited to grids under $128^3$ in current implementation.
-
-In 3D lid-driven cavity test, benchmarks showed inconsistencies with expectations and actual results (Table \ref{tab:lid-mlups-all-3d}). The performance is lower in coarse grids ($16^3$ and $32^3$) with more powerful RTX 2080 Ti conversely to higher performance reported with weaker GTX 1070 (Figure~\ref{fig:d3q27_lid_mlups_gtx1070_32bit} and Figure~\ref{fig:d3q27_lid_mlups_rtx2080ti_32bit}). This points to the well-known problem of representing multi-dimensional data in the most optimal way stop GPU from cache misses. It means the data organization of 27 individual distribution functions in D3Q27 lattice nodes along 3D grid has to be rethought and reimplemented to address this issue.  
-
-\begin{table}[!ht]
-	\centering\small
-	{\renewcommand{\arraystretch}{1.1}%
-		{\setlength{\tabcolsep}{0.5em}
-	\begin{tabular}{ |p{3.2cm}||p{2.2cm}|p{2.2cm}|p{2.4cm}|p{2.2cm}|  }
-		\hline
-		Domain & R9 M370X & GTX~1070 & RTX~2080~Ti & RTX 3090 \\
-		\hline
-		16$\times$16$\times$16   & 7 & 25  & 28  & 40  \\
-		\hline
-		32$\times$32$\times$32   & 18 & 155  & 70   & 225  \\
-		\hline
-		64$\times$64$\times$64   & 97 & 675  & 186   & 868  \\
-		\hline
-		128$\times$128$\times$128   & 120 & 1006  & 600   & 2890  \\
-		\hline
-	\end{tabular}}}
-	\caption{Peak MLUPS of lid-driven cavity test case in 3D. The data represents single-precision floating point computation (taking only the steady performance after initial warm-up and removal of sudden spikes).}
-	\label{tab:lid-mlups-all-3d}
-\end{table}
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_32bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_32bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_32bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_32bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_32bit_d3q27_mrt_lid_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Single-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time.}
-	\label{fig:d3q27_lid_mlups_f32}
-\end{figure}
-
-\begin{figure}[!ht]
-	\centering
-	\subfloat[Performance on Radeon R9 M370X GPU.\label{fig:d3q27_lid_mlups_r9_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/r9_64bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on GTX 1070 GPU.\label{fig:d3q27_lid_mlups_gtx1070_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/gtx1070_64bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 2080 Ti GPU.\label{fig:d3q27_lid_mlups_rtx2080ti_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx2080ti_64bit_d3q27_mrt_lid_mlups.pdf}%
-	}\qquad
-	\subfloat[Performance on RTX 3090 GPU.\label{fig:d3q27_lid_mlups_rtx3090_64bit}]{%
-		\includegraphics[width=0.45\textwidth]{data/rtx3090_64bit_d3q27_mrt_lid_mlups.pdf}%
-	}
-	\captionsetup{justification=centering}
-	\caption{Double-precision performance analysis of 3D lid-driven cavity on D3Q27 stencil with multiple-relaxation time..}
-	\label{fig:d3q27_lid_mlups_f64}
-\end{figure}
-
-When comparing the 3D performance of LBM solvers, and specifically those using D3Q27 stencil with multiple-relaxation times, our LBM-MRT solver has still lot of room for improvement. One of the fastest solvers on the market for such 3D LBM smulation is Sailfish \cite{januszewskiSailfishFlexibleMultiGPU2014}. They take advantage of multi-GPU and many-core CPU support in their software, but even for single-GPU, our solver doesn't reach the satisfactory speeds comparable to Sailfish. In D3Q27 solver described in this work, maximum MLUPS achieved for single-precision calculations in 3D test cases on similar hardware is shown in Figure~\ref{fig:max_mlups_3d}. 
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{data/max_mlups_3d.pdf}
-	\caption{Peak performance of single-precision LBM simulations on D3Q27 stencil with multiple-relaxation time.}
-	\label{fig:max_mlups_3d}
-\end{figure}
-
 \section{Conclusions}\label{sec:conclusion}
+% DONE
+Over the last few decades, fluid dynamics modeling and numerical simulation based on the Navier-Stokes equations has undergone great progress. Thanks to the Moore's law and the resulting increase in computational power, with software development tools getting better, the numerical simulation became more accessible. However, after an analysis of the state of the art of modeling and simulation using modern methods, I've stumbled upon a new approach that has surfaced during its extensive development over last two decades, called Lattice Boltzmann method (LBM).
 
-For this thesis, the cross-platform LBM solver that can be used on variety of parallel accelerators (e.g. GPUs, CPUs or FPGAs) was implemented. It uses ArrayFire, a high-performance parallel computing library (version 3.8.0 was used for this work). We created reference implementation in C++ and ported the same code to Rust. We chose Rust because it has modern capabilities, is memory safe and its performance is comparable to C/C++. We were able to produce sufficient LBM solver in under 150 lines of code, including real-time visualization code. Benchmarks were concluded for both C++ and Rust versions, resulting in identical performance. Data reported in this study are taken from the Rust version. 
+LBM has slowly got its way into CFD research because it offers many benefits over classical methods that rely on directly solving Navier-Stokes equations and the resulting non-linearities. LBM is positioned in between a molecular and continuum spectrum, being a mesoscopic method.
 
-For the benchmarks, we analyzed two classical, academic test cases, the lid-driven cavity and Kármán vortex street (flow around the obstacle in pipe). We employed commonly used metric for measuring speed of LBM implementations, the MLUPS. We benchmarked our LBM implementation on 5 different GPUs and one CPU. Between CPU and GPU, we saw from 4 to more than 300 times speedup on various GPUs.
+By combining LBM with its good parallelization properties with massively parallel architectures like GPUs, the resulting numerical simulation can be made extremely fast.
+
+In this dissertation, I've designed and implemented an immersive environment that combines modern methods for modeling and simulation based on LBM with virtual reality interface to explore new ways of interaction with fast, interactive simulations. This software application consists of three parts, namely: (1) simulation part (LBM solver), (2) visualization part, and (3) human-computer interaction (HCI) part. 
+
+For the simulation part, the cross-platform LBM solver that can be used on variety of parallel accelerators (e.g. GPUs, CPUs or FPGAs) was implemented. It uses ArrayFire, a high-performance parallel computing library (version 3.8.0 was used for this work). I've created a reference implementation in C++ and ported the same code to Rust. I've chosen Rust because it has modern capabilities, provides memory safety and its performance is comparable to C/C++. I was able to produce sufficient LBM solver in under 150 lines of code, including real-time visualization code that was only used for the prototyping phase. Performance analysis of a LBM solver was done on two classical, academic test cases: (1) lid-driven cavity, and (2) Kármán vortex street (flow around the obstacle in pipe). Commonly used metric was employed for measuring speed of LBM implementations, the MLUPS, or \emph{million lattice updates per second}. LBM implementation was benchmarked on 4 different GPUs and one CPU. Benchmarks were concluded for both C++ and Rust versions, resulting in identical performance. Data reported in this study are taken from the Rust version. Between CPU and GPU, benchmarks showed 4 to more than 300 times speedup on various GPUs.
+
+For the visualization and HCI parts, Unity engine was used. It helped with most of the underlying processes for rendering that is usually common across software that draws objects in 3D to screen. However, Unity's capabilities allowed for creation of cross-platform virtual reality (VR) environment with immersive user interface, that was synthesized with simulation and visualization parts. This resulted in a cohesive VR experience, where everything user does happens through means of VR hardware. 
+
+Between simulation and visualization parts, there lies an interconnection in a form of Foreign Function Interface (FFI) that allows Unity, in which visualization and interaction parts are created and all the programming happens in C\# language, ``talk" to the simulation part (a LBM solver), which is written from scratch in Rust language. When user changes the interactive slider, updated value is sent as an argument to the Rust function which deterministically runs each simulation iteration, passing in the updated value into the LBM solver. That re-computes new iteration, sends the data back to Unity, where they are loaded into the 2D texture. This happens fast, which user perceives as instant change of a visualization, allowing her to see resulting feedback immediately. For example, changing inflow speed of the Kármán vortex simulation, user can immediately see a wave that starts propagating from the side where fluid enters the pipe. Similarly, changing the Reynolds number in turn updates the ratio of the inertial forces to the viscous forces, and user can see a change of the fluid flow between laminar and turbulent.
 
 \section{Discussion}\label{sec:discussion}
+
+In this section, I'll discuss the future work 
+
+The results indicate that…
+The study demonstrates a correlation between…
+This analysis supports the theory that…
+
+Since only the 2D simulation was coupled with the VR visualization environment, only the the speed requirements of D2Q9 LBM implementation in the current solver was proved sufficient by actual integration into working software application. For 3D simulations, the question of performance requirements can be only answered by looking at the data from performance analysis of the D3Q27 LBM implementation. The benchmarks suggest that performance visibly degrades when going from 2D to 3D simulation. For 3D simulation to be fast enough for successfully coupling it with VR visualization, it has to be running on better hardware\textemdash that means faster and more expensive GPUs. Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \citep{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
+
+
+
+Oculus Quest as a standalone VR is great device for games and applications that need only baseline VR performance... When used for scientific visualization in standalone mode, the communication would have to be wireless and implemented with client-server architecture, which means the speed of sending data would deteriorate the usefulness of such application. It's still possible to use Oculus Quest for scientific visualization in VR, but it has to be connected to the PC workstation by USB-C or an equivalent proprietary cable called Oculus Link, which is not part of the standard package. It has to be bought separately.
+
+The issue with efficiently sending the simulation data over wireless network manifests itself when the support for augmented reality devices comes into question.
+
+The augmented reality (AR) apps can be build from single codebase with Unity. Developers need to plan ahead and decide whether they want to target VR users, AR users or have the app be used by both device types (VR and AR). Usually, the term Mixed Reality is used to describe apps that target both types of devices. In this work, the focus was only on VR. Although in future, the AR looks as promising technology for specific usecases across scientific visualization, simulation and modeling industry. By leveraging Unity engine for the development of the visualization software for  this thesis, extending the software to support AR will be straightforward process.
+
+% ---------------------------------
 
 \subsection{Future Work}
 
 As with work such as these
 
-\subsubsection{Load Balancing in Multi-GPU Setups}
-\label{sec:load-balancing}
+Thanks to the synthesis of fast, interactive simulations with immersive VR interface, user is able to dive into the experimentation phase which is . If some phenomena in the studied 
 
-With heterogenous GPU computing constraints (that means, group of GPUs each with different processing power, memory bandwidth or memory layout), load balancing is critical in this setting, therefore it has to be considered. To avoid wasteful delays, all computational units should do the same amount of work. 
 
-Focus of this study was to test performance of ArrayFire implementation of LBM codes on a single GPU. Some literature mentions simple extension to algorithms written with ArrayFire to add multiple GPU support in 4 lines of code \cite{malcolmArrayFireGPUAcceleration2012a}. Implementation like this is great for simple usecases and systems with the same type of GPU to prevent load-balancing issues. Proper multi-GPU support is planned in future versions of ArrayFire library that will be compatible with its Unified Backend convention. Therefore, we're eager to integrate multi-GPU support in future and test performance on heterogenous HPC systems when explicit mutli-GPU will be ready.
 
 % -------------------------------
 
@@ -2217,23 +2232,13 @@ Oculus Quest as a standalone VR is great device for games and applications that 
 
 Also, the augmented reality (AR) apps can be build from single codebase with Unity. Developers need to plan ahead and decide whether they want to target VR users, AR users or have the app be used by both device types (VR and AR). Usually, the term Mixed Reality is used to describe apps that target both types of devices. In this work, the focus was only on VR. Although in future, the AR looks as promising technology for specific usecases across scientific visualization, simulation and modeling industry. By leveraging Unity engine for the development of the visualization software for  this thesis, extending the software to support AR will be straightforward process.
 
-\subsubsection{Simulation as an Educational Tool}
-%
-%In some simplified form, combinations of numerical simulations and visualizations of steel- making processes can be used as a educational tool in process control courses at technical universities. The aim of the online, web-based interactive simulation of basic oxygen steelmaking at steeluniversity.org shown in Figure~ \ref{fig:steeluniversity} is to introduce students to this process in a more fun and engaging way.
-%
-%\begin{figure}[!ht]
-%	\label{fig:steeluniversity}
-%	\centering
-%	\includegraphics[width=0.8\textwidth]{figures/steeluniversity.jpg}
-%	\caption{Interactive, educational simulation of basic oxygen steelmaking by steeluniversity.org.}
-%\end{figure}
 
 
-% USE AT YOUR OWN RISK
+% NEDOSTALO SA DO DIZERTACKY
 
 %\section{Basic Oxygen Furnace (BOF)}
 %
-%The oxygen converter process (LD/BOF and its derivatives) is a refinement step in the production of steel from ore. The main purpose of the process is to remove excess carbon from the pig iron produced in the blast furnace. The main feature of the process is to add oxygen through a top lance, in order to remove unwanted impurities through oxidation. It is the main method of carbon and low alloy steelmaking, annual production approaching to 60\% of total crude steel production \cite{Jalkanen2006}. BOF is a widely preferred and effective steelmaking method due to its high productivity and considerably low production cost \cite{Wang2010}. LD/BOF process consists of these subprocesses:
+%The oxygen converter process (LD/BOF and its derivatives) is a refinement step in the production of steel from ore. The main purpose of the process is to remove excess carbon from the pig iron produced in the blast furnace. The main feature of the process is to add oxygen through a top lance, in order to remove unwanted impurities through oxidation. It is the main method of carbon and low alloy steelmaking, annual production approaching to 60\% of total crude steel production \citep{Jalkanen2006}. BOF is a widely preferred and effective steelmaking method due to its high productivity and considerably low production cost \citep{Wang2010}. LD/BOF process consists of these subprocesses:
 %
 %\begin{enumerate}
 %	\item Charging slag
@@ -2243,7 +2248,7 @@ Also, the augmented reality (AR) apps can be build from single codebase with Uni
 %	\item Tapping of slag
 %\end{enumerate}
 %
-%The first commercial operation of steelmaking with oxygen top blowing in the converter was in the early 1950s at Linz and Donawitz (Austria). This manner of steelmaking became known as Linz-Donawitz or LD process. For many years now, most of the steel has been made by top oxygen blowing for which different names are given. For example, in European steel plants the process is still called LD; in the UK, BOS (basic oxygen steel- making); in the Far East and America, BOF (basic oxygen furnace), with the exception of U.S. Steel where it is called basic oxygen process \cite{Turkdogan1996}.
+%The first commercial operation of steelmaking with oxygen top blowing in the converter was in the early 1950s at Linz and Donawitz (Austria). This manner of steelmaking became known as Linz-Donawitz or LD process. For many years now, most of the steel has been made by top oxygen blowing for which different names are given. For example, in European steel plants the process is still called LD; in the UK, BOS (basic oxygen steel- making); in the Far East and America, BOF (basic oxygen furnace), with the exception of U.S. Steel where it is called basic oxygen process \citep{Turkdogan1996}.
 %
 %\begin{figure}[!ht]
 %	\label{fig:bof-single}
@@ -2330,7 +2335,7 @@ Also, the augmented reality (AR) apps can be build from single codebase with Uni
 %	\ce{ SiO2 + 2CaO -> 2CaO.SiO2 }
 %\end{equation}
 %
-%and additionally, \ce{P2O5} passes into the slag as \ce{3CaO.P2O5} according to the equation \cite{sprava2017}
+%and additionally, \ce{P2O5} passes into the slag as \ce{3CaO.P2O5} according to the equation \citep{sprava2017}
 %
 %\begin{equation}
 %	\ce{ P2O5 + 3CaO = 3CaO.P2O5 }

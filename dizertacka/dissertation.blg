@@ -14,11 +14,6 @@ A level-1 auxiliary file: appendixb.aux
 Database file #1: refs/control.bib
 Database file #2: refs/mathematics.bib
 Database file #3: refs/modeling.bib
-I was expecting a `,' or a `}'---line 24 of file refs/modeling.bib
- :  
- :  note = {[accessed: 2020-04-20]}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Database file #4: refs/cfd.bib
 Database file #5: refs/lbm.bib
 Database file #6: refs/gpu.bib
@@ -33,63 +28,50 @@ Database file #14: refs/simulation.bib
 Database file #15: refs/ar.bib
 Database file #16: refs/vr.bib
 Database file #17: refs/online.bib
-Warning--entry type for "summitvr" isn't style-file defined
---line 1 of file refs/online.bib
-Repeated entry---line 8 of file refs/online.bib
- : @article{paraview2005
- :                      ,
-I'm skipping whatever remains of this entry
-Warning--entry type for "victorMagicInk2006" isn't style-file defined
---line 16 of file refs/online.bib
 Warning--I didn't find a database entry for "gonda"
-Warning--I didn't find a database entry for "Yalamanchili2015"
-Warning--I didn't find a database entry for "karimiPerformanceComparisonCUDA"
-Warning--I didn't find a database entry for "amalcolmArrayFireGPUAcceleration2012a"
-Warning--I didn't find a database entry for "forge2016"
-Warning--I didn't find a database entry for "TAN2017649"
 Warning--empty booktitle in malcolmArrayFireGPUAcceleration2012a
 Warning--empty booktitle in rapp2017
 Warning--empty publisher in rapp2017
 Warning--empty publisher in succi2018
-You've used 59 entries,
+You've used 62 entries,
             2921 wiz_defined-function locations,
-            1096 strings with 21479 characters,
-and the built_in function-call counts, 273837 in all, are:
-= -- 44523
-> -- 4030
+            1109 strings with 22212 characters,
+and the built_in function-call counts, 292134 in all, are:
+= -- 47552
+> -- 4280
 < -- 1
-+ -- 21424
-- -- 1236
-* -- 23769
-:= -- 54652
-add.period$ -- 128
-call.type$ -- 59
-change.case$ -- 819
-chr.to.int$ -- 59
-cite$ -- 63
-duplicate$ -- 968
-empty$ -- 1950
-format.name$ -- 1408
-if$ -- 49307
++ -- 22908
+- -- 1314
+* -- 25379
+:= -- 58240
+add.period$ -- 136
+call.type$ -- 62
+change.case$ -- 861
+chr.to.int$ -- 62
+cite$ -- 66
+duplicate$ -- 1015
+empty$ -- 2046
+format.name$ -- 1497
+if$ -- 52607
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 61
-newline$ -- 293
-num.names$ -- 632
-pop$ -- 249
+missing$ -- 63
+newline$ -- 310
+num.names$ -- 665
+pop$ -- 262
 preamble$ -- 1
-purify$ -- 885
+purify$ -- 930
 quote$ -- 0
-skip$ -- 864
+skip$ -- 909
 stack$ -- 0
-substring$ -- 62931
-swap$ -- 198
-text.length$ -- 827
+substring$ -- 67260
+swap$ -- 207
+text.length$ -- 869
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 224
+type$ -- 236
 warning$ -- 4
-while$ -- 1335
+while$ -- 1402
 width$ -- 0
-write$ -- 932
-(There were 3 error messages)
+write$ -- 985
+(There was 1 error message)

@@ -63,6 +63,7 @@ Dangeti, S., Chen, Y.~V. \harvardand\ Zheng, C.  \harvardyearleft
 \harvarditem{{Dassault Systems}}{2019}{systemsExperienceYourDesign2019}
 {Dassault Systems}  \harvardyearleft 2019\harvardyearright .
 \newblock Experience your design with {Integrated} {Modeling} and {Simulation}.
+\newblock [accessed: 2020-04-20].
 \newline\harvardurl{https://ifwe.3ds.com/modeling-and-simulation}
 
 \harvarditem{Delbosc}{n.d.}{delboscRealTimeSimulationIndoor}
@@ -171,6 +172,12 @@ Karimi, K.  \harvardyearleft n.d.\harvardyearright .
 \harvarditem{Klabnik \harvardand\ Nichols}{2018}{steveklabnik2018}
 Klabnik, S. \harvardand\ Nichols, C.  \harvardyearleft 2018\harvardyearright .
 \newblock {\em The rust programming language}, No Starch Press, USA.
+
+\harvarditem{Kloppenborg}{2016}{forge2016}
+Kloppenborg, B.  \harvardyearleft 2016\harvardyearright .
+\newblock Forge: A high-performance visualization library, [Accessed
+  2021-06-05].
+\newline\harvardurl{https://on-demand.gputechconf.com/gtc/2016/presentation/s6478-brian-kloppenborg-arrayfire-forge.pdf}
 
 \harvarditem[Koliha et~al.]{Koliha, Janßen \harvardand\
   Rung}{2015}{kolihaOnlineVisualizationInteractive2015}
@@ -326,7 +333,7 @@ Rapp, B.  \harvardyearleft 2017\harvardyearright .
 
 \harvarditem{SciVista}{2021}{summitvr}
 SciVista  \harvardyearleft 2021\harvardyearright .
-\newblock {SummitVR}.
+\newblock {SummitVR}, [Accessed 2021-06-04].
 \newline\harvardurl{https://www.scivista.com/summitvr}
 
 \harvarditem[Shetty et~al.]{Shetty, Chaudhary, Coming, Sherman, O'Leary,
@@ -395,6 +402,14 @@ Szőke, M., Józsa, T.~I., Koleszár, A., Moulitsas, I. \harvardand\ Könözsy,
   44}(1):~1--22.
 \newline\harvardurl{https://dl.acm.org/doi/10.1145/3085590}
 
+\harvarditem{Tan \harvardand\ Fu}{2017}{TAN2017649}
+Tan, J. \harvardand\ Fu, X.  \harvardyearleft 2017\harvardyearright .
+\newblock Chapter 23 - {Addressing} hardware reliability challenges in
+  general-purpose {GPUs}, {\em in} H.~Sarbazi-Azad (ed.), {\em Advances in
+  {GPU} research and practice}, Emerging trends in computer science and applied
+  computing, Morgan Kaufmann, Boston, pp.~649--705.
+\newline\harvardurl{https://www.sciencedirect.com/science/article/pii/B9780128037386000239}
+
 \harvarditem[Thürey et~al.]{Thürey, Rüde \harvardand\
   Körner}{n.d.}{thureyInteractiveFreeSurface}
 Thürey, N., Rüde, U. \harvardand\ Körner, C.  \harvardyearleft
@@ -412,7 +427,8 @@ Tran, N.-P., Lee, M. \harvardand\ Hong, S.  \harvardyearleft
 
 \harvarditem{Victor}{2006}{victorMagicInk2006}
 Victor, B.  \harvardyearleft 2006\harvardyearright .
-\newblock Magic ink: Information software and the graphical interface.
+\newblock Magic ink: Information software and the graphical interface,
+  [Accessed 2021-06-04].
 \newline\harvardurl{http://worrydream.com/MagicInk/}
 
 \harvarditem{Victor}{2018}{victorInventingOnPrinciple2018}
@@ -435,6 +451,17 @@ Wang, M., Ferey, N., Bourdot, P. \harvardand\ Magoules, F.  \harvardyearleft
 Wittmann, M.  \harvardyearleft 2018\harvardyearright .
 \newblock Lattice {Boltzmann} benchmark kernels as a testbed for performance
   analysis,  p.~11.
+
+\harvarditem[Yalamanchili et~al.]{Yalamanchili, Arshad, Mohammed, Garigipati,
+  Entschev, Kloppenborg, Malcolm \harvardand\
+  Melonakos}{2015}{Yalamanchili2015}
+Yalamanchili, P., Arshad, U., Mohammed, Z., Garigipati, P., Entschev, P.,
+  Kloppenborg, B., Malcolm, J. \harvardand\ Melonakos, J.  \harvardyearleft
+  2015\harvardyearright .
+\newblock {ArrayFire} - {A} high performance software library for parallel
+  computing with an easy-to-use {API}.
+\newblock Publisher: AccelerEyes tex.address: Atlanta.
+\newline\harvardurl{https://github.com/arrayfire/arrayfire}
 
 \harvarditem{Yang}{2017}{yangEngineeringMathematicsExamples2017}
 Yang, X.-S.  \harvardyearleft 2017\harvardyearright .

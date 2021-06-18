@@ -1,4 +1,21 @@
 
+@incollection{TAN2017649,
+	address = {Boston},
+	series = {Emerging trends in computer science and applied computing},
+	title = {Chapter 23 - {Addressing} hardware reliability challenges in general-purpose {GPUs}},
+	isbn = {978-0-12-803738-6},
+	url = {https://www.sciencedirect.com/science/article/pii/B9780128037386000239},
+	abstract = {With these increasing computing power and improved programmability, General-Purpose Computing on GPUs (GPGPUs) emerge as a highly attractive platform for a wide range of HPC applications exhibiting strong data-level or thread-level parallelism. The error detection and fault tolerance on GPUs receive little attention since graphic applications effectively mask errors and have relaxed request on computation correctness. However, HPC applications have rigorous requirements on execution correctness, which makes reliability a growing concern in GPGPU architecture design. This urges the need for characterizing and addressing reliability in GPGPU architecture design. There are two paramount hardware reliability challenges in GPGPUs, which are particle strikes induced soft errors, and manufacturing process variations. In this chapter, we mainly target at these two types of reliability issues. We explore a set of mechanisms to leverage the unique GPGPUs architecture features to effectively optimize the GPGPUs reliability.},
+	booktitle = {Advances in {GPU} research and practice},
+	publisher = {Morgan Kaufmann},
+	author = {Tan, J. and Fu, X.},
+	editor = {Sarbazi-Azad, Hamid},
+	year = {2017},
+	doi = {https://doi.org/10.1016/B978-0-12-803738-6.00023-9},
+	keywords = {GPGPUs, hardware reliability, process variations, soft errors},
+	pages = {649--705}
+}
+
 @article{karimiPerformanceComparisonCUDAa,
 	title = {A {Performance} {Comparison} of {CUDA} and {OpenCL}},
 	abstract = {CUDA and OpenCL offer two different interfaces for programming GPUs. OpenCL is an open standard that can be used to program CPUs, GPUs, and other devices from different vendors, while CUDA is specific to NVIDIA GPUs. Although OpenCL promises a portable language for GPU programming, its generality may entail a performance penalty. In this paper, we compare the performance of CUDA and OpenCL using complex, near-identical kernels. We show that when using NVIDIA compiler tools, converting a CUDA kernel to an OpenCL kernel involves minimal modifications. Making such a kernel compile with ATI’s build tools involves more modifications. Our performance tests measure and compare data transfer times to and from the GPU, kernel execution times, and end-to-end application execution times for both CUDA and OpenCL.},
@@ -108,4 +125,14 @@
 	year = {2011},
 	doi = {https://doi.org/10.1016/B978-0-12-374260-5.00001-4},
 	pages = {1--14}
+}
+
+@article{Yalamanchili2015,
+	title = {{ArrayFire} - {A} high performance software library for parallel computing with an easy-to-use {API}},
+	url = {https://github.com/arrayfire/arrayfire},
+	abstract = {ArrayFire is a high performance software library for parallel computing with an easy-to-use API. Its array based function set makes parallel programming simple. ArrayFire's multiple backends (CUDA, OpenCL and native CPU) make it platform independent and highly portable. A few lines of code in ArrayFire can replace dozens of lines of parallel computing code, saving you valuable time and lowering development costs.},
+	author = {Yalamanchili, Pavan and Arshad, Umar and Mohammed, Zakiuddin and Garigipati, Pradeep and Entschev, Peter and Kloppenborg, Brian and Malcolm, James and Melonakos, John},
+	year = {2015},
+	note = {Publisher: AccelerEyes
+tex.address: Atlanta}
 }
