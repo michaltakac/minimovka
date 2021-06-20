@@ -274,12 +274,8 @@ urlcolor=blue           % color of external links
 \author{Michal Takáč}
 \title{Design and Implementation of Modern Methods for Modeling and Control of Technological Objects and Processes}
 \subtitle{}
-\abstrakte{Text abstraktu v~svetovom jazyku je potrebný pre integráciu
-do medzinárodných informačných systémov. Ak nie je možné cudzojazyčnú
-verziu abstraktu umiestniť na jednej strane so slovenským abstraktom,
-je potrebné umiestniť ju na samostatnú stranu (cudzojazyčný abstrakt
-nemožno deliť a~uvádzať na dvoch strabách).}
-\keywords{Mathematical modeling, Simulation, Visualization, Virtual Reality}
+\abstrakte{In this disseration thesis, the design and implementation of integrated modeling, simulation and immersive visualization software application for computational fluid dynamics (CFD) analysis is described. All of the human-computer interaction within the context of described application happens from inside an immersive virtual reality environment. Focus for the usage of this software is mainly on the effective experimentation phase when modeling and simulating fluid flows. Implemented simulation is based on a modern CFD approach, the Lattice Boltzmann Method (LBM). Thanks to the cross-platform, high-performance, parallel implementation of LBM algorithm leveraging ArrayFire library, this software application can be run on computer systems with different hardware accelerators like GPUs, FPGAs, TPUs, etc. In current implementation, simulation speed is fast enough to support interactive simulation and visualization environment, considerably shortening the time needed for refining various models of physical phenomena.}
+\keywords{Mathematical Modeling, Simulation, Visualization, Virtual Reality, Computtional Fluid Dynamics}
 \degree{PhD.}
 \university{Technical University of Košice}
 \faculty{Faculty of Mining, Ecology, Process Control and Geotechnologies}
@@ -293,15 +289,9 @@ nemožno deliť a~uvádzať na dvoch strabách).}
 %\consultantb{}
 \dateofsubmission{April. 1. 2021} 
 \town{Košice}
-\abstrakt{Abstrakt je povinnou súčasťou každej práce. Je výstižnou
-charakteristikou obsahu dokumentu. Nevyjadruje hodnotiace stanovisko
-autora. Má byť\/ taký informatívny, ako to povoľuje podstata práce.
-Text abstraktu sa píše ako jeden odstavec. Abstrakt neobsahuje odkazy
-na samotný text práce. Mal by mať\/ rozsah 250 až 500 slov. Pri
-štylizácii sa používajú celé vety, slovesá v činnom rode a tretej
-osobe. Používa sa odborná terminológia, menej zvyčajné termíny,
-skratky a~symboly sa pri prvom výskyte v texte definujú.}
-\klucoveslova{Matematické modelovanie, Simulácia, Vizualizácia, Virtuálna realita}
+
+\abstrakt{V tejto disertačnej práci je popísaný návrh a implementácia softvérovej aplikácie, ktorá integruje modelovanie, simuláciu a imerzívnu vizualizáciu pre analýzu v rámci výpočtovej dynamiky tekutín (CFD). Celá interakcia človek - počítač v kontexte opísanej aplikácie sa deje zvnútra imerzívneho prostredia virtuálnej reality. Využitie tohto softvéru sa zameriava hlavne na efektívnu experimentálnu fázu pri modelovaní a simulovaní tokov tekutín. Implementovaná simulácia je založená na modernom prístupe k CFD analýze na báze metódy Lattice Boltzmann (LBM). Vďaka viacplatformovej a vysokovýkonnej paralelnej implementácii algoritmu LBM, pri ktorej bola využitá knižnica ArrayFire, je možné túto softvérovú aplikáciu spustiť na počítačových systémoch s rôznymi hardvérovými akcelerátormi, ako sú GPU, FPGA, TPU atď. V súčasnej implementácii je rýchlosť simulácie dostatočná na podporu interaktívneho simulačného a vizualizačného prostredia, čo výrazne skracuje čas potrebný na zdokonalenie rôznych modelov fyzikálnych javov.}
+\klucoveslova{Matematické modelovanie, Simulácia, Vizualizácia, Virtuálna realita, Výpočtová dynamika tekutín}
 
 \begin{document}
 \renewcommand\theHfigure{\theHsection.\arabic{figure}}
@@ -339,13 +329,11 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 %\kerrata
 
 \abstrakte % Abstract in English
-
+\newpage
 \abstrakt % Abstract in Slovak
 
 \endabstract % end of the Abstracts page
 
-%% input the 'Assign of the Thesis'
-\assignthesis
 
 %% input the 'Declaration' of the author
 \declaration
@@ -359,13 +347,22 @@ skratky a~symboly sa pri prvom výskyte v texte definujú.}
 % a na  autora práce sa vzťahuje autorský zákon.
 
 \acknowledgement % begin the 'Acknowledgement'
-I would like to express my sincere thanks to my supervisor Prof.~Ing.~Ivo~Petráš, DrSc., the main Supervisor, for his constant, and constructive guidance
-throughout the study. To all other who gave a hand, I say thank you
+I'm thankful for all of the constant support from my family and my girlfriend, Petra, during all of the phases of writing this dissertation thesis.
+
+I would like to express my sincere thanks to my supervisor Prof.~Ing.~Ivo~Petráš, DrSc., the main Supervisor, for his constructive guidance throughout the study. Also I'm grateful for help from my colleagues at Institute of Control and Informatization of Production Processes at Technical University of Košice.
+
+Additionally, thank you goes to the people from ArrayFire, who answered my technical questions.
+
+To all other who gave a hand, I say thank you
 very much.
 \endacknowledgement
 
 \preface % begin the 'Preface'
-Predhovor...
+Your personal background (in brief)
+
+Your personal experiences or the circumstances that motivated you to write your dissertation (in brief)
+
+The target group for which your dissertation was written
 \endpreface
 
 \thispagestyle{empty}
@@ -394,13 +391,28 @@ Predhovor...
 \begin{description}
 	\item[LBM] - Lattice Boltzmann Method.
 	\item[LBE] - Lattice Boltzmann Equation.
-	\item[DF] - Distribution Function.
+	\item[PDF] - Particle Distribution Function.
+	\item[CPU] - Central Processing Unity.
 	\item[GPU] - Graphics Processing Unit.
+	\item[FPGA] - Field-Programmable Gate Array.
 	\item[GPGPU] - General-Purpose Computing on Graphics Processing Unit.
+	\item[LoC] - Lines of Code.
 	\item[D2Q9] - Two-dimensional lattice stencil with 9 discrete velocity directions in each node.
 	\item[D3Q27] - Three-dimensional lattice stencil with 27 discrete velocity directions in each node.
+	\item[MRT] - Multiple Relaxation Time.
 	\item[JIT] - Just-In-Time compilation.
 	\item[API] - Application Programming Interface.
+	\item[UI] - User Interface.
+	\item[GUI] - Graphical User Interface.
+	\item[PC] - Personal Computer.
+	\item[HMD] - Head-mounted Display.
+	\item[VR] - Virtual Reality.
+	\item[AR] - Augmented Reality.
+	\item[XR] - Extended Reality.
+	\item[CFD] - Computational Fluid Dynamics.
+	\item[MODSIM] - Modeling and Simulation.
+	\item[OpenCL] - Open Computing Language.
+	\item[CUDA] - Compute Unified Device Architecture.
 \end{description}
 
 \endlistofterms
